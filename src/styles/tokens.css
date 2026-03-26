@@ -1,0 +1,39 @@
+/* MonoSchemes Design Tokens — auto-generated, do not edit manually */
+
+:root {
+  /* Colors: Text */
+  --color-text-primary: #2B2F36;
+  --color-text-secondary: #40444A;
+
+  /* Colors: Background */
+  --color-background-page: #FFFFFF;
+  --color-background-surface: #F6F7F9;
+  --color-background-hover: #E2E5E9;
+
+  /* Colors: Border */
+  --color-border-default: #40444A;
+
+  /* Typography */
+  --font-family: 'Inter', sans-serif;
+
+  /* Typography: H1 */
+  --font-size-h1: 56px;
+  --font-weight-h1: 700;
+  --line-height-h1: 1.23;
+
+  /* Typography: Body1 */
+  --font-size-body1: 16px;
+  --font-weight-body1: 400;
+  --line-height-body1: 1.21;
+
+  /* Typography: Subtitle1 */
+  --font-size-subtitle1: 16px;
+  --font-weight-subtitle1: 700;
+  --line-height-subtitle1: 1.21;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 50px;
+}
