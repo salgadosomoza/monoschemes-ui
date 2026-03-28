@@ -1,0 +1,16 @@
+/* Tag — MonoSchemes Design System
+ * Source: monoschemes-kit/src/components/tag.css
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 285:4420
+ */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: var(--spacing-xs);
+  background: var(--color-palette-ash-fade);
+  border: 1px solid var(--color-palette-whiteness);
+  color: var(--color-palette-whiteness);
+  white-space: nowrap;
+  user-select: none;
+}

@@ -12,3 +12,4 @@ export * from './Text';
 export * from './Logo';
 export * from './Image';
 export * from './Link';
+export * from './Tag';
