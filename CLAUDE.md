@@ -71,5 +71,6 @@ When auditing Figma components:
 | ButtonDropdown | ✅ done  | `251:1384` | `variant`, `state`, `disabled`, `label`, `onToggle` |
 | ButtonWithIcon | ✅ done  | `434:2495` | `variant`, `iconPosition`, `disabled`, `label`, `icon`, `onClick` |
 | ButtonGroup | ✅ done     | `37:141`   | `type`, `position`, `variant`, `label`, `icon`, `onClick` |
+| NavItem     | ✅ done     | `673:2102` | `status`, `label`, `onClick`, `href` |
 | Accordion   | 🔄 pending  | —          | —              |
 | (rest)      | 🔄 pending  | —          | —              |
