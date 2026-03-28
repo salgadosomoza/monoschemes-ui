@@ -27,7 +27,7 @@ a.logo {
 .logo-image-placeholder {
   width: var(--spacing-2xl);
   height: var(--spacing-2xl);
-  background: var(--color-palette-frosted-glass);
+  background: var(--color-gray-200);
   border-radius: var(--radius-sm);
   flex-shrink: 0;
 }

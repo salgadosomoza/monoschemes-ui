@@ -21,9 +21,9 @@
 /* ─── State: default ──────────────────────────────── */
 
 .button-text[data-state="default"] {
-  color: var(--color-palette-darkness);
+  color: var(--color-black);
   border-bottom-style: solid;
-  border-bottom-color: var(--color-palette-darkness);
+  border-bottom-color: var(--color-black);
 }
 
 .button-text[data-state="default"]:hover {
@@ -35,8 +35,8 @@
 
 .button-text[data-state="disabled"],
 .button-text:disabled {
-  color: var(--color-palette-graphite);
+  color: var(--color-gray-500);
   border-bottom-style: dashed;
-  border-bottom-color: var(--color-palette-graphite);
+  border-bottom-color: var(--color-gray-500);
   cursor: not-allowed;
 }

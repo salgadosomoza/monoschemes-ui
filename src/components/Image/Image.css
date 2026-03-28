@@ -32,7 +32,7 @@
 /* ─── Placeholder ─────────────────────────────────── */
 
 .image--placeholder {
-  background: var(--color-palette-frosted-glass);
+  background: var(--color-gray-200);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,5 +41,5 @@
 .image-icon {
   width: var(--spacing-2xl);
   height: var(--spacing-2xl);
-  color: var(--color-palette-graphite);
+  color: var(--color-gray-500);
 }

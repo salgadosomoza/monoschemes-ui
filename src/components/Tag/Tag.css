@@ -8,9 +8,9 @@
   align-items: center;
   gap: var(--gap-sm);
   padding: var(--spacing-xs);
-  background: var(--color-palette-ash-fade);
-  border: 1px solid var(--color-palette-whiteness);
-  color: var(--color-palette-whiteness);
+  background: var(--color-gray-400);
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
   white-space: nowrap;
   user-select: none;
 }

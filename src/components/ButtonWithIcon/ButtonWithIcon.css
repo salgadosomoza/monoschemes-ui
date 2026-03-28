@@ -20,8 +20,8 @@
 /* ─── Variant: primary ────────────────────────────── */
 
 .button-with-icon[data-variant="primary"] {
-  background: var(--color-palette-darkness);
-  color: var(--color-palette-whiteness);
+  background: var(--color-black);
+  color: var(--color-white);
 }
 
 .button-with-icon[data-variant="primary"]:hover:not(:disabled) {
@@ -32,8 +32,8 @@
 
 .button-with-icon[data-variant="secondary"] {
   background: var(--color-bg-page);
-  color: var(--color-palette-darkness);
-  border: 1px solid var(--color-palette-darkness);
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
 }
 
 .button-with-icon[data-variant="secondary"]:hover:not(:disabled) {
@@ -43,8 +43,8 @@
 /* ─── Disabled ────────────────────────────────────── */
 
 .button-with-icon:disabled {
-  background: var(--color-palette-frosted-glass);
-  color: var(--color-palette-graphite);
+  background: var(--color-gray-200);
+  color: var(--color-gray-500);
   border: none;
   cursor: not-allowed;
 }
