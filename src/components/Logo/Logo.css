@@ -1,0 +1,33 @@
+/* Logo — MonoSchemes Design System
+ * Source: monoschemes-kit/src/components/logo.css
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 727:2495
+ */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: default;
+}
+
+.logo[role="button"],
+a.logo {
+  cursor: pointer;
+}
+
+/* ─── Image variant ───────────────────────────────── */
+
+.logo-image {
+  width: var(--spacing-2xl);
+  height: var(--spacing-2xl);
+  object-fit: contain;
+  display: block;
+}
+
+.logo-image-placeholder {
+  width: var(--spacing-2xl);
+  height: var(--spacing-2xl);
+  background: var(--color-palette-frosted-glass);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
