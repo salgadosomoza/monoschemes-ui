@@ -13,12 +13,16 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "vite build",
     "build:storybook": "build-storybook",
-    "lint": "eslint src --ext .ts,.tsx"
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -26,6 +30,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3",
+    "@storybook/addon-designs": "^8.2.1",
     "@storybook/addon-essentials": "^8",
     "@storybook/addon-interactions": "^8",
     "@storybook/addon-links": "^8",
@@ -46,6 +51,7 @@
     "storybook": "^8",
     "typescript": "^5",
     "vite": "^5",
-    "vite-plugin-dts": "^3"
+    "vite-plugin-dts": "^3",
+    "vitest": "^2.1.9"
   }
 }
