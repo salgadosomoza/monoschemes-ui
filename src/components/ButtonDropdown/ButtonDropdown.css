@@ -21,8 +21,8 @@
 /* ─── Variant: primary ────────────────────────────── */
 
 .button-dropdown[data-variant="primary"] {
-  background: var(--color-palette-darkness);
-  color: var(--color-palette-whiteness);
+  background: var(--color-black);
+  color: var(--color-white);
 }
 
 .button-dropdown[data-variant="primary"]:hover:not(:disabled) {
@@ -30,15 +30,15 @@
 }
 
 .button-dropdown[data-variant="primary"][data-state="active"] {
-  background: var(--color-palette-storm-slate);
+  background: var(--color-gray-800);
 }
 
 /* ─── Variant: secondary ──────────────────────────── */
 
 .button-dropdown[data-variant="secondary"] {
   background: var(--color-bg-page);
-  color: var(--color-palette-darkness);
-  border: 1px solid var(--color-palette-darkness);
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
 }
 
 .button-dropdown[data-variant="secondary"]:hover:not(:disabled) {
@@ -52,8 +52,8 @@
 /* ─── Disabled ────────────────────────────────────── */
 
 .button-dropdown:disabled {
-  background: var(--color-palette-frosted-glass);
-  color: var(--color-palette-graphite);
+  background: var(--color-gray-200);
+  color: var(--color-gray-500);
   border: none;
   cursor: not-allowed;
 }

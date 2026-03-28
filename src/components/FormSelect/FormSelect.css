@@ -49,7 +49,7 @@
 }
 
 .form-select[data-error] .form-select-trigger {
-  border-color: var(--color-palette-rust-highlight);
+  border-color: var(--color-rust-500);
 }
 
 /* ─── Displayed value / placeholder ───────────────── */
@@ -68,7 +68,7 @@
 }
 
 .form-select-value--placeholder {
-  color: var(--color-palette-graphite);
+  color: var(--color-gray-500);
 }
 
 /* ─── Chevron ──────────────────────────────────────── */
@@ -145,5 +145,5 @@
 }
 
 .form-select-helper--error {
-  color: var(--color-palette-rust-highlight);
+  color: var(--color-rust-500);
 }

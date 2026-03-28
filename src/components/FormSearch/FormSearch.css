@@ -50,7 +50,7 @@
 }
 
 .form-search-input::placeholder {
-  color: var(--color-palette-graphite);
+  color: var(--color-gray-500);
 }
 
 .form-search-input::-webkit-search-decoration,

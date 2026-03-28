@@ -39,7 +39,7 @@
 }
 
 .form-textarea-field::placeholder {
-  color: var(--color-palette-graphite);
+  color: var(--color-gray-500);
 }
 
 .form-textarea-field:focus {
@@ -55,7 +55,7 @@
 }
 
 .form-textarea-field--error {
-  border-color: var(--color-palette-rust-highlight);
+  border-color: var(--color-rust-500);
 }
 
 .form-textarea-field--error:focus {
@@ -73,5 +73,5 @@
 }
 
 .form-textarea-helper--error {
-  color: var(--color-palette-rust-highlight);
+  color: var(--color-rust-500);
 }

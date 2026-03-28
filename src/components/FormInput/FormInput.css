@@ -54,7 +54,7 @@
 }
 
 .form-input-field--error {
-  border-color: var(--color-palette-rust-highlight);
+  border-color: var(--color-rust-500);
 }
 
 .form-input-field--error:focus {
@@ -78,7 +78,7 @@
 }
 
 .form-input[data-error] .form-input-adornment {
-  border-color: var(--color-palette-rust-highlight);
+  border-color: var(--color-rust-500);
 }
 
 .form-input[data-error] .form-input-adornment:focus-within {
@@ -169,5 +169,5 @@
 }
 
 .form-input-helper--error {
-  color: var(--color-palette-rust-highlight);
+  color: var(--color-rust-500);
 }
