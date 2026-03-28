@@ -21,3 +21,6 @@ export * from './FormToggle';
 export * from './FormInput';
 export * from './FormFileUpload';
 export * from './FormSelect';
+export * from './FormSearch';
+export * from './FormTextarea';
+export * from './FormDate';

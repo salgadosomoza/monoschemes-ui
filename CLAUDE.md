@@ -85,4 +85,7 @@ When auditing Figma components:
 | FormInput   | ✅ done     | `444:3191` | `type`, `placeholder`, `value`, `onChange`, `disabled`, `error`, `label`, `helperText` |
 | FormFileUpload | ✅ done  | `100:493`  | `type`, `accept`, `multiple`, `onChange`, `label` |
 | FormSelect  | ✅ done     | `2:15`     | `options`, `value`, `placeholder`, `onChange`, `disabled`, `label`, `error`, `helperText` |
+| FormSearch  | ✅ done     | `20:518`   | `value`, `placeholder`, `onChange`, `onSearch`, `disabled` |
+| FormTextarea | ✅ done    | `76:801`   | `value`, `placeholder`, `onChange`, `rows`, `disabled`, `error`, `label`, `helperText` |
+| FormDate    | ✅ done     | `22:560`   | `value`, `onChange`, `min`, `max`, `disabled`, `label` |
 | (rest)      | 🔄 pending  | —          | —              |

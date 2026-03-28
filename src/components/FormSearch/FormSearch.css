@@ -1,0 +1,69 @@
+/* FormSearch — MonoSchemes Design System
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 20:518
+ */
+
+.form-search {
+  width: 232px;
+}
+
+.form-search-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  height: 40px;
+  padding: var(--spacing-xs);
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-page);
+  box-sizing: border-box;
+  cursor: text;
+  transition: box-shadow 0.15s;
+}
+
+.form-search-inner:focus-within {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Icon ─────────────────────────────────────────── */
+
+.form-search-icon {
+  font-size: 24px;
+  line-height: 1;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+/* ─── Input ────────────────────────────────────────── */
+
+.form-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  color: var(--color-text-primary);
+  /* Remove browser default search field decorations */
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-search-input::placeholder {
+  color: var(--color-palette-graphite);
+}
+
+.form-search-input::-webkit-search-decoration,
+.form-search-input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.form-search-input:disabled {
+  cursor: not-allowed;
+}
+
+.form-search-inner:has(.form-search-input:disabled) {
+  background: var(--color-bg-surface);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
