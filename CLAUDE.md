@@ -74,5 +74,6 @@ When auditing Figma components:
 | NavItem     | ✅ done     | `673:2102` | `status`, `label`, `onClick`, `href` |
 | Text        | ✅ done     | `130:1708` | `style`, `children`, `color`, `as` |
 | Logo        | ✅ done     | `727:2495` | `type`, `label`, `src`, `alt`, `onClick`, `href` |
+| Image       | ✅ done     | `86:217`   | `type`, `src`, `alt`, `showIcon`, `width` |
 | Accordion   | 🔄 pending  | —          | —              |
 | (rest)      | 🔄 pending  | —          | —              |

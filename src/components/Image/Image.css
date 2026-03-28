@@ -1,0 +1,45 @@
+/* Image — MonoSchemes Design System
+ * Source: monoschemes-kit/src/components/image.css
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 86:217
+ */
+
+.image {
+  display: block;
+  overflow: hidden;
+}
+
+/* ─── Aspect ratios ───────────────────────────────── */
+
+.image[data-type="1:1"]  { aspect-ratio: 1 / 1; }
+.image[data-type="16:9"] { aspect-ratio: 16 / 9; }
+.image[data-type="9:16"] { aspect-ratio: 9 / 16; }
+.image[data-type="5:4"]  { aspect-ratio: 5 / 4; }
+.image[data-type="4:5"]  { aspect-ratio: 4 / 5; }
+.image[data-type="4:3"]  { aspect-ratio: 4 / 3; }
+.image[data-type="3:4"]  { aspect-ratio: 3 / 4; }
+.image[data-type="3:2"]  { aspect-ratio: 3 / 2; }
+.image[data-type="2:3"]  { aspect-ratio: 2 / 3; }
+
+/* ─── Actual image ────────────────────────────────── */
+
+.image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Placeholder ─────────────────────────────────── */
+
+.image--placeholder {
+  background: var(--color-palette-frosted-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-icon {
+  width: var(--spacing-2xl);
+  height: var(--spacing-2xl);
+  color: var(--color-palette-graphite);
+}
