@@ -78,4 +78,11 @@ When auditing Figma components:
 | Link        | ✅ done     | `86:502`   | `type`, `size`, `label`, `href`, `icon`, `onClick`, `target` |
 | Tag         | ✅ done     | `285:4420` | `type`, `label`, `color` |
 | Accordion   | ✅ done     | `86:368`   | `title`, `children`, `defaultOpen`, `open`, `onToggle` |
+| Grid        | ✅ done     | `106:1130` | `type`, `columns`, `gap`, `children` |
+| FormCheckbox | ✅ done    | `24:126`   | `type`, `status`, `label`, `onChange`, `disabled` |
+| FormRadio   | ✅ done     | `75:119`   | `type`, `status`, `label`, `value`, `onChange`, `disabled` |
+| FormToggle  | ✅ done     | `444:3173` | `type`, `status`, `label`, `onChange`, `disabled` |
+| FormInput   | ✅ done     | `444:3191` | `type`, `placeholder`, `value`, `onChange`, `disabled`, `error`, `label`, `helperText` |
+| FormFileUpload | ✅ done  | `100:493`  | `type`, `accept`, `multiple`, `onChange`, `label` |
+| FormSelect  | ✅ done     | `2:15`     | `options`, `value`, `placeholder`, `onChange`, `disabled`, `label`, `error`, `helperText` |
 | (rest)      | 🔄 pending  | —          | —              |

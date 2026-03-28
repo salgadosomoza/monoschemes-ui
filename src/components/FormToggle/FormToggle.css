@@ -1,0 +1,80 @@
+/* FormToggle — MonoSchemes Design System
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 444:3173
+ */
+
+.form-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+}
+
+.form-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* ─── Track (pill) ─────────────────────────────────── */
+
+.form-toggle-track {
+  display: flex;
+  align-items: center;
+  width: 44px;
+  padding: 4px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--color-palette-frosted-glass);
+  transition: background 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* ─── Thumb (circle) ───────────────────────────────── */
+
+.form-toggle-thumb {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-palette-whiteness);
+  transform: translateX(0);
+  transition: transform 0.2s ease;
+}
+
+/* ─── Active state ─────────────────────────────────── */
+
+.form-toggle[data-status="active"] .form-toggle-track {
+  background: var(--color-text-primary);
+}
+
+/* Track is 44px wide, padding 4px each side, thumb 16px → slide = 44 - 16 - 4 - 4 = 20px */
+.form-toggle[data-status="active"] .form-toggle-thumb {
+  transform: translateX(20px);
+}
+
+/* ─── Focus ────────────────────────────────────────── */
+
+.form-toggle-input:focus-visible ~ .form-toggle-track {
+  outline: 2px solid var(--color-border-default);
+  outline-offset: 2px;
+}
+
+/* ─── Disabled ─────────────────────────────────────── */
+
+.form-toggle:has(.form-toggle-input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* ─── Label ────────────────────────────────────────── */
+
+.form-toggle-label {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+}

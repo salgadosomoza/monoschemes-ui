@@ -1,0 +1,173 @@
+/* FormInput — MonoSchemes Design System
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 444:3191
+ */
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+  width: 232px;
+}
+
+/* ─── Label ────────────────────────────────────────── */
+
+.form-input-label {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+}
+
+/* ─── Base input field ─────────────────────────────── */
+
+.form-input-field {
+  width: 100%;
+  height: 40px;
+  padding: 0 var(--spacing-xs);
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-page);
+  font-family: var(--font-family);
+  font-size: var(--font-body2-size);
+  font-weight: var(--font-body2-weight);
+  color: var(--color-text-primary);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  min-width: 0;
+}
+
+.form-input-field::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+}
+
+.form-input-field:focus {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.form-input-field:disabled {
+  background: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-input-field--error {
+  border-color: var(--color-palette-rust-highlight);
+}
+
+.form-input-field--error:focus {
+  box-shadow: 0 0 0 3px rgba(177, 92, 74, 0.2);
+}
+
+/* ─── Adornment wrapper ────────────────────────────── */
+
+.form-input-adornment {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-page);
+  box-sizing: border-box;
+  transition: box-shadow 0.15s;
+}
+
+.form-input-adornment:focus-within {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.form-input[data-error] .form-input-adornment {
+  border-color: var(--color-palette-rust-highlight);
+}
+
+.form-input[data-error] .form-input-adornment:focus-within {
+  box-shadow: 0 0 0 3px rgba(177, 92, 74, 0.2);
+}
+
+/* Remove individual border when inside adornment wrapper */
+.form-input-adornment .form-input-field {
+  border: none;
+  flex: 1;
+  box-shadow: none;
+}
+
+.form-input-adornment .form-input-field:focus {
+  box-shadow: none;
+}
+
+/* ─── Leading select ───────────────────────────────── */
+
+.form-input-select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-right: 1px solid var(--color-border-default);
+}
+
+.form-input-select {
+  height: 40px;
+  padding: 0 calc(var(--spacing-xs) + 24px) 0 var(--spacing-xs);
+  border: none;
+  background: var(--color-bg-surface);
+  font-family: var(--font-family);
+  font-size: var(--font-body2-size);
+  color: var(--color-text-primary);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-input-select-chevron {
+  position: absolute;
+  right: var(--gap-xs);
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+/* ─── Prefix text ──────────────────────────────────── */
+
+.form-input-prefix {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-xs);
+  border-right: 1px solid var(--color-border-default);
+  background: var(--color-bg-surface);
+  font-family: var(--font-family);
+  font-size: var(--font-body2-size);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+/* ─── Icons ────────────────────────────────────────── */
+
+.form-input-icon-start,
+.form-input-icon-end {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--gap-sm);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.form-input-icon {
+  display: block;
+}
+
+/* ─── Helper text ──────────────────────────────────── */
+
+.form-input-helper {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-secondary);
+}
+
+.form-input-helper--error {
+  color: var(--color-palette-rust-highlight);
+}
