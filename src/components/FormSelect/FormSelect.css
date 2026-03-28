@@ -1,0 +1,149 @@
+/* FormSelect — MonoSchemes Design System
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 2:15
+ */
+
+.form-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+  width: 232px;
+}
+
+/* ─── Label ────────────────────────────────────────── */
+
+.form-select-label {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+}
+
+/* ─── Trigger button ───────────────────────────────── */
+
+.form-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  padding: var(--spacing-xs);
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-page);
+  cursor: pointer;
+  box-sizing: border-box;
+  gap: var(--gap-sm);
+  transition: box-shadow 0.15s;
+}
+
+.form-select-trigger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.form-select-trigger:disabled {
+  background: var(--color-bg-surface);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-select[data-error] .form-select-trigger {
+  border-color: var(--color-palette-rust-highlight);
+}
+
+/* ─── Displayed value / placeholder ───────────────── */
+
+.form-select-value {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  flex: 1;
+}
+
+.form-select-value--placeholder {
+  color: var(--color-palette-graphite);
+}
+
+/* ─── Chevron ──────────────────────────────────────── */
+
+.form-select-chevron {
+  font-size: 24px;
+  line-height: 1;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.form-select-trigger[data-open] .form-select-chevron {
+  transform: rotate(180deg);
+}
+
+/* ─── Dropdown list ────────────────────────────────── */
+
+.form-select-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  list-style: none;
+  margin: 0;
+  padding: var(--gap-xs) 0;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-page);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+/* ─── Option ───────────────────────────────────────── */
+
+.form-select-option {
+  padding: var(--gap-sm) var(--spacing-xs);
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.form-select-option:hover {
+  background: var(--color-bg-hover);
+}
+
+.form-select-option[data-selected] {
+  background: var(--color-bg-surface);
+  font-weight: var(--font-subtitle2-weight);
+}
+
+.form-select-option--empty {
+  color: var(--color-text-secondary);
+  cursor: default;
+}
+
+.form-select-option--empty:hover {
+  background: none;
+}
+
+/* ─── Helper text ──────────────────────────────────── */
+
+.form-select-helper {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-secondary);
+}
+
+.form-select-helper--error {
+  color: var(--color-palette-rust-highlight);
+}

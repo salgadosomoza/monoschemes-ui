@@ -1,0 +1,53 @@
+/* FormCheckbox — MonoSchemes Design System
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 24:126
+ */
+
+.form-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+}
+
+.form-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* ─── Icon ─────────────────────────────────────────── */
+
+.form-checkbox-icon {
+  font-size: 24px;
+  line-height: 1;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+}
+
+/* ─── Focus ────────────────────────────────────────── */
+
+.form-checkbox-input:focus-visible ~ .form-checkbox-icon {
+  outline: 2px solid var(--color-border-default);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ─── Disabled ─────────────────────────────────────── */
+
+.form-checkbox:has(.form-checkbox-input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* ─── Label ────────────────────────────────────────── */
+
+.form-checkbox-label {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+}

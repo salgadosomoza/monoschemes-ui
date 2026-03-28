@@ -1,0 +1,59 @@
+/* FormRadio — MonoSchemes Design System
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 75:119
+ */
+
+.form-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+.form-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+}
+
+.form-radio-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* ─── Icon ─────────────────────────────────────────── */
+
+.form-radio-icon {
+  font-size: 24px;
+  line-height: 1;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+}
+
+/* ─── Focus ────────────────────────────────────────── */
+
+.form-radio-input:focus-visible ~ .form-radio-icon {
+  outline: 2px solid var(--color-border-default);
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+/* ─── Disabled ─────────────────────────────────────── */
+
+.form-radio:has(.form-radio-input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* ─── Label ────────────────────────────────────────── */
+
+.form-radio-label {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+}
