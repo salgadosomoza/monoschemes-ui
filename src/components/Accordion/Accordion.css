@@ -1,0 +1,52 @@
+/* Accordion — MonoSchemes Design System
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 86:368
+ */
+
+.accordion {
+  background: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border-default);
+}
+
+/* ─── Header ───────────────────────────────────────── */
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--spacing-md);
+  gap: var(--gap-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  text-align: left;
+}
+
+.accordion-header:hover {
+  background: var(--color-bg-hover, rgba(0, 0, 0, 0.04));
+}
+
+.accordion-icon {
+  flex-shrink: 0;
+  color: var(--color-text-primary);
+}
+
+/* ─── Panel ────────────────────────────────────────── */
+
+.accordion-panel {
+  overflow: hidden;
+  transition: height 200ms ease;
+}
+
+/* ─── Content ──────────────────────────────────────── */
+
+.accordion-content {
+  padding: 0 var(--spacing-lg) var(--spacing-lg) 0;
+}
+
+/* ─── Expanded state: extra bottom padding on header ─ */
+
+.accordion[data-state="expanded"] .accordion-header {
+  padding-bottom: var(--spacing-md);
+}

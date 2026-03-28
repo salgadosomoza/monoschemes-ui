@@ -77,5 +77,5 @@ When auditing Figma components:
 | Image       | ✅ done     | `86:217`   | `type`, `src`, `alt`, `showIcon`, `width` |
 | Link        | ✅ done     | `86:502`   | `type`, `size`, `label`, `href`, `icon`, `onClick`, `target` |
 | Tag         | ✅ done     | `285:4420` | `type`, `label`, `color` |
-| Accordion   | 🔄 pending  | —          | —              |
+| Accordion   | ✅ done     | `86:368`   | `title`, `children`, `defaultOpen`, `open`, `onToggle` |
 | (rest)      | 🔄 pending  | —          | —              |
