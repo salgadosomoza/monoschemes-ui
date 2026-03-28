@@ -1,0 +1,77 @@
+/* FormTextarea — MonoSchemes Design System
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 76:801
+ */
+
+.form-textarea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+  width: 232px;
+}
+
+/* ─── Label ────────────────────────────────────────── */
+
+.form-textarea-label {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+}
+
+/* ─── Textarea field ───────────────────────────────── */
+
+.form-textarea-field {
+  width: 100%;
+  min-height: 117px;
+  padding: var(--spacing-xs);
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-page);
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+  outline: none;
+  resize: both;
+  box-sizing: border-box;
+  transition: box-shadow 0.15s;
+}
+
+.form-textarea-field::placeholder {
+  color: var(--color-palette-graphite);
+}
+
+.form-textarea-field:focus {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.form-textarea-field:disabled {
+  background: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+  resize: none;
+}
+
+.form-textarea-field--error {
+  border-color: var(--color-palette-rust-highlight);
+}
+
+.form-textarea-field--error:focus {
+  box-shadow: 0 0 0 3px rgba(177, 92, 74, 0.2);
+}
+
+/* ─── Helper text ──────────────────────────────────── */
+
+.form-textarea-helper {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-secondary);
+}
+
+.form-textarea-helper--error {
+  color: var(--color-palette-rust-highlight);
+}
