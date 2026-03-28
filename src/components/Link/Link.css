@@ -1,0 +1,33 @@
+/* Link — MonoSchemes Design System
+ * Source: monoschemes-kit/src/components/link.css
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 86:502
+ */
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* ─── Icon variant: tighter gap ───────────────────── */
+
+.link[data-type="icon"] {
+  gap: var(--gap-xs);
+}
+
+/* ─── Icon size matches text size ─────────────────── */
+
+.link-icon {
+  flex-shrink: 0;
+}
+
+.link[data-size="small"] .link-icon  { width: var(--spacing-md); height: var(--spacing-md); }
+.link[data-size="medium"] .link-icon { width: var(--spacing-md); height: var(--spacing-md); }
+.link[data-size="large"] .link-icon  { width: var(--spacing-md); height: var(--spacing-md); }
