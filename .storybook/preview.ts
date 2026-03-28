@@ -10,6 +10,11 @@ const preview: Preview = {
       },
     },
   },
+  options: {
+    storySort: {
+      method: 'alphabetical',
+    },
+  },
 };
 
 export default preview;
