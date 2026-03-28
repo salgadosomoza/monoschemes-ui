@@ -8,3 +8,4 @@ export * from './ButtonDropdown';
 export * from './ButtonWithIcon';
 export * from './ButtonGroup';
 export * from './NavItem';
+export * from './Text';

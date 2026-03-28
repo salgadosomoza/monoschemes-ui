@@ -72,5 +72,6 @@ When auditing Figma components:
 | ButtonWithIcon | ✅ done  | `434:2495` | `variant`, `iconPosition`, `disabled`, `label`, `icon`, `onClick` |
 | ButtonGroup | ✅ done     | `37:141`   | `type`, `position`, `variant`, `label`, `icon`, `onClick` |
 | NavItem     | ✅ done     | `673:2102` | `status`, `label`, `onClick`, `href` |
+| Text        | ✅ done     | `130:1708` | `style`, `children`, `color`, `as` |
 | Accordion   | 🔄 pending  | —          | —              |
 | (rest)      | 🔄 pending  | —          | —              |
