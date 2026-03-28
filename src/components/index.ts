@@ -7,3 +7,4 @@ export * from './ButtonIcon';
 export * from './ButtonDropdown';
 export * from './ButtonWithIcon';
 export * from './ButtonGroup';
+export * from './NavItem';
