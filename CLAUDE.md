@@ -64,6 +64,6 @@ When auditing Figma components:
 | Component   | Status      | Figma node | Props          |
 |-------------|-------------|------------|----------------|
 | Avatar      | ✅ done     | `2:35`     | `type`, `variant` |
-| Chip        | 🔄 pending  | —          | —              |
+| Chip        | ✅ done     | `10:468`   | `type`, `label`, `onClose`, `draggable` |
 | Accordion   | 🔄 pending  | —          | —              |
 | (rest)      | 🔄 pending  | —          | —              |
