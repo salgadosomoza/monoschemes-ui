@@ -4,9 +4,11 @@ const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.@(ts|tsx)', '../src/**/*.stories.@(ts|tsx)'],
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
     '@storybook/addon-designs',
+    '@storybook/addon-a11y',
+    '@chromatic-com/storybook',
+    'storybook-addon-pseudo-states',
+    '@storybook/addon-docs'
   ],
   framework: {
     name: '@storybook/react-vite',

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FormInput } from './FormInput';
 import type { FormInputType } from './FormInput';
 

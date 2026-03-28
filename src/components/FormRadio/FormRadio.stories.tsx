@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FormRadio, RadioGroup } from './FormRadio';
 import type { FormRadioType, FormRadioStatus } from './FormRadio';
 
