@@ -65,5 +65,11 @@ When auditing Figma components:
 |-------------|-------------|------------|----------------|
 | Avatar      | ✅ done     | `2:35`     | `type`, `variant` |
 | Chip        | ✅ done     | `10:468`   | `type`, `label`, `onClose`, `draggable` |
+| Button      | ✅ done     | `3:76`     | `variant`, `disabled`, `label`, `onClick` |
+| ButtonText  | ✅ done     | `76:808`   | `state`, `label`, `onClick` |
+| ButtonIcon  | ✅ done     | `22:519`   | `variant`, `state`, `icon`, `onClick` |
+| ButtonDropdown | ✅ done  | `251:1384` | `variant`, `state`, `disabled`, `label`, `onToggle` |
+| ButtonWithIcon | ✅ done  | `434:2495` | `variant`, `iconPosition`, `disabled`, `label`, `icon`, `onClick` |
+| ButtonGroup | ✅ done     | `37:141`   | `type`, `position`, `variant`, `label`, `icon`, `onClick` |
 | Accordion   | 🔄 pending  | —          | —              |
 | (rest)      | 🔄 pending  | —          | —              |

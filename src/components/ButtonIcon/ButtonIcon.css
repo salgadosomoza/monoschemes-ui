@@ -1,0 +1,55 @@
+/* ButtonIcon — MonoSchemes Design System
+ * Source: monoschemes-kit/src/components/button-icon.css
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 22:519
+ */
+
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--spacing-xs) * 2 + var(--spacing-lg));
+  height: calc(var(--spacing-xs) * 2 + var(--spacing-lg));
+  padding: var(--spacing-xs);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ─── Variant: primary ────────────────────────────── */
+
+.button-icon[data-variant="primary"][data-state="enabled"] {
+  background: var(--color-palette-darkness);
+  color: var(--color-palette-whiteness);
+}
+
+.button-icon[data-variant="primary"][data-state="hover"],
+.button-icon[data-variant="primary"]:hover:not(:disabled) {
+  background: var(--color-palette-rain-blue);
+  color: var(--color-palette-whiteness);
+}
+
+/* ─── Variant: secondary ──────────────────────────── */
+
+.button-icon[data-variant="secondary"][data-state="enabled"] {
+  background: var(--color-bg-page);
+  color: var(--color-palette-darkness);
+  border: 1px solid var(--color-palette-darkness);
+}
+
+.button-icon[data-variant="secondary"][data-state="hover"],
+.button-icon[data-variant="secondary"]:hover:not(:disabled) {
+  background: var(--color-palette-dusty-lake);
+  color: var(--color-palette-whiteness);
+  border: 1px solid var(--color-palette-darkness);
+}
+
+/* ─── State: disabled ─────────────────────────────── */
+
+.button-icon[data-state="disabled"],
+.button-icon:disabled {
+  background: var(--color-palette-frosted-glass);
+  color: var(--color-palette-graphite);
+  border: none;
+  cursor: not-allowed;
+}

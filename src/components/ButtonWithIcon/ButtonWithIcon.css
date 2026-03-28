@@ -1,0 +1,58 @@
+/* ButtonWithIcon — MonoSchemes Design System
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 434:2495
+ */
+
+.button-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family);
+  font-size: var(--font-subtitle1-size);
+  font-weight: var(--font-subtitle1-weight);
+  line-height: var(--font-subtitle1-line-height);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ─── Variant: primary ────────────────────────────── */
+
+.button-with-icon[data-variant="primary"] {
+  background: var(--color-palette-darkness);
+  color: var(--color-palette-whiteness);
+}
+
+.button-with-icon[data-variant="primary"]:hover:not(:disabled) {
+  background: var(--color-bg-dark);
+}
+
+/* ─── Variant: secondary ──────────────────────────── */
+
+.button-with-icon[data-variant="secondary"] {
+  background: var(--color-bg-page);
+  color: var(--color-palette-darkness);
+  border: 1px solid var(--color-palette-darkness);
+}
+
+.button-with-icon[data-variant="secondary"]:hover:not(:disabled) {
+  background: var(--color-bg-hover);
+}
+
+/* ─── Disabled ────────────────────────────────────── */
+
+.button-with-icon:disabled {
+  background: var(--color-palette-frosted-glass);
+  color: var(--color-palette-graphite);
+  border: none;
+  cursor: not-allowed;
+}
+
+/* ─── Icon ────────────────────────────────────────── */
+
+.button-with-icon-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}

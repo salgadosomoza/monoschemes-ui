@@ -1,0 +1,60 @@
+/* ButtonGroup — MonoSchemes Design System
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 37:141
+ */
+
+.button-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--color-bg-page);
+  color: var(--color-palette-darkness);
+  border: 1px solid var(--color-palette-darkness);
+  font-family: var(--font-family);
+  font-size: var(--font-subtitle1-size);
+  font-weight: var(--font-subtitle1-weight);
+  line-height: var(--font-subtitle1-line-height);
+  cursor: pointer;
+  white-space: nowrap;
+  /* Collapse adjacent borders */
+  margin-left: -1px;
+}
+
+/* ─── Position (border-radius) ────────────────────── */
+
+.button-group[data-position="first"] {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  margin-left: 0;
+}
+
+.button-group[data-position="middle"] {
+  border-radius: 0;
+}
+
+.button-group[data-position="last"] {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* ─── Variant: active ─────────────────────────────── */
+
+.button-group[data-variant="active"] {
+  background: var(--color-palette-darkness);
+  color: var(--color-palette-whiteness);
+}
+
+/* ─── Hover ───────────────────────────────────────── */
+
+.button-group[data-variant="default"]:hover {
+  background: var(--color-bg-hover);
+}
+
+.button-group[data-variant="active"]:hover {
+  background: var(--color-bg-dark);
+}
+
+/* ─── Icon type padding ───────────────────────────── */
+
+.button-group[data-type="icon"] {
+  padding: var(--spacing-xs);
+}
