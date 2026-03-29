@@ -88,4 +88,10 @@ When auditing Figma components:
 | FormSearch  | ✅ done     | `20:518`   | `value`, `placeholder`, `onChange`, `onSearch`, `disabled` |
 | FormTextarea | ✅ done    | `76:801`   | `value`, `placeholder`, `onChange`, `rows`, `disabled`, `error`, `label`, `helperText` |
 | FormDate    | ✅ done     | `22:560`   | `value`, `onChange`, `min`, `max`, `disabled`, `label` |
+| Pagination  | ✅ done     | `8:335`    | `currentPage`, `totalPages`, `onPageChange`, `showPrevNext` |
+| Table       | ✅ done     | `8:401`    | `columns`, `data`, `striped`, `bordered`, `onRowClick` |
+| Toast       | ✅ done     | `10:479`   | `message`, `type`, `duration`, `isVisible`, `onClose` |
+| Banner      | ✅ done     | `475:79`   | `message`, `position`, `isVisible`, `onClose`, `action` |
+| Modal       | ✅ done     | `475:1894` | `isOpen`, `onClose`, `title`, `children`, `footer`, `closeOnOverlayClick` |
+| AppHeader   | ✅ done     | `2:45`     | `logo`, `siteTitle`, `tagline`, `navItems`, `showAvatar`, `avatarProps` |
 | (rest)      | 🔄 pending  | —          | —              |
