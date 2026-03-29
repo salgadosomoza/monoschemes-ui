@@ -7,13 +7,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: calc(var(--spacing-xs) * 2 + var(--spacing-lg));
-  height: calc(var(--spacing-xs) * 2 + var(--spacing-lg));
+  width: 40px;
+  height: 40px;
   padding: var(--spacing-xs);
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   cursor: pointer;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 /* ─── Variant: primary ────────────────────────────── */
@@ -32,7 +33,7 @@
 /* ─── Variant: secondary ──────────────────────────── */
 
 .button-icon[data-variant="secondary"][data-state="enabled"] {
-  background: var(--color-bg-page);
+  background: var(--color-white);
   color: var(--color-black);
   border: 1px solid var(--color-black);
 }
@@ -40,7 +41,7 @@
 .button-icon[data-variant="secondary"][data-state="hover"],
 .button-icon[data-variant="secondary"]:hover:not(:disabled) {
   background: var(--color-blue-400);
-  color: var(--color-white);
+  color: var(--color-black);
   border: 1px solid var(--color-black);
 }
 
