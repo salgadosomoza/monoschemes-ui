@@ -19,8 +19,12 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: inherit;
+  color: var(--color-text-primary);
   text-align: left;
+  font-family: var(--font-family);
+  font-size: var(--font-subtitle1-size);
+  font-weight: var(--font-subtitle1-weight);
+  line-height: var(--font-subtitle1-line-height);
 }
 
 .accordion-header:hover {
