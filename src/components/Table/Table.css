@@ -1,0 +1,52 @@
+.table-wrapper {
+  width: 1080px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family);
+}
+
+.table-th {
+  padding: var(--spacing-md);
+  font-size: var(--font-caption-size);
+  font-weight: 700;
+  line-height: var(--font-caption-line-height);
+  text-align: left;
+  color: var(--color-text-primary);
+  border-bottom: 2px solid var(--color-border-default);
+  white-space: nowrap;
+}
+
+.table-td {
+  padding: var(--spacing-md);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.table[data-striped="true"] .table-row:nth-child(even) .table-td {
+  background: var(--color-bg-surface);
+}
+
+.table[data-bordered="true"] .table-th,
+.table[data-bordered="true"] .table-td {
+  border: 1px solid var(--color-border-default);
+}
+
+.table[data-bordered="true"] .table-th {
+  border-bottom-width: 2px;
+}
+
+.table-row[data-clickable="true"] {
+  cursor: pointer;
+}
+
+.table-row[data-clickable="true"]:hover .table-td {
+  background: var(--color-bg-hover);
+}

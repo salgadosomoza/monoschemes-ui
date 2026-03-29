@@ -1,0 +1,63 @@
+.banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px 16px 48px;
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  z-index: 9990;
+  box-sizing: border-box;
+}
+
+.banner[data-position="top"] {
+  top: 0;
+  box-shadow: 0px 4px 0px 0px rgba(255, 255, 255, 1);
+}
+
+.banner[data-position="bottom"] {
+  bottom: 0;
+  box-shadow: 0px -4px 0px 0px rgba(255, 255, 255, 1);
+}
+
+.banner-message {
+  flex: 1;
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+}
+
+.banner-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+}
+
+.banner-action-btn {
+  border: 1px solid var(--color-white);
+  background: none;
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  padding: 6px var(--spacing-sm);
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+}
+
+.banner-close {
+  border: none;
+  background: none;
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.banner-close:hover {
+  opacity: 1;
+}
