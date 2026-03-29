@@ -65,7 +65,12 @@ export const Mobile: Story = {
     avatarProps: { type: 'icon', variant: 'round' },
   },
   parameters: {
-    viewport: { defaultViewport: 'mobile1' },
+    viewport: {
+      viewports: {
+        mobile360: { name: 'Mobile 360px', styles: { width: '360px', height: '800px' } },
+      },
+      defaultViewport: 'mobile360',
+    },
     ...figma('2-45'),
   },
 };
