@@ -10,11 +10,19 @@
   color: var(--color-text-primary);
   text-decoration: none;
   cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 400;
 }
 
 .link:hover {
   text-decoration: underline;
 }
+
+/* ─── Size: font-size ─────────────────────────────── */
+
+.link[data-size="small"]  { font-size: var(--font-caption-size);  line-height: var(--font-caption-line-height); }
+.link[data-size="medium"] { font-size: var(--font-body2-size);    line-height: var(--font-body2-line-height); }
+.link[data-size="large"]  { font-size: var(--font-body1-size);    line-height: var(--font-body1-line-height); }
 
 /* ─── Icon variant: tighter gap ───────────────────── */
 
@@ -22,12 +30,10 @@
   gap: var(--gap-xs);
 }
 
-/* ─── Icon size matches text size ─────────────────── */
+/* ─── Icon size: 16×16px ──────────────────────────── */
 
 .link-icon {
   flex-shrink: 0;
+  width: 16px;
+  height: 16px;
 }
-
-.link[data-size="small"] .link-icon  { width: var(--spacing-md); height: var(--spacing-md); }
-.link[data-size="medium"] .link-icon { width: var(--spacing-md); height: var(--spacing-md); }
-.link[data-size="large"] .link-icon  { width: var(--spacing-md); height: var(--spacing-md); }

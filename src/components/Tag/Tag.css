@@ -11,6 +11,10 @@
   background: var(--color-gray-400);
   border: 1px solid var(--color-white);
   color: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
   white-space: nowrap;
   user-select: none;
 }
