@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Button } from '../Button';
 import { ButtonText } from '../ButtonText';
-import { ButtonWithIcon } from '../ButtonWithIcon';
-import '../../styles/icons.css';
 import './Pagination.css';
 
 export interface PaginationProps {
@@ -31,10 +29,10 @@ export function Pagination({
   return (
     <div className="pagination">
       {showPrevNext && (
-        <ButtonWithIcon
+        <Button
           variant="secondary"
           iconPosition="left"
-          icon={<span className="material-symbols-outlined">chevron_left</span>}
+          iconName="chevron_left"
           label="Prev"
           disabled={current === 1}
           onClick={() => goTo(current - 1)}
@@ -50,10 +48,10 @@ export function Pagination({
         )}
       </div>
       {showPrevNext && (
-        <ButtonWithIcon
+        <Button
           variant="secondary"
           iconPosition="right"
-          icon={<span className="material-symbols-outlined">chevron_right</span>}
+          iconName="chevron_right"
           label="Next"
           disabled={current === totalPages}
           onClick={() => goTo(current + 1)}

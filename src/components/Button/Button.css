@@ -42,6 +42,26 @@
   background: var(--color-bg-hover);
 }
 
+/* ─── With icon ──────────────────────────────────── */
+
+.button[data-has-icon] {
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.button-icon .material-symbols-outlined {
+  font-size: 20px;
+  line-height: 1;
+}
+
 /* ─── Disabled ────────────────────────────────────── */
 
 .button:disabled {
