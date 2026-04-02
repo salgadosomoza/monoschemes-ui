@@ -17,6 +17,7 @@
   line-height: var(--font-caption-line-height);
   cursor: pointer;
   white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
 }
 
 /* ─── State: default ──────────────────────────────── */
@@ -30,6 +31,17 @@
 .button-text[data-state="default"]:hover {
   color: var(--color-text-secondary);
   border-bottom-color: var(--color-text-secondary);
+}
+
+.button-text[data-state="default"]:active {
+  color: var(--color-gray-800);
+  border-bottom-color: var(--color-gray-800);
+}
+
+.button-text[data-state="default"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
 }
 
 /* ─── State: disabled ─────────────────────────────── */
