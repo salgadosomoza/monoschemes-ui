@@ -1,13 +1,30 @@
 /* Accordion — MonoSchemes Design System
  * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 86:368
+ *
+ * Atomic hierarchy:
+ *   .accordion           — container for multiple items
+ *   .accordion-item      — single collapsible item
+ *   .accordion-header    — clickable button (title + icon)
+ *   .accordion-panel     — animated content wrapper
+ *   .accordion-content   — inner padding container
  */
 
+/* ─── Container ─────────────────────────────────────── */
+
 .accordion {
-  background: var(--color-bg-surface);
-  border-top: 1px solid var(--color-border-default);
+  display: flex;
+  flex-direction: column;
 }
 
-/* ─── Header ───────────────────────────────────────── */
+/* ─── Item ───────────────────────────────────────────── */
+
+.accordion-item {
+  background: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border-default);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+/* ─── Header ─────────────────────────────────────────── */
 
 .accordion-header {
   display: flex;
@@ -31,26 +48,40 @@
   background: var(--color-bg-hover, rgba(0, 0, 0, 0.04));
 }
 
+.accordion-header:focus-visible {
+  outline: 2px solid var(--color-border-focused);
+  outline-offset: -2px;
+}
+
+/* ─── Icon ───────────────────────────────────────────── */
+
 .accordion-icon {
   flex-shrink: 0;
+  font-size: 24px;
   color: var(--color-text-primary);
 }
 
-/* ─── Panel ────────────────────────────────────────── */
+/* ─── Disabled ───────────────────────────────────────── */
+
+.accordion-item[data-disabled] .accordion-header {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+  opacity: 0.5;
+}
+
+.accordion-item[data-disabled] .accordion-header:hover {
+  background: none;
+}
+
+/* ─── Panel ──────────────────────────────────────────── */
 
 .accordion-panel {
   overflow: hidden;
   transition: height 200ms ease;
 }
 
-/* ─── Content ──────────────────────────────────────── */
+/* ─── Content ────────────────────────────────────────── */
 
 .accordion-content {
-  padding: 0 var(--spacing-lg) var(--spacing-lg) 0;
-}
-
-/* ─── Expanded state: extra bottom padding on header ─ */
-
-.accordion[data-state="expanded"] .accordion-header {
-  padding-bottom: var(--spacing-md);
+  padding: 0 var(--spacing-md) var(--spacing-lg) var(--spacing-md);
 }

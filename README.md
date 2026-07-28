@@ -39,6 +39,23 @@ npm run build:storybook
 npm run lint
 ```
 
+### Storybook 10
+
+Este proyecto usa **Storybook 10**. Ten en cuenta:
+
+- Las utilidades de test se importan desde `storybook/test` (no desde `@storybook/test`).
+- Los *doc blocks* vienen incluidos en `@storybook/addon-docs`; no hace falta `@storybook/blocks`.
+- No añadas `@storybook/blocks` ni `@storybook/test` en su versión 8 — son incompatibles con Storybook 10 y rompen la resolución de dependencias (`ERESOLVE`).
+
+## Troubleshooting
+
+**`Cannot find module @rollup/rollup-<plataforma>` al arrancar** (p. ej. `@rollup/rollup-darwin-arm64`): es el [bug conocido de npm](https://github.com/npm/cli/issues/4828) con las dependencias opcionales nativas. Suele pasar al copiar un `node_modules` instalado en otra arquitectura. Solución: reinstalar limpio para que baje el binario nativo de tu máquina.
+
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
 ## Design Tokens
 
 Tokens live in `src/tokens/tokens.json` and are generated as CSS custom properties in `src/styles/tokens.css`. They are sourced from the MonoSchemes Figma file via `monoschemes-kit`.

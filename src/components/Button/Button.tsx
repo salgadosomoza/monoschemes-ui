@@ -23,7 +23,7 @@ export function Button({
   onClick,
 }: ButtonProps) {
   const iconEl = iconName ? (
-    <span className="button-icon">
+    <span className="button__icon">
       <span className="material-symbols-outlined">{iconName}</span>
     </span>
   ) : null;
