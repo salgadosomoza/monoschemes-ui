@@ -48,7 +48,7 @@
   padding: var(--spacing-xs) var(--spacing-sm);
 }
 
-.button-icon {
+.button__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +57,7 @@
   flex-shrink: 0;
 }
 
-.button-icon .material-symbols-outlined {
+.button__icon .material-symbols-outlined {
   font-size: 20px;
   line-height: 1;
 }
