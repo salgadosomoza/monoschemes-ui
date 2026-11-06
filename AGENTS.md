@@ -92,23 +92,3 @@ When auditing Figma components:
 | Modal       | ✅ done     | `475:1894` | `isOpen`, `onClose`, `title`, `children`, `footer`, `closeOnOverlayClick` |
 | AppHeader   | ✅ done     | `2:45`     | `logo`, `siteTitle`, `tagline`, `navItems`, `showAvatar`, `avatarProps` |
 | (rest)      | 🔄 pending  | —          | —              |
-
-
-<claude-mem-context>
-# Memory Context
-
-# [monoschemes-ui] recent context, 2026-05-29 8:52pm GMT+2
-
-Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
-Format: ID TIME TYPE TITLE
-Fetch details: get_observations([IDs]) | Search: mem-search skill
-
-Stats: 1 obs (158t read) | 320t work | 51% savings
-
-### May 28, 2026
-S12 Verificar si claude-mem está instalado en el sistema (May 28 at 9:12 PM)
-15 9:13p 🔵 claude-mem Worker Running on Port 37777
-S13 claude-mem Worker Running on Port 37777 (May 28 at 9:13 PM)
-
-Access 0k tokens of past work via get_observations([IDs]) or mem-search skill.
-</claude-mem-context>
