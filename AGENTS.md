@@ -1,36 +1,35 @@
-# AGENTS.md
+# MonoSchemes UI — instrucciones del repositorio
 
-## Project
+`@monoschemes/ui` es la implementación React y TypeScript del sistema de diseño MonoSchemes.
+Se mantiene junto al archivo de diseño de Figma y se documenta en Storybook.
 
-@monoschemes/ui — React component library for the MonoSchemes design system.
-Synced with Figma file: https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit
+## Fuentes de autoridad
 
-## Related repos
+- **Figma** define la anatomía, composición y decisiones visuales. Sus Variables son la fuente
+  canónica de los design tokens.
+- **React** define la implementación, el comportamiento y la accesibilidad.
+- **Storybook** documenta y valida visualmente la implementación; vive dentro de este repositorio.
+- El contrato de componentes registra las props, tipos, valores y defaults acordados.
 
-- monoschemes-kit (vanilla reference): https://github.com/salgadosomoza/monoschemes-kit
-- monoschemes-ui (this repo): https://github.com/salgadosomoza/monoschemes-ui
+Las decisiones visuales y los tokens se fijan en Figma antes de propagarlos a la UI. Las decisiones
+de comportamiento y accesibilidad se implementan en React y se documentan en Storybook. No conviertas
+automáticamente nombres ni valores entre superficies.
 
-## Stack
+## Convenciones
 
-- React + TypeScript + Vite (library mode)
-- Storybook 8 with @storybook/addon-designs@8
-- Design tokens in `src/tokens/tokens.json` + `src/styles/tokens.css`
-- Naming conventions in `src/utils/figmaToReact.ts`
+- Componentes: `PascalCase`; props: `lowerCamelCase` en Figma, contrato y React.
+- Los nombres se comparan literalmente. `style` y `variant` son props distintas; `style` está
+  reservado y requiere una decisión explícita para corregirlo.
+- Los valores de diseño usan `lowercase-kebab-case`. Los valores técnicos conservan su sintaxis.
+- `disabled` es booleano, no un valor de `state` o `variant`.
+- Las propiedades de Figma con sufijo `#id` no forman parte del contrato funcional.
 
-## Naming conventions (Figma → React)
+Consulta [CONTRIBUTING.md](CONTRIBUTING.md), [docs/figma-rules.md](docs/figma-rules.md) y
+[docs/component-contract.md](docs/component-contract.md) antes de cambiar convenciones compartidas.
 
-- Component names: PascalCase (`Avatar`, `NavItem`, `FormInput`)
-- Prop names: camelCase
-- Reserved: `"style"` → `"variant"`, `"Status"` → `"status"`, `"Type"` → `"type"`
-- Variant values: lowercase-kebab (`"Round"` → `"round"`, `"Date picker"` → `"date-picker"`)
-- Boolean props: `"Show X"` → `"showX"`
-- Slots (props with `#` like `panel#86:13`): IGNORE in audit, treat as `children` in React
+## Estructura
 
-## Component structure
-
-Each component lives in:
-
-```
+```text
 src/components/[ComponentName]/
   [ComponentName].tsx
   [ComponentName].css
@@ -38,57 +37,17 @@ src/components/[ComponentName]/
 stories/[ComponentName].stories.tsx
 ```
 
-Each story must include:
+Cada historia de componente enlaza al nodo exacto de Figma mediante `parameters.design`.
 
-- `parameters.design.type = 'figma'`
-- `parameters.design.url` pointing to the exact Figma node-id
+## Comprobaciones
 
-## Figma MCP
+Ejecuta las comprobaciones aplicables al cambio:
 
-- Use `figma-use` skill for any write operations to Figma
-- File key: `XZ8yMM8VJihEwmyFaW6sCB`
-- Always fetch node data before creating or modifying components
+```bash
+npm run lint
+npm run test:run
+npm run build
+npm run build:storybook
+```
 
-## Audit rules
-
-When auditing Figma components:
-
-1. Ignore props with `#` (they are slots/text overrides, not variants)
-2. Flag hardcoded hex colors that should use CSS tokens
-3. Flag missing states: `disabled`, `focus`, `hover`, `error`
-4. Flag inconsistent naming across components
-5. Suggest missing variants based on common design system patterns
-
-## Current components
-
-| Component   | Status      | Figma node | Props          |
-|-------------|-------------|------------|----------------|
-| Avatar      | ✅ done     | `2:35`     | `type`, `variant` |
-| Chip        | ✅ done     | `10:468`   | `type`, `label`, `onClose`, `draggable` |
-| Button      | ✅ done     | `3:76`     | `variant`, `disabled`, `label`, `icon`, `iconPosition`, `onClick` |
-| ButtonText  | ✅ done     | `76:808`   | `state` (default/hover/active/disabled), `label`, `onClick` |
-| ButtonIcon  | ✅ done     | `22:519`   | `variant`, `state`, `iconName`, `onClick` |
-| NavItem     | ✅ done     | `673:2102` | `status`, `label`, `onClick`, `href` |
-| Text        | ✅ done     | `130:1708` | `style`, `children`, `color`, `as` |
-| Logo        | ✅ done     | `727:2495` | `type`, `label`, `src`, `alt`, `onClick`, `href` |
-| Image       | ✅ done     | `86:217`   | `type`, `src`, `alt`, `showIcon`, `width` |
-| Link        | ✅ done     | `86:502`   | `type`, `size`, `label`, `href`, `icon`, `onClick`, `target` |
-| Tag         | ✅ done     | `285:4420` | `type`, `label`, `color` |
-| Accordion   | ✅ done     | `86:368`   | `title`, `children`, `defaultOpen`, `open`, `onToggle` |
-| Grid        | ✅ done     | `106:1130` | `type`, `columns`, `gap`, `children` |
-| FormCheckbox | ✅ done    | `24:126`   | `type`, `status`, `label`, `onChange`, `disabled` |
-| FormRadio   | ✅ done     | `75:119`   | `type`, `status`, `label`, `value`, `onChange`, `disabled` |
-| FormToggle  | ✅ done     | `444:3173` | `type`, `status`, `label`, `onChange`, `disabled` |
-| FormInput   | ✅ done     | `444:3191` | `type`, `placeholder`, `value`, `onChange`, `disabled`, `error`, `label`, `helperText` |
-| FormFileUpload | ✅ done  | `100:493`  | `type`, `accept`, `multiple`, `onChange`, `label` |
-| FormSelect  | ✅ done     | `2:15`     | `options`, `value`, `placeholder`, `onChange`, `disabled`, `label`, `error`, `helperText` |
-| FormSearch  | ✅ done     | `20:518`   | `value`, `placeholder`, `onChange`, `onSearch`, `disabled` |
-| FormTextarea | ✅ done    | `76:801`   | `value`, `placeholder`, `onChange`, `rows`, `disabled`, `error`, `label`, `helperText` |
-| FormDate    | ✅ done     | `22:560`   | `value`, `onChange`, `min`, `max`, `disabled`, `label` |
-| Pagination  | ✅ done     | `8:335`    | `currentPage`, `totalPages`, `onPageChange`, `showPrevNext` |
-| Table       | ✅ done     | `8:401`    | `columns`, `data`, `striped`, `bordered`, `onRowClick` |
-| Toast       | ✅ done     | `10:479`   | `message`, `type`, `duration`, `isVisible`, `onClose` |
-| Banner      | ✅ done     | `475:79`   | `message`, `position`, `isVisible`, `onClose`, `action` |
-| Modal       | ✅ done     | `475:1894` | `isOpen`, `onClose`, `title`, `children`, `footer`, `closeOnOverlayClick` |
-| AppHeader   | ✅ done     | `2:45`     | `logo`, `siteTitle`, `tagline`, `navItems`, `showAvatar`, `avatarProps` |
-| (rest)      | 🔄 pending  | —          | —              |
+Storybook 10 está instalado en este repositorio. Usa sus paquetes y APIs de la versión 10.
