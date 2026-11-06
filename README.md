@@ -4,7 +4,7 @@ React component library for the **MonoSchemes** design system, synced with Figma
 
 ## Overview
 
-`@monoschemes/ui` is the React implementation of the MonoSchemes design system. It provides reusable, typed components and design tokens that stay in sync with the Figma source of truth via `monoschemes-kit`.
+`@monoschemes/ui` is the React implementation of the MonoSchemes design system. It provides reusable, typed components and design tokens kept in sync with the MonoSchemes Figma file.
 
 ## Getting Started
 
@@ -58,19 +58,24 @@ npm install
 
 ## Design Tokens
 
-Tokens live in `src/tokens/tokens.json` and are generated as CSS custom properties in `src/styles/tokens.css`. They are sourced from the MonoSchemes Figma file via `monoschemes-kit`.
+Figma Variables are the canonical source for design tokens. `src/tokens/tokens.json` is the versioned primitive and semantic representation consumed by this UI library, and `src/styles/tokens.css` exposes them as CSS custom properties. `src/tokens/components.json` contains the component contract. Until token sync is automated, update the JSON representation after changing variables in Figma.
 
 ## Project Structure
 
 ```
 src/
   components/   # React components
-  tokens/       # Design token JSON (source of truth from Figma)
+  tokens/       # Versioned design token JSON exported from Figma Variables
   styles/       # Global CSS (tokens, resets)
 stories/        # Storybook stories
 dist/           # Build output (gitignored)
 ```
 
-## Relationship to monoschemes-kit
+## Documentation
 
-`monoschemes-kit` holds the Figma-generated token definitions and design specs. This library (`monoschemes-ui`) consumes those tokens and implements them as React components.
+- [Project context](docs/project-context.md)
+- [Design principles](docs/design-principles.md)
+- [Component contract](docs/component-contract.md)
+- [Figma rules](docs/figma-rules.md)
+- [Review checklist](docs/review-checklist.md)
+- [Contributing](CONTRIBUTING.md)
