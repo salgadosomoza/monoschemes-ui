@@ -1,6 +1,6 @@
 {
   "components": {
-    "Accordion": {
+    "Accordion/Item": {
       "figmaNode": "1690:480",
       "props": {
         "expanded": {

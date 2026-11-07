@@ -113,7 +113,7 @@ export const AllCombinations: Story = {
                 fontFamily: 'Inter, sans-serif',
                 fontSize: 14,
                 fontWeight: 400,
-                color: '#40444A',
+                color: 'var(--color-text-secondary)',
                 textAlign: 'center',
                 paddingBottom: 8,
               }}
@@ -130,7 +130,7 @@ export const AllCombinations: Story = {
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: 14,
-                color: '#40444A',
+                color: 'var(--color-text-secondary)',
                 paddingRight: 16,
               }}
             >

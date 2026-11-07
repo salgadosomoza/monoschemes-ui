@@ -41,7 +41,7 @@ export const Interactive: Story = {
           onSearch={setLastSearch}
         />
         {lastSearch && (
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: '#40444A', margin: 0 }}>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'var(--color-text-secondary)', margin: 0 }}>
             Last search: <strong>{lastSearch}</strong>
           </p>
         )}

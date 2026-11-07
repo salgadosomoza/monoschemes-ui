@@ -56,7 +56,7 @@ export const FocusVisible: Story = {
 };
 
 // Visual overview of all CSS-native states via simulated inline styles.
-// Hover = gray-700 (#40444A), Active = gray-800 (#2B2F36), Focus = box-shadow ring.
+// Hover and active colors use semantic tokens so the overview follows the selected theme.
 export const AllStates: Story = {
   parameters: figma('76-808'),
   render: () => (
@@ -64,13 +64,13 @@ export const AllStates: Story = {
       {(
         [
           { label: 'default', style: {} },
-          { label: 'hover', style: { color: '#40444A', borderBottomColor: '#40444A' } },
-          { label: 'active', style: { color: '#2B2F36', borderBottomColor: '#2B2F36' } },
+          { label: 'hover', style: { color: 'var(--color-text-secondary)', borderBottomColor: 'var(--color-text-secondary)' } },
+          { label: 'active', style: { color: 'var(--color-text-primary)', borderBottomColor: 'var(--color-text-primary)' } },
           {
             label: 'focus-visible',
             style: {
               outline: 'none',
-              boxShadow: '0 0 0 3px rgba(0,0,0,0.15)',
+              boxShadow: '0 0 0 3px var(--color-border-focused)',
               borderRadius: 2,
             },
           },
@@ -86,7 +86,7 @@ export const AllStates: Story = {
             label="Button"
             style={style}
           />
-          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: '#40444A' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: 'var(--color-text-muted)' }}>
             {label}
           </span>
         </div>
@@ -102,7 +102,7 @@ export const AllCombinations: Story = {
       {STATES.map((state) => (
         <div key={state} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
           <ButtonText state={state} label="Button" />
-          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: '#40444A' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'var(--color-text-muted)' }}>
             {state}
           </span>
         </div>

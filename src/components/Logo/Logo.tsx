@@ -50,7 +50,13 @@ export function Logo({
 
   if (href) {
     return (
-      <a className="logo" data-type={type} href={href} onClick={onClick}>
+      <a
+        className="logo"
+        data-type={type}
+        href={href}
+        onClick={onClick}
+        aria-label={type === 'image' && !src ? label : undefined}
+      >
         {content}
       </a>
     );

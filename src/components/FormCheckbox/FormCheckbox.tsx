@@ -10,7 +10,7 @@ export interface FormCheckboxProps {
   type?: FormCheckboxType;
   /** Controlled checked state. */
   status?: FormCheckboxStatus;
-  /** Text label (used when type="label"). */
+  /** Accessible name; also rendered as text when type="label". */
   label?: string;
   /** Callback fired on change. Providing this makes the component controlled. */
   onChange?: (checked: boolean) => void;
@@ -70,6 +70,7 @@ export function FormCheckbox({
         id={id}
         type="checkbox"
         className="form-checkbox-input"
+        aria-label={type === 'icon' ? label : undefined}
         checked={status === 'active'}
         disabled={disabled}
         onChange={(e) => handleChange(e.target.checked)}

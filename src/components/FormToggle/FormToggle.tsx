@@ -9,7 +9,7 @@ export interface FormToggleProps {
   type?: FormToggleType;
   /** Controlled active state. */
   status?: FormToggleStatus;
-  /** Text label (used when type="label"). */
+  /** Accessible name; also rendered as text when type="label". */
   label?: string;
   /** Callback fired on change. Providing this makes the component controlled. */
   onChange?: (active: boolean) => void;
@@ -52,6 +52,7 @@ export function FormToggle({
         id={id}
         type="checkbox"
         className="form-toggle-input"
+        aria-label={type === 'icon' ? label : undefined}
         checked={isActive}
         disabled={disabled}
         onChange={(e) => handleChange(e.target.checked)}

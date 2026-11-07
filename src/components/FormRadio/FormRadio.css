@@ -45,7 +45,11 @@
 
 .form-radio:has(.form-radio-input:disabled) {
   cursor: not-allowed;
-  opacity: 0.4;
+}
+
+.form-radio:has(.form-radio-input:disabled) .form-radio-icon,
+.form-radio:has(.form-radio-input:disabled) .form-radio-label {
+  color: var(--color-text-disabled);
 }
 
 /* ─── Label ────────────────────────────────────────── */

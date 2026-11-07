@@ -43,13 +43,18 @@
 }
 
 .form-select-trigger:disabled {
-  background: var(--color-bg-surface);
+  background: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
   cursor: not-allowed;
-  opacity: 0.6;
+}
+
+.form-select-trigger:disabled .form-select-value,
+.form-select-trigger:disabled .form-select-chevron {
+  color: var(--color-text-disabled);
 }
 
 .form-select[data-error] .form-select-trigger {
-  border-color: var(--color-rust-500);
+  border-color: var(--color-border-error);
 }
 
 /* ─── Displayed value / placeholder ───────────────── */
@@ -68,7 +73,7 @@
 }
 
 .form-select-value--placeholder {
-  color: var(--color-gray-500);
+  color: var(--color-text-placeholder);
 }
 
 /* ─── Chevron ──────────────────────────────────────── */
@@ -145,5 +150,5 @@
 }
 
 .form-select-helper--error {
-  color: var(--color-rust-500);
+  color: var(--color-text-error);
 }

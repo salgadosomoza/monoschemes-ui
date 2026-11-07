@@ -67,7 +67,7 @@ export const AllCombinations: Story = {
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: 11,
-              color: '#40444A',
+              color: 'var(--color-text-secondary)',
             }}
           >
             {status}
@@ -91,7 +91,7 @@ function InteractiveDemo() {
         display: 'flex',
         gap: 24,
         padding: '12px 24px',
-        borderBottom: '1px solid #E2E5E9',
+        borderBottom: '1px solid var(--color-border-disabled)',
       }}
     >
       {NAV_LINKS.map((label) => (

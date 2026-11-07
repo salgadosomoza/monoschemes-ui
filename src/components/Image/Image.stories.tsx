@@ -112,7 +112,7 @@ export const AllRatios: Story = {
       {TYPES.map((type) => (
         <div key={type} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
           <Image type={type} width="100px" />
-          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: '#40444A' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: 'var(--color-text-muted)' }}>
             {type}
           </span>
         </div>
@@ -135,7 +135,7 @@ export const WithImage: Story = {
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=640"
             alt="Mountain landscape"
           />
-          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: '#40444A' }}>
+          <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: 'var(--color-text-muted)' }}>
             {type} · with src
           </span>
         </div>

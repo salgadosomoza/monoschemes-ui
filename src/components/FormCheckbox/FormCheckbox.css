@@ -39,7 +39,11 @@
 
 .form-checkbox:has(.form-checkbox-input:disabled) {
   cursor: not-allowed;
-  opacity: 0.4;
+}
+
+.form-checkbox:has(.form-checkbox-input:disabled) .form-checkbox-icon,
+.form-checkbox:has(.form-checkbox-input:disabled) .form-checkbox-label {
+  color: var(--color-text-disabled);
 }
 
 /* ─── Label ────────────────────────────────────────── */

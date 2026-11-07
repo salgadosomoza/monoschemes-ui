@@ -54,6 +54,10 @@
   cursor: pointer;
 }
 
+.form-date-input[data-empty='true']::-webkit-datetime-edit {
+  color: var(--color-text-placeholder);
+}
+
 /* Hide the native calendar icon — we supply our own */
 .form-date-input::-webkit-calendar-picker-indicator {
   display: none;
@@ -65,7 +69,7 @@
 }
 
 .form-date-input:disabled {
-  color: var(--color-text-secondary);
+  color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 
@@ -85,7 +89,7 @@
 
 .form-date-icon-btn:disabled {
   cursor: not-allowed;
-  opacity: 0.4;
+  color: var(--color-text-disabled);
 }
 
 .form-date-icon {
@@ -96,6 +100,5 @@
 /* ─── Disabled state ───────────────────────────────── */
 
 .form-date-inner:has(.form-date-input:disabled) {
-  background: var(--color-bg-surface);
-  opacity: 0.6;
+  background: var(--color-bg-disabled);
 }

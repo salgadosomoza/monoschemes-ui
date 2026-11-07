@@ -75,6 +75,7 @@ export function FormDate({
           id={id}
           type="date"
           className="form-date-input"
+          data-empty={!inputValue}
           value={inputValue}
           min={min}
           max={max}

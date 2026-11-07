@@ -41,7 +41,7 @@ export function FormFileUpload({
 
   if (type === 'drag-and-drop') {
     return (
-      <div
+      <label
         className="form-file-dropzone"
         data-drag={isDragOver || undefined}
         onDragOver={(e) => { e.preventDefault(); setIsDragOver(true); }}
@@ -51,11 +51,7 @@ export function FormFileUpload({
           setIsDragOver(false);
           handleFiles(e.dataTransfer.files);
         }}
-        onClick={() => inputRef.current?.click()}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') inputRef.current?.click(); }}
-        aria-label="Upload file — click or drag and drop"
+        htmlFor={id}
       >
         <input
           ref={inputRef}
@@ -70,7 +66,7 @@ export function FormFileUpload({
         <span className="form-file-dropzone-text">
           <strong>Click to upload</strong> or drag and drop
         </span>
-      </div>
+      </label>
     );
   }
 

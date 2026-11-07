@@ -38,8 +38,7 @@
 }
 
 .form-input-field::placeholder {
-  color: var(--color-text-secondary);
-  opacity: 0.6;
+  color: var(--color-text-placeholder);
 }
 
 .form-input-field:focus {
@@ -47,14 +46,13 @@
 }
 
 .form-input-field:disabled {
-  background: var(--color-bg-surface);
-  color: var(--color-text-secondary);
+  background: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
   cursor: not-allowed;
-  opacity: 0.6;
 }
 
 .form-input-field--error {
-  border-color: var(--color-rust-500);
+  border-color: var(--color-border-error);
 }
 
 .form-input-field--error:focus {
@@ -78,7 +76,7 @@
 }
 
 .form-input[data-error] .form-input-adornment {
-  border-color: var(--color-rust-500);
+  border-color: var(--color-border-error);
 }
 
 .form-input[data-error] .form-input-adornment:focus-within {
@@ -169,5 +167,5 @@
 }
 
 .form-input-helper--error {
-  color: var(--color-rust-500);
+  color: var(--color-text-error);
 }

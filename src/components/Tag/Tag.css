@@ -8,13 +8,17 @@
   align-items: center;
   gap: var(--gap-sm);
   padding: var(--spacing-xs);
-  background: var(--color-gray-400);
-  border: 1px solid var(--color-white);
-  color: var(--color-white);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-text-inverse);
+  color: var(--color-text-inverse);
   font-family: var(--font-family);
   font-size: var(--font-caption-size);
   font-weight: var(--font-caption-weight);
   line-height: var(--font-caption-line-height);
   white-space: nowrap;
   user-select: none;
+}
+
+.tag .text {
+  color: var(--tag-label-color, var(--color-text-primary));
 }

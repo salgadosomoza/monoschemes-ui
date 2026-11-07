@@ -38,7 +38,7 @@
 }
 
 .banner-action-btn {
-  border: 1px solid var(--color-white);
+  border: 1px solid var(--color-text-inverse);
   background: none;
   color: var(--color-text-inverse);
   cursor: pointer;

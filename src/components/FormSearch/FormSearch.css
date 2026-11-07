@@ -50,7 +50,7 @@
 }
 
 .form-search-input::placeholder {
-  color: var(--color-gray-500);
+  color: var(--color-text-placeholder);
 }
 
 .form-search-input::-webkit-search-decoration,
@@ -59,11 +59,11 @@
 }
 
 .form-search-input:disabled {
+  color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 
 .form-search-inner:has(.form-search-input:disabled) {
-  background: var(--color-bg-surface);
-  opacity: 0.6;
+  background: var(--color-bg-disabled);
   cursor: not-allowed;
 }

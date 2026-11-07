@@ -39,7 +39,7 @@
 }
 
 .form-textarea-field::placeholder {
-  color: var(--color-gray-500);
+  color: var(--color-text-placeholder);
 }
 
 .form-textarea-field:focus {
@@ -47,15 +47,14 @@
 }
 
 .form-textarea-field:disabled {
-  background: var(--color-bg-surface);
-  color: var(--color-text-secondary);
+  background: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
   cursor: not-allowed;
-  opacity: 0.6;
   resize: none;
 }
 
 .form-textarea-field--error {
-  border-color: var(--color-rust-500);
+  border-color: var(--color-border-error);
 }
 
 .form-textarea-field--error:focus {
@@ -73,5 +72,5 @@
 }
 
 .form-textarea-helper--error {
-  color: var(--color-rust-500);
+  color: var(--color-text-error);
 }

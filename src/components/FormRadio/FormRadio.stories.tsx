@@ -38,12 +38,12 @@ export const LabelActive: Story = {
 };
 
 export const IconInactive: Story = {
-  args: { type: 'icon', status: 'inactive' },
+  args: { type: 'icon', status: 'inactive', label: 'Inactive radio option' },
   parameters: figma('75-119'),
 };
 
 export const IconActive: Story = {
-  args: { type: 'icon', status: 'active' },
+  args: { type: 'icon', status: 'active', label: 'Active radio option' },
   parameters: figma('75-119'),
 };
 
@@ -55,7 +55,7 @@ export const AllCombinations: Story = {
         <tr>
           <th />
           {STATUSES.map((s) => (
-            <th key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 400, color: '#40444A' }}>
+            <th key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 400, color: 'var(--color-text-secondary)' }}>
               {s}
             </th>
           ))}
@@ -64,10 +64,10 @@ export const AllCombinations: Story = {
       <tbody>
         {TYPES.map((type) => (
           <tr key={type}>
-            <td style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: '#40444A', paddingRight: 16 }}>{type}</td>
+            <td style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'var(--color-text-secondary)', paddingRight: 16 }}>{type}</td>
             {STATUSES.map((status) => (
               <td key={status}>
-                <FormRadio type={type} status={status} label="Label" />
+                <FormRadio type={type} status={status} label={`${type} ${status}`} />
               </td>
             ))}
           </tr>

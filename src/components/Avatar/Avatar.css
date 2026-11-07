@@ -9,8 +9,8 @@
   justify-content: center;
   width: 64px;
   height: 64px;
-  background: var(--color-gray-200);
-  color: var(--color-black);
+  background: var(--color-bg-placeholder);
+  color: var(--color-text-strong);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -36,7 +36,7 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 1;
-  color: var(--color-black);
+  color: var(--color-text-strong);
   letter-spacing: 0.02em;
 }
 

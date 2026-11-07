@@ -22,8 +22,8 @@
 /* ─── Variant: primary ────────────────────────────── */
 
 .button[data-variant="primary"] {
-  background: var(--color-black);
-  color: var(--color-white);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
 }
 
 .button[data-variant="primary"]:hover:not(:disabled) {
@@ -33,9 +33,9 @@
 /* ─── Variant: secondary ──────────────────────────── */
 
 .button[data-variant="secondary"] {
-  background: var(--color-white);
-  color: var(--color-black);
-  border: 1px solid var(--color-black);
+  background: var(--color-bg-page);
+  color: var(--color-text-strong);
+  border: 1px solid var(--color-border-strong);
 }
 
 .button[data-variant="secondary"]:hover:not(:disabled) {
@@ -65,8 +65,8 @@
 /* ─── Disabled ────────────────────────────────────── */
 
 .button:disabled {
-  background: var(--color-gray-200);
-  color: var(--color-gray-500);
+  background: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
   border: none;
   cursor: not-allowed;
 }

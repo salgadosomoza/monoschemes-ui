@@ -40,7 +40,7 @@ function Cell({ index }: { index: number }) {
   return (
     <div
       style={{
-        background: index % 2 === 0 ? '#E2E5E9' : '#CFCFCF',
+        background: index % 2 === 0 ? 'var(--color-bg-hover)' : 'var(--color-grid-gutter)',
         height: 48,
         borderRadius: 4,
         display: 'flex',
@@ -48,7 +48,7 @@ function Cell({ index }: { index: number }) {
         justifyContent: 'center',
         fontFamily: 'Inter, sans-serif',
         fontSize: 11,
-        color: '#40444A',
+        color: 'var(--color-text-primary)',
       }}
     >
       {index + 1}
@@ -58,7 +58,7 @@ function Cell({ index }: { index: number }) {
 
 function Wrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ padding: 24, background: '#F6F7F9', minHeight: '100vh' }}>
+    <div style={{ padding: 24, background: 'var(--color-bg-surface)', minHeight: '100vh' }}>
       {children}
     </div>
   );
@@ -142,7 +142,7 @@ export const AllTypes: Story = {
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: 12,
-                color: '#40444A',
+                color: 'var(--color-text-muted)',
                 margin: '0 0 8px',
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',

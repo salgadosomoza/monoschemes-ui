@@ -41,7 +41,7 @@ export const AllCombinations: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 32, alignItems: 'flex-start' }}>
       {TYPES.map((type) => (
         <div key={type}>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: '#40444A', margin: '0 0 8px' }}>{type}</p>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'var(--color-text-secondary)', margin: '0 0 8px' }}>{type}</p>
           <FormFileUpload type={type} label="Choose file" />
         </div>
       ))}

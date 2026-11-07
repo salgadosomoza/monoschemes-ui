@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { CSSProperties } from 'react';
 import { Tag } from './Tag';
 import type { TagType } from './Tag';
 
@@ -66,19 +67,24 @@ export const AllCombinations: Story = {
 // ─── Colors ──────────────────────────────────────────
 
 const SAMPLE_COLORS = [
-  { label: 'Ash Fade (default)', color: undefined },
-  { label: 'Rain Blue', color: '#5A6D7E' },
-  { label: 'Fog Green', color: '#8DA59D' },
-  { label: 'Rust Highlight', color: '#B15C4A' },
-  { label: 'Golden Smoke', color: '#D1B475' },
+  { label: 'Ash Fade (default)', color: undefined, textColor: undefined },
+  { label: 'Rain Blue', color: '#5A6D7E', textColor: '#FFFFFF' },
+  { label: 'Fog Green', color: '#8DA59D', textColor: '#000000' },
+  { label: 'Rust Highlight', color: '#B15C4A', textColor: '#FFFFFF' },
+  { label: 'Golden Smoke', color: '#D1B475', textColor: '#000000' },
 ];
 
 export const Colors: Story = {
   parameters: figma('285-4420'),
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-      {SAMPLE_COLORS.map(({ label, color }) => (
-        <Tag key={label} label={label} color={color} />
+      {SAMPLE_COLORS.map(({ label, color, textColor }) => (
+        <span
+          key={label}
+          style={textColor ? ({ '--tag-label-color': textColor } as CSSProperties) : undefined}
+        >
+          <Tag label={label} color={color} />
+        </span>
       ))}
     </div>
   ),

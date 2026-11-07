@@ -79,7 +79,11 @@ export function FormInput({
         return (
           <div className="form-input-adornment">
             <div className="form-input-select-wrapper">
-              <select className="form-input-select" disabled={disabled}>
+              <select
+                className="form-input-select"
+                aria-label={`${label ?? 'Input'} protocol`}
+                disabled={disabled}
+              >
                 <option>http://</option>
                 <option>https://</option>
               </select>

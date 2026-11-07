@@ -108,6 +108,7 @@ export const Overline: Story = {
 // ─── All styles overview ────────────────────────────
 
 export const AllStyles: Story = {
+  args: { children: SAMPLE },
   parameters: figma('130-1708'),
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 480 }}>
@@ -117,7 +118,7 @@ export const AllStyles: Story = {
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: 11,
-              color: '#737373',
+              color: 'var(--color-text-secondary)',
               minWidth: 80,
               flexShrink: 0,
             }}

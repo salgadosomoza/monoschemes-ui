@@ -1,5 +1,6 @@
 import { Text } from '../Text/Text';
 import '../../styles/icons.css';
+import './Accordion.css';
 
 export interface AccordionHeaderProps {
   /** Whether the associated panel is expanded — controls icon direction. */

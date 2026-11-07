@@ -104,7 +104,7 @@ export const AllCombinations: Story = {
         <tr>
           <th />
           {(['no icon', 'icon left', 'icon right', 'disabled'] as const).map(col => (
-            <th key={col} style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 400, color: '#40444A', textAlign: 'center', paddingBottom: 8 }}>
+            <th key={col} style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 400, color: 'var(--color-text-secondary)', textAlign: 'center', paddingBottom: 8 }}>
               {col}
             </th>
           ))}
@@ -113,7 +113,7 @@ export const AllCombinations: Story = {
       <tbody>
         {VARIANTS.map((variant) => (
           <tr key={variant}>
-            <td style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#40444A', paddingRight: 16 }}>
+            <td style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: 'var(--color-text-secondary)', paddingRight: 16 }}>
               {variant}
             </td>
             <td style={{ textAlign: 'center' }}>

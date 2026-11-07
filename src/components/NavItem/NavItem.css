@@ -24,11 +24,11 @@
 
 .nav-item[data-status="hover"],
 .nav-item[data-status="default"]:hover {
-  border-bottom-color: var(--color-black);
+  border-bottom-color: var(--color-border-strong);
 }
 
 /* ─── Status: active ──────────────────────────────── */
 
 .nav-item[data-status="active"] {
-  border-bottom-color: var(--color-black);
+  border-bottom-color: var(--color-border-strong);
 }

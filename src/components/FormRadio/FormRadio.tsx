@@ -50,7 +50,7 @@ export interface FormRadioProps {
   type?: FormRadioType;
   /** Controlled status (ignored when inside a RadioGroup). */
   status?: FormRadioStatus;
-  /** Text label (used when type="label"). */
+  /** Accessible name; also rendered as text when type="label". */
   label?: string;
   /** Value for this radio option (required inside RadioGroup). */
   value?: string;
@@ -101,6 +101,7 @@ export function FormRadio({
         id={id}
         type="radio"
         className="form-radio-input"
+        aria-label={type === 'icon' ? label : undefined}
         checked={active}
         value={value}
         disabled={disabled}

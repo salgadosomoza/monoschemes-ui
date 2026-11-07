@@ -63,7 +63,7 @@ export const AllCombinations: Story = {
               fontFamily: 'Inter, sans-serif',
               fontSize: 14,
               fontWeight: 400,
-              color: '#40444A',
+              color: 'var(--color-text-secondary)',
               width: 56,
             }}
           >
@@ -118,7 +118,7 @@ function InteractiveDemo() {
         flexWrap: 'wrap',
         gap: 8,
         padding: 24,
-        border: '1px dashed #E2E5E9',
+        border: '1px dashed var(--color-border-disabled)',
         borderRadius: 8,
         minWidth: 320,
       }}
@@ -140,7 +140,7 @@ function InteractiveDemo() {
         </div>
       ))}
       {chips.length === 0 && (
-        <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: '#737373' }}>
+        <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: 'var(--color-text-placeholder)' }}>
           All chips removed — refresh to reset.
         </span>
       )}

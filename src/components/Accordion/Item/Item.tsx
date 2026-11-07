@@ -1,9 +1,9 @@
 import { useState, useId } from 'react';
-import { AccordionHeader } from './AccordionHeader';
-import { AccordionPanel } from './AccordionPanel';
-import './Accordion.css';
+import { AccordionHeader } from '../AccordionHeader';
+import { AccordionPanel } from '../AccordionPanel';
+import '../Accordion.css';
 
-export interface AccordionItemProps {
+export interface ItemProps {
   /** Header title text. */
   title?: string;
   /** Panel content. */
@@ -18,14 +18,14 @@ export interface AccordionItemProps {
   disabled?: boolean;
 }
 
-export function AccordionItem({
+export function Item({
   title = 'Section title',
   children,
   defaultExpanded = false,
   expanded: controlledExpanded,
   onToggle,
   disabled = false,
-}: AccordionItemProps) {
+}: ItemProps) {
   const isControlled = controlledExpanded !== undefined;
   const [internalExpanded, setInternalExpanded] = useState(defaultExpanded);
   const isExpanded = isControlled ? controlledExpanded : internalExpanded;

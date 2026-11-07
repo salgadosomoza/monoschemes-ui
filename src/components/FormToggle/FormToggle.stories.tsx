@@ -33,7 +33,7 @@ export const Interactive: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       <FormToggle type="label" label="Click me (uncontrolled)" />
-      <FormToggle type="icon" />
+      <FormToggle type="icon" label="Icon toggle" />
     </div>
   ),
 };
@@ -49,12 +49,12 @@ export const LabelActive: Story = {
 };
 
 export const IconInactive: Story = {
-  args: { type: 'icon', status: 'inactive' },
+  args: { type: 'icon', status: 'inactive', label: 'Inactive toggle' },
   parameters: figma('444-3173'),
 };
 
 export const IconActive: Story = {
-  args: { type: 'icon', status: 'active' },
+  args: { type: 'icon', status: 'active', label: 'Active toggle' },
   parameters: figma('444-3173'),
 };
 
@@ -66,7 +66,7 @@ export const AllCombinations: Story = {
         <tr>
           <th />
           {STATUSES.map((s) => (
-            <th key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 400, color: '#40444A' }}>
+            <th key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 400, color: 'var(--color-text-secondary)' }}>
               {s}
             </th>
           ))}
@@ -75,10 +75,10 @@ export const AllCombinations: Story = {
       <tbody>
         {TYPES.map((type) => (
           <tr key={type}>
-            <td style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: '#40444A', paddingRight: 16 }}>{type}</td>
+            <td style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'var(--color-text-secondary)', paddingRight: 16 }}>{type}</td>
             {STATUSES.map((status) => (
               <td key={status}>
-                <FormToggle type={type} status={status} label="Label" />
+                <FormToggle type={type} status={status} label={`${type} ${status}`} />
               </td>
             ))}
           </tr>

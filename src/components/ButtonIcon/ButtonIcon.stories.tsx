@@ -81,7 +81,7 @@ export const AllCombinations: Story = {
         <tr>
           <th />
           {STATES.map((s) => (
-            <th key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 400, color: '#40444A', textAlign: 'center', paddingBottom: 8 }}>
+            <th key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 400, color: 'var(--color-text-secondary)', textAlign: 'center', paddingBottom: 8 }}>
               {s}
             </th>
           ))}
@@ -90,7 +90,7 @@ export const AllCombinations: Story = {
       <tbody>
         {VARIANTS.map((variant) => (
           <tr key={variant}>
-            <td style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: '#40444A', paddingRight: 16 }}>
+            <td style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, color: 'var(--color-text-secondary)', paddingRight: 16 }}>
               {variant}
             </td>
             {STATES.map((state) => (

@@ -1,5 +1,5 @@
 /* Accordion — MonoSchemes Design System
- * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 86:368
+ * Figma: XZ8yMM8VJihEwmyFaW6sCB · Accordion/Item node 1690:480
  *
  * Atomic hierarchy:
  *   .accordion           — container for multiple items
@@ -45,12 +45,16 @@
 }
 
 .accordion-header:hover {
-  background: var(--color-bg-hover, rgba(0, 0, 0, 0.04));
+  background: var(--color-bg-hover);
 }
 
 .accordion-header:focus-visible {
   outline: 2px solid var(--color-border-focused);
   outline-offset: -2px;
+}
+
+.accordion-header:disabled {
+  background: var(--color-bg-disabled);
 }
 
 /* ─── Icon ───────────────────────────────────────────── */
@@ -66,7 +70,6 @@
 .accordion-item[data-disabled] .accordion-header {
   cursor: not-allowed;
   color: var(--color-text-disabled);
-  opacity: 0.5;
 }
 
 .accordion-item[data-disabled] .accordion-header:hover {
@@ -84,4 +87,5 @@
 
 .accordion-content {
   padding: 0 var(--spacing-md) var(--spacing-lg) var(--spacing-md);
+  color: var(--color-text-primary);
 }
