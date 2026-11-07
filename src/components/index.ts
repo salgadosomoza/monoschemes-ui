@@ -19,6 +19,7 @@ export * from './Grid';
 export * from './Image';
 export * from './Link';
 export * from './Logo';
+export * from './Menu';
 export * from './NavItem';
 export * from './Notification/Banner';
 export * from './Notification/Modal';
