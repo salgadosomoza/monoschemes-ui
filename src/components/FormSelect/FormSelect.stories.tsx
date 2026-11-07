@@ -38,7 +38,7 @@ export const Default: Story = {
 
 export const WithOptions: Story = {
   args: { options: SAMPLE_OPTIONS, placeholder: 'Select a team', label: 'Team' },
-  parameters: figma('2-15'),
+  parameters: figma('2006-368'),
 };
 
 export const WithValue: Story = {

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Button } from '../Button';
-import { ButtonText } from '../ButtonText';
 import './Pagination.css';
 
 export interface PaginationProps {
@@ -31,8 +30,7 @@ export function Pagination({
       {showPrevNext && (
         <Button
           variant="secondary"
-          iconPosition="left"
-          iconName="chevron_left"
+          iconLeft="chevron_left"
           label="Prev"
           disabled={current === 1}
           onClick={() => goTo(current - 1)}
@@ -41,17 +39,16 @@ export function Pagination({
       <div className="pagination-pages">
         {Array.from({ length: totalPages }, (_, i) => i + 1).map(page =>
           page === current ? (
-            <Button key={page} variant="secondary" label={String(page)} onClick={() => goTo(page)} />
+            <Button key={page} variant="link" label={String(page)} onClick={() => goTo(page)} />
           ) : (
-            <ButtonText key={page} state="default" label={String(page)} onClick={() => goTo(page)} />
+            <Button key={page} variant="link" label={String(page)} onClick={() => goTo(page)} />
           )
         )}
       </div>
       {showPrevNext && (
         <Button
           variant="secondary"
-          iconPosition="right"
-          iconName="chevron_right"
+          iconRight="chevron_right"
           label="Next"
           disabled={current === totalPages}
           onClick={() => goTo(current + 1)}

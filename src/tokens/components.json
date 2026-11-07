@@ -37,66 +37,56 @@
       }
     },
     "Button": {
-      "figmaNode": "3:76",
+      "figmaNode": "2030:1786",
       "props": {
         "variant": {
           "type": "variant",
           "values": [
             "primary",
-            "secondary"
+            "secondary",
+            "tertiary",
+            "danger",
+            "link"
           ],
           "default": "primary"
         },
-        "iconPosition": {
+        "size": {
           "type": "variant",
-          "values": [
-            "none",
-            "left",
-            "right"
-          ],
-          "default": "none"
+          "values": ["sm", "md", "lg"],
+          "default": "md"
         },
-        "disabled": {
-          "type": "boolean",
-          "default": false
-        }
+        "label": {
+          "type": "string",
+          "default": "Button",
+          "requiredWhen": { "iconOnly": true }
+        },
+        "iconLeft": { "type": "string" },
+        "iconRight": { "type": "string" },
+        "iconOnly": { "type": "boolean", "default": false },
+        "disabled": { "type": "boolean", "default": false },
+        "loading": { "type": "boolean", "default": false }
       }
     },
     "Button/Icon": {
       "figmaNode": "22:519",
+      "deprecated": true,
+      "replacedBy": "Button",
       "props": {
         "variant": {
           "type": "variant",
-          "values": [
-            "primary",
-            "secondary"
-          ],
+          "values": ["primary", "secondary", "tertiary", "danger"],
           "default": "primary"
         },
-        "state": {
-          "type": "variant",
-          "values": [
-            "enabled",
-            "hover",
-            "disabled"
-          ],
-          "default": "enabled"
-        }
+        "state": { "type": "variant", "values": ["enabled", "hover", "disabled"], "default": "enabled" }
       }
     },
     "Button/Text": {
       "figmaNode": "76:808",
+      "deprecated": true,
+      "replacedBy": "Button",
       "props": {
-        "state": {
-          "type": "variant",
-          "values": [
-            "default",
-            "hover",
-            "active",
-            "disabled"
-          ],
-          "default": "default"
-        }
+        "variant": { "type": "constant", "value": "link" },
+        "state": { "type": "variant", "values": ["default", "disabled"], "default": "default" }
       }
     },
     "Chip": {

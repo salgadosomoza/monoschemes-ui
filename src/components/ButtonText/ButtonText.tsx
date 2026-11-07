@@ -1,35 +1,17 @@
-import type React from 'react';
-import './ButtonText.css';
+import { Button } from '../Button';
+import type { CSSProperties } from 'react';
 
 export type ButtonTextState = 'default' | 'disabled';
 
+/** @deprecated Use `Button` with `variant="link"`. */
 export interface ButtonTextProps {
-  /** Visual/interactive state of the button. */
   state?: ButtonTextState;
-  /** Text label displayed inside the button. */
   label?: string;
-  /** Inline styles — used for visual state simulation in Storybook. */
-  style?: React.CSSProperties;
-  /** Callback fired when the button is clicked. */
+  style?: CSSProperties;
   onClick?: () => void;
 }
 
-export function ButtonText({
-  state = 'default',
-  label = 'Button',
-  style,
-  onClick,
-}: ButtonTextProps) {
-  return (
-    <button
-      className="button-text"
-      data-state={state}
-      disabled={state === 'disabled'}
-      onClick={onClick}
-      style={style}
-      type="button"
-    >
-      {label}
-    </button>
-  );
+/** @deprecated Use `Button` with `variant="link"`. */
+export function ButtonText({ state = 'default', label = 'Button', style, onClick }: ButtonTextProps) {
+  return <Button variant="link" label={label} disabled={state === 'disabled'} style={style} onClick={onClick} />;
 }

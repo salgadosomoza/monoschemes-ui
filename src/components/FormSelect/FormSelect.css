@@ -48,6 +48,10 @@
   cursor: not-allowed;
 }
 
+.form-select-trigger[data-open] {
+  border-color: var(--color-border-strong);
+}
+
 .form-select-trigger:disabled .form-select-value,
 .form-select-trigger:disabled .form-select-chevron {
   color: var(--color-text-disabled);
@@ -55,6 +59,10 @@
 
 .form-select[data-error] .form-select-trigger {
   border-color: var(--color-border-error);
+}
+
+.form-select[data-error] .form-select-trigger[data-open] {
+  border-color: var(--color-border-strong);
 }
 
 /* ─── Displayed value / placeholder ───────────────── */
@@ -101,9 +109,8 @@
   list-style: none;
   margin: 0;
   padding: var(--gap-xs) 0;
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--color-border-strong);
   background: var(--color-bg-page);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-height: 240px;
   overflow-y: auto;
 }
@@ -111,12 +118,12 @@
 /* ─── Option ───────────────────────────────────────── */
 
 .form-select-option {
-  padding: var(--gap-sm) var(--spacing-xs);
+  padding: var(--spacing-xs);
   font-family: var(--font-family);
   font-size: var(--font-caption-size);
   font-weight: var(--font-caption-weight);
   line-height: var(--font-caption-line-height);
-  color: var(--color-text-primary);
+  color: var(--color-text-strong);
   cursor: pointer;
   transition: background 0.1s;
 }
@@ -126,7 +133,8 @@
 }
 
 .form-select-option[data-selected] {
-  background: var(--color-bg-surface);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
   font-weight: var(--font-subtitle2-weight);
 }
 

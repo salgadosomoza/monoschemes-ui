@@ -19,8 +19,12 @@
   --color-gray-800: #2B2F36;
   --color-gray-900: #1E1F22;
   --color-rust-300: #EC9C88;
+  --color-rust-400: #E07F6A;
+  --color-rust-450: #D9735E;
   --color-rust-500: #B15C4A;
   --color-rust-600: #9E4F3F;
+  --color-rust-700: #853F32;
+  --color-rust-800: #6E3429;
   --color-green-400: #8DA59D;
   --color-yellow-400: #D1B475;
   --color-blue-400: #7A9EB1;
@@ -48,6 +52,12 @@
   --color-bg-hover: var(--color-gray-100);
   --color-bg-disabled: var(--color-gray-25);
   --color-bg-inverse: var(--color-black);
+  --color-bg-inverse-hover: var(--color-gray-800);
+  --color-bg-inverse-pressed: var(--color-gray-700);
+  --color-bg-pressed: var(--color-gray-200);
+  --color-bg-danger: var(--color-rust-600);
+  --color-bg-danger-hover: var(--color-rust-700);
+  --color-bg-danger-pressed: var(--color-rust-800);
   --color-bg-placeholder: var(--color-gray-200);
 
   /* Semantic colors — layout */
@@ -170,6 +180,12 @@
   --color-bg-hover: var(--color-gray-700);
   --color-bg-disabled: var(--color-gray-800);
   --color-bg-inverse: var(--color-white);
+  --color-bg-inverse-hover: var(--color-gray-300);
+  --color-bg-inverse-pressed: var(--color-gray-350);
+  --color-bg-pressed: var(--color-gray-500);
+  --color-bg-danger: var(--color-rust-300);
+  --color-bg-danger-hover: var(--color-rust-400);
+  --color-bg-danger-pressed: var(--color-rust-450);
   --color-bg-placeholder: var(--color-gray-500);
 
   --color-grid-gutter: var(--color-gray-700);

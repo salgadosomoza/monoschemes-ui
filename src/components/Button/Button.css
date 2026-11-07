@@ -1,15 +1,14 @@
-/* Button — MonoSchemes Design System
- * Source: monoschemes-kit/src/components/button.css
- * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 3:76
- */
-
+/* Button — Figma MonoSchemes-kit, set 2030:1786 */
 .button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 100px;
+  height: 40px;
+  padding: var(--spacing-xs) var(--spacing-sm);
   gap: var(--gap-sm);
-  padding: var(--spacing-sm);
-  border: none;
+  border: 0;
   border-radius: 0;
   font-family: var(--font-family);
   font-size: var(--font-caption-size);
@@ -17,56 +16,46 @@
   line-height: var(--font-caption-line-height);
   cursor: pointer;
   white-space: nowrap;
+  transition: background-color 120ms ease, color 120ms ease;
 }
 
-/* ─── Variant: primary ────────────────────────────── */
+.button[data-size="sm"] { min-width: 64px; height: 32px; padding: var(--spacing-2xs) var(--spacing-sm); gap: var(--gap-xs); }
+.button[data-size="md"] { min-width: 100px; height: 40px; }
+.button[data-size="lg"] { min-width: 120px; height: 48px; padding: var(--spacing-sm) var(--spacing-md); font-size: var(--font-subtitle2-size); line-height: var(--font-subtitle2-line-height); }
+.button[data-icon-only] { width: 40px; min-width: 0; height: 40px; padding: var(--spacing-xs); gap: 0; }
+.button[data-icon-only][data-size="sm"] { width: 32px; height: 32px; }
+.button[data-icon-only][data-size="lg"] { width: 48px; height: 48px; }
 
-.button[data-variant="primary"] {
-  background: var(--color-bg-inverse);
-  color: var(--color-text-inverse);
-}
+.button__content { display: inline-flex; align-items: center; justify-content: center; gap: inherit; }
+.button[data-loading] .button__content { opacity: 0; }
+.button__icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 auto; }
+.button[data-size="sm"] .button__icon { width: 16px; height: 16px; }
+.button__icon .material-symbols-outlined { font-size: 24px; line-height: 1; }
+.button[data-size="sm"] .button__icon .material-symbols-outlined { font-size: 16px; }
+.button__spinner { position: absolute; width: 18px; height: 18px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: button-spin 700ms linear infinite; }
+@keyframes button-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .button { transition: none; } .button__spinner { animation-duration: 1400ms; } }
 
-.button[data-variant="primary"]:hover:not(:disabled) {
-  background: var(--color-gray-800);
-}
+.button[data-variant="primary"] { background: var(--color-bg-inverse); color: var(--color-text-inverse); }
+.button[data-variant="primary"]:hover:not(:disabled) { background: var(--color-bg-inverse-hover); }
+.button[data-variant="primary"]:active:not(:disabled) { background: var(--color-bg-inverse-pressed); }
+.button[data-variant="secondary"] { background: var(--color-bg-page); color: var(--color-text-strong); border: 1px solid var(--color-border-strong); }
+.button[data-variant="secondary"]:hover:not(:disabled) { background: var(--color-bg-hover); }
+.button[data-variant="secondary"]:active:not(:disabled) { background: var(--color-bg-pressed); }
+.button[data-variant="tertiary"] { background: transparent; color: var(--color-text-strong); }
+.button[data-variant="tertiary"]:hover:not(:disabled) { background: var(--color-bg-hover); }
+.button[data-variant="tertiary"]:active:not(:disabled) { background: var(--color-bg-pressed); }
+.button[data-variant="danger"] { background: var(--color-bg-danger); color: var(--color-text-inverse); }
+.button[data-variant="danger"]:hover:not(:disabled) { background: var(--color-bg-danger-hover); }
+.button[data-variant="danger"]:active:not(:disabled) { background: var(--color-bg-danger-pressed); }
+.button[data-variant="link"] { min-width: 0; height: auto; padding: 0; background: transparent; color: var(--color-text-strong); text-decoration: underline; }
+.button[data-variant="link"]:hover:not(:disabled) { color: var(--color-text-secondary); }
+.button[data-variant="link"]:active:not(:disabled) { color: var(--color-text-primary); }
 
-/* ─── Variant: secondary ──────────────────────────── */
-
-.button[data-variant="secondary"] {
-  background: var(--color-bg-page);
-  color: var(--color-text-strong);
-  border: 1px solid var(--color-border-strong);
-}
-
-.button[data-variant="secondary"]:hover:not(:disabled) {
-  background: var(--color-bg-hover);
-}
-
-/* ─── With icon ──────────────────────────────────── */
-
-.button[data-has-icon] {
-  padding: var(--spacing-xs) var(--spacing-sm);
-}
-
-.button__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-}
-
-.button__icon .material-symbols-outlined {
-  font-size: 20px;
-  line-height: 1;
-}
-
-/* ─── Disabled ────────────────────────────────────── */
-
-.button:disabled {
-  background: var(--color-bg-disabled);
-  color: var(--color-text-disabled);
-  border: none;
-  cursor: not-allowed;
-}
+.button:focus-visible { outline: 2px solid var(--color-border-focused); outline-offset: 2px; }
+.button:disabled { cursor: not-allowed; color: var(--color-text-disabled); }
+.button[data-variant="primary"]:disabled, .button[data-variant="danger"]:disabled { background: var(--color-bg-disabled); }
+.button[data-variant="secondary"]:disabled { background: var(--color-bg-page); border-color: var(--color-border-disabled); }
+.button[data-variant="tertiary"]:disabled, .button[data-variant="link"]:disabled { background: transparent; }
+.button.button--legacy-hover[data-variant="primary"]:not(:disabled) { background: var(--color-bg-inverse-hover); }
+.button.button--legacy-hover[data-variant="secondary"]:not(:disabled) { background: var(--color-bg-hover); }
