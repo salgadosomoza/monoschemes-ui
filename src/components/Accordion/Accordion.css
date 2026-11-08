@@ -86,6 +86,9 @@
 /* ─── Content ────────────────────────────────────────── */
 
 .accordion-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
   padding: 0 var(--spacing-md) var(--spacing-lg) var(--spacing-md);
   color: var(--color-text-primary);
 }

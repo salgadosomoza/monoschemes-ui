@@ -8,6 +8,7 @@ const meta = {
   parameters: { layout: 'fullscreen' },
   tags: ['autodocs'],
   argTypes: {
+    message: { control: 'text' },
     type: { control: 'select', options: ['default', 'success', 'error', 'warning'] },
     duration: { control: 'number' },
     isVisible: { control: 'boolean' },

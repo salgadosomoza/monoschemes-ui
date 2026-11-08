@@ -7,6 +7,8 @@ export interface ChipProps {
   type?: ChipType;
   /** Text label displayed inside the chip. */
   label?: string;
+  /** Shows the remove control. Defaults to true. */
+  showClose?: boolean;
   /** Callback fired when the close button is clicked. */
   onClose?: () => void;
   /** Makes the chip HTML5 draggable. Auto-enabled when type="drag". */
@@ -50,6 +52,7 @@ function CloseIcon() {
 export function Chip({
   type = 'default',
   label = 'Chip name',
+  showClose = true,
   onClose,
   draggable,
 }: ChipProps) {
@@ -63,14 +66,16 @@ export function Chip({
     >
       {type === 'drag' && <DragHandle />}
       <span className="chip-label">{label}</span>
-      <button
-        className="chip-close"
-        type="button"
-        aria-label={`Remove ${label}`}
-        onClick={onClose}
-      >
-        <CloseIcon />
-      </button>
+      {showClose && (
+        <button
+          className="chip-close"
+          type="button"
+          aria-label={`Remove ${label}`}
+          onClick={onClose}
+        >
+          <CloseIcon />
+        </button>
+      )}
     </div>
   );
 }

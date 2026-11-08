@@ -1,3 +1,8 @@
+.app-header-container {
+  container: app-header / inline-size;
+  width: 100%;
+}
+
 .app-header {
   width: 100%;
   border-bottom: 1px solid var(--color-border-default);
@@ -8,7 +13,7 @@
 .app-header-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: var(--gap-md);
   width: 100%;
   padding: var(--spacing-md);
   box-sizing: border-box;
@@ -17,82 +22,43 @@
 .app-header-left {
   display: flex;
   align-items: center;
-  gap: var(--gap-sm);
-  flex-shrink: 0;
+  gap: var(--gap-md);
+  flex: 0 0 auto;
 }
 
-.app-header-site-title {
-  font-family: var(--font-family);
-  font-size: var(--font-subtitle1-size);
-  font-weight: var(--font-subtitle1-weight);
-  line-height: var(--font-subtitle1-line-height);
-  color: var(--color-text-primary);
-}
-
+.app-header-site-title,
 .app-header-tagline {
   font-family: var(--font-family);
-  font-size: var(--font-caption-size);
-  font-weight: var(--font-caption-weight);
-  line-height: var(--font-caption-line-height);
-  color: var(--color-text-secondary);
+  font-size: var(--font-body1-size);
+  font-weight: var(--font-body1-weight);
+  line-height: var(--font-body1-line-height);
+  color: var(--color-text-strong);
+  white-space: nowrap;
 }
 
 .app-header-nav {
   display: flex;
   align-items: center;
-  gap: var(--gap-xs);
+  justify-content: flex-end;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
-.app-header-right {
+.app-header-actions {
   display: flex;
   align-items: center;
-  gap: var(--gap-sm);
-  flex-shrink: 0;
+  gap: var(--gap-md);
+  flex: 0 0 auto;
 }
 
-/* ─── Hamburger ───────────────────────────────────── */
-
-.app-header-hamburger {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  color: var(--color-text-primary);
-}
-
-/* ─── Mobile nav dropdown ─────────────────────────── */
-
-.app-header-mobile-nav {
-  display: none;
-  flex-direction: column;
-  width: 100%;
-  background: var(--color-bg-page);
-  border-top: 1px solid var(--color-border-default);
-}
-
-.app-header-mobile-nav > * {
-  padding: 16px var(--spacing-md);
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* ─── Responsive ──────────────────────────────────── */
-
-@media (max-width: 767px) {
-  .app-header-nav {
+@container app-header (max-width: 1023px) {
+  .app-header-nav,
+  .app-header-site-title,
+  .app-header-tagline {
     display: none;
   }
 
-  .app-header-hamburger {
-    display: flex;
-  }
-
-  .app-header-mobile-nav {
-    display: flex;
+  .app-header-top {
+    justify-content: space-between;
   }
 }

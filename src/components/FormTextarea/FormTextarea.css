@@ -33,7 +33,7 @@
   line-height: var(--font-caption-line-height);
   color: var(--color-text-primary);
   outline: none;
-  resize: both;
+  resize: vertical;
   box-sizing: border-box;
   transition: box-shadow 0.15s;
 }

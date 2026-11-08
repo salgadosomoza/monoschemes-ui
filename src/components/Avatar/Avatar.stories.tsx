@@ -4,6 +4,7 @@ import type { AvatarType, AvatarVariant } from './Avatar';
 
 const TYPES: AvatarType[] = ['icon', 'initials', 'image'];
 const VARIANTS: AvatarVariant[] = ['round', 'rounded', 'square'];
+const SIZES = ['sm', 'md', 'lg'] as const;
 
 const meta = {
   title: 'Components/Avatar',
@@ -23,6 +24,7 @@ const meta = {
       options: VARIANTS,
       description: 'Controls the border-radius shape (maps from Figma "style").',
     },
+    size: { control: 'select', options: SIZES, description: 'Avatar diameter: 32, 48, or 64 pixels.' },
     initials: {
       control: 'text',
       description: 'Text shown when type="initials".',
@@ -53,47 +55,47 @@ const figma = (nodeId: string) => ({
 });
 
 export const IconRound: Story = {
-  args: { type: 'icon', variant: 'round' },
+  args: { type: 'icon', variant: 'round', size: 'lg' },
   parameters: figma('2-34'),
 };
 
 export const IconRounded: Story = {
-  args: { type: 'icon', variant: 'rounded' },
+  args: { type: 'icon', variant: 'rounded', size: 'lg' },
   parameters: figma('206-1479'),
 };
 
 export const IconSquare: Story = {
-  args: { type: 'icon', variant: 'square' },
+  args: { type: 'icon', variant: 'square', size: 'lg' },
   parameters: figma('206-1489'),
 };
 
 export const InitialsRound: Story = {
-  args: { type: 'initials', variant: 'round', initials: 'WM' },
+  args: { type: 'initials', variant: 'round', size: 'lg', initials: 'WM' },
   parameters: figma('2-33'),
 };
 
 export const InitialsRounded: Story = {
-  args: { type: 'initials', variant: 'rounded', initials: 'WM' },
+  args: { type: 'initials', variant: 'rounded', size: 'lg', initials: 'WM' },
   parameters: figma('206-1483'),
 };
 
 export const InitialsSquare: Story = {
-  args: { type: 'initials', variant: 'square', initials: 'WM' },
+  args: { type: 'initials', variant: 'square', size: 'lg', initials: 'WM' },
   parameters: figma('206-1493'),
 };
 
 export const ImageRound: Story = {
-  args: { type: 'image', variant: 'round' },
+  args: { type: 'image', variant: 'round', size: 'lg' },
   parameters: figma('4-217'),
 };
 
 export const ImageRounded: Story = {
-  args: { type: 'image', variant: 'rounded' },
+  args: { type: 'image', variant: 'rounded', size: 'lg' },
   parameters: figma('206-1485'),
 };
 
 export const ImageSquare: Story = {
-  args: { type: 'image', variant: 'square' },
+  args: { type: 'image', variant: 'square', size: 'lg' },
   parameters: figma('206-1495'),
 };
 
@@ -106,9 +108,9 @@ export const AllCombinations: Story = {
       <thead>
         <tr>
           <th />
-          {VARIANTS.map((v) => (
+          {SIZES.flatMap((size) => VARIANTS.map((variant) => (
             <th
-              key={v}
+              key={`${size}-${variant}`}
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: 14,
@@ -118,9 +120,9 @@ export const AllCombinations: Story = {
                 paddingBottom: 8,
               }}
             >
-              {v}
+              {size} · {variant}
             </th>
-          ))}
+          )))}
         </tr>
       </thead>
       <tbody>
@@ -136,11 +138,11 @@ export const AllCombinations: Story = {
             >
               {type}
             </td>
-            {VARIANTS.map((variant) => (
-              <td key={variant} style={{ textAlign: 'center' }}>
-                <Avatar type={type} variant={variant} />
+            {SIZES.flatMap((size) => VARIANTS.map((variant) => (
+              <td key={`${size}-${variant}`} style={{ textAlign: 'center' }}>
+                <Avatar type={type} variant={variant} size={size} />
               </td>
-            ))}
+            )))}
           </tr>
         ))}
       </tbody>

@@ -11,6 +11,8 @@ const meta = {
   argTypes: {
     isOpen: { control: 'boolean' },
     closeOnOverlayClick: { control: 'boolean' },
+    title: { control: 'text' },
+    body: { control: 'text' },
   },
 } satisfies Meta<typeof Modal>;
 
@@ -21,14 +23,13 @@ const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSche
 const figma = (id: string) => ({ design: { type: 'figma', url: FIGMA_BASE + id } });
 
 export const Default: Story = {
+  args: { isOpen: false, onClose: () => {} },
   render: () => {
     const [open, setOpen] = useState(false);
     return (
       <div style={{ padding: 40 }}>
         <Button label="Open Modal" onClick={() => setOpen(true)} />
-        <Modal isOpen={open} onClose={() => setOpen(false)} title="Modal Title">
-          <p>This is the modal body content. It can contain any React content.</p>
-        </Modal>
+        <Modal isOpen={open} onClose={() => setOpen(false)} title="Modal Title" body="This is the modal body content." />
       </div>
     );
   },
@@ -36,6 +37,7 @@ export const Default: Story = {
 };
 
 export const WithFooter: Story = {
+  args: { isOpen: false, onClose: () => {} },
   render: () => {
     const [open, setOpen] = useState(false);
     return (
@@ -45,15 +47,14 @@ export const WithFooter: Story = {
           isOpen={open}
           onClose={() => setOpen(false)}
           title="Confirm Action"
+          body="Are you sure you want to proceed with this action?"
           footer={
             <>
               <Button variant="secondary" label="Cancel" onClick={() => setOpen(false)} />
               <Button variant="primary" label="Confirm" onClick={() => setOpen(false)} />
             </>
           }
-        >
-          <p>Are you sure you want to proceed with this action?</p>
-        </Modal>
+        />
       </div>
     );
   },
@@ -61,6 +62,7 @@ export const WithFooter: Story = {
 };
 
 export const WithLongContent: Story = {
+  args: { isOpen: false, onClose: () => {} },
   render: () => {
     const [open, setOpen] = useState(false);
     return (
@@ -78,6 +80,7 @@ export const WithLongContent: Story = {
 };
 
 export const NoOverlayClose: Story = {
+  args: { isOpen: false, onClose: () => {} },
   render: () => {
     const [open, setOpen] = useState(false);
     return (

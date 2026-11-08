@@ -91,7 +91,7 @@ function InContextMenu() {
         onClick={() => setIsOpen((open) => !open)}
       />
       {isOpen && (
-        <div style={{ position: 'absolute', top: 'calc(100% + var(--spacing-2xs))', right: 0, zIndex: 1 }}>
+        <div style={{ position: 'absolute', top: 'calc(100% + var(--spacing-2xs))', left: 0, zIndex: 1 }}>
           <Menu aria-label="More actions" onClose={closeMenu}>
             <MenuItem label="Edit" onSelect={closeMenu} />
             <MenuItem label="Duplicate" onSelect={closeMenu} />

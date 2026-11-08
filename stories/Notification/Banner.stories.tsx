@@ -7,6 +7,7 @@ const meta = {
   parameters: { layout: 'fullscreen' },
   tags: ['autodocs'],
   argTypes: {
+    message: { control: 'text' },
     position: { control: 'select', options: ['top', 'bottom'] },
     isVisible: { control: 'boolean' },
   },

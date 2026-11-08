@@ -21,7 +21,11 @@ const meta = {
     disabled: { control: 'boolean' },
     loading: { control: 'boolean' },
     label: { control: 'text' },
-    iconLeft: { control: 'text' },
+    iconLeft: {
+      control: 'select',
+      options: ['search', 'more_horiz', 'add', 'close', 'delete', 'edit', 'settings', 'menu', 'favorite', 'download'],
+      description: 'Material Symbols name. In IconOnly, choose the icon here.',
+    },
     iconRight: { control: 'text' },
     iconOnly: { control: 'boolean' },
   },
@@ -37,7 +41,13 @@ export const Danger: Story = { args: { variant: 'danger', label: 'Delete' }, par
 export const Link: Story = { args: { variant: 'link', label: 'Text link' }, parameters: figma(nodeByVariant.link) };
 export const Disabled: Story = { args: { variant: 'primary', label: 'Button', disabled: true }, parameters: figma('2030-482') };
 export const Loading: Story = { args: { variant: 'primary', label: 'Loading', loading: true }, parameters: figma('2030-472') };
-export const IconOnly: Story = { args: { variant: 'primary', label: 'Search', iconOnly: true, iconLeft: 'search' }, parameters: figma('2030-490') };
+export const IconOnly: Story = {
+  args: { variant: 'primary', label: 'Search', iconOnly: true, iconLeft: 'search' },
+  parameters: {
+    ...figma('2030-490'),
+    docs: { description: { story: 'Use the iconLeft control to choose a Material Symbols icon. The label provides the accessible name and is not shown visually.' } },
+  },
+};
 export const Small: Story = { args: { variant: 'primary', size: 'sm', label: 'Small' }, parameters: figma('2030-541') };
 export const Large: Story = { args: { variant: 'primary', size: 'lg', label: 'Large' }, parameters: figma('2030-643') };
 

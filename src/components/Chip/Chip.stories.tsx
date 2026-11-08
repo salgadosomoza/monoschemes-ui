@@ -22,6 +22,7 @@ const meta = {
       control: 'text',
       description: 'Text label displayed inside the chip.',
     },
+    showClose: { control: 'boolean', description: 'Shows or hides the remove control.' },
     draggable: {
       control: 'boolean',
       description: 'Makes the chip HTML5 draggable. Auto-enabled when type="drag".',
@@ -48,6 +49,11 @@ export const Default: Story = {
 export const Drag: Story = {
   args: { type: 'drag', label: 'Chip name' },
   parameters: figma('10-447'),
+};
+
+export const WithoutClose: Story = {
+  args: { type: 'default', label: 'Chip name', showClose: false },
+  parameters: figma('10-468'),
 };
 
 // ─── All combinations overview ──────────────────────

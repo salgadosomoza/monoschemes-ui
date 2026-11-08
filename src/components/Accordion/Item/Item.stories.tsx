@@ -13,6 +13,7 @@ const meta = {
   tags: ['autodocs'],
   args: { title: 'Section title', children: 'Accordion panel content.', defaultExpanded: false, disabled: false },
   argTypes: {
+    title: { control: 'text' },
     defaultExpanded: { control: 'boolean' },
     expanded: { control: 'boolean' },
     disabled: { control: 'boolean' },

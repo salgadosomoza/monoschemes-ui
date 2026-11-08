@@ -3,12 +3,15 @@ import './Avatar.css';
 
 export type AvatarType = 'icon' | 'initials' | 'image';
 export type AvatarVariant = 'round' | 'rounded' | 'square';
+export type AvatarSize = 'sm' | 'md' | 'lg';
 
 export interface AvatarProps {
   /** Determines the avatar content: icon placeholder, initials text, or an image. */
   type?: AvatarType;
-  /** Controls the border-radius shape. Maps from Figma "style" prop. */
+  /** Controls the border-radius shape. */
   variant?: AvatarVariant;
+  /** Avatar diameter: 32, 48, or 64 pixels. */
+  size?: AvatarSize;
   /** Initials to display when type="initials". */
   initials?: string;
   /** Image URL when type="image". Falls back to an image placeholder when omitted. */
@@ -20,8 +23,6 @@ export interface AvatarProps {
 function IconPlaceholder() {
   return (
     <svg
-      width="38.4"
-      height="38.4"
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden="true"
@@ -34,8 +35,6 @@ function IconPlaceholder() {
 function ImagePlaceholder() {
   return (
     <svg
-      width="38.4"
-      height="38.4"
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden="true"
@@ -48,6 +47,7 @@ function ImagePlaceholder() {
 export function Avatar({
   type = 'icon',
   variant = 'round',
+  size = 'lg',
   initials = 'WM',
   src,
   alt = '',
@@ -67,7 +67,7 @@ export function Avatar({
   }
 
   return (
-    <div className="avatar" data-type={type} data-variant={variant}>
+    <div className="avatar" data-type={type} data-variant={variant} data-size={size}>
       {content}
     </div>
   );

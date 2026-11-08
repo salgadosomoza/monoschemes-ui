@@ -3,6 +3,8 @@
     "Accordion/Item": {
       "figmaNode": "1690:480",
       "props": {
+        "title": { "type": "string", "default": "Section title" },
+        "children": { "type": "slot" },
         "expanded": {
           "type": "boolean",
           "default": false
@@ -10,7 +12,15 @@
         "disabled": {
           "type": "boolean",
           "default": false
-        }
+        },
+        "defaultExpanded": { "type": "boolean", "default": false }
+      }
+    },
+    "Accordion/Panel": {
+      "figmaNode": "1687:461",
+      "props": {
+        "expanded": { "type": "boolean", "default": false },
+        "children": { "type": "slot" }
       }
     },
     "Avatar": {
@@ -33,7 +43,26 @@
             "square"
           ],
           "default": "round"
-        }
+        },
+        "size": { "type": "variant", "values": ["sm", "md", "lg"], "default": "lg" },
+        "initials": { "type": "string", "default": "WM" },
+        "src": { "type": "string" },
+        "alt": { "type": "string", "default": "" }
+      }
+    },
+    "AppHeader": {
+      "figmaNode": "2:45",
+      "props": {
+        "hasLogo": { "type": "boolean", "default": true },
+        "hasSiteTitle": { "type": "boolean", "default": true },
+        "hasTagline": { "type": "boolean", "default": true },
+        "hasNav": { "type": "boolean", "default": true },
+        "hasActions": { "type": "boolean", "default": true },
+        "siteTitle": { "type": "string", "default": "Site title" },
+        "tagline": { "type": "string", "default": "Tagline" },
+        "logo": { "type": "object", "default": { "type": "image" } },
+        "nav": { "type": "slot" },
+        "actions": { "type": "slot" }
       }
     },
     "Button": {
@@ -99,7 +128,9 @@
             "drag"
           ],
           "default": "default"
-        }
+        },
+        "label": { "type": "string", "default": "Chip name" },
+        "showClose": { "type": "boolean", "default": true }
       }
     },
     "Form/Checkbox": {
@@ -231,6 +262,7 @@
     "Form/Textarea": {
       "figmaNode": "1441:406",
       "props": {
+        "placeholder": { "type": "string", "default": "Text" },
         "status": {
           "type": "variant",
           "values": [
@@ -429,6 +461,7 @@
     "Notification/Toast": {
       "figmaNode": "10:479",
       "props": {
+        "message": { "type": "string" },
         "type": {
           "type": "variant",
           "values": [
@@ -448,6 +481,7 @@
     "Notification/Banner": {
       "figmaNode": "475:79",
       "props": {
+        "message": { "type": "string" },
         "position": {
           "type": "variant",
           "values": [
@@ -461,6 +495,8 @@
     "Notification/Modal": {
       "figmaNode": "475:1894",
       "props": {
+        "title": { "type": "string" },
+        "body": { "type": "string" },
         "isOpen": {
           "type": "boolean",
           "default": false
@@ -471,17 +507,17 @@
         }
       }
     },
-    "AppHeader": {
-      "figmaNode": "2:45",
+    "Notification/InlineNotification": {
+      "figmaNode": "492:2172",
       "props": {
-        "showAvatar": {
-          "type": "boolean",
-          "default": false
-        },
-        "showActions": {
-          "type": "boolean",
-          "default": false
-        }
+        "message": { "type": "string" }
+      }
+    },
+    "Nav": {
+      "figmaNode": "673:2323",
+      "props": {
+        "children": { "type": "slot" },
+        "aria-label": { "type": "string", "default": "Main navigation" }
       }
     }
   }

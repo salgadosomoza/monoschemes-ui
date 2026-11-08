@@ -27,17 +27,17 @@ const figma = (nodeId: string) => ({
 
 export const Default: Story = {
   args: { placeholder: 'Text' },
-  parameters: figma('76-801'),
+  parameters: figma('1441-406'),
 };
 
 export const WithLabel: Story = {
   args: { label: 'Description', placeholder: 'Enter a description…', helperText: 'Max 500 characters' },
-  parameters: figma('76-801'),
+  parameters: figma('1441-406'),
 };
 
 export const Disabled: Story = {
   args: { label: 'Description', placeholder: 'Text', disabled: true },
-  parameters: figma('76-801'),
+  parameters: figma('1441-406'),
 };
 
 export const WithError: Story = {
@@ -47,5 +47,5 @@ export const WithError: Story = {
     error: true,
     helperText: 'This field is required',
   },
-  parameters: figma('76-801'),
+  parameters: figma('1441-406'),
 };

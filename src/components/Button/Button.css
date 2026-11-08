@@ -25,6 +25,7 @@
 .button[data-icon-only] { width: 40px; min-width: 0; height: 40px; padding: var(--spacing-xs); gap: 0; }
 .button[data-icon-only][data-size="sm"] { width: 32px; height: 32px; }
 .button[data-icon-only][data-size="lg"] { width: 48px; height: 48px; }
+.button[data-icon-only] .button-label { display: none; }
 
 .button__content { display: inline-flex; align-items: center; justify-content: center; gap: inherit; }
 .button[data-loading] .button__content { opacity: 0; }

@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import './Accordion.css';
 
 export interface AccordionPanelProps {
   /** Whether the panel is visible. */

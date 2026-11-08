@@ -1,2 +1,2 @@
 export { AppHeader } from './AppHeader';
-export type { AppHeaderProps, AppHeaderNavItem, AppHeaderLogoProps, AppHeaderAvatarProps } from './AppHeader';
+export type { AppHeaderProps, AppHeaderLogoProps } from './AppHeader';

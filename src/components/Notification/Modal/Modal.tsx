@@ -6,7 +6,10 @@ export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  children: ReactNode;
+  /** Main dialog copy from the Figma body property. */
+  body?: string;
+  /** @deprecated Use body for plain text content. Kept for richer custom content. */
+  children?: ReactNode;
   footer?: ReactNode;
   closeOnOverlayClick?: boolean;
 }
@@ -15,6 +18,7 @@ export function Modal({
   isOpen,
   onClose,
   title,
+  body,
   children,
   footer,
   closeOnOverlayClick = true,
@@ -68,7 +72,7 @@ export function Modal({
             ×
           </button>
         </div>
-        <div className="modal-body">{children}</div>
+        <div className="modal-body">{body ?? children}</div>
         {footer && <div className="modal-footer">{footer}</div>}
       </div>
     </div>

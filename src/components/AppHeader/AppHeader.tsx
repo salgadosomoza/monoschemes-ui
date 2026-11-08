@@ -1,104 +1,74 @@
-import { useState } from 'react';
+import type { ReactNode } from 'react';
 import { Logo } from '../Logo';
-import { NavItem } from '../NavItem';
 import { Avatar } from '../Avatar';
-import type { AvatarType, AvatarVariant } from '../Avatar';
-import '../../styles/icons.css';
+import { Button } from '../Button';
+import { Nav } from '../Nav';
 import './AppHeader.css';
-
-export interface AppHeaderNavItem {
-  label: string;
-  href?: string;
-  status?: 'default' | 'hover' | 'active';
-}
 
 export interface AppHeaderLogoProps {
   type: 'text' | 'image';
   label?: string;
   src?: string;
-}
-
-export interface AppHeaderAvatarProps {
-  type: AvatarType;
-  variant?: AvatarVariant;
+  alt?: string;
 }
 
 export interface AppHeaderProps {
+  /** Logo component settings; supports swapping between a text or image mark. */
   logo?: AppHeaderLogoProps;
+  /** Shows or hides the logo. Defaults to true. */
+  hasLogo?: boolean;
+  /** Shows or hides the site title. Defaults to true on desktop. */
+  hasSiteTitle?: boolean;
+  /** Shows or hides the tagline. Defaults to true on desktop. */
+  hasTagline?: boolean;
+  /** Shows or hides the navigation slot. Defaults to true on desktop. */
+  hasNav?: boolean;
+  /** Shows or hides the actions slot. Defaults to true. */
+  hasActions?: boolean;
   siteTitle?: string;
   tagline?: string;
-  navItems?: AppHeaderNavItem[];
-  showAvatar?: boolean;
-  avatarProps?: AppHeaderAvatarProps;
-  showActions?: boolean;
-  onMenuClick?: () => void;
+  /** Navigation content, commonly a Nav containing any number of NavItems. */
+  nav?: ReactNode;
+  /** Action content such as Buttons, an Avatar, or a Menu trigger. */
+  actions?: ReactNode;
 }
 
 export function AppHeader({
-  logo,
-  siteTitle,
-  tagline,
-  navItems = [],
-  showAvatar = false,
-  avatarProps,
+  logo = { type: 'image' },
+  hasLogo = true,
+  hasSiteTitle = true,
+  hasTagline = true,
+  hasNav = true,
+  hasActions = true,
+  siteTitle = 'Site title',
+  tagline = 'Tagline',
+  nav,
+  actions,
 }: AppHeaderProps) {
-  const [activeNav, setActiveNav] = useState<string | null>(null);
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-
   return (
-    <header className="app-header">
-      <div className="app-header-top">
-        <div className="app-header-left">
-          {logo && <Logo type={logo.type} label={logo.label} src={logo.src} />}
-          {siteTitle && <span className="app-header-site-title">{siteTitle}</span>}
-          {tagline && <span className="app-header-tagline">{tagline}</span>}
-        </div>
+    <div className="app-header-container">
+      <header className="app-header">
+        <div className="app-header-top">
+          <div className="app-header-left">
+            {hasLogo && <Logo type={logo.type} label={logo.label} src={logo.src} alt={logo.alt} />}
+            {hasSiteTitle && <span className="app-header-site-title">{siteTitle}</span>}
+            {hasTagline && <span className="app-header-tagline">{tagline}</span>}
+          </div>
 
-        {navItems.length > 0 && (
-          <nav className="app-header-nav" aria-label="Main navigation">
-            {navItems.map(item => (
-              <NavItem
-                key={item.label}
-                label={item.label}
-                href={item.href}
-                status={activeNav === item.label ? 'active' : (item.status ?? 'default')}
-                onClick={() => setActiveNav(item.label)}
-              />
-            ))}
-          </nav>
-        )}
+          {hasNav && <div className="app-header-nav">{nav ?? <Nav />}</div>}
 
-        <div className="app-header-right">
-          {showAvatar && avatarProps && (
-            <Avatar type={avatarProps.type} variant={avatarProps.variant} />
-          )}
-          {navItems.length > 0 && (
-            <button
-              className="app-header-hamburger"
-              aria-label="Toggle navigation"
-              aria-expanded={showMobileMenu}
-              onClick={() => setShowMobileMenu(v => !v)}
-              type="button"
-            >
-              <span className="material-symbols-outlined">menu</span>
-            </button>
+          {hasActions && (
+            <div className="app-header-actions">
+              {actions ?? (
+                <>
+                  <Avatar type="initials" size="sm" initials="WM" />
+                  <Button variant="tertiary" size="sm" iconOnly iconLeft="menu" label="Open menu" />
+                </>
+              )}
+            </div>
           )}
         </div>
-      </div>
-
-      {showMobileMenu && navItems.length > 0 && (
-        <nav className="app-header-mobile-nav" aria-label="Mobile navigation">
-          {navItems.map(item => (
-            <NavItem
-              key={item.label}
-              label={item.label}
-              href={item.href}
-              status={activeNav === item.label ? 'active' : (item.status ?? 'default')}
-              onClick={() => { setActiveNav(item.label); setShowMobileMenu(false); }}
-            />
-          ))}
-        </nav>
-      )}
-    </header>
+      </header>
+    </div>
   );
 }
