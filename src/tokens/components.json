@@ -452,16 +452,47 @@
         }
       }
     },
+    "Divider": {
+      "figmaNode": "2270:316",
+      "props": {
+        "orientation": { "type": "variant", "values": ["horizontal", "vertical"], "default": "horizontal" },
+        "tone": { "type": "variant", "values": ["default", "strong"], "default": "default" },
+        "decorative": { "type": "boolean", "default": false }
+      }
+    },
+    "Footer": {
+      "figmaNode": "2271:269",
+      "props": {
+        "brandName": { "type": "string", "default": "Brand" },
+        "brandDescription": { "type": "string", "default": "One-line description of the product." },
+        "showBrand": { "type": "boolean", "default": true },
+        "columns": { "type": "slot" },
+        "legal": { "type": "string" },
+        "meta": { "type": "slot" }
+      }
+    },
+    "Footer/Column": {
+      "figmaNode": "2271:260",
+      "props": {
+        "heading": { "type": "string" },
+        "children": { "type": "slot" }
+      }
+    },
     "Tag": {
       "figmaNode": "285:4420",
       "props": {
         "type": {
           "type": "variant",
           "values": [
-            "default"
+            "default",
+            "subtle",
+            "inverse"
           ],
           "default": "default"
-        }
+        },
+        "size": { "type": "variant", "values": ["md", "sm"], "default": "md" },
+        "label": { "type": "string", "default": "Tag name" },
+        "color": { "type": "string" }
       }
     },
     "Text": {

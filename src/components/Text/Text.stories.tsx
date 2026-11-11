@@ -148,3 +148,15 @@ export const AlignmentAndWidth: Story = {
     </div>
   ),
 };
+
+export const NarrowColumn: Story = {
+  args: { style: 'body-2', children: 'Fit-content text should wrap inside this 200px column without overflowing its container.' },
+  parameters: figma('130-1708'),
+  render: () => (
+    <div style={{ width: 200, padding: 16, border: '1px dashed var(--color-border-default)' }}>
+      <Text style="body-2">
+        Fit-content text should wrap inside this 200px column without overflowing its container.
+      </Text>
+    </div>
+  ),
+};

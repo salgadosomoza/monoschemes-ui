@@ -7,6 +7,8 @@ export * from './ButtonIcon';
 export * from './ButtonText';
 export * from './Card';
 export * from './Chip';
+export * from './Divider';
+export * from './Footer';
 export * from './FormCheckbox';
 export * from './FormDate';
 export * from './FormFileUpload';
