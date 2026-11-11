@@ -7,7 +7,7 @@ const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSche
 const meta = {
   title: 'Components/SearchTrigger',
   component: SearchTrigger,
-  args: { placeholder: 'Search icons', onClick: () => {} },
+  args: { placeholder: 'Search icons', size: 'md', onClick: () => {} },
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -19,6 +19,7 @@ const meta = {
     },
   },
   argTypes: {
+    size: { control: 'inline-radio', options: ['md', 'lg'] },
     placeholder: { control: 'text', description: 'Search prompt shown in the trigger.' },
     shortcut: { control: 'text', description: 'Shortcut displayed in Kbd. Defaults to /.' },
     showShortcut: { control: 'boolean', description: 'Shows or hides the shortcut badge. Defaults to true.' },
@@ -40,5 +41,13 @@ function SearchTriggerExample({ dark = false, showShortcut = true }: { dark?: bo
 }
 
 export const Default: Story = { args: { placeholder: 'Search icons', onClick: () => {} } };
+export const Large: Story = { args: { placeholder: 'Search icons', size: 'lg', onClick: () => {} } };
 export const WithoutShortcut: Story = { render: () => <SearchTriggerExample showShortcut={false} /> };
 export const Dark: Story = { render: () => <SearchTriggerExample dark /> };
+export const LargeDark: Story = {
+  render: () => (
+    <div data-theme="dark" style={{ padding: 24, background: 'var(--color-bg-page)' }}>
+      <SearchTrigger size="lg" placeholder="Search icons" onClick={() => {}} />
+    </div>
+  ),
+};

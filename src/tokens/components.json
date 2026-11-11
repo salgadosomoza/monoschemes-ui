@@ -529,19 +529,22 @@
     "Pagination": {
       "figmaNode": "8:335",
       "props": {
-        "currentPage": {
-          "type": "number",
-          "default": 1
-        },
+        "page": { "type": "number" },
+        "pageCount": { "type": "number" },
         "onPageChange": { "type": "event" },
-        "totalPages": {
-          "type": "number",
-          "default": 5
-        },
-        "showPrevNext": {
-          "type": "boolean",
-          "default": true
-        }
+        "siblingCount": { "type": "number", "default": 1 },
+        "showPrev": { "type": "boolean", "default": true },
+        "showNext": { "type": "boolean", "default": true },
+        "prevLabel": { "type": "string", "default": "Prev" },
+        "nextLabel": { "type": "string", "default": "Next" }
+      }
+    },
+    "Pagination/Item": {
+      "figmaNode": "2324:286",
+      "props": {
+        "label": { "type": "string", "default": "1" },
+        "state": { "type": "variant", "values": ["default", "current", "ellipsis"], "default": "default" },
+        "onClick": { "type": "event" }
       }
     },
     "Table": {
@@ -646,10 +649,42 @@
     "SearchTrigger": {
       "figmaNode": "2284:1900",
       "props": {
+        "size": { "type": "variant", "values": ["md", "lg"], "default": "md" },
         "placeholder": { "type": "string", "default": "Search" },
         "shortcut": { "type": "string", "default": "/" },
         "showShortcut": { "type": "boolean", "default": true },
         "onClick": { "type": "event" }
+      }
+    },
+    "SegmentedControl": {
+      "figmaNode": "2260:1145",
+      "props": {
+        "options": { "type": "array", "items": { "value": "string", "label": "string" } },
+        "value": { "type": "string" },
+        "onChange": { "type": "event" },
+        "aria-label": { "type": "string" }
+      }
+    },
+    "Form/Slider": {
+      "figmaNode": "2324:1636",
+      "props": {
+        "value": { "type": "number" },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "step": { "type": "number" },
+        "ticks": { "type": "array", "items": "number" },
+        "showTicks": { "type": "boolean", "default": true },
+        "disabled": { "type": "boolean", "default": false },
+        "aria-label": { "type": "string" },
+        "onChange": { "type": "event" }
+      }
+    },
+    "Form/Color field": {
+      "figmaNode": "2260:1161",
+      "props": {
+        "label": { "type": "string" },
+        "value": { "type": "string" },
+        "onChange": { "type": "event" }
       }
     },
     "Tabs": {

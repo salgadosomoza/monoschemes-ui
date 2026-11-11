@@ -3,6 +3,7 @@ import { Kbd } from '../Kbd';
 import './SearchTrigger.css';
 
 export interface SearchTriggerProps {
+  size?: 'md' | 'lg';
   placeholder?: string;
   shortcut?: string;
   showShortcut?: boolean;
@@ -10,16 +11,17 @@ export interface SearchTriggerProps {
 }
 
 export function SearchTrigger({
+  size = 'md',
   placeholder = 'Search',
   shortcut = '/',
   showShortcut = true,
   onClick,
 }: SearchTriggerProps) {
   return (
-    <button className="search-trigger" type="button" aria-label={placeholder} onClick={onClick}>
+    <button className="search-trigger" data-size={size} type="button" aria-label={placeholder} onClick={onClick}>
       <Icon className="search-trigger__icon" name="search" size={24} />
       <span className="search-trigger__placeholder">{placeholder}</span>
-      {showShortcut && <Kbd size="sm">{shortcut}</Kbd>}
+      {showShortcut && <Kbd size={size === 'lg' ? 'md' : 'sm'}>{shortcut}</Kbd>}
     </button>
   );
 }

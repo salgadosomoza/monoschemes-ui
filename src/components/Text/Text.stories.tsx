@@ -141,7 +141,7 @@ export const AlignmentAndWidth: Story = {
     fullWidth: true,
     children: 'MonoSchemes UI text fills the available space, wraps when needed, and supports left, center, or right alignment.',
   },
-  parameters: figma('130-1708'),
+  parameters: figma('2318-303'),
   render: (args) => (
     <div style={{ width: 640, padding: 24, border: '1px dashed var(--color-border-default)' }}>
       <Text {...args} />
@@ -151,7 +151,7 @@ export const AlignmentAndWidth: Story = {
 
 export const NarrowColumn: Story = {
   args: { style: 'body-2', children: 'Fit-content text should wrap inside this 200px column without overflowing its container.' },
-  parameters: figma('130-1708'),
+  parameters: figma('2318-313'),
   render: () => (
     <div style={{ width: 200, padding: 16, border: '1px dashed var(--color-border-default)' }}>
       <Text style="body-2">

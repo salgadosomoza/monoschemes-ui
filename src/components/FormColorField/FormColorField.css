@@ -1,0 +1,57 @@
+.form-color-field {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: var(--spacing-2xs) var(--spacing-xs);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-page);
+}
+
+.form-color-field__swatch {
+  position: relative;
+  display: block;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+}
+
+.form-color-field__input {
+  position: absolute;
+  inset: -2px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.form-color-field__input:focus-visible {
+  outline: none;
+}
+
+.form-color-field__swatch:focus-within {
+  outline: 2px solid var(--color-border-focused);
+  outline-offset: 2px;
+}
+
+.form-color-field__label {
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-body2-size);
+  font-weight: var(--font-body2-weight);
+  line-height: var(--font-body2-line-height);
+}
+
+.form-color-field__value {
+  color: var(--color-text-secondary);
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+}
