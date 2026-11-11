@@ -70,6 +70,36 @@ export const CustomSlots: Story = {
   parameters: figma('2-45'),
 };
 
+export const IconLogo: Story = {
+  render: () => (
+    <div style={{ width: 1440, maxWidth: '100%' }}>
+      <AppHeader
+        logo={{ type: 'icon', mark: 'brand-react', label: 'MonoSchemes' }}
+        siteTitle="MonoSchemes UI"
+        tagline="Design system"
+        nav={nav}
+        actions={actions}
+      />
+    </div>
+  ),
+  parameters: figma('2-45'),
+};
+
+export const IconLogoDark: Story = {
+  render: () => (
+    <div data-theme="dark" style={{ width: 1440, maxWidth: '100%', background: 'var(--color-bg-page)' }}>
+      <AppHeader
+        logo={{ type: 'icon', mark: 'brand-react', label: 'MonoSchemes' }}
+        siteTitle="MonoSchemes UI"
+        tagline="Design system"
+        nav={nav}
+        actions={actions}
+      />
+    </div>
+  ),
+  parameters: figma('2-45'),
+};
+
 export const Mobile: Story = {
   render: () => (
     <div style={{ width: 360, maxWidth: '100%' }}>

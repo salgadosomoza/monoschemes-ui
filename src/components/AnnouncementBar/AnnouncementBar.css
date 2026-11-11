@@ -1,0 +1,76 @@
+.announcement-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-xs) var(--container-padding-md);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}
+
+.announcement-bar__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+  max-width: calc(100% - 48px);
+  text-align: center;
+}
+
+.announcement-bar__message {
+  color: var(--color-text-inverse);
+  font-family: var(--font-family);
+  font-size: var(--font-body2-size);
+  font-weight: var(--font-body2-weight);
+  line-height: var(--font-body2-line-height);
+}
+
+.announcement-bar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-xs);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-inverse);
+  font-family: var(--font-family);
+  font-size: var(--font-subtitle2-size);
+  font-weight: var(--font-subtitle2-weight);
+  line-height: var(--font-subtitle2-line-height);
+  text-decoration: underline;
+  text-underline-offset: from-font;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.announcement-bar__link .icon {
+  flex: 0 0 16px;
+}
+
+.announcement-bar__close {
+  position: absolute;
+  top: 50%;
+  right: var(--container-padding-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-inverse);
+  cursor: pointer;
+}
+
+.announcement-bar__close:hover { background: var(--color-bg-inverse-hover); }
+.announcement-bar__close:focus-visible,
+.announcement-bar__link:focus-visible {
+  outline: 2px solid var(--color-border-focused);
+  outline-offset: 2px;
+}

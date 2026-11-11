@@ -60,7 +60,11 @@
         "hasActions": { "type": "boolean", "default": true },
         "siteTitle": { "type": "string", "default": "Site title" },
         "tagline": { "type": "string", "default": "Tagline" },
-        "logo": { "type": "object", "default": { "type": "image" } },
+        "logo": {
+          "type": "object",
+          "default": { "type": "image" },
+          "description": "Accepts Logo props including type text, image, or icon and mark for the icon type."
+        },
         "nav": { "type": "slot" },
         "actions": { "type": "slot" }
       }
@@ -418,10 +422,12 @@
           "type": "variant",
           "values": [
             "text",
-            "image"
+            "image",
+            "icon"
           ],
           "default": "text"
-        }
+        },
+        "mark": { "type": "enum", "reference": "Icon.name", "default": "search" }
       }
     },
     "Menu": {
@@ -621,6 +627,56 @@
       "figmaNode": "492:2172",
       "props": {
         "message": { "type": "string" }
+      }
+    },
+    "Notification/AnnouncementBar": {
+      "figmaNode": "2333:620",
+      "props": {
+        "message": { "type": "string" },
+        "linkLabel": { "type": "string", "default": "Learn more" },
+        "href": { "type": "string" },
+        "onLinkClick": { "type": "event" },
+        "showLink": { "type": "boolean", "default": true },
+        "showClose": { "type": "boolean", "default": true },
+        "onClose": { "type": "event" }
+      }
+    },
+    "EmptyState": {
+      "figmaNode": "2334:1580",
+      "props": {
+        "icon": { "type": "enum", "reference": "Icon.name", "default": "search" },
+        "showIcon": { "type": "boolean", "default": true },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "actions": { "type": "slot" }
+      }
+    },
+    "IconTile": {
+      "figmaNode": "2334:1599",
+      "props": {
+        "icon": { "type": "enum", "reference": "Icon.name" },
+        "label": { "type": "string" },
+        "selected": { "type": "boolean", "default": false },
+        "onClick": { "type": "event" }
+      }
+    },
+    "SideNav": {
+      "figmaNode": "2334:1613",
+      "props": {
+        "heading": { "type": "string", "default": "Section" },
+        "showHeading": { "type": "boolean", "default": true },
+        "children": { "type": "slot" }
+      }
+    },
+    "SideNav/Item": {
+      "figmaNode": "2260:1195",
+      "props": {
+        "label": { "type": "string" },
+        "count": { "type": "union", "values": ["string", "number"] },
+        "showCount": { "type": "boolean", "default": true },
+        "selected": { "type": "boolean", "default": false },
+        "href": { "type": "string" },
+        "onClick": { "type": "event" }
       }
     },
     "Nav": {

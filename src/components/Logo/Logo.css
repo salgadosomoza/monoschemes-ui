@@ -31,3 +31,15 @@ a.logo {
   border-radius: var(--radius-sm);
   flex-shrink: 0;
 }
+
+.logo-icon {
+  display: inline-flex;
+  flex: 0 0 40px;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}

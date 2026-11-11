@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Logo } from './Logo';
 import type { LogoType } from './Logo';
 
-const TYPES: LogoType[] = ['text', 'image'];
+const TYPES: LogoType[] = ['text', 'image', 'icon'];
 
 const meta = {
   title: 'Components/Logo',
@@ -15,7 +15,7 @@ const meta = {
     type: {
       control: 'select',
       options: TYPES,
-      description: 'Determines the logo content: text label or image.',
+      description: 'Determines the logo content: text label, image, or icon mark.',
     },
     label: {
       control: 'text',
@@ -31,6 +31,11 @@ const meta = {
       control: 'text',
       description: 'Alt text for the image.',
       if: { arg: 'type', eq: 'image' },
+    },
+    mark: {
+      control: 'select',
+      options: ['search', 'brand-react', 'palette', 'box'],
+      if: { arg: 'type', eq: 'icon' },
     },
     href: {
       control: 'text',
@@ -55,6 +60,20 @@ export const LogoText: Story = {
 export const LogoImage: Story = {
   args: { type: 'image', alt: 'Logo' },
   parameters: figma('727-2496'),
+};
+
+export const LogoIcon: Story = {
+  args: { type: 'icon', label: 'MonoSchemes', mark: 'brand-react' },
+  parameters: figma('727-2495'),
+};
+
+export const LogoIconDark: Story = {
+  render: () => (
+    <div data-theme="dark" style={{ padding: 24, background: 'var(--color-bg-page)' }}>
+      <Logo type="icon" label="MonoSchemes" mark="brand-react" />
+    </div>
+  ),
+  parameters: figma('727-2495'),
 };
 
 export const AllCombinations: Story = {
@@ -85,13 +104,15 @@ export const AllCombinations: Story = {
           <td style={{ textAlign: 'center' }}>
             <Logo type="text" label="Logo" />
           </td>
-          <td style={{ textAlign: 'center' }}>
-            <Logo type="image" />
-          </td>
+          {TYPES.slice(1).map((t) => (
+            <td key={t} style={{ textAlign: 'center' }}>
+              {t === 'image' ? <Logo type="image" /> : <Logo type="icon" mark="search" />}
+            </td>
+          ))}
         </tr>
         <tr>
           <td
-            colSpan={2}
+            colSpan={3}
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: 11,
@@ -109,6 +130,9 @@ export const AllCombinations: Story = {
           </td>
           <td style={{ textAlign: 'center' }}>
             <Logo type="image" href="#" />
+          </td>
+          <td style={{ textAlign: 'center' }}>
+            <Logo type="icon" mark="search" href="#" />
           </td>
         </tr>
       </tbody>

@@ -1,15 +1,18 @@
 import type { ReactNode } from 'react';
 import { Logo } from '../Logo';
+import type { LogoType } from '../Logo';
+import type { IconName } from '../Icon';
 import { Avatar } from '../Avatar';
 import { Button } from '../Button';
 import { Nav } from '../Nav';
 import './AppHeader.css';
 
 export interface AppHeaderLogoProps {
-  type: 'text' | 'image';
+  type: LogoType;
   label?: string;
   src?: string;
   alt?: string;
+  mark?: IconName;
 }
 
 export interface AppHeaderProps {
@@ -50,7 +53,7 @@ export function AppHeader({
       <header className="app-header">
         <div className="app-header-top">
           <div className="app-header-left">
-            {hasLogo && <Logo type={logo.type} label={logo.label} src={logo.src} alt={logo.alt} />}
+            {hasLogo && <Logo type={logo.type} label={logo.label} src={logo.src} alt={logo.alt} mark={logo.mark} />}
             {hasSiteTitle && <span className="app-header-site-title">{siteTitle}</span>}
             {hasTagline && <span className="app-header-tagline">{tagline}</span>}
           </div>
