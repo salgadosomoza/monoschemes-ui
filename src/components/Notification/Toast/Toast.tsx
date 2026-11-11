@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+import { Icon } from '../../Icon';
 import './Toast.css';
 
 export type ToastType = 'default' | 'success' | 'error' | 'warning';
@@ -47,7 +48,7 @@ export function Toast({
           onClose?.();
         }}
       >
-        ×
+        <Icon name="x" size={24} />
       </button>
     </div>
   );

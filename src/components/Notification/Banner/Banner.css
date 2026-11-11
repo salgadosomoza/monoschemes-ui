@@ -7,28 +7,29 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 40px 16px 48px;
-  background: var(--color-bg-inverse);
-  color: var(--color-text-inverse);
+  background: var(--color-bg-page);
+  color: var(--color-text-strong);
+  border: 1px solid var(--color-border-strong);
   z-index: 9990;
   box-sizing: border-box;
 }
 
 .banner[data-position="top"] {
   top: 0;
-  box-shadow: 0px 4px 0px 0px rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 0 var(--color-border-strong);
 }
 
 .banner[data-position="bottom"] {
   bottom: 0;
-  box-shadow: 0px -4px 0px 0px rgba(255, 255, 255, 1);
+  box-shadow: 0 -4px 0 var(--color-border-strong);
 }
 
 .banner-message {
   flex: 1;
   font-family: var(--font-family);
-  font-size: var(--font-caption-size);
-  font-weight: var(--font-caption-weight);
-  line-height: var(--font-caption-line-height);
+  font-size: var(--font-body1-size);
+  font-weight: var(--font-body1-weight);
+  line-height: var(--font-body1-line-height);
 }
 
 .banner-actions {
@@ -38,9 +39,9 @@
 }
 
 .banner-action-btn {
-  border: 1px solid var(--color-text-inverse);
+  border: 1px solid var(--color-border-strong);
   background: none;
-  color: var(--color-text-inverse);
+  color: var(--color-text-strong);
   cursor: pointer;
   padding: 6px var(--spacing-sm);
   font-family: var(--font-family);
@@ -48,9 +49,14 @@
 }
 
 .banner-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   border: none;
   background: none;
-  color: var(--color-text-inverse);
+  color: var(--color-text-strong);
   cursor: pointer;
   padding: 0;
   font-size: 20px;

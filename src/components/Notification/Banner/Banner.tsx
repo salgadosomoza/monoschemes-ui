@@ -1,4 +1,5 @@
 import './Banner.css';
+import { Icon } from '../../Icon';
 
 export interface BannerAction {
   label: string;
@@ -33,7 +34,7 @@ export function Banner({
         )}
         {onClose && (
           <button type="button" className="banner-close" aria-label="Close banner" onClick={onClose}>
-            ×
+            <Icon name="x" size={24} />
           </button>
         )}
       </div>

@@ -92,6 +92,7 @@
         "iconLeft": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"], "reference": "Icon.name" },
         "iconRight": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"], "reference": "Icon.name" },
         "iconOnly": { "type": "boolean", "default": false },
+        "aria-current": { "type": "enum", "values": ["page"] },
         "disabled": { "type": "boolean", "default": false },
         "loading": { "type": "boolean", "default": false }
       }
@@ -527,6 +528,7 @@
           "type": "number",
           "default": 1
         },
+        "onPageChange": { "type": "event" },
         "totalPages": {
           "type": "number",
           "default": 5
@@ -567,7 +569,9 @@
         "duration": {
           "type": "number",
           "default": 3000
-        }
+        },
+        "isVisible": { "type": "boolean", "default": false },
+        "onClose": { "type": "event" }
       }
     },
     "Notification/Banner": {
@@ -581,7 +585,10 @@
             "bottom"
           ],
           "default": "top"
-        }
+        },
+        "isVisible": { "type": "boolean", "default": false },
+        "onClose": { "type": "event" },
+        "action": { "type": "object" }
       }
     },
     "Notification/Modal": {
@@ -589,6 +596,9 @@
       "props": {
         "title": { "type": "string" },
         "body": { "type": "string" },
+        "onClose": { "type": "event" },
+        "children": { "type": "slot", "deprecated": true },
+        "footer": { "type": "slot" },
         "isOpen": {
           "type": "boolean",
           "default": false

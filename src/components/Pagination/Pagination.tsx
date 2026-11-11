@@ -26,7 +26,7 @@ export function Pagination({
   }
 
   return (
-    <div className="pagination">
+    <nav className="pagination" aria-label="Pagination">
       {showPrevNext && (
         <Button
           variant="secondary"
@@ -36,14 +36,17 @@ export function Pagination({
           onClick={() => goTo(current - 1)}
         />
       )}
-      <div className="pagination-pages">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page =>
-          page === current ? (
-            <Button key={page} variant="link" label={String(page)} onClick={() => goTo(page)} />
-          ) : (
-            <Button key={page} variant="link" label={String(page)} onClick={() => goTo(page)} />
-          )
-        )}
+      <div className="pagination-pages" role="group" aria-label="Page numbers">
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+          <Button
+            key={page}
+            variant={page === current ? 'secondary' : 'link'}
+            aria-current={page === current ? 'page' : undefined}
+            className="pagination-page"
+            label={String(page)}
+            onClick={() => goTo(page)}
+          />
+        ))}
       </div>
       {showPrevNext && (
         <Button
@@ -54,6 +57,6 @@ export function Pagination({
           onClick={() => goTo(current + 1)}
         />
       )}
-    </div>
+    </nav>
   );
 }

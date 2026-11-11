@@ -10,11 +10,11 @@
 
 .modal {
   width: 480px;
-  background: var(--color-bg-inverse);
-  color: var(--color-text-inverse);
+  background: var(--color-bg-page);
+  color: var(--color-text-strong);
   padding: 40px 40px 16px;
-  border: 1px solid var(--color-text-inverse);
-  box-shadow: -4px 4px 0px 0px rgba(255, 255, 255, 1);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: -4px 4px 0 var(--color-border-strong);
   box-sizing: border-box;
   outline: none;
   max-height: 90vh;
@@ -33,14 +33,19 @@
   font-size: var(--font-h5-size);
   font-weight: var(--font-h5-weight);
   line-height: var(--font-h5-line-height);
-  color: var(--color-text-inverse);
+  color: var(--color-text-strong);
   margin: 0;
 }
 
 .modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   border: none;
   background: none;
-  color: var(--color-text-inverse);
+  color: var(--color-text-strong);
   cursor: pointer;
   padding: 0;
   font-size: 24px;
@@ -55,10 +60,10 @@
 
 .modal-body {
   font-family: var(--font-family);
-  font-size: var(--font-body2-size);
-  font-weight: var(--font-body2-weight);
-  line-height: var(--font-body2-line-height);
-  color: var(--color-text-inverse);
+  font-size: var(--font-body1-size);
+  font-weight: var(--font-body1-weight);
+  line-height: var(--font-body1-line-height);
+  color: var(--color-text-strong);
 }
 
 .modal-footer {

@@ -22,6 +22,8 @@ interface ButtonBaseProps {
   /** @deprecated Use `iconLeft`, `iconRight`, or `iconOnly`. */
   iconPosition?: ButtonIconPosition;
   onClick?: () => void;
+  /** Marks the current page when the button represents the active pagination item. */
+  'aria-current'?: 'page';
 }
 
 export type ButtonProps = ButtonBaseProps &
@@ -41,6 +43,7 @@ export function Button({
   className,
   style,
   onClick,
+  'aria-current': ariaCurrent,
 }: ButtonProps) {
   const resolvedIconOnly = iconOnly || iconPosition === 'only';
   const resolvedLeft = iconLeft ?? (iconPosition === 'left' ? iconName : undefined) ?? (iconPosition === 'only' ? iconName : undefined);
@@ -65,6 +68,7 @@ export function Button({
       onClick={onClick}
       type="button"
       aria-label={resolvedIconOnly ? label : undefined}
+      aria-current={ariaCurrent}
       aria-busy={loading || undefined}
     >
       {loading && <span className="button__spinner" aria-hidden="true" />}

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { useEffect, useRef } from 'react';
+import { Icon } from '../../Icon';
 import './Modal.css';
 
 export interface ModalProps {
@@ -69,7 +70,7 @@ export function Modal({
             aria-label="Close modal"
             onClick={onClose}
           >
-            ×
+            <Icon name="x" size={24} />
           </button>
         </div>
         <div className="modal-body">{body ?? children}</div>

@@ -27,7 +27,8 @@
 .button[data-icon-only][data-size="lg"] { width: 48px; height: 48px; }
 .button[data-icon-only] .button-label { display: none; }
 
-.button__content { display: inline-flex; align-items: center; justify-content: center; gap: inherit; }
+.button__content { display: flex; flex: 1 1 auto; min-width: 0; align-items: center; justify-content: center; gap: inherit; }
+.button-label { flex: 1 0 0; min-width: 0; text-align: center; }
 .button[data-loading] .button__content { opacity: 0; }
 .button__icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 auto; }
 .button[data-size="sm"] .button__icon { width: 16px; height: 16px; }

@@ -5,13 +5,21 @@ import { Toast } from '../../src/components/Notification/Toast';
 const meta = {
   title: 'Components/Notification/Toast',
   component: Toast,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'A short-lived confirmation such as “Changes saved”. It appears briefly and dismisses itself; do not put required actions or long-form content in a toast. The surface uses semantic page, text, border and shadow tokens, so it adapts to the active theme.\n\n`message` is the Figma text property. The React API adds `type`, `duration`, `isVisible` and `onClose`; setting `duration` to 0 disables automatic dismissal. The current Figma component documents the default appearance; `type` is an implementation extension and does not change the visual treatment yet.',
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
-    message: { control: 'text' },
-    type: { control: 'select', options: ['default', 'success', 'error', 'warning'] },
-    duration: { control: 'number' },
-    isVisible: { control: 'boolean' },
+    message: { control: 'text', description: 'Short notification copy, matching the Figma message property.' },
+    type: { control: 'select', options: ['default', 'success', 'error', 'warning'], description: 'React extension. Currently does not alter the visual token treatment.' },
+    duration: { control: 'number', description: 'Auto-dismiss delay in milliseconds. Defaults to 3000; 0 keeps the toast visible until closed.' },
+    isVisible: { control: 'boolean', description: 'Shows the toast. Defaults to false.' },
+    onClose: { action: 'closed', description: 'Called when the toast closes automatically or through its close control.' },
   },
 } satisfies Meta<typeof Toast>;
 

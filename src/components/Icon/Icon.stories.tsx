@@ -15,16 +15,22 @@ const meta = {
   title: 'Components/Icon',
   component: Icon,
   args: { name: 'info-circle', size: 24 },
-  argTypes: {
-    name: { control: 'select', options: iconNames },
-    size: { control: { type: 'number', min: 8, max: 64, step: 4 } },
-    stroke: { control: { type: 'number', min: 1, max: 3, step: 0.25 } },
-  },
+  tags: ['autodocs'],
   parameters: {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=130-2058',
     },
+    docs: {
+      description: {
+        component: 'Renders a Tabler icon from the shared icon set. Choose a name from `IconName`; size is measured in pixels and stroke defaults to the shared icon-stroke token. Use semantic text color on the surrounding component rather than setting primitive colors on the icon.',
+      },
+    },
+  },
+  argTypes: {
+    name: { control: 'select', options: iconNames, description: 'Tabler icon name from the shared icon set.' },
+    size: { control: { type: 'number', min: 8, max: 64, step: 4 }, description: 'Rendered width and height in pixels. Defaults to 24.' },
+    stroke: { control: { type: 'number', min: 1, max: 3, step: 0.25 }, description: 'Optional stroke width override; defaults to the icon-stroke token.' },
   },
 } satisfies Meta<typeof Icon>;
 

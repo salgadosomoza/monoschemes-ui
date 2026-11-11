@@ -6,13 +6,23 @@ import { Button } from '../../src/components/Button';
 const meta = {
   title: 'Components/Notification/Modal',
   component: Modal,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'A dialog that interrupts the current flow to confirm a decision or collect focused input. Use it sparingly; information that can stay inline should not be put in a modal. Place the primary action on the right and use a link-style Button for Cancel. The surface follows the active theme with semantic page, text and border tokens.\n\nReact behavior: `isOpen` controls visibility; Escape and the close control call `onClose`, and overlay clicks do so when `closeOnOverlayClick` is true. The dialog receives focus when opened. Use `body` for the Figma text property; `children` remains as a deprecated rich-content escape hatch. `footer` is a React-only slot for action controls.',
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
-    isOpen: { control: 'boolean' },
-    closeOnOverlayClick: { control: 'boolean' },
-    title: { control: 'text' },
-    body: { control: 'text' },
+    isOpen: { control: 'boolean', description: 'Controls whether the dialog is mounted and visible.' },
+    onClose: { action: 'closed', description: 'Called by Escape, the close control, or the overlay when enabled.' },
+    closeOnOverlayClick: { control: 'boolean', description: 'Allows clicking the backdrop to close the dialog. Defaults to true.' },
+    title: { control: 'text', description: 'Optional dialog heading, matching the Figma title property.' },
+    body: { control: 'text', description: 'Plain-text dialog body, matching the Figma body property.' },
+    children: { control: false, description: 'Deprecated rich content slot. Prefer body for plain text.' },
+    footer: { control: false, description: 'Optional React slot for actions such as Cancel and Confirm.' },
   },
 } satisfies Meta<typeof Modal>;
 
@@ -50,7 +60,7 @@ export const WithFooter: Story = {
           body="Are you sure you want to proceed with this action?"
           footer={
             <>
-              <Button variant="secondary" label="Cancel" onClick={() => setOpen(false)} />
+              <Button variant="link" label="Cancel" onClick={() => setOpen(false)} />
               <Button variant="primary" label="Confirm" onClick={() => setOpen(false)} />
             </>
           }

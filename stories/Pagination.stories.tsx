@@ -5,12 +5,20 @@ import { Pagination } from '../src/components/Pagination';
 const meta = {
   title: 'Components/Pagination',
   component: Pagination,
-  parameters: { layout: 'centered' },
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: 'Navigation for a long list or table. It shows previous/next controls and a button for every page, and highlights the current page. For short lists, prefer showing all items or a “load more” action. The previous/next controls follow Figma Button/WithIcon sizing: 40px high, 12px horizontal and 8px vertical padding, an 8px icon gap, and a 24px icon.\n\n`currentPage` makes the component controlled; omit it to use the built-in state (starts at page 1). `onPageChange` fires for page-number and previous/next actions. This implementation lists every page and does not collapse long ranges into an ellipsis.',
+      },
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
-    currentPage: { control: 'number' },
-    totalPages: { control: 'number' },
-    showPrevNext: { control: 'boolean' },
+    currentPage: { control: 'number', description: 'Current page. When provided, the component is controlled by the parent.' },
+    totalPages: { control: 'number', description: 'Number of pages to display. Defaults to 5.' },
+    onPageChange: { action: 'page changed', description: 'Called with the selected page number.' },
+    showPrevNext: { control: 'boolean', description: 'Shows or hides the Prev and Next buttons.' },
   },
 } satisfies Meta<typeof Pagination>;
 

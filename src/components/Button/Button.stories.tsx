@@ -13,21 +13,29 @@ const nodeByVariant: Record<ButtonVariant, string> = {
 const meta = {
   title: 'Components/Button',
   component: Button,
-  parameters: { layout: 'centered' },
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: 'The primary control for an action. Choose primary for the main action, secondary or tertiary for supporting actions, danger for destructive actions and link for text actions. Use Link for navigation and Form/Toggle for on/off settings. An icon-only Button requires an accessible `label`; loading keeps the button width and prevents repeat activation.',
+      },
+    },
+  },
   argTypes: {
-    variant: { control: 'select', options: variants },
-    size: { control: 'select', options: sizes },
-    disabled: { control: 'boolean' },
-    loading: { control: 'boolean' },
-    label: { control: 'text' },
+    variant: { control: 'select', options: variants, description: 'Action emphasis and intent, matching the Figma variant.' },
+    size: { control: 'select', options: sizes, description: 'Button height: sm 32px, md 40px or lg 48px.' },
+    disabled: { control: 'boolean', description: 'Prevents activation and applies the disabled token treatment.' },
+    loading: { control: 'boolean', description: 'Shows a spinner, keeps the button dimensions and blocks repeat clicks.' },
+    label: { control: 'text', description: 'Visible button text, or the accessible name when iconOnly is true.' },
     iconLeft: {
       control: 'select',
       options: ['search', 'dots', 'plus', 'x', 'menu-2', 'star', 'download', 'chevron-left', 'chevron-right'],
-      description: 'Tabler icon name, matching the Figma Icon/<name> component.',
+      description: 'Tabler icon name, matching the Figma Icon/<name> component. Medium buttons use a 24px icon, an 8px gap, and 12px horizontal / 8px vertical padding.',
     },
-    iconRight: { control: 'select', options: ['search', 'dots', 'plus', 'x', 'menu-2', 'star', 'download', 'chevron-left', 'chevron-right'] },
-    iconOnly: { control: 'boolean' },
+    iconRight: { control: 'select', options: ['search', 'dots', 'plus', 'x', 'menu-2', 'star', 'download', 'chevron-left', 'chevron-right'], description: 'Optional Tabler icon after the label. Medium buttons use a 24px icon, an 8px gap, and 12px horizontal / 8px vertical padding.' },
+    iconOnly: { control: 'boolean', description: 'Shows only iconLeft; label remains required as its accessible name.' },
+    'aria-current': { control: 'select', options: ['page'], description: 'Marks the active item when the button represents the current pagination page.' },
   },
 } satisfies Meta<typeof Button>;
 

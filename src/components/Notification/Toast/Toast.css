@@ -6,10 +6,10 @@
   align-items: flex-start;
   gap: var(--gap-md);
   padding: 40px;
-  background: var(--color-bg-inverse);
-  color: var(--color-text-inverse);
-  border: 1px solid var(--color-text-inverse);
-  box-shadow: -4px 4px 0px 0px rgba(255, 255, 255, 1);
+  background: var(--color-bg-page);
+  color: var(--color-text-strong);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: -4px 4px 0 var(--color-border-strong);
   z-index: 9999;
   animation: toast-slide-in 0.2s ease;
   box-sizing: border-box;
@@ -36,10 +36,15 @@
 }
 
 .toast-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   border: none;
   background: none;
-  color: var(--color-text-inverse);
+  color: var(--color-text-strong);
   cursor: pointer;
   padding: 0;
   font-size: 20px;
