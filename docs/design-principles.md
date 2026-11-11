@@ -20,8 +20,9 @@ de 1 px, tipografía y tonos, nunca con esquinas redondeadas.
 El token --radius-full solo se usa en:
 
 - Avatar con shape="round" para personas.
-- FormRadio.
-- El pulgar de FormSlider.
+- FormRadio y su anillo de foco.
+- El pulgar de FormSlider; su anillo de foco conserva la forma circular del pulgar.
+- El spinner de carga de Button.
 
 El resto de los componentes y anillos de foco usa --radius-none.
 

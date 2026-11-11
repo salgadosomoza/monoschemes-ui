@@ -59,11 +59,13 @@
 }
 
 .form-slider__input:focus-visible::-webkit-slider-thumb {
-  box-shadow: 0 0 0 2px var(--color-border-focused);
+  outline: 2px solid var(--color-border-focused);
+  outline-offset: 2px;
 }
 
 .form-slider__input:focus-visible::-moz-range-thumb {
-  box-shadow: 0 0 0 2px var(--color-border-focused);
+  outline: 2px solid var(--color-border-focused);
+  outline-offset: 2px;
 }
 
 .form-slider__input:disabled { cursor: not-allowed; }

@@ -18,11 +18,12 @@ function DesignPrinciplesPage() {
         </p>
         <ul style={{ margin: 0, paddingLeft: 24, fontFamily: 'var(--font-family)', fontSize: 'var(--font-body2-size)', lineHeight: 1.6 }}>
           <li>Avatar with shape="round" for people.</li>
-          <li>FormRadio.</li>
-          <li>The FormSlider thumb.</li>
+          <li>FormRadio and its focus ring.</li>
+          <li>The FormSlider thumb; its focus ring follows the thumb shape.</li>
+          <li>The Button loading spinner.</li>
         </ul>
         <p style={{ margin: '16px 0 0', fontFamily: 'var(--font-family)', fontSize: 'var(--font-body2-size)', lineHeight: 'var(--font-body2-line-height)' }}>
-          All other components, including focus rings, use radius-none.
+          All other components and focus rings use radius-none, except the listed circular controls.
         </p>
       </section>
     </main>
