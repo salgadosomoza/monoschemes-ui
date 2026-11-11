@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
+import { Button } from '../../src/components/Button';
 import { Toast } from '../../src/components/Notification/Toast';
 
 const meta = {
@@ -38,8 +39,8 @@ export const AutoDismiss: Story = {
   render: () => {
     const [visible, setVisible] = useState(true);
     return (
-      <div>
-        <button onClick={() => setVisible(true)} style={{ margin: 16 }}>Show Toast</button>
+      <div style={{ padding: 16 }}>
+        <Button label="Show Toast" onClick={() => setVisible(true)} />
         <Toast message="Auto-dismisses in 3 seconds" isVisible={visible} duration={3000} onClose={() => setVisible(false)} />
       </div>
     );
