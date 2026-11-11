@@ -28,6 +28,7 @@ type Story = StoryObj<typeof meta>;
 export const Small: Story = { args: { children: '/' } };
 export const Medium: Story = { args: { children: '⌘K', size: 'md' } };
 export const Dark: Story = {
+  globals: { theme: 'dark' },
   args: { children: '⌥ Space', size: 'md' },
-  render: (args) => <div data-theme="dark" style={{ padding: 24, background: 'var(--color-bg-page)' }}><Kbd {...args} /></div>,
+  render: (args) => <div style={{ padding: 24, background: 'var(--color-bg-page)' }}><Kbd {...args} /></div>,
 };

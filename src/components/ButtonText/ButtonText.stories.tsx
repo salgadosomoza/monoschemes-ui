@@ -71,7 +71,7 @@ export const AllStates: Story = {
             style: {
               outline: 'none',
               boxShadow: '0 0 0 3px var(--color-border-focused)',
-              borderRadius: 2,
+              borderRadius: 'var(--radius-none)',
             },
           },
           { label: 'disabled', disabled: true },

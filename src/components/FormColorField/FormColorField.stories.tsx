@@ -28,14 +28,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function ColorFieldExample({ dark = false }: { dark?: boolean }) {
+function ColorFieldExample() {
   const [value, setValue] = useState('#262626');
   return (
-    <div data-theme={dark ? 'dark' : undefined} style={{ padding: 24, background: 'var(--color-bg-page)' }}>
+    <div style={{ padding: 24, background: 'var(--color-bg-page)' }}>
       <FormColorField label="Ink" value={value} onChange={setValue} />
     </div>
   );
 }
 
 export const Default: Story = { render: () => <ColorFieldExample /> };
-export const Dark: Story = { render: () => <ColorFieldExample dark /> };
+export const Dark: Story = { globals: { theme: 'dark' }, render: () => <ColorFieldExample /> };

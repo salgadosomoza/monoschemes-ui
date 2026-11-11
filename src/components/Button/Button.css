@@ -9,7 +9,7 @@
   padding: var(--spacing-xs) var(--spacing-sm);
   gap: var(--gap-sm);
   border: 0;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   font-family: var(--font-family);
   font-size: var(--font-caption-size);
   font-weight: 700;
@@ -33,7 +33,7 @@
 .button__icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 auto; }
 .button[data-size="sm"] .button__icon { width: 16px; height: 16px; }
 .button__icon .icon { display: block; }
-.button__spinner { position: absolute; width: 18px; height: 18px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: button-spin 700ms linear infinite; }
+.button__spinner { position: absolute; width: 18px; height: 18px; border: 2px solid currentColor; border-right-color: transparent; border-radius: var(--radius-none); animation: button-spin 700ms linear infinite; }
 @keyframes button-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .button { transition: none; } .button__spinner { animation-duration: 1400ms; } }
 

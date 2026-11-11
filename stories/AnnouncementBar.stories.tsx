@@ -37,10 +37,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function AnnouncementExample({ dark = false }: { dark?: boolean }) {
+function AnnouncementExample() {
   const [visible, setVisible] = useState(true);
   return (
-    <div data-theme={dark ? 'dark' : undefined} style={{ background: 'var(--color-bg-page)', minHeight: 120 }}>
+    <div style={{ background: 'var(--color-bg-page)', minHeight: 120 }}>
       {visible
         ? <AnnouncementBar message="Announcement message goes here." linkLabel="Learn more" href="#learn-more" onClose={() => setVisible(false)} />
         : <p style={{ padding: 24, color: 'var(--color-text-secondary)' }}>Announcement dismissed.</p>}
@@ -50,4 +50,4 @@ function AnnouncementExample({ dark = false }: { dark?: boolean }) {
 
 export const Default: Story = { render: () => <AnnouncementExample /> };
 export const WithoutLink: Story = { args: { showLink: false } };
-export const Dark: Story = { render: () => <AnnouncementExample dark /> };
+export const Dark: Story = { globals: { theme: 'dark' }, render: () => <AnnouncementExample /> };

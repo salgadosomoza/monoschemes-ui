@@ -38,11 +38,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function IconGrid({ dark = false }: { dark?: boolean }) {
+function IconGrid() {
   const [selected, setSelected] = useState('search');
   return (
     <div
-      data-theme={dark ? 'dark' : undefined}
       style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 112px)', gap: 16, padding: 24, background: 'var(--color-bg-page)' }}
     >
       {ICONS.map((item) => (
@@ -61,4 +60,4 @@ function IconGrid({ dark = false }: { dark?: boolean }) {
 export const Default: Story = { args: { icon: 'search', label: 'search' } };
 export const Selected: Story = { args: { icon: 'search', label: 'search', selected: true, onClick: () => {} } };
 export const IconLibraryGrid: Story = { render: () => <IconGrid /> };
-export const Dark: Story = { render: () => <IconGrid dark /> };
+export const Dark: Story = { globals: { theme: 'dark' }, render: () => <IconGrid /> };

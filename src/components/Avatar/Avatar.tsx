@@ -3,14 +3,14 @@ import './Avatar.css';
 import { Icon } from '../Icon';
 
 export type AvatarType = 'icon' | 'initials' | 'image';
-export type AvatarVariant = 'round' | 'rounded' | 'square';
+export type AvatarShape = 'round' | 'square';
 export type AvatarSize = 'sm' | 'md' | 'lg';
 
 export interface AvatarProps {
   /** Determines the avatar content: icon placeholder, initials text, or an image. */
   type?: AvatarType;
-  /** Controls the border-radius shape. */
-  variant?: AvatarVariant;
+  /** Round for a person avatar or square for an object/brand mark. */
+  shape?: AvatarShape;
   /** Avatar diameter: 32, 48, or 64 pixels. */
   size?: AvatarSize;
   /** Initials to display when type="initials". */
@@ -25,7 +25,7 @@ const ICON_SIZE: Record<AvatarSize, number> = { sm: 20, md: 28, lg: 38 };
 
 export function Avatar({
   type = 'icon',
-  variant = 'round',
+  shape = 'round',
   size = 'lg',
   initials = 'WM',
   src,
@@ -46,7 +46,7 @@ export function Avatar({
   }
 
   return (
-    <div className="avatar" data-type={type} data-variant={variant} data-size={size}>
+    <div className="avatar" data-type={type} data-shape={shape} data-size={size}>
       {content}
     </div>
   );

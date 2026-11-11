@@ -13,7 +13,7 @@ const meta = {
   args: {
     title: 'Voice name',
     meta: 'Narrator · English',
-    avatar: { type: 'icon', variant: 'round', size: 'lg' },
+    avatar: { type: 'icon', shape: 'round', size: 'lg' },
   },
   argTypes: {
     title: { control: 'text' },
@@ -46,7 +46,7 @@ function InteractiveMediaCardDemo() {
     <MediaCard
       title="Voice name"
       meta="Narrator · English"
-      avatar={{ type: 'icon', variant: 'round', size: 'lg' }}
+      avatar={{ type: 'icon', shape: 'round', size: 'lg' }}
       selected={selected}
       interactive
       onSelect={setSelected}
@@ -68,7 +68,7 @@ export const Grid: Story = {
           key={title}
           title={title}
           meta="Narrator · English"
-          avatar={{ type: 'icon', variant: 'round', size: 'lg' }}
+          avatar={{ type: 'icon', shape: 'round', size: 'lg' }}
         />
       ))}
     </div>

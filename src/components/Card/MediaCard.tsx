@@ -41,7 +41,7 @@ function renderAction(action: MediaCardAction | undefined) {
 export function MediaCard({
   title,
   meta,
-  avatar = { type: 'icon', variant: 'round', size: 'lg' },
+  avatar = { type: 'icon', shape: 'round', size: 'lg' },
   action,
   showAction = true,
   selected = false,

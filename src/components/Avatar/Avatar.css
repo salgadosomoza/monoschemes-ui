@@ -15,25 +15,17 @@
   flex-shrink: 0;
 }
 
-/* ─── Variant (shape) ─────────────────────────────── */
+/* ─── Shape ───────────────────────────────────────── */
 
-.avatar[data-variant="round"] {
+.avatar[data-shape="round"] {
   border-radius: var(--radius-full);
-}
-
-.avatar[data-variant="rounded"] {
-  border-radius: var(--radius-md);
-}
-
-.avatar[data-variant="rounded"][data-size="sm"] {
-  border-radius: var(--radius-sm);
 }
 
 .avatar[data-size="sm"] { width: var(--spacing-xl); height: var(--spacing-xl); }
 .avatar[data-size="md"] { width: 48px; height: 48px; }
 .avatar[data-size="lg"] { width: var(--spacing-2xl); height: var(--spacing-2xl); }
 
-.avatar[data-variant="square"] {
+.avatar[data-shape="square"] {
   border-radius: var(--radius-none);
 }
 

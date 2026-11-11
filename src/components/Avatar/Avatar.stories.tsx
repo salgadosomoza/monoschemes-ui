@@ -1,17 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Avatar } from './Avatar';
-import type { AvatarType, AvatarVariant } from './Avatar';
+import type { AvatarShape, AvatarType } from './Avatar';
 
 const TYPES: AvatarType[] = ['icon', 'initials', 'image'];
-const VARIANTS: AvatarVariant[] = ['round', 'rounded', 'square'];
+const SHAPES: AvatarShape[] = ['round', 'square'];
 const SIZES = ['sm', 'md', 'lg'] as const;
 
 const meta = {
   title: 'Components/Avatar',
   component: Avatar,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   tags: ['autodocs'],
   argTypes: {
     type: {
@@ -19,10 +17,10 @@ const meta = {
       options: TYPES,
       description: 'Determines the avatar content.',
     },
-    variant: {
+    shape: {
       control: 'select',
-      options: VARIANTS,
-      description: 'Controls the border-radius shape (maps from Figma "style").',
+      options: SHAPES,
+      description: 'Round for a person avatar or square for an object or brand mark.',
     },
     size: { control: 'select', options: SIZES, description: 'Avatar diameter: 32, 48, or 64 pixels.' },
     initials: {
@@ -46,60 +44,40 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// ─── Individual variants ────────────────────────────
-
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
-
 const figma = (nodeId: string) => ({
-  design: { type: 'figma', url: `${FIGMA_BASE}${nodeId}` },
+  design: { type: 'figma', url: FIGMA_BASE + nodeId },
 });
 
 export const IconRound: Story = {
-  args: { type: 'icon', variant: 'round', size: 'lg' },
+  args: { type: 'icon', shape: 'round', size: 'lg' },
   parameters: figma('2-34'),
 };
 
-export const IconRounded: Story = {
-  args: { type: 'icon', variant: 'rounded', size: 'lg' },
-  parameters: figma('206-1479'),
-};
-
 export const IconSquare: Story = {
-  args: { type: 'icon', variant: 'square', size: 'lg' },
+  args: { type: 'icon', shape: 'square', size: 'lg' },
   parameters: figma('206-1489'),
 };
 
 export const InitialsRound: Story = {
-  args: { type: 'initials', variant: 'round', size: 'lg', initials: 'WM' },
+  args: { type: 'initials', shape: 'round', size: 'lg', initials: 'WM' },
   parameters: figma('2-33'),
 };
 
-export const InitialsRounded: Story = {
-  args: { type: 'initials', variant: 'rounded', size: 'lg', initials: 'WM' },
-  parameters: figma('206-1483'),
-};
-
 export const InitialsSquare: Story = {
-  args: { type: 'initials', variant: 'square', size: 'lg', initials: 'WM' },
+  args: { type: 'initials', shape: 'square', size: 'lg', initials: 'WM' },
   parameters: figma('206-1493'),
 };
 
 export const ImageRound: Story = {
-  args: { type: 'image', variant: 'round', size: 'lg' },
+  args: { type: 'image', shape: 'round', size: 'lg' },
   parameters: figma('4-217'),
 };
 
-export const ImageRounded: Story = {
-  args: { type: 'image', variant: 'rounded', size: 'lg' },
-  parameters: figma('206-1485'),
-};
-
 export const ImageSquare: Story = {
-  args: { type: 'image', variant: 'square', size: 'lg' },
+  args: { type: 'image', shape: 'square', size: 'lg' },
   parameters: figma('206-1495'),
 };
-
-// ─── All combinations overview ──────────────────────
 
 export const AllCombinations: Story = {
   parameters: figma('2-35'),
@@ -108,9 +86,9 @@ export const AllCombinations: Story = {
       <thead>
         <tr>
           <th />
-          {SIZES.flatMap((size) => VARIANTS.map((variant) => (
+          {SIZES.flatMap((size) => SHAPES.map((shape) => (
             <th
-              key={`${size}-${variant}`}
+              key={size + '-' + shape}
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: 14,
@@ -120,7 +98,7 @@ export const AllCombinations: Story = {
                 paddingBottom: 8,
               }}
             >
-              {size} · {variant}
+              {size} · {shape}
             </th>
           )))}
         </tr>
@@ -138,14 +116,24 @@ export const AllCombinations: Story = {
             >
               {type}
             </td>
-            {SIZES.flatMap((size) => VARIANTS.map((variant) => (
-              <td key={`${size}-${variant}`} style={{ textAlign: 'center' }}>
-                <Avatar type={type} variant={variant} size={size} />
+            {SIZES.flatMap((size) => SHAPES.map((shape) => (
+              <td key={size + '-' + shape} style={{ textAlign: 'center' }}>
+                <Avatar type={type} shape={shape} size={size} />
               </td>
             )))}
           </tr>
         ))}
       </tbody>
     </table>
+  ),
+};
+
+export const Dark: Story = {
+  globals: { theme: 'dark' },
+  render: () => (
+    <div style={{ display: 'flex', gap: 16, padding: 24, background: 'var(--color-bg-page)' }}>
+      <Avatar type="initials" shape="round" initials="WM" />
+      <Avatar type="initials" shape="square" initials="WM" />
+    </div>
   ),
 };

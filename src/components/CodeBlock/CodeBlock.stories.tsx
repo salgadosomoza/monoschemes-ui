@@ -32,6 +32,7 @@ const example = `npm install @monoschemes/ui\n\nimport { Button } from '@monosch
 export const Default: Story = { args: { filename: 'App.tsx', code: example, language: 'tsx' } };
 export const WithoutCopy: Story = { args: { filename: 'tokens.css', code: ':root {\n  --color-bg-page: #fff;\n}', language: 'css', showCopy: false } };
 export const Dark: Story = {
+  globals: { theme: 'dark' },
   args: { filename: 'App.tsx', code: example, language: 'tsx' },
-  render: (args) => <div data-theme="dark" style={{ padding: 24, background: 'var(--color-bg-page)' }}><CodeBlock {...args} /></div>,
+  render: (args) => <div style={{ padding: 24, background: 'var(--color-bg-page)' }}><CodeBlock {...args} /></div>,
 };

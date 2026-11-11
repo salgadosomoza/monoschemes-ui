@@ -42,7 +42,7 @@ function Cell({ index }: { index: number }) {
       style={{
         background: index % 2 === 0 ? 'var(--color-bg-hover)' : 'var(--color-grid-gutter)',
         height: 48,
-        borderRadius: 4,
+        borderRadius: 'var(--radius-none)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

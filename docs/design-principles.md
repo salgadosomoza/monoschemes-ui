@@ -12,6 +12,19 @@ componentes.
 Las discrepancias se describen y se resuelven explícitamente. No se elige automáticamente un
 ganador fuera del dominio de autoridad de cada superficie.
 
+## Recto
+
+El layout no llama la atención; el contenido sí. La estructura se expresa con espaciado, divisiones
+de 1 px, tipografía y tonos, nunca con esquinas redondeadas.
+
+El token --radius-full solo se usa en:
+
+- Avatar con shape="round" para personas.
+- FormRadio.
+- El pulgar de FormSlider.
+
+El resto de los componentes y anillos de foco usa --radius-none.
+
 ## Token first
 
 Usa los tokens existentes antes de proponer otros. Evita valores hardcodeados para color, espacio,

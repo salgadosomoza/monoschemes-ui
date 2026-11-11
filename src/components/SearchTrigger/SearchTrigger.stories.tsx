@@ -30,10 +30,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function SearchTriggerExample({ dark = false, showShortcut = true }: { dark?: boolean; showShortcut?: boolean }) {
+function SearchTriggerExample({ showShortcut = true }: { showShortcut?: boolean }) {
   const [opened, setOpened] = useState(false);
   return (
-    <div data-theme={dark ? 'dark' : undefined} style={{ padding: 24, background: 'var(--color-bg-page)' }}>
+    <div style={{ padding: 24, background: 'var(--color-bg-page)' }}>
       <SearchTrigger placeholder="Search icons" showShortcut={showShortcut} onClick={() => setOpened(true)} />
       {opened && <p role="status" style={{ color: 'var(--color-text-secondary)' }}>Search opened.</p>}
     </div>
@@ -43,10 +43,11 @@ function SearchTriggerExample({ dark = false, showShortcut = true }: { dark?: bo
 export const Default: Story = { args: { placeholder: 'Search icons', onClick: () => {} } };
 export const Large: Story = { args: { placeholder: 'Search icons', size: 'lg', onClick: () => {} } };
 export const WithoutShortcut: Story = { render: () => <SearchTriggerExample showShortcut={false} /> };
-export const Dark: Story = { render: () => <SearchTriggerExample dark /> };
+export const Dark: Story = { globals: { theme: 'dark' }, render: () => <SearchTriggerExample /> };
 export const LargeDark: Story = {
+  globals: { theme: 'dark' },
   render: () => (
-    <div data-theme="dark" style={{ padding: 24, background: 'var(--color-bg-page)' }}>
+    <div style={{ padding: 24, background: 'var(--color-bg-page)' }}>
       <SearchTrigger size="lg" placeholder="Search icons" onClick={() => {}} />
     </div>
   ),

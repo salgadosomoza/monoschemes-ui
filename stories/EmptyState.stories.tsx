@@ -34,10 +34,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function ClearSearchExample({ dark = false }: { dark?: boolean }) {
+function ClearSearchExample() {
   const [cleared, setCleared] = useState(false);
   return (
-    <div data-theme={dark ? 'dark' : undefined} style={{ background: 'var(--color-bg-page)' }}>
+    <div style={{ background: 'var(--color-bg-page)' }}>
       {cleared
         ? <p role="status" style={{ padding: 32, color: 'var(--color-text-secondary)' }}>Search cleared.</p>
         : (
@@ -58,4 +58,4 @@ export const Default: Story = {
 };
 export const WithClearSearchAction: Story = { render: () => <ClearSearchExample /> };
 export const WithoutIcon: Story = { args: { showIcon: false } };
-export const Dark: Story = { render: () => <ClearSearchExample dark /> };
+export const Dark: Story = { globals: { theme: 'dark' }, render: () => <ClearSearchExample /> };

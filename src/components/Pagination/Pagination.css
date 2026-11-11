@@ -23,7 +23,7 @@
   height: 40px;
   padding: 0;
   border: 1px solid transparent;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   background: transparent;
   color: var(--color-text-strong);
   font-family: var(--font-family);

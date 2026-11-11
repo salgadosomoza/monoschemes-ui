@@ -86,8 +86,9 @@ export const IconLogo: Story = {
 };
 
 export const IconLogoDark: Story = {
+  globals: { theme: 'dark' },
   render: () => (
-    <div data-theme="dark" style={{ width: 1440, maxWidth: '100%', background: 'var(--color-bg-page)' }}>
+    <div style={{ width: 1440, maxWidth: '100%', background: 'var(--color-bg-page)' }}>
       <AppHeader
         logo={{ type: 'icon', mark: 'brand-react', label: 'MonoSchemes' }}
         siteTitle="MonoSchemes UI"

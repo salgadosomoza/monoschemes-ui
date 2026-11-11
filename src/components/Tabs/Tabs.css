@@ -17,7 +17,7 @@
   flex: 0 0 auto;
   padding: var(--spacing-xs) var(--spacing-sm);
   border: 0;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   background: transparent;
   color: var(--color-text-secondary);
   font-family: var(--font-family);

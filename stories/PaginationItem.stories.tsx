@@ -31,8 +31,9 @@ export const Default: Story = {};
 export const Current: Story = { args: { label: '2', state: 'current' } };
 export const Ellipsis: Story = { args: { state: 'ellipsis' } };
 export const Dark: Story = {
+  globals: { theme: 'dark' },
   render: () => (
-    <div data-theme="dark" style={{ padding: 24, background: 'var(--color-bg-page)' }}>
+    <div style={{ padding: 24, background: 'var(--color-bg-page)' }}>
       <PaginationItem label="2" state="current" />
     </div>
   ),

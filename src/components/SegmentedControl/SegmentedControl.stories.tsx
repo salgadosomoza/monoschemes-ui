@@ -34,14 +34,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function SegmentedExample({ dark = false }: { dark?: boolean }) {
+function SegmentedExample() {
   const [value, setValue] = useState('outline');
   return (
-    <div data-theme={dark ? 'dark' : undefined} style={{ padding: 24, background: 'var(--color-bg-page)' }}>
+    <div style={{ padding: 24, background: 'var(--color-bg-page)' }}>
       <SegmentedControl options={OPTIONS} value={value} onChange={setValue} aria-label="View style" />
     </div>
   );
 }
 
 export const Default: Story = { render: () => <SegmentedExample /> };
-export const Dark: Story = { render: () => <SegmentedExample dark /> };
+export const Dark: Story = { globals: { theme: 'dark' }, render: () => <SegmentedExample /> };

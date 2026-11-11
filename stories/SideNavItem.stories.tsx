@@ -28,8 +28,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 export const Selected: Story = { args: { label: 'All icons', count: '5,203', selected: true } };
 export const Dark: Story = {
+  globals: { theme: 'dark' },
   render: () => (
-    <div data-theme="dark" style={{ width: 256, padding: 24, background: 'var(--color-bg-page)' }}>
+    <div style={{ width: 256, padding: 24, background: 'var(--color-bg-page)' }}>
       <SideNavItem label="All icons" count="5,203" selected />
     </div>
   ),

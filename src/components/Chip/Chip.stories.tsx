@@ -169,7 +169,7 @@ function InteractiveDemo() {
         gap: 8,
         padding: 24,
         border: '1px dashed var(--color-border-disabled)',
-        borderRadius: 8,
+        borderRadius: 'var(--radius-none)',
         minWidth: 320,
       }}
     >

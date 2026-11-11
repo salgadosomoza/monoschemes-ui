@@ -68,8 +68,9 @@ export const LogoIcon: Story = {
 };
 
 export const LogoIconDark: Story = {
+  globals: { theme: 'dark' },
   render: () => (
-    <div data-theme="dark" style={{ padding: 24, background: 'var(--color-bg-page)' }}>
+    <div style={{ padding: 24, background: 'var(--color-bg-page)' }}>
       <Logo type="icon" label="MonoSchemes" mark="brand-react" />
     </div>
   ),

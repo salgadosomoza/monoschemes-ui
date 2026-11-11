@@ -42,10 +42,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function SliderExample({ dark = false, disabled = false }: { dark?: boolean; disabled?: boolean }) {
+function SliderExample({ disabled = false }: { disabled?: boolean }) {
   const [value, setValue] = useState(1.8);
   return (
-    <div data-theme={dark ? 'dark' : undefined} style={{ width: 320, padding: 24, background: 'var(--color-bg-page)' }}>
+    <div style={{ width: 320, padding: 24, background: 'var(--color-bg-page)' }}>
       <FormSlider
         value={value}
         min={1}
@@ -62,4 +62,4 @@ function SliderExample({ dark = false, disabled = false }: { dark?: boolean; dis
 
 export const Default: Story = { render: () => <SliderExample /> };
 export const Disabled: Story = { render: () => <SliderExample disabled /> };
-export const Dark: Story = { render: () => <SliderExample dark /> };
+export const Dark: Story = { globals: { theme: 'dark' }, render: () => <SliderExample /> };

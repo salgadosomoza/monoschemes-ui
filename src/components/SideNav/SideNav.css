@@ -33,7 +33,7 @@
   box-sizing: border-box;
   padding: var(--spacing-2xs) var(--spacing-xs);
   border: 0;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-none);
   background: transparent;
   color: var(--color-text-primary);
   font-family: var(--font-family);

@@ -39,10 +39,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function CategoriesExample({ dark = false }: { dark?: boolean }) {
+function CategoriesExample() {
   const [selected, setSelected] = useState('All icons');
   return (
-    <div data-theme={dark ? 'dark' : undefined} style={{ padding: 24, background: 'var(--color-bg-page)' }}>
+    <div style={{ padding: 24, background: 'var(--color-bg-page)' }}>
       <SideNav heading="Categories">
         {CATEGORIES.map(([label, count]) => (
           <SideNavItem
@@ -59,4 +59,4 @@ function CategoriesExample({ dark = false }: { dark?: boolean }) {
 }
 
 export const TenCategories: Story = { render: () => <CategoriesExample /> };
-export const Dark: Story = { render: () => <CategoriesExample dark /> };
+export const Dark: Story = { globals: { theme: 'dark' }, render: () => <CategoriesExample /> };

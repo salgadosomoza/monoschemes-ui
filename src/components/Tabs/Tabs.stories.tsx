@@ -30,10 +30,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function TabsExample({ dark = false }: { dark?: boolean }) {
+function TabsExample() {
   const [value, setValue] = useState('react');
   return (
-    <div data-theme={dark ? 'dark' : undefined} style={{ width: 560, maxWidth: '100%', padding: 24, background: 'var(--color-bg-page)' }}>
+    <div style={{ width: 560, maxWidth: '100%', padding: 24, background: 'var(--color-bg-page)' }}>
       <Tabs value={value} onChange={setValue} aria-label="Framework example">
         <Tab value="react" label="React" />
         <Tab value="vue" label="Vue" />
@@ -47,4 +47,4 @@ function TabsExample({ dark = false }: { dark?: boolean }) {
 }
 
 export const Default: Story = { render: () => <TabsExample /> };
-export const Dark: Story = { render: () => <TabsExample dark /> };
+export const Dark: Story = { globals: { theme: 'dark' }, render: () => <TabsExample /> };

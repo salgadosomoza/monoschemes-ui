@@ -58,10 +58,11 @@ export const ManyPages: Story = {
 };
 
 export const Dark: Story = {
+  globals: { theme: 'dark' },
   render: () => {
     const [page, setPage] = useState(5);
     return (
-      <div data-theme="dark" style={{ padding: 24, background: 'var(--color-bg-page)' }}>
+      <div style={{ padding: 24, background: 'var(--color-bg-page)' }}>
         <Pagination page={page} pageCount={131} onPageChange={setPage} />
       </div>
     );
