@@ -4,10 +4,33 @@
  */
 
 .text {
+  display: block;
+  width: fit-content;
+  max-width: 640px;
   font-family: var(--font-family);
   color: var(--color-text-primary);
   margin: 0;
 }
+
+.text[data-align="left"] { text-align: left; }
+.text[data-align="center"] { text-align: center; }
+.text[data-align="right"] { text-align: right; }
+
+.text[data-style="h1"],
+.text[data-style="h2"],
+.text[data-style="h3"] { max-width: 960px; }
+
+.text[data-style="h4"],
+.text[data-style="h5"],
+.text[data-style="h6"] { max-width: 720px; }
+
+.text[data-style^="subtitle-"],
+.text[data-style^="body-"] { max-width: 640px; }
+
+.text[data-style="caption"],
+.text[data-style="overline"] { max-width: 480px; }
+
+.text[data-full-width="true"] { width: 100%; max-width: none; }
 
 /* ─── Headings ────────────────────────────────────── */
 

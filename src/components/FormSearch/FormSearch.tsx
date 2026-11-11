@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
-import '../../styles/icons.css';
 import './FormSearch.css';
+import { Icon } from '../Icon';
 
 export interface FormSearchProps {
   /** Controlled value. */
@@ -39,9 +39,7 @@ export function FormSearch({
   return (
     <div className="form-search">
       <label className="form-search-inner" htmlFor={id}>
-        <span className="material-symbols-outlined form-search-icon" aria-hidden="true">
-          search
-        </span>
+        <Icon className="form-search-icon" name="search" size={20} />
         <input
           id={id}
           type="search"

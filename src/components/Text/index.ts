@@ -1,2 +1,2 @@
 export { Text } from './Text';
-export type { TextProps, TextStyle } from './Text';
+export type { TextAlign, TextProps, TextStyle } from './Text';

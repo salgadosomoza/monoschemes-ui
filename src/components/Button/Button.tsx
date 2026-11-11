@@ -1,6 +1,6 @@
-import '../../styles/icons.css';
 import './Button.css';
 import type { CSSProperties } from 'react';
+import { Icon, type IconName } from '../Icon';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'link';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -14,11 +14,11 @@ interface ButtonBaseProps {
   loading?: boolean;
   className?: string;
   style?: CSSProperties;
-  iconLeft?: string;
-  iconRight?: string;
+  iconLeft?: IconName;
+  iconRight?: IconName;
   iconOnly?: boolean;
   /** @deprecated Use `iconLeft` or `iconRight`. */
-  iconName?: string;
+  iconName?: IconName;
   /** @deprecated Use `iconLeft`, `iconRight`, or `iconOnly`. */
   iconPosition?: ButtonIconPosition;
   onClick?: () => void;
@@ -47,9 +47,9 @@ export function Button({
   const resolvedRight = iconRight ?? (iconPosition === 'right' ? iconName : undefined);
   const onlyIcon = resolvedLeft;
   const effectiveDisabled = disabled || loading;
-  const icon = (name: string) => (
+  const icon = (name: IconName) => (
     <span className="button__icon" aria-hidden="true">
-      <span className="material-symbols-outlined">{name}</span>
+      <Icon name={name} size={size === 'sm' ? 16 : 24} />
     </span>
   );
 

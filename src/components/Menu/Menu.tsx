@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, type FocusEvent, type KeyboardEvent, type ReactNode } from 'react';
-import '../../styles/icons.css';
 import './Menu.css';
+import { Icon, type IconName } from '../Icon';
 
 export interface MenuProps {
   /** Menu actions and separators. */
@@ -15,8 +15,8 @@ export interface MenuProps {
 
 export interface MenuItemProps {
   label: string;
-  /** Material Symbols name. */
-  icon?: string;
+  /** Tabler icon name, matching the Figma Icon/<name> component. */
+  icon?: IconName;
   shortcut?: string;
   variant?: 'default' | 'danger';
   disabled?: boolean;
@@ -95,7 +95,7 @@ export function MenuItem({ label, icon, shortcut, variant = 'default', disabled 
       tabIndex={-1}
       onClick={() => { if (!disabled) onSelect?.(); }}
     >
-      {icon && <span className="menu-item__icon material-symbols-outlined" aria-hidden="true">{icon}</span>}
+      {icon && <Icon className="menu-item__icon" name={icon} size={16} />}
       <span className="menu-item__label">{label}</span>
       {shortcut && <span className="menu-item__shortcut">{shortcut}</span>}
     </button>

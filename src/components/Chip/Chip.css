@@ -6,6 +6,8 @@
 .chip {
   display: inline-flex;
   align-items: center;
+  box-sizing: border-box;
+  min-height: 40px;
   gap: var(--gap-sm);
   padding: var(--spacing-xs);
   background: var(--color-bg-page);
@@ -17,6 +19,12 @@
   line-height: var(--font-caption-line-height);
   color: var(--color-text-primary);
   user-select: none;
+}
+
+.chip[data-selected="true"] {
+  background: var(--color-bg-inverse);
+  border-color: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
 }
 
 .chip[draggable="true"] {
@@ -36,10 +44,32 @@
   color: var(--color-text-secondary);
 }
 
+.chip[data-selected="true"] .chip-drag-handle,
+.chip[data-selected="true"] .chip-close {
+  color: var(--color-text-inverse);
+}
+
 /* ─── Label ───────────────────────────────────────── */
 
 .chip-label {
   white-space: nowrap;
+}
+
+.chip-label-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.chip-label-toggle:focus-visible {
+  outline: 2px solid var(--color-border-focused);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 /* ─── Close button ────────────────────────────────── */

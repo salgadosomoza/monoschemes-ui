@@ -30,7 +30,7 @@ export function Pagination({
       {showPrevNext && (
         <Button
           variant="secondary"
-          iconLeft="chevron_left"
+          iconLeft="chevron-left"
           label="Prev"
           disabled={current === 1}
           onClick={() => goTo(current - 1)}
@@ -48,7 +48,7 @@ export function Pagination({
       {showPrevNext && (
         <Button
           variant="secondary"
-          iconRight="chevron_right"
+          iconRight="chevron-right"
           label="Next"
           disabled={current === totalPages}
           onClick={() => goTo(current + 1)}

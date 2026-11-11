@@ -18,15 +18,15 @@
 /* ─── Variant (shape) ─────────────────────────────── */
 
 .avatar[data-variant="round"] {
-  border-radius: 100px;
+  border-radius: var(--radius-full);
 }
 
 .avatar[data-variant="rounded"] {
-  border-radius: 8px;
+  border-radius: var(--radius-md);
 }
 
 .avatar[data-variant="rounded"][data-size="sm"] {
-  border-radius: var(--spacing-2xs);
+  border-radius: var(--radius-sm);
 }
 
 .avatar[data-size="sm"] { width: var(--spacing-xl); height: var(--spacing-xl); }
@@ -34,7 +34,7 @@
 .avatar[data-size="lg"] { width: var(--spacing-2xl); height: var(--spacing-2xl); }
 
 .avatar[data-variant="square"] {
-  border-radius: 0;
+  border-radius: var(--radius-none);
 }
 
 /* ─── Initials ────────────────────────────────────── */

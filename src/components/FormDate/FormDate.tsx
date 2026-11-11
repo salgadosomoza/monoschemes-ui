@@ -1,6 +1,6 @@
 import { useId, useRef, useState } from 'react';
-import '../../styles/icons.css';
 import './FormDate.css';
+import { Icon } from '../Icon';
 
 export interface FormDateProps {
   /** Controlled value in DD/MM/YYYY format (converted internally to YYYY-MM-DD for the input). */
@@ -90,9 +90,7 @@ export function FormDate({
           disabled={disabled}
           onClick={handleIconClick}
         >
-          <span className="material-symbols-outlined form-date-icon" aria-hidden="true">
-            calendar_today
-          </span>
+          <Icon className="form-date-icon" name="calendar" size={20} />
         </button>
       </div>
     </div>

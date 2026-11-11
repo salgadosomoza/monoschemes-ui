@@ -23,10 +23,10 @@ const meta = {
     label: { control: 'text' },
     iconLeft: {
       control: 'select',
-      options: ['search', 'more_horiz', 'add', 'close', 'delete', 'edit', 'settings', 'menu', 'favorite', 'download'],
-      description: 'Material Symbols name. In IconOnly, choose the icon here.',
+      options: ['search', 'dots', 'plus', 'x', 'menu-2', 'star', 'download', 'chevron-left', 'chevron-right'],
+      description: 'Tabler icon name, matching the Figma Icon/<name> component.',
     },
-    iconRight: { control: 'text' },
+    iconRight: { control: 'select', options: ['search', 'dots', 'plus', 'x', 'menu-2', 'star', 'download', 'chevron-left', 'chevron-right'] },
     iconOnly: { control: 'boolean' },
   },
 } satisfies Meta<typeof Button>;
@@ -45,7 +45,7 @@ export const IconOnly: Story = {
   args: { variant: 'primary', label: 'Search', iconOnly: true, iconLeft: 'search' },
   parameters: {
     ...figma('2030-490'),
-    docs: { description: { story: 'Use the iconLeft control to choose a Material Symbols icon. The label provides the accessible name and is not shown visually.' } },
+    docs: { description: { story: 'Choose a Tabler icon with iconLeft. The label provides the accessible name and is not shown visually.' } },
   },
 };
 export const Small: Story = { args: { variant: 'primary', size: 'sm', label: 'Small' }, parameters: figma('2030-541') };
@@ -57,7 +57,7 @@ export const AllVariants: Story = {
 };
 
 export const LoadingAndIconStates: Story = {
-  render: () => <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}><Button label="Saving" loading /><Button label="Download" iconLeft="download" /><Button label="Next" iconRight="arrow_forward" /><Button label="Search" iconOnly iconLeft="search" /></div>,
+  render: () => <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}><Button label="Saving" loading /><Button label="Download" iconLeft="download" /><Button label="Next" iconRight="chevron-right" /><Button label="Search" iconOnly iconLeft="search" /></div>,
   parameters: figma('2030-1786'),
 };
 

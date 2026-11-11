@@ -62,7 +62,7 @@ export function AppHeader({
               {actions ?? (
                 <>
                   <Avatar type="initials" size="sm" initials="WM" />
-                  <Button variant="tertiary" size="sm" iconOnly iconLeft="menu" label="Open menu" />
+                  <Button variant="tertiary" size="sm" iconOnly iconLeft="menu-2" label="Open menu" />
                 </>
               )}
             </div>

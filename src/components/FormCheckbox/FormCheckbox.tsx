@@ -1,6 +1,6 @@
 import { useRef, useEffect, useId, useState } from 'react';
-import '../../styles/icons.css';
 import './FormCheckbox.css';
+import { Icon, type IconName } from '../Icon';
 
 export type FormCheckboxType = 'label' | 'icon';
 export type FormCheckboxStatus = 'inactive' | 'active' | 'indeterminated';
@@ -18,10 +18,10 @@ export interface FormCheckboxProps {
   disabled?: boolean;
 }
 
-const ICON: Record<FormCheckboxStatus, string> = {
-  inactive:       'check_box_outline_blank',
-  active:         'check_box',
-  indeterminated: 'indeterminate_check_box',
+const ICON: Record<FormCheckboxStatus, IconName> = {
+  inactive:       'square',
+  active:         'square-check-filled',
+  indeterminated: 'square-minus-filled',
 };
 
 export function FormCheckbox({
@@ -75,9 +75,7 @@ export function FormCheckbox({
         disabled={disabled}
         onChange={(e) => handleChange(e.target.checked)}
       />
-      <span className="material-symbols-outlined form-checkbox-icon" aria-hidden="true">
-        {ICON[status]}
-      </span>
+      <Icon className="form-checkbox-icon" name={ICON[status]} size={24} />
       {type === 'label' && (
         <span className="form-checkbox-label">{label}</span>
       )}

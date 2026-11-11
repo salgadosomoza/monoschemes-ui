@@ -135,9 +135,12 @@
   --gap-xl: 32px;
 
   /* Section Layout */
+  --section-xs: 32px;
   --section-sm: 64px;
-  --section-md: 128px;
-  --section-lg: 256px;
+  --section-md: 96px;
+  --section-lg: 128px;
+  --section-xl: 192px;
+  --section-2xl: 256px;
 
   /* Container Padding */
   --container-padding-sm: 16px;
@@ -155,8 +158,12 @@
   --radius-none: 0px;
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-full: 100px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 999px;
+
+  /* Icon */
+  --icon-stroke: 1.5;
 }
 
 [data-theme="dark"] {

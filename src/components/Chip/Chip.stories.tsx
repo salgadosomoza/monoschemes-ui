@@ -23,6 +23,7 @@ const meta = {
       description: 'Text label displayed inside the chip.',
     },
     showClose: { control: 'boolean', description: 'Shows or hides the remove control.' },
+    selected: { control: 'boolean', description: 'Applies the selected state.' },
     draggable: {
       control: 'boolean',
       description: 'Makes the chip HTML5 draggable. Auto-enabled when type="drag".',
@@ -54,6 +55,49 @@ export const Drag: Story = {
 export const WithoutClose: Story = {
   args: { type: 'default', label: 'Chip name', showClose: false },
   parameters: figma('10-468'),
+};
+
+export const Selected: Story = {
+  args: { type: 'default', label: 'Selected chip', selected: true },
+  parameters: figma('10-468'),
+};
+
+export const SelectedWithoutClose: Story = {
+  args: { type: 'default', label: 'Selected chip', selected: true, showClose: false },
+  parameters: figma('10-468'),
+};
+
+function FilterGroupDemo() {
+  const [selected, setSelected] = useState(() => new Set(['Design']));
+  const filters = ['Design', 'Typography', 'Spacing', 'Components'];
+
+  const toggleFilter = (filter: string, nextSelected: boolean) => {
+    setSelected((current) => {
+      const next = new Set(current);
+      if (nextSelected) next.add(filter);
+      else next.delete(filter);
+      return next;
+    });
+  };
+
+  return (
+    <div role="group" aria-label="Filter by category" style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+      {filters.map((filter) => (
+        <Chip
+          key={filter}
+          label={filter}
+          showClose={false}
+          selected={selected.has(filter)}
+          onSelectedChange={(nextSelected) => toggleFilter(filter, nextSelected)}
+        />
+      ))}
+    </div>
+  );
+}
+
+export const FilterGroup: Story = {
+  parameters: figma('10-468'),
+  render: () => <FilterGroupDemo />,
 };
 
 // ─── All combinations overview ──────────────────────

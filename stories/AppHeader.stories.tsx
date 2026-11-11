@@ -35,7 +35,7 @@ const nav = (
     <NavItem label="Contact" href="/contact" />
   </Nav>
 );
-const actions = <><Avatar type="initials" size="sm" initials="WM" /><Button variant="tertiary" size="sm" iconOnly iconLeft="menu" label="Open menu" /></>;
+const actions = <><Avatar type="initials" size="sm" initials="WM" /><Button variant="tertiary" size="sm" iconOnly iconLeft="menu-2" label="Open menu" /></>;
 
 export const Desktop: Story = {
   render: () => (

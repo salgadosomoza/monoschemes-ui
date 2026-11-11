@@ -1,6 +1,6 @@
 import { useId, useState, createContext, useContext } from 'react';
-import '../../styles/icons.css';
 import './FormRadio.css';
+import { Icon } from '../Icon';
 
 export type FormRadioType = 'label' | 'icon';
 export type FormRadioStatus = 'inactive' | 'active';
@@ -107,9 +107,7 @@ export function FormRadio({
         disabled={disabled}
         onChange={handleChange}
       />
-      <span className="material-symbols-outlined form-radio-icon" aria-hidden="true">
-        {active ? 'radio_button_checked' : 'radio_button_unchecked'}
-      </span>
+      <Icon className="form-radio-icon" name={active ? 'circle-dot-filled' : 'circle'} size={24} />
       {type === 'label' && (
         <span className="form-radio-label">{label}</span>
       )}

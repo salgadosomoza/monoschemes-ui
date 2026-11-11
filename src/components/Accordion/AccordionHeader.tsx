@@ -1,6 +1,6 @@
 import { Text } from '../Text/Text';
-import '../../styles/icons.css';
 import './Accordion.css';
+import { Icon } from '../Icon';
 
 export interface AccordionHeaderProps {
   /** Whether the associated panel is expanded — controls icon direction. */
@@ -34,9 +34,7 @@ export function AccordionHeader({
       <Text style="subtitle-1" as="span">
         {children}
       </Text>
-      <span className="material-symbols-outlined accordion-icon" aria-hidden="true">
-        {expanded ? 'expand_less' : 'expand_more'}
-      </span>
+      <Icon className="accordion-icon" name={expanded ? 'chevron-up' : 'chevron-down'} size={24} />
     </button>
   );
 }

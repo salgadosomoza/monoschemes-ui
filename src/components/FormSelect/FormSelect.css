@@ -87,8 +87,6 @@
 /* ─── Chevron ──────────────────────────────────────── */
 
 .form-select-chevron {
-  font-size: 24px;
-  line-height: 1;
   color: var(--color-text-primary);
   flex-shrink: 0;
   transition: transform 0.2s ease;

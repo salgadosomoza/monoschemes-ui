@@ -26,6 +26,8 @@ const meta = {
       control: 'color',
       description: 'CSS color override.',
     },
+    align: { control: 'select', options: ['left', 'center', 'right'] },
+    fullWidth: { control: 'boolean' },
     as: {
       control: 'text',
       description: 'HTML tag override (e.g. "div", "label").',
@@ -128,6 +130,21 @@ export const AllStyles: Story = {
           <Text style={style}>{SAMPLE}</Text>
         </div>
       ))}
+    </div>
+  ),
+};
+
+export const AlignmentAndWidth: Story = {
+  args: {
+    style: 'body-1',
+    align: 'center',
+    fullWidth: true,
+    children: 'MonoSchemes UI text fills the available space, wraps when needed, and supports left, center, or right alignment.',
+  },
+  parameters: figma('130-1708'),
+  render: (args) => (
+    <div style={{ width: 640, padding: 24, border: '1px dashed var(--color-border-default)' }}>
+      <Text {...args} />
     </div>
   ),
 };

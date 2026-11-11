@@ -57,6 +57,6 @@
     "vitest": "^2.1.9"
   },
   "dependencies": {
-    "material-symbols": "^0.43.0"
+    "@tabler/icons-react": "3.50.0"
   }
 }

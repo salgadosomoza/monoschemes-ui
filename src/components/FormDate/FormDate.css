@@ -93,8 +93,7 @@
 }
 
 .form-date-icon {
-  font-size: 24px;
-  line-height: 1;
+  display: block;
 }
 
 /* ─── Disabled state ───────────────────────────────── */

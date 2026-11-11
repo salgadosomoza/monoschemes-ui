@@ -1,4 +1,5 @@
 import './Chip.css';
+import { Icon } from '../Icon';
 
 export type ChipType = 'default' | 'drag';
 
@@ -9,50 +10,22 @@ export interface ChipProps {
   label?: string;
   /** Shows the remove control. Defaults to true. */
   showClose?: boolean;
+  /** Applies the selected state. */
+  selected?: boolean;
+  /** Makes the label a selection toggle and reports the next selected state. */
+  onSelectedChange?: (selected: boolean) => void;
   /** Callback fired when the close button is clicked. */
   onClose?: () => void;
   /** Makes the chip HTML5 draggable. Auto-enabled when type="drag". */
   draggable?: boolean;
 }
 
-function DragHandle() {
-  return (
-    <svg
-      className="chip-drag-handle"
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <circle cx="5" cy="4" r="1.5" />
-      <circle cx="11" cy="4" r="1.5" />
-      <circle cx="5" cy="8" r="1.5" />
-      <circle cx="11" cy="8" r="1.5" />
-      <circle cx="5" cy="12" r="1.5" />
-      <circle cx="11" cy="12" r="1.5" />
-    </svg>
-  );
-}
-
-function CloseIcon() {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M18 6 6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-    </svg>
-  );
-}
-
 export function Chip({
   type = 'default',
   label = 'Chip name',
   showClose = true,
+  selected = false,
+  onSelectedChange,
   onClose,
   draggable,
 }: ChipProps) {
@@ -62,10 +35,22 @@ export function Chip({
     <div
       className="chip"
       data-type={type}
+      data-selected={selected || undefined}
       draggable={isDraggable || undefined}
     >
-      {type === 'drag' && <DragHandle />}
-      <span className="chip-label">{label}</span>
+      {type === 'drag' && <Icon className="chip-drag-handle" name="grip-vertical" size={16} />}
+      {onSelectedChange ? (
+        <button
+          className="chip-label chip-label-toggle"
+          type="button"
+          aria-pressed={selected}
+          onClick={() => onSelectedChange(!selected)}
+        >
+          {label}
+        </button>
+      ) : (
+        <span className="chip-label">{label}</span>
+      )}
       {showClose && (
         <button
           className="chip-close"
@@ -73,7 +58,7 @@ export function Chip({
           aria-label={`Remove ${label}`}
           onClick={onClose}
         >
-          <CloseIcon />
+          <Icon name="x" size={24} />
         </button>
       )}
     </div>

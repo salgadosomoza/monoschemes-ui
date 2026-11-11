@@ -1,4 +1,5 @@
 import { Button } from '../Button/Button';
+import type { IconName } from '../Icon';
 import type { ButtonVariant } from '../Button/Button';
 
 export type ButtonIconVariant = Exclude<ButtonVariant, 'link'>;
@@ -9,8 +10,8 @@ export interface ButtonIconProps {
   variant?: ButtonIconVariant;
   /** @deprecated Hover is now represented by the Button's actual hover state. */
   state?: ButtonIconState;
-  /** Material Symbols icon name. Also used as the accessible label. */
-  iconName?: string;
+  /** Tabler icon name. Also used as the accessible label. */
+  iconName?: IconName;
   onClick?: () => void;
 }
 
@@ -18,7 +19,7 @@ export interface ButtonIconProps {
 export function ButtonIcon({
   variant = 'primary',
   state = 'enabled',
-  iconName = 'deployed_code',
+  iconName = 'box',
   onClick,
 }: ButtonIconProps) {
   return (

@@ -31,11 +31,11 @@ export const Default: Story = {
 export const WithIconsAndShortcuts: Story = {
   render: () => (
     <Menu aria-label="Editor actions">
-      <MenuItem label="New file" icon="note_add" shortcut="⌘N" onSelect={() => {}} />
+      <MenuItem label="New file" icon="file-text" shortcut="⌘N" onSelect={() => {}} />
       <MenuItem label="Search" icon="search" shortcut="⌘K" onSelect={() => {}} />
-      <MenuItem label="Share" icon="ios_share" shortcut="⇧⌘S" onSelect={() => {}} />
+      <MenuItem label="Share" icon="link" shortcut="⇧⌘S" onSelect={() => {}} />
       <MenuDivider />
-      <MenuItem label="Delete" icon="delete" shortcut="⌫" variant="danger" onSelect={() => {}} />
+      <MenuItem label="Delete" icon="x" shortcut="⌫" variant="danger" onSelect={() => {}} />
     </Menu>
   ),
   parameters: figma('2075-306'),
@@ -87,7 +87,7 @@ function InContextMenu() {
         label="More actions"
         variant="tertiary"
         iconOnly
-        iconLeft="more_horiz"
+        iconLeft="dots"
         onClick={() => setIsOpen((open) => !open)}
       />
       {isOpen && (

@@ -89,8 +89,8 @@
           "default": "Button",
           "requiredWhen": { "iconOnly": true }
         },
-        "iconLeft": { "type": "string" },
-        "iconRight": { "type": "string" },
+        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"], "reference": "Icon.name" },
+        "iconRight": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"], "reference": "Icon.name" },
         "iconOnly": { "type": "boolean", "default": false },
         "disabled": { "type": "boolean", "default": false },
         "loading": { "type": "boolean", "default": false }
@@ -130,7 +130,46 @@
           "default": "default"
         },
         "label": { "type": "string", "default": "Chip name" },
-        "showClose": { "type": "boolean", "default": true }
+        "showClose": { "type": "boolean", "default": true },
+        "selected": { "type": "boolean", "default": false },
+        "onSelectedChange": { "type": "event" }
+      }
+    },
+    "Card": {
+      "figmaNode": "2163:253",
+      "props": {
+        "children": { "type": "slot" },
+        "selected": { "type": "boolean", "default": false },
+        "onClick": { "type": "event" }
+      }
+    },
+    "Card/Media": {
+      "figmaNode": "2163:296",
+      "props": {
+        "title": { "type": "string", "default": "Voice name" },
+        "meta": { "type": "string", "default": "Narrator · English" },
+        "avatar": { "type": "object", "default": { "type": "icon", "variant": "round", "size": "lg" } },
+        "action": { "type": "node-or-action", "default": "Use this voice" },
+        "showAction": { "type": "boolean", "default": true },
+        "selected": { "type": "boolean", "default": false },
+        "interactive": { "type": "boolean", "default": false },
+        "onSelect": { "type": "event" }
+      }
+    },
+    "Card/Feature": {
+      "figmaNode": "2163:354",
+      "props": {
+        "icon": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"], "reference": "Icon.name" },
+        "title": { "type": "string", "default": "Feature title" },
+        "description": { "type": "string" }
+      }
+    },
+    "Icon": {
+      "figmaNode": "130:2058",
+      "props": {
+        "name": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"] },
+        "size": { "type": "number", "default": 24 },
+        "stroke": { "type": "number", "default": 1.5 }
       }
     },
     "Form/Checkbox": {
@@ -379,6 +418,26 @@
         }
       }
     },
+    "Menu": {
+      "figmaNode": "2075:309",
+      "props": {
+        "children": { "type": "slot" },
+        "aria-label": { "type": "string" },
+        "width": { "type": "number", "default": 240 }
+      }
+    },
+    "Menu/Item": {
+      "figmaNode": "2075:306",
+      "props": {
+        "label": { "type": "string" },
+        "icon": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"], "reference": "Icon.name" },
+        "shortcut": { "type": "string" },
+        "variant": { "type": "enum", "values": ["default", "danger"], "default": "default" },
+        "disabled": { "type": "boolean", "default": false },
+        "onSelect": { "type": "event" }
+      }
+    },
+    "Menu/Divider": { "figmaNode": "2075:307", "props": {} },
     "Nav/Item": {
       "figmaNode": "673:2102",
       "props": {
@@ -425,7 +484,9 @@
             "overline"
           ],
           "default": "body-1"
-        }
+        },
+        "align": { "type": "enum", "values": ["left", "center", "right"], "default": "left" },
+        "fullWidth": { "type": "boolean", "default": false }
       }
     },
     "Pagination": {

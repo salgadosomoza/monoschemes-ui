@@ -1,5 +1,5 @@
-import '../../../styles/icons.css';
 import './InlineNotification.css';
+import { Icon } from '../../Icon';
 
 export interface InlineNotificationProps {
   /** Contextual message displayed next to the content it describes. */
@@ -9,7 +9,7 @@ export interface InlineNotificationProps {
 export function InlineNotification({ message }: InlineNotificationProps) {
   return (
     <div className="inline-notification" role="status">
-      <span className="inline-notification__icon material-symbols-outlined" aria-hidden="true">info</span>
+      <Icon className="inline-notification__icon" name="info-circle" size={20} />
       <p className="inline-notification__message">{message}</p>
     </div>
   );

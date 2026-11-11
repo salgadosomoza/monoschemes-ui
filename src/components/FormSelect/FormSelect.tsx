@@ -1,6 +1,6 @@
 import { useId, useRef, useState, useEffect } from 'react';
-import '../../styles/icons.css';
 import './FormSelect.css';
+import { Icon } from '../Icon';
 
 export interface FormSelectOption {
   value: string;
@@ -99,9 +99,7 @@ export function FormSelect({
         <span className={['form-select-value', !selectedOption ? 'form-select-value--placeholder' : ''].filter(Boolean).join(' ')}>
           {displayLabel || placeholder}
         </span>
-        <span className="material-symbols-outlined form-select-chevron" aria-hidden="true">
-          keyboard_arrow_down
-        </span>
+        <Icon className="form-select-chevron" name="chevron-down" size={20} />
       </button>
 
       {isOpen && (

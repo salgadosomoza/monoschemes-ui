@@ -121,8 +121,6 @@
 .form-input-select-chevron {
   position: absolute;
   right: var(--gap-xs);
-  font-size: 20px;
-  line-height: 1;
   color: var(--color-text-secondary);
   pointer-events: none;
 }

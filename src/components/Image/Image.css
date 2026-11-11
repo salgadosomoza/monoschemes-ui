@@ -39,7 +39,7 @@
 }
 
 .image-icon {
-  width: var(--spacing-2xl);
-  height: var(--spacing-2xl);
+  width: 64px;
+  height: 64px;
   color: var(--color-text-muted);
 }

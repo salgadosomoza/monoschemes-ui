@@ -39,6 +39,7 @@ const preview: Preview = {
     },
     backgrounds: {
       options: {
+        page: { name: 'page', value: 'var(--color-bg-page)' },
         white: { name: 'white', value: '#FFFFFF' },
         surface: { name: 'surface', value: '#F6F7F9' },
         dark: { name: 'dark', value: '#1E1F22' },
@@ -71,7 +72,7 @@ const preview: Preview = {
   initialGlobals: {
     theme: 'light',
     backgrounds: {
-      value: 'white',
+      value: 'page',
     },
   },
 };
