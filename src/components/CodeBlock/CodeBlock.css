@@ -1,0 +1,56 @@
+.code-block {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+}
+
+.code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  padding: var(--spacing-2xs) var(--spacing-md);
+  border-bottom: 1px solid var(--color-border-default);
+  background: var(--color-bg-page);
+}
+
+.code-block__filename {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.code-block__pre {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0;
+  padding: var(--spacing-md);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-code-size);
+  font-weight: var(--font-code-weight);
+  line-height: var(--font-code-line-height);
+  white-space: pre;
+}
+
+.code-block__pre code { font: inherit; }
+
+.code-block__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

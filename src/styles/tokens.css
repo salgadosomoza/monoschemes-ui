@@ -65,6 +65,7 @@
 
   /* Typography */
   --font-family: 'Inter', -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --font-h1-size: 56px;
   --font-h1-weight: 700;
@@ -115,6 +116,10 @@
   --font-overline-line-height: 1.21;
   --font-overline-letter-spacing: 0.2em;
   --font-overline-text-transform: uppercase;
+
+  --font-code-size: 13px;
+  --font-code-weight: 400;
+  --font-code-line-height: 20px;
 
   /* Spacing */
   --spacing-3xs: 2px;

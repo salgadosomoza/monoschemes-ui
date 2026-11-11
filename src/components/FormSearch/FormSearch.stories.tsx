@@ -8,7 +8,7 @@ const meta = {
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
   argTypes: {
-    placeholder: { control: 'text' },
+    placeholder: { control: 'text', description: 'Placeholder text shown when the search field is empty. Defaults to Search.' },
     value: { control: 'text' },
     disabled: { control: 'boolean' },
   },

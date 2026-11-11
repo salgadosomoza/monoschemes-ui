@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Icon, type IconName } from './Icon';
 
 const iconNames: IconName[] = [
-  'info-circle', 'alert-triangle', 'user-circle', 'plus', 'chart-bar', 'calendar',
+  'info-circle', 'alert-triangle', 'copy', 'check', 'external-link', 'arrow-right', 'adjustments', 'palette',
+  'brand-react', 'brand-vue', 'brand-svelte', 'keyboard', 'user-circle', 'plus', 'chart-bar', 'calendar',
   'square-check-filled', 'square', 'chevron-left', 'chevron-right', 'x', 'box', 'file-text',
   'download', 'grip-vertical', 'chevron-up', 'chevron-down', 'square-minus-filled', 'link',
   'map-pin', 'menu-2', 'music', 'photo', 'player-play', 'qrcode', 'circle-dot-filled', 'circle',

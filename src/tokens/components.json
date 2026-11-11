@@ -89,8 +89,8 @@
           "default": "Button",
           "requiredWhen": { "iconOnly": true }
         },
-        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"], "reference": "Icon.name" },
-        "iconRight": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"], "reference": "Icon.name" },
+        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard"], "reference": "Icon.name" },
+        "iconRight": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard"], "reference": "Icon.name" },
         "iconOnly": { "type": "boolean", "default": false },
         "aria-current": { "type": "enum", "values": ["page"] },
         "disabled": { "type": "boolean", "default": false },
@@ -160,7 +160,7 @@
     "Card/Feature": {
       "figmaNode": "2163:354",
       "props": {
-        "icon": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"], "reference": "Icon.name" },
+        "icon": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard"], "reference": "Icon.name" },
         "title": { "type": "string", "default": "Feature title" },
         "description": { "type": "string" }
       }
@@ -168,7 +168,7 @@
     "Icon": {
       "figmaNode": "130:2058",
       "props": {
-        "name": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"] },
+        "name": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard"] },
         "size": { "type": "number", "default": 24 },
         "stroke": { "type": "number", "default": 1.5 }
       }
@@ -273,6 +273,11 @@
     "Form/Search": {
       "figmaNode": "1441:387",
       "props": {
+        "placeholder": { "type": "string", "default": "Search" },
+        "value": { "type": "string" },
+        "onChange": { "type": "event" },
+        "onSearch": { "type": "event" },
+        "disabled": { "type": "boolean", "default": false },
         "status": {
           "type": "variant",
           "values": [
@@ -431,7 +436,7 @@
       "figmaNode": "2075:306",
       "props": {
         "label": { "type": "string" },
-        "icon": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github"], "reference": "Icon.name" },
+        "icon": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard"], "reference": "Icon.name" },
         "shortcut": { "type": "string" },
         "variant": { "type": "enum", "values": ["default", "danger"], "default": "default" },
         "disabled": { "type": "boolean", "default": false },
@@ -620,6 +625,54 @@
       "props": {
         "children": { "type": "slot" },
         "aria-label": { "type": "string", "default": "Main navigation" }
+      }
+    },
+    "CodeBlock": {
+      "figmaNode": "2260:1170",
+      "props": {
+        "filename": { "type": "string" },
+        "code": { "type": "string" },
+        "language": { "type": "string" },
+        "showCopy": { "type": "boolean", "default": true }
+      }
+    },
+    "Kbd": {
+      "figmaNode": "2284:1878",
+      "props": {
+        "children": { "type": "slot" },
+        "size": { "type": "variant", "values": ["sm", "md"], "default": "sm" }
+      }
+    },
+    "SearchTrigger": {
+      "figmaNode": "2284:1900",
+      "props": {
+        "placeholder": { "type": "string", "default": "Search" },
+        "shortcut": { "type": "string", "default": "/" },
+        "showShortcut": { "type": "boolean", "default": true },
+        "onClick": { "type": "event" }
+      }
+    },
+    "Tabs": {
+      "figmaNode": "2284:1881",
+      "props": {
+        "value": { "type": "string" },
+        "onChange": { "type": "event" },
+        "aria-label": { "type": "string" },
+        "children": { "type": "slot" }
+      }
+    },
+    "Tabs/Tab": {
+      "figmaNode": "2260:1167",
+      "props": {
+        "value": { "type": "string" },
+        "label": { "type": "string" },
+        "disabled": { "type": "boolean", "default": false }
+      }
+    },
+    "Tabs/Panel": {
+      "props": {
+        "value": { "type": "string" },
+        "children": { "type": "slot" }
       }
     }
   }
