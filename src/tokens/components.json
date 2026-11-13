@@ -224,10 +224,19 @@
           "type": "variant",
           "values": [
             "default",
-            "disabled"
+            "focused",
+            "disabled",
+            "error",
+            "open"
           ],
           "default": "default"
-        }
+        },
+        "value": { "type": "variant", "values": ["empty", "filled"], "default": "empty" },
+        "open": { "type": "boolean" },
+        "defaultOpen": { "type": "boolean", "default": false },
+        "onOpenChange": { "type": "event" },
+        "locale": { "type": "string", "default": "en" },
+        "error": { "type": "boolean", "default": false }
       }
     },
     "Form/FileUpload": {
@@ -796,6 +805,23 @@
     "Breadcrumb": {
       "figmaNode": "2389:322",
       "props": { "items": { "type": "array", "items": { "label": "string", "href": "string?" } } }
+    },
+    "Calendar": {
+      "figmaNode": "129:674",
+      "props": {
+        "type": { "type": "variant", "values": ["date", "date-range"], "default": "date" },
+        "value": { "type": "date-or-range" },
+        "defaultValue": { "type": "date-or-range" },
+        "onChange": { "type": "event" },
+        "month": { "type": "date" },
+        "defaultMonth": { "type": "date" },
+        "defaultFocusDate": { "type": "date" },
+        "onMonthChange": { "type": "event" },
+        "locale": { "type": "string", "default": "en" },
+        "minDate": { "type": "date" },
+        "maxDate": { "type": "date" },
+        "autoFocus": { "type": "boolean", "default": false }
+      }
     },
     "ProgressBar": {
       "figmaNode": "454:76",

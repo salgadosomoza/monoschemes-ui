@@ -28,6 +28,7 @@ a.logo {
   width: var(--spacing-2xl);
   height: var(--spacing-2xl);
   background: var(--color-bg-placeholder);
+  border-radius: var(--radius-none);
   flex-shrink: 0;
 }
 
@@ -38,6 +39,7 @@ a.logo {
   justify-content: center;
   width: 40px;
   height: 40px;
+  border-radius: var(--radius-none);
   background: var(--color-bg-inverse);
   color: var(--color-text-inverse);
 }

@@ -4,6 +4,7 @@
   gap: var(--gap-sm);
   padding: var(--spacing-2xs) var(--spacing-xs);
   border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-none);
   background: var(--color-bg-page);
 }
 
@@ -16,6 +17,7 @@
   box-sizing: border-box;
   overflow: hidden;
   border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-none);
 }
 
 .form-color-field__input {

@@ -32,6 +32,7 @@
 .form-checkbox-input:focus-visible ~ .form-checkbox-icon {
   outline: 2px solid var(--color-border-default);
   outline-offset: 2px;
+  border-radius: var(--radius-none);
 }
 
 /* ─── Disabled ─────────────────────────────────────── */

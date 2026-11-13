@@ -1,4 +1,5 @@
 .spinner { display:inline-flex; align-items:center; gap:var(--gap-sm); color:var(--color-text-strong); }
+.spinner--with-label { flex-direction:column;justify-content:center;text-align:center; }
 .spinner__shape { width:64px; height:64px; position:relative; flex:none; }
 .spinner__shape i { display:block; position:absolute; background:var(--color-bg-placeholder); animation:spinner-step 600ms steps(1,end) infinite; }
 .spinner[data-type="squares"] .spinner__shape { display:flex; align-items:center; gap:8px; }
@@ -28,12 +29,24 @@
 .spinner[data-size="small"][data-type="outline"] i:nth-child(2) { width:2px;height:16px;right:0;top:0; }
 .spinner[data-size="small"][data-type="outline"] i:nth-child(3) { left:0;bottom:0; }
 .spinner[data-size="small"][data-type="outline"] i:nth-child(4) { width:2px;height:16px;left:0;top:0; }
-.spinner[data-size="small"][data-type="squares"] .spinner__shape i { animation-duration:900ms; }
-.spinner[data-size="small"]:not([data-type="squares"]) .spinner__shape i { animation-duration:1200ms; }
+.spinner[data-size="small"][data-type="squares"] .spinner__shape i { animation-duration:450ms; }
+.spinner[data-size="small"]:not([data-type="squares"]) .spinner__shape i { animation-duration:600ms; }
+.spinner[data-size="small"][data-type="grid"] i:nth-child(1) { grid-column:1;grid-row:1; }
+.spinner[data-size="small"][data-type="grid"] i:nth-child(2) { grid-column:2;grid-row:1; }
+.spinner[data-size="small"][data-type="grid"] i:nth-child(3) { grid-column:2;grid-row:2; }
+.spinner[data-size="small"][data-type="grid"] i:nth-child(4) { grid-column:1;grid-row:2; }
 @keyframes spinner-step { 0%,24.99% { background:var(--spinner-active-color,var(--color-text-strong)); } 25%,100% { background:var(--color-bg-placeholder); } }
 .spinner[data-type="squares"] .spinner__shape i { animation-name:spinner-square-step; }
 @keyframes spinner-square-step { 0%,33.32% { background:var(--spinner-active-color,var(--color-text-strong)); } 33.33%,100% { background:var(--color-bg-placeholder); } }
 @media(prefers-reduced-motion:reduce) {
-  .spinner[data-type="squares"] .spinner__shape i { animation-duration:900ms; }
-  .spinner:not([data-type="squares"]) .spinner__shape i { animation-duration:1200ms; }
+  .spinner[data-size="small"][data-type="squares"] .spinner__shape i { animation-duration:900ms; }
+  .spinner[data-size="small"]:not([data-type="squares"]) .spinner__shape i { animation-duration:1200ms; }
+  .spinner[data-size="small"][data-type="squares"] i:nth-child(2) { animation-delay:300ms; }
+  .spinner[data-size="small"][data-type="squares"] i:nth-child(3) { animation-delay:600ms; }
+  .spinner[data-size="small"][data-type="grid"] i:nth-child(2),
+  .spinner[data-size="small"][data-type="outline"] i:nth-child(2) { animation-delay:300ms; }
+  .spinner[data-size="small"][data-type="grid"] i:nth-child(3),
+  .spinner[data-size="small"][data-type="outline"] i:nth-child(3) { animation-delay:600ms; }
+  .spinner[data-size="small"][data-type="grid"] i:nth-child(4),
+  .spinner[data-size="small"][data-type="outline"] i:nth-child(4) { animation-delay:900ms; }
 }

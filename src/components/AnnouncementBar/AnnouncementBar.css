@@ -62,6 +62,7 @@
   padding: 0;
   transform: translateY(-50%);
   border: 0;
+  border-radius: var(--radius-none);
   background: transparent;
   color: var(--color-text-inverse);
   cursor: pointer;

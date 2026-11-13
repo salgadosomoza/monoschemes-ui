@@ -9,6 +9,7 @@
   padding: var(--spacing-xs) var(--spacing-sm);
   gap: var(--gap-sm);
   border: 0;
+  border-radius: var(--radius-none);
   font-family: var(--font-family);
   font-size: var(--font-caption-size);
   font-weight: 700;

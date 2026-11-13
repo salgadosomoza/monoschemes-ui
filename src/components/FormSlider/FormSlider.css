@@ -18,6 +18,7 @@
 
 .form-slider__input::-webkit-slider-runnable-track {
   height: 4px;
+  border-radius: var(--radius-none);
   background: linear-gradient(
     to right,
     var(--color-bg-inverse) 0,
@@ -29,6 +30,7 @@
 
 .form-slider__input::-moz-range-track {
   height: 4px;
+  border-radius: var(--radius-none);
   background: linear-gradient(
     to right,
     var(--color-bg-inverse) 0,

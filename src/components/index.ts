@@ -4,6 +4,7 @@ export * from './AnnouncementBar';
 export * from './AppHeader';
 export * from './Avatar';
 export * from './Breadcrumb';
+export * from './Calendar';
 export * from './Button';
 export * from './ButtonIcon';
 export * from './ButtonText';
