@@ -1,5 +1,21 @@
 {
   "components": {
+    "Accordion": {
+      "figmaNode": "1903:440",
+      "props": {
+        "children": { "type": "slot" }
+      }
+    },
+    "Accordion/Header": {
+      "figmaNode": "1684:482",
+      "props": {
+        "expanded": { "type": "boolean", "default": false },
+        "disabled": { "type": "boolean", "default": false },
+        "onClick": { "type": "event" },
+        "panelId": { "type": "string" },
+        "children": { "type": "slot" }
+      }
+    },
     "Accordion/Item": {
       "figmaNode": "1690:480",
       "props": {
@@ -101,9 +117,10 @@
       }
     },
     "Button/Icon": {
-      "figmaNode": "22:519",
+      "figmaNode": "2030:1786",
       "deprecated": true,
       "replacedBy": "Button",
+      "replacementProps": { "iconOnly": true },
       "props": {
         "variant": {
           "type": "variant",
@@ -114,9 +131,10 @@
       }
     },
     "Button/Text": {
-      "figmaNode": "76:808",
+      "figmaNode": "2030:1786",
       "deprecated": true,
       "replacedBy": "Button",
+      "replacementProps": { "variant": "link" },
       "props": {
         "variant": { "type": "constant", "value": "link" },
         "state": { "type": "variant", "values": ["default", "disabled"], "default": "default" }
@@ -200,7 +218,7 @@
       }
     },
     "Form/Date": {
-      "figmaNode": "1441:425",
+      "figmaNode": "1441:422",
       "props": {
         "status": {
           "type": "variant",
@@ -304,6 +322,16 @@
             "error"
           ],
           "default": "default"
+        }
+      },
+      "subcomponents": {
+        "Option": {
+          "figmaNode": "2006:367",
+          "reactType": "FormSelectOption",
+          "props": {
+            "label": { "type": "string", "default": "Option" },
+            "state": { "type": "variant", "values": ["default", "hover", "selected"], "default": "default" }
+          }
         }
       }
     },
