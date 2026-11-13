@@ -1,0 +1,5 @@
+import type {Meta,StoryObj} from '@storybook/react-vite';import {Skeleton} from './Skeleton';
+const figma={design:{type:'figma',url:'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=463-807'}};
+function ContentLoading(){return <section aria-busy="true" aria-label="Loading profile" style={{display:'grid',gap:12,width:320}}><Skeleton width={96} height={96}/><Skeleton height={20}/><Skeleton width="70%" height={16}/></section>}
+const meta={title:'Components/Skeleton',component:Skeleton,tags:['autodocs'],parameters:{...figma,docs:{description:{component:'A non-interactive placeholder for content that is loading. Mark its containing region aria-busy while loading.'}}}} satisfies Meta<typeof Skeleton>;export default meta;type Story=StoryObj<typeof meta>;
+export const Default:Story={args:{}};export const Content:Story={render:()=> <ContentLoading/>};export const DefaultDark:Story={...Default,globals:{theme:'dark'}};export const ContentDark:Story={render:()=> <ContentLoading/>,globals:{theme:'dark'}};

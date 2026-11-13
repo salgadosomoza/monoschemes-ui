@@ -26,7 +26,6 @@
 .avatar[data-size="lg"] { width: var(--spacing-2xl); height: var(--spacing-2xl); }
 
 .avatar[data-shape="square"] {
-  border-radius: var(--radius-none);
 }
 
 /* ─── Initials ────────────────────────────────────── */

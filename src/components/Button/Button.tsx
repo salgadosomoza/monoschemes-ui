@@ -1,6 +1,7 @@
 import './Button.css';
 import type { CSSProperties } from 'react';
 import { Icon, type IconName } from '../Icon';
+import { Spinner } from '../Spinner';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'link';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -71,7 +72,7 @@ export function Button({
       aria-current={ariaCurrent}
       aria-busy={loading || undefined}
     >
-      {loading && <span className="button__spinner" aria-hidden="true" />}
+      {loading && <Spinner aria-hidden="true" className="button__spinner" type="grid" size="small" showLabel={false} />}
       <span className="button__content">
         {!resolvedIconOnly && resolvedLeft && icon(resolvedLeft)}
         <span className="button-label">{label}</span>

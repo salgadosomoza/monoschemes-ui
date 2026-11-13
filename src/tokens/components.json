@@ -792,6 +792,32 @@
         "value": { "type": "string" },
         "children": { "type": "slot" }
       }
+    },
+    "Breadcrumb": {
+      "figmaNode": "2389:322",
+      "props": { "items": { "type": "array", "items": { "label": "string", "href": "string?" } } }
+    },
+    "ProgressBar": {
+      "figmaNode": "454:76",
+      "props": {
+        "value": { "type": "number", "min": 0, "max": 100 },
+        "label": { "type": "string" }
+      }
+    },
+    "Skeleton": {
+      "figmaNode": "463:807",
+      "props": {
+        "width": { "type": "css-length", "default": "100%" },
+        "height": { "type": "css-length", "default": "48px" }
+      }
+    },
+    "Spinner": {
+      "figmaNode": "90:657",
+      "props": {
+        "type": { "type": "variant", "values": ["squares", "grid", "outline"], "default": "grid" },
+        "size": { "type": "variant", "values": ["default", "small"], "default": "default" },
+        "showLabel": { "type": "boolean", "default": true, "onlyWhen": { "size": "default" } }
+      }
     }
   }
 }

@@ -9,7 +9,6 @@
   padding: var(--spacing-xs) var(--spacing-sm);
   gap: var(--gap-sm);
   border: 0;
-  border-radius: var(--radius-none);
   font-family: var(--font-family);
   font-size: var(--font-caption-size);
   font-weight: 700;
@@ -33,9 +32,9 @@
 .button__icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 auto; }
 .button[data-size="sm"] .button__icon { width: 16px; height: 16px; }
 .button__icon .icon { display: block; }
-.button__spinner { position: absolute; width: 16px; height: 16px; border: 2px solid currentColor; border-right-color: transparent; border-radius: var(--radius-full); animation: button-spin 700ms linear infinite; }
-@keyframes button-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .button { transition: none; } .button__spinner { animation-duration: 1400ms; } }
+.button__spinner { position: absolute; inset: 0; margin: auto; --spinner-active-color: var(--color-text-strong); }
+.button[data-variant="primary"] .button__spinner, .button[data-variant="danger"] .button__spinner { --spinner-active-color: var(--color-text-inverse); }
+@media (prefers-reduced-motion: reduce) { .button { transition: none; } }
 
 .button[data-variant="primary"] { background: var(--color-bg-inverse); color: var(--color-text-inverse); }
 .button[data-variant="primary"]:hover:not(:disabled) { background: var(--color-bg-inverse-hover); }

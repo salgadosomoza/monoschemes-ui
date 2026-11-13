@@ -1,0 +1,5 @@
+.breadcrumb ol { display:flex; align-items:center; gap:var(--gap-sm); list-style:none; padding:0; margin:0; }
+.breadcrumb li { display:flex; align-items:center; gap:var(--gap-sm); }
+.breadcrumb__current,.breadcrumb__separator { font-family:var(--font-family); font-size:var(--font-caption-size); line-height:var(--font-caption-line-height); }
+.breadcrumb__current { color:var(--color-text-strong); }
+.breadcrumb__separator { color:var(--color-text-muted); }

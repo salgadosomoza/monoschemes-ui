@@ -3,7 +3,6 @@
 .feature-card {
   box-sizing: border-box;
   font-family: var(--font-family);
-  border-radius: var(--radius-none);
 }
 
 .card {
@@ -35,7 +34,6 @@
 .card--interactive:focus-visible {
   outline: 2px solid var(--color-border-focused);
   outline-offset: 4px;
-  border-radius: var(--radius-none);
 }
 
 .media-card {
@@ -64,7 +62,6 @@
 .media-card:has(.media-card__select:focus-visible) {
   outline: 2px solid var(--color-border-focused);
   outline-offset: 4px;
-  border-radius: var(--radius-none);
 }
 
 .media-card__content,

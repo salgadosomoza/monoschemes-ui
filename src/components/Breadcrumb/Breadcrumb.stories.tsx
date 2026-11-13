@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Breadcrumb } from './Breadcrumb';
+const figma = { design:{type:'figma',url:'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2389-322'} };
+const meta = { title:'Components/Breadcrumb',component:Breadcrumb,tags:['autodocs'],parameters:{...figma,docs:{description:{component:'A compact path showing the current location. Earlier levels link to their destinations; the final level names the current page.'}}} } satisfies Meta<typeof Breadcrumb>;
+export default meta; type Story=StoryObj<typeof meta>;
+export const TwoLevels:Story={args:{items:[{label:'Home',href:'/'},{label:'Settings'}]}};
+export const ThreeLevels:Story={args:{items:[{label:'Home',href:'/'},{label:'Projects',href:'/projects'},{label:'MonoSchemes'}]}};
+export const FourLevels:Story={args:{items:[{label:'Home',href:'/'},{label:'Projects',href:'/projects'},{label:'Design system',href:'/projects/design-system'},{label:'Components'}]}};
+export const TwoLevelsDark:Story={...TwoLevels,globals:{theme:'dark'}};
+export const ThreeLevelsDark:Story={...ThreeLevels,globals:{theme:'dark'}};
+export const FourLevelsDark:Story={...FourLevels,globals:{theme:'dark'}};
