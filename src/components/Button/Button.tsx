@@ -1,4 +1,5 @@
 import './Button.css';
+import { forwardRef } from 'react';
 import type { CSSProperties } from 'react';
 import { Icon, type IconName } from '../Icon';
 import { Spinner } from '../Spinner';
@@ -25,12 +26,14 @@ interface ButtonBaseProps {
   onClick?: () => void;
   /** Marks the current page when the button represents the active pagination item. */
   'aria-current'?: 'page';
+  'aria-expanded'?: boolean;
+  'aria-controls'?: string;
 }
 
 export type ButtonProps = ButtonBaseProps &
   ({ iconOnly: true; label: string } | { iconOnly?: false; label?: string });
 
-export function Button({
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
   variant = 'primary',
   size = 'md',
   disabled = false,
@@ -45,7 +48,9 @@ export function Button({
   style,
   onClick,
   'aria-current': ariaCurrent,
-}: ButtonProps) {
+  'aria-expanded': ariaExpanded,
+  'aria-controls': ariaControls,
+}: ButtonProps, ref) {
   const resolvedIconOnly = iconOnly || iconPosition === 'only';
   const resolvedLeft = iconLeft ?? (iconPosition === 'left' ? iconName : undefined) ?? (iconPosition === 'only' ? iconName : undefined);
   const resolvedRight = iconRight ?? (iconPosition === 'right' ? iconName : undefined);
@@ -59,6 +64,7 @@ export function Button({
 
   return (
     <button
+      ref={ref}
       className={className ? `button ${className}` : 'button'}
       style={style}
       data-variant={variant}
@@ -70,6 +76,8 @@ export function Button({
       type="button"
       aria-label={resolvedIconOnly ? label : undefined}
       aria-current={ariaCurrent}
+      aria-expanded={ariaExpanded}
+      aria-controls={ariaControls}
       aria-busy={loading || undefined}
     >
       {loading && <Spinner aria-hidden="true" className="button__spinner" type="grid" size="small" showLabel={false} />}
@@ -81,4 +89,4 @@ export function Button({
       </span>
     </button>
   );
-}
+});

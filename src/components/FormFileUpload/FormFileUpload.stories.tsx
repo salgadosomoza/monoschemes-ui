@@ -35,6 +35,11 @@ export const DragAndDrop: Story = {
   parameters: figma('100-493'),
 };
 
+export const DragAndDropDark: Story = {
+  ...DragAndDrop,
+  globals: { theme: 'dark' },
+};
+
 export const AllCombinations: Story = {
   parameters: figma('100-493'),
   render: () => (

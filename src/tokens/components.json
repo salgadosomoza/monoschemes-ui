@@ -81,7 +81,16 @@
           "description": "Accepts Logo props including type text, image, or icon and mark for the icon type."
         },
         "nav": { "type": "slot" },
-        "actions": { "type": "slot" }
+        "actions": { "type": "slot" },
+        "menuOpen": { "type": "boolean" },
+        "defaultMenuOpen": { "type": "boolean", "default": false },
+        "onMenuOpenChange": { "type": "event" }
+      }
+    },
+    "App header/Tablet": {
+      "figmaNode": "2420:1013",
+      "props": {
+        "menu": { "type": "variant", "values": ["closed", "open"], "default": "closed" }
       }
     },
     "Button": {
@@ -112,6 +121,8 @@
         "iconRight": { "type": "enum", "values": ["info-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard"], "reference": "Icon.name" },
         "iconOnly": { "type": "boolean", "default": false },
         "aria-current": { "type": "enum", "values": ["page"] },
+        "aria-expanded": { "type": "boolean" },
+        "aria-controls": { "type": "string" },
         "disabled": { "type": "boolean", "default": false },
         "loading": { "type": "boolean", "default": false }
       }

@@ -1,6 +1,6 @@
-.calendar { box-sizing:border-box;width:256px;padding:16px;border:1px solid var(--color-border-strong);background:var(--color-bg-page);color:var(--color-text-strong);font-family:var(--font-family); }
+.calendar { box-sizing:border-box;width:256px;padding:15px;border:1px solid var(--color-border-strong);background:var(--color-bg-page);color:var(--color-text-strong);font-family:var(--font-family); }
 .calendar--range { width:504px; }
-.calendar:not(.calendar--range) { height:306px; }
+.calendar:not(.calendar--range) { height:304px; }
 .calendar__header { display:flex;align-items:center;justify-content:space-between;height:24px;margin-bottom:24px; }
 .calendar__header-title { flex:1;text-align:center;font-size:var(--font-body2-size);font-weight:var(--font-body2-weight);line-height:var(--font-body2-line-height); }
 .calendar__nav { display:flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;border:0;border-radius:var(--radius-none);background:transparent;color:var(--color-text-strong);cursor:pointer; }

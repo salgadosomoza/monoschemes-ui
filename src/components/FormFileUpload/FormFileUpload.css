@@ -48,7 +48,7 @@
   gap: var(--gap-sm);
   width: 320px;
   padding: var(--spacing-lg);
-  border: 1px dashed var(--color-border-default);
+  border: 1px dashed var(--color-border-strong);
   background: var(--color-bg-page);
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s;

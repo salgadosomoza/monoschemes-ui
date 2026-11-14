@@ -16,6 +16,8 @@ const meta = {
     hasTagline: { control: 'boolean' },
     hasNav: { control: 'boolean' },
     hasActions: { control: 'boolean' },
+    menuOpen: { control: 'boolean' },
+    defaultMenuOpen: { control: 'boolean' },
     siteTitle: { control: 'text' },
     tagline: { control: 'text' },
   },
@@ -29,7 +31,7 @@ const figma = (id: string) => ({ design: { type: 'figma', url: FIGMA_BASE + id }
 
 const nav = (
   <Nav>
-    <NavItem label="Home" href="/" />
+    <NavItem label="Home" href="/" status="active" />
     <NavItem label="Products" href="/products" />
     <NavItem label="About" href="/about" />
     <NavItem label="Contact" href="/contact" />
@@ -49,11 +51,24 @@ export const Desktop: Story = {
 export const Tablet: Story = {
   render: () => (
     <div style={{ width: 768, maxWidth: '100%' }}>
-      <AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} siteTitle="Design System" tagline="v1.0" nav={nav} actions={actions} />
+      <AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} siteTitle="Design System" tagline="v1.0" nav={nav} />
     </div>
   ),
   parameters: figma('154-835'),
 };
+
+export const TabletOpen: Story = {
+  render: () => (
+    <div style={{ width: 768, maxWidth: '100%' }}>
+      <AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} siteTitle="Design System" tagline="v1.0" nav={nav} defaultMenuOpen />
+    </div>
+  ),
+  parameters: figma('2420-994'),
+};
+
+export const DesktopDark: Story = { ...Desktop, globals: { theme: 'dark' } };
+export const TabletDark: Story = { ...Tablet, globals: { theme: 'dark' } };
+export const TabletOpenDark: Story = { ...TabletOpen, globals: { theme: 'dark' } };
 
 export const CustomSlots: Story = {
   render: () => (
@@ -104,7 +119,7 @@ export const IconLogoDark: Story = {
 export const Mobile: Story = {
   render: () => (
     <div style={{ width: 360, maxWidth: '100%' }}>
-      <AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} nav={nav} actions={actions} />
+      <AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} nav={nav} />
     </div>
   ),
   parameters: {
