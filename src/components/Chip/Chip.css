@@ -18,6 +18,7 @@
   line-height: var(--font-body1-line-height);
   color: var(--color-text-strong);
   user-select: none;
+  transition: background-color var(--duration-instant) var(--ease-out), color var(--duration-instant) var(--ease-out), border-color var(--duration-instant) var(--ease-out);
 }
 
 .chip[data-selected="true"] {
@@ -46,6 +47,7 @@
 .chip[data-selected="true"] .chip-drag-handle,
 .chip[data-selected="true"] .chip-close {
   color: var(--color-text-inverse);
+  transition: background-color var(--duration-instant) var(--ease-out), color var(--duration-instant) var(--ease-out), border-color var(--duration-instant) var(--ease-out);
 }
 
 .chip[data-selected="true"] .chip-close:hover {

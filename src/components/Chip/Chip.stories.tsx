@@ -214,7 +214,7 @@ function InteractiveDemo() {
           onDragStart={() => handleDragStart(chip.id)}
           onDragOver={(e) => handleDragOver(e, chip.id)}
           onDragEnd={handleDragEnd}
-          style={{ opacity: dragId === chip.id ? 0.4 : 1, transition: 'opacity 0.15s' }}
+          style={{ opacity: dragId === chip.id ? 0.4 : 1, transition: 'opacity var(--duration-fast) var(--ease-out)' }}
         >
           <Chip
             type="drag"

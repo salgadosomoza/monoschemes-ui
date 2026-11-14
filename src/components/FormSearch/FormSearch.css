@@ -16,7 +16,7 @@
   background: var(--color-bg-page);
   box-sizing: border-box;
   cursor: text;
-  transition: box-shadow 0.15s;
+  transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
 }
 
 .form-search-inner:focus-within {

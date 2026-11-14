@@ -1,4 +1,4 @@
-import { Children, createContext, isValidElement, useContext, useId, type KeyboardEvent, type ReactElement, type ReactNode } from 'react';
+import { Children, createContext, isValidElement, useContext, useEffect, useId, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactElement, type ReactNode } from 'react';
 import './Tabs.css';
 
 interface TabsContextValue {
@@ -121,12 +121,41 @@ export function Tabs({ value, onChange, 'aria-label': ariaLabel, children }: Tab
     tabValues: tabElements.map((tab) => tab.props.value),
     panelValues: panelElements.map((panel) => panel.props.value),
   };
+  const listRef = useRef<HTMLDivElement>(null);
+  const [indicator, setIndicator] = useState({ x: 0, width: 0, ready: false });
+  const indicatorInitialized = useRef(false);
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    const update = () => {
+      const selected = list.querySelector<HTMLElement>('[role="tab"][aria-selected="true"]');
+      if (!selected) return;
+      const listRect = list.getBoundingClientRect();
+      const tabRect = selected.getBoundingClientRect();
+      setIndicator({ x: tabRect.left - listRect.left + list.scrollLeft, width: tabRect.width, ready: indicatorInitialized.current });
+      if (!indicatorInitialized.current) {
+        indicatorInitialized.current = true;
+        window.requestAnimationFrame(() => setIndicator((current) => ({ ...current, ready: true })));
+      }
+    };
+    update();
+    const observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(update) : null;
+    observer?.observe(list);
+    list.querySelectorAll('[role="tab"]').forEach((tab) => observer?.observe(tab));
+    window.addEventListener('resize', update);
+    return () => { observer?.disconnect(); window.removeEventListener('resize', update); };
+  }, [value, tabElements.length]);
+  const indicatorStyle = {
+    '--tabs-indicator-x': `${indicator.x}px`,
+    '--tabs-indicator-w': `${indicator.width}px`,
+  } as CSSProperties;
 
   return (
     <TabsContext.Provider value={context}>
       <div className="tabs">
-        <div className="tabs__list" role="tablist" aria-label={ariaLabel}>
+        <div ref={listRef} className="tabs__list" data-indicator-ready={indicator.ready || undefined} role="tablist" aria-label={ariaLabel}>
           {tabElements}
+          <span className="tabs__indicator" aria-hidden="true" style={indicatorStyle} />
         </div>
         <div className="tabs__panels">{panelElements}</div>
       </div>

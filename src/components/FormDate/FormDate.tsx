@@ -3,6 +3,7 @@ import type { ChangeEvent, KeyboardEvent } from 'react';
 import { Calendar } from '../Calendar';
 import { Icon } from '../Icon';
 import './FormDate.css';
+import { usePresence } from '../../utils/usePresence';
 
 export interface FormDateProps {
   /** Controlled value and onChange format: DD/MM/YYYY. */
@@ -43,6 +44,7 @@ export function FormDate({ value: controlledValue, onChange, min, max, disabled 
   const dialogId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
   const typedRef = useRef<string | null>(null);
   const isValueControlled = controlledValue !== undefined;
   const [internalValue, setInternalValue] = useState('');
@@ -51,6 +53,7 @@ export function FormDate({ value: controlledValue, onChange, min, max, disabled 
   const [internalOpen, setInternalOpen] = useState(defaultOpen);
   const [focusCalendarOnOpen, setFocusCalendarOnOpen] = useState(defaultOpen || controlledOpen === true);
   const isOpen = controlledOpen ?? internalOpen;
+  const presence = usePresence(isOpen, 120);
   const [placement, setPlacement] = useState<'bottom' | 'top'>('bottom');
   const date = parseDisplayDate(value ?? '');
   const minDate = parseIsoDate(min);
@@ -98,6 +101,8 @@ export function FormDate({ value: controlledValue, onChange, min, max, disabled 
     if (event.altKey && event.key === 'ArrowDown') { event.preventDefault(); openCalendar(true); }
   }
 
+  useEffect(() => { popoverRef.current?.toggleAttribute('inert', !isOpen); }, [isOpen, presence.mounted]);
+
   useEffect(() => {
     if (!isOpen) return;
     function onPointerDown(event: PointerEvent) {
@@ -126,7 +131,7 @@ export function FormDate({ value: controlledValue, onChange, min, max, disabled 
       <input ref={inputRef} id={id} type="text" inputMode="numeric" autoComplete="off" className="form-date-input" placeholder="-- / -- / ----" value={inputValue} disabled={disabled} aria-invalid={hasError || undefined} aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={isOpen ? dialogId : undefined} onClick={() => openCalendar(false)} onChange={handleInputChange} onKeyDown={handleInputKeyDown} />
       <button type="button" className="form-date-icon-btn" aria-label="Choose date" aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={isOpen ? dialogId : undefined} disabled={disabled} onClick={() => openCalendar(true)}><Icon className="form-date-icon" name="calendar" size={20} /></button>
     </div>
-    {isOpen && <div id={dialogId} className="form-date-popover" role="dialog" aria-label={label || 'Choose date'} data-placement={placement}>
+    {presence.mounted && <div ref={popoverRef} id={dialogId} className="form-date-popover" data-state={presence.state} aria-hidden={!isOpen || undefined} onTransitionEnd={presence.onTransitionEnd} role="dialog" aria-label={label || 'Choose date'} data-placement={placement}>
       <Calendar type="date" value={calendarDate} defaultMonth={date ?? today()} defaultFocusDate={date ?? today()} locale={locale} minDate={minDate ?? undefined} maxDate={maxDate ?? undefined} autoFocus={focusCalendarOnOpen} onChange={(selected) => {
         if (!selected) return;
         commitValue(formatDisplayDate(selected));

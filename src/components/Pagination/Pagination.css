@@ -36,6 +36,7 @@ button.pagination-item {
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: from-font;
+  transition: background-color var(--duration-instant) var(--ease-out), color var(--duration-instant) var(--ease-out), border-color var(--duration-instant) var(--ease-out);
 }
 
 button.pagination-item:hover {

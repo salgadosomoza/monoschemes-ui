@@ -17,7 +17,7 @@
   line-height: var(--font-caption-line-height);
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color var(--duration-instant) var(--ease-out), border-color var(--duration-instant) var(--ease-out);
 }
 
 /* ─── State: default ──────────────────────────────── */

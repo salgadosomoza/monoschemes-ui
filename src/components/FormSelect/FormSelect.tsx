@@ -1,6 +1,7 @@
 import { useId, useRef, useState, useEffect } from 'react';
 import './FormSelect.css';
 import { Icon } from '../Icon';
+import { usePresence } from '../../utils/usePresence';
 
 export interface FormSelectOption {
   value: string;
@@ -41,10 +42,14 @@ export function FormSelect({
   const [internalValue, setInternalValue] = useState<string>('');
   const [isOpen, setIsOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLUListElement>(null);
+  const presence = usePresence(isOpen, 120);
 
   const value = isControlled ? controlledValue : internalValue;
   const selectedOption = options.find((o) => o.value === value);
   const displayLabel = selectedOption?.label ?? '';
+
+  useEffect(() => { dropdownRef.current?.toggleAttribute('inert', !isOpen); }, [isOpen, presence.mounted]);
 
   // Close on outside click
   useEffect(() => {
@@ -102,8 +107,8 @@ export function FormSelect({
         <Icon className="form-select-chevron" name="chevron-down" size={20} />
       </button>
 
-      {isOpen && (
-        <ul className="form-select-dropdown" role="listbox" aria-label={label}>
+      {presence.mounted && (
+        <ul ref={dropdownRef} className="form-select-dropdown" data-state={presence.state} aria-hidden={!isOpen || undefined} onTransitionEnd={presence.onTransitionEnd} role="listbox" aria-label={label}>
           {options.map((option) => (
             <li
               key={option.value}

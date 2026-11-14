@@ -6,6 +6,7 @@ import type { IconName } from '../Icon';
 import { Avatar } from '../Avatar';
 import { Button } from '../Button';
 import { Nav } from '../Nav';
+import { usePresence } from '../../utils/usePresence';
 import './AppHeader.css';
 
 export interface AppHeaderLogoProps {
@@ -63,7 +64,10 @@ export function AppHeader({
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const navId = useId();
   const [internalMenuOpen, setInternalMenuOpen] = useState(defaultMenuOpen);
+  const [isCompact, setIsCompact] = useState(false);
   const isMenuOpen = hasNav && (controlledMenuOpen ?? internalMenuOpen);
+  const menuPresence = usePresence(isMenuOpen, 120);
+  const mobileState = isMenuOpen ? 'open' : menuPresence.state;
   const navContent = nav ?? <Nav />;
 
   const setMenuOpen = useCallback((next: boolean) => {
@@ -84,10 +88,16 @@ export function AppHeader({
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isMenuOpen, setMenuOpen]);
 
+
+  useEffect(() => {
+    navRef.current?.toggleAttribute('inert', isCompact && !isMenuOpen);
+  }, [isCompact, isMenuOpen]);
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
     function closeAtDesktopWidth(width: number) {
+      setIsCompact(width < 1024);
       if (width >= 1024 && isMenuOpen) setMenuOpen(false);
     }
     const onResize = () => closeAtDesktopWidth(container.getBoundingClientRect().width);
@@ -123,6 +133,11 @@ export function AppHeader({
               id={navId}
               ref={navRef}
               data-mobile-open={isMenuOpen || undefined}
+              data-mobile-state={mobileState}
+              data-state={mobileState}
+              data-mobile-mounted={menuPresence.mounted || undefined}
+              aria-hidden={isCompact && !isMenuOpen || undefined}
+              onTransitionEnd={menuPresence.onTransitionEnd}
               onClick={handleNavClick}
             >
               {navContent}

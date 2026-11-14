@@ -34,7 +34,7 @@
   cursor: pointer;
   box-sizing: border-box;
   gap: var(--gap-sm);
-  transition: box-shadow 0.15s;
+  transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
 }
 
 .form-select-trigger:focus-visible {
@@ -89,7 +89,7 @@
 .form-select-chevron {
   color: var(--color-text-primary);
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+  transition: transform var(--duration-fast) var(--ease-out);
 }
 
 .form-select-trigger[data-open] .form-select-chevron {
@@ -111,6 +111,23 @@
   background: var(--color-bg-page);
   max-height: 240px;
   overflow-y: auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out);
+}
+
+.form-select-dropdown[data-state="closed"] {
+  opacity: 0;
+  transform: none;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-in);
+}
+
+@starting-style {
+  .form-select-dropdown[data-state="open"] {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--motion-distance-sm)));
+  }
 }
 
 /* ─── Option ───────────────────────────────────────── */
@@ -123,7 +140,7 @@
   line-height: var(--font-caption-line-height);
   color: var(--color-text-strong);
   cursor: pointer;
-  transition: background 0.1s;
+  transition: background-color var(--duration-instant) var(--ease-out);
 }
 
 .form-select-option:hover {
@@ -158,3 +175,5 @@
 .form-select-helper--error {
   color: var(--color-text-error);
 }
+
+@media (prefers-reduced-motion: reduce) { .form-select-chevron { transition: none; } }

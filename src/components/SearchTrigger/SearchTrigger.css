@@ -13,7 +13,7 @@
   font-family: var(--font-family);
   text-align: left;
   cursor: pointer;
-  transition: background-color 120ms ease;
+  transition: background-color var(--duration-instant) var(--ease-out);
 }
 
 .search-trigger:hover { background: var(--color-bg-hover); }
@@ -46,7 +46,3 @@
 }
 
 .search-trigger .kbd { flex: 0 0 auto; }
-
-@media (prefers-reduced-motion: reduce) {
-  .search-trigger { transition: none; }
-}

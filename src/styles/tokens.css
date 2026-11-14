@@ -29,6 +29,18 @@
   --color-yellow-400: #D1B475;
   --color-blue-400: #7A9EB1;
 
+  /* Motion */
+  --duration-instant: 80ms;
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 240ms;
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-linear: linear;
+  --motion-distance-sm: 4px;
+  --motion-distance-md: 8px;
+
   /* Typography */
   --font-family: 'Inter', -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -217,6 +229,13 @@
 [data-theme="inverse"] {
   background: var(--color-bg-page);
   color: var(--color-text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-distance-sm: 0px;
+    --motion-distance-md: 0px;
+  }
 }
 
 * {

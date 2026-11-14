@@ -18,9 +18,10 @@
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
+  transition: border-color var(--duration-instant) var(--ease-out);
 }
 
-.nav-item__label { display: inline; }
+.nav-item__label { display: inline; border-bottom: 1px solid transparent; transition: border-color var(--duration-instant) var(--ease-out); }
 
 /* ─── Status: hover ───────────────────────────────── */
 

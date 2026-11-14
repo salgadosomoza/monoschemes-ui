@@ -25,6 +25,7 @@
   line-height: var(--font-caption-line-height);
   text-align: left;
   cursor: pointer;
+  transition: background-color var(--duration-instant) var(--ease-out), color var(--duration-instant) var(--ease-out), border-color var(--duration-instant) var(--ease-out);
 }
 
 .menu-item[data-variant="danger"] { color: var(--color-text-error); }

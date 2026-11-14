@@ -48,6 +48,7 @@
   border: 1.5px solid var(--color-border-strong);
   border-radius: var(--radius-full);
   background: var(--color-bg-page);
+  transition: background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
 }
 
 .form-slider__input::-moz-range-thumb {
@@ -56,6 +57,7 @@
   border: 1.5px solid var(--color-border-strong);
   border-radius: var(--radius-full);
   background: var(--color-bg-page);
+  transition: background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
 }
 
 .form-slider__input:focus-visible::-webkit-slider-thumb {

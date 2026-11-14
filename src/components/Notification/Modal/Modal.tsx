@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { useEffect, useRef } from 'react';
 import { Icon } from '../../Icon';
 import './Modal.css';
+import { usePresence } from '../../../utils/usePresence';
 
 export interface ModalProps {
   isOpen: boolean;
@@ -25,6 +26,8 @@ export function Modal({
   closeOnOverlayClick = true,
 }: ModalProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
+  const presence = usePresence(isOpen, 120);
+  useEffect(() => { dialogRef.current?.toggleAttribute('inert', !isOpen); }, [isOpen, presence.mounted]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -44,16 +47,19 @@ export function Modal({
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!presence.mounted) return null;
 
   return (
     <div
       className="modal-overlay"
+      data-state={presence.state}
+      onTransitionEnd={presence.onTransitionEnd}
       onClick={closeOnOverlayClick ? onClose : undefined}
     >
       <div
         ref={dialogRef}
         className="modal"
+        data-state={presence.state}
         role="dialog"
         aria-modal="true"
         aria-labelledby={title ? 'modal-title' : undefined}

@@ -30,7 +30,7 @@
   color: var(--color-text-primary);
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.15s;
+  transition: background-color var(--duration-instant) var(--ease-out);
 }
 
 .form-file-button:hover {
@@ -51,7 +51,7 @@
   border: 1px dashed var(--color-border-strong);
   background: var(--color-bg-page);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background-color var(--duration-instant) var(--ease-out), border-color var(--duration-instant) var(--ease-out);
   box-sizing: border-box;
 }
 

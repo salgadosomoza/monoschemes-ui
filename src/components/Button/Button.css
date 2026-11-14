@@ -16,7 +16,7 @@
   line-height: var(--font-caption-line-height);
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 120ms ease, color 120ms ease;
+  transition: background-color var(--duration-instant) var(--ease-out), color var(--duration-instant) var(--ease-out);
 }
 
 .button[data-size="sm"] { min-width: 64px; height: 32px; padding: var(--spacing-2xs) var(--spacing-sm); gap: var(--gap-xs); }
@@ -35,7 +35,6 @@
 .button__icon .icon { display: block; }
 .button__spinner { position: absolute; inset: 0; margin: auto; --spinner-active-color: var(--color-text-strong); }
 .button[data-variant="primary"] .button__spinner, .button[data-variant="danger"] .button__spinner { --spinner-active-color: var(--color-text-inverse); }
-@media (prefers-reduced-motion: reduce) { .button { transition: none; } }
 
 .button[data-variant="primary"] { background: var(--color-bg-inverse); color: var(--color-text-inverse); }
 .button[data-variant="primary"]:hover:not(:disabled) { background: var(--color-bg-inverse-hover); }

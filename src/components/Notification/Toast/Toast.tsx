@@ -1,6 +1,7 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { Icon } from '../../Icon';
 import './Toast.css';
+import { usePresence } from '../../../utils/usePresence';
 
 export type ToastType = 'default' | 'success' | 'error' | 'warning';
 
@@ -24,6 +25,9 @@ export function Toast({
   useEffect(() => {
     setVisible(isVisible);
   }, [isVisible]);
+  const presence = usePresence(visible, 120);
+  const toastRef = useRef<HTMLDivElement>(null);
+  useEffect(() => { toastRef.current?.toggleAttribute('inert', !visible); }, [visible, presence.mounted]);
 
   useEffect(() => {
     if (!visible || duration === 0) return;
@@ -34,10 +38,10 @@ export function Toast({
     return () => clearTimeout(timer);
   }, [visible, duration, onClose]);
 
-  if (!visible) return null;
+  if (!presence.mounted) return null;
 
   return (
-    <div className="toast" data-type={type} role="alert" aria-live="assertive">
+    <div ref={toastRef} className="toast" data-type={type} data-state={presence.state} onTransitionEnd={presence.onTransitionEnd} role="alert" aria-live="assertive">
       <span className="toast-message">{message}</span>
       <button
         type="button"

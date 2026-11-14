@@ -34,7 +34,7 @@ export function AccordionHeader({
       <Text style="subtitle-1" as="span">
         {children}
       </Text>
-      <Icon className="accordion-icon" name={expanded ? 'chevron-up' : 'chevron-down'} size={24} />
+      <Icon className="accordion-icon" name="chevron-down" size={24} />
     </button>
   );
 }
