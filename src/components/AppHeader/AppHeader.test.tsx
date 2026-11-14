@@ -30,7 +30,9 @@ describe('AppHeader compact navigation', () => {
     const { container } = renderHeader();
     const trigger = container.querySelector<HTMLButtonElement>('.app-header-mobile-menu')!;
     fireEvent.click(trigger);
-    fireEvent.click(screen.getByRole('link', { name: 'About' }));
+    const link = screen.getByRole('link', { name: 'About' });
+    expect(link.classList.contains('nav-item')).toBe(true);
+    fireEvent.click(link);
     expect(trigger.getAttribute('aria-expanded')).toBe('false');
   });
 

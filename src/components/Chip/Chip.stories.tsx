@@ -62,6 +62,24 @@ export const Selected: Story = {
   parameters: figma('10-468'),
 };
 
+export const DefaultDark: Story = {
+  args: { type: 'default', label: 'Chip name' },
+  globals: { theme: 'dark' },
+  parameters: figma('10-469'),
+};
+
+export const DragDark: Story = {
+  args: { type: 'drag', label: 'Chip name' },
+  globals: { theme: 'dark' },
+  parameters: figma('10-447'),
+};
+
+export const SelectedDark: Story = {
+  args: { type: 'default', label: 'Selected chip', selected: true },
+  globals: { theme: 'dark' },
+  parameters: figma('10-468'),
+};
+
 export const SelectedWithoutClose: Story = {
   args: { type: 'default', label: 'Selected chip', selected: true, showClose: false },
   parameters: figma('10-468'),
@@ -98,6 +116,22 @@ function FilterGroupDemo() {
 export const FilterGroup: Story = {
   parameters: figma('10-468'),
   render: () => <FilterGroupDemo />,
+};
+
+function ToggleDemo() {
+  const [selected, setSelected] = useState(false);
+  return <Chip label="Filter" selected={selected} onSelectedChange={setSelected} />;
+}
+
+export const Toggle: Story = {
+  parameters: figma('10-468'),
+  render: () => <ToggleDemo />,
+};
+
+export const ToggleDark: Story = {
+  globals: { theme: 'dark' },
+  parameters: figma('10-468'),
+  render: () => <ToggleDemo />,
 };
 
 // ─── All combinations overview ──────────────────────

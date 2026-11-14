@@ -78,6 +78,11 @@ export const AllCombinations: Story = {
   ),
 };
 
+export const AllCombinationsDark: Story = {
+  ...AllCombinations,
+  globals: { theme: 'dark' },
+};
+
 // ─── Interactive nav bar ────────────────────────────
 
 const NAV_LINKS = ['Home', 'About', 'Services', 'Contact'];

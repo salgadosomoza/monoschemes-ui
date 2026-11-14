@@ -29,40 +29,6 @@
   --color-yellow-400: #D1B475;
   --color-blue-400: #7A9EB1;
 
-  /* Semantic colors — text */
-  --color-text-primary: var(--color-gray-800);
-  --color-text-secondary: var(--color-gray-700);
-  --color-text-placeholder: var(--color-gray-500);
-  --color-text-disabled: var(--color-gray-400);
-  --color-text-inverse: var(--color-white);
-  --color-text-error: var(--color-rust-600);
-  --color-text-strong: var(--color-black);
-  --color-text-muted: var(--color-gray-500);
-
-  /* Semantic colors — border */
-  --color-border-default: var(--color-gray-700);
-  --color-border-focused: var(--color-black);
-  --color-border-error: var(--color-rust-500);
-  --color-border-disabled: var(--color-gray-100);
-  --color-border-strong: var(--color-black);
-
-  /* Semantic colors — background */
-  --color-bg-page: var(--color-white);
-  --color-bg-surface: var(--color-gray-25);
-  --color-bg-hover: var(--color-gray-100);
-  --color-bg-disabled: var(--color-gray-25);
-  --color-bg-inverse: var(--color-black);
-  --color-bg-inverse-hover: var(--color-gray-800);
-  --color-bg-inverse-pressed: var(--color-gray-700);
-  --color-bg-pressed: var(--color-gray-200);
-  --color-bg-danger: var(--color-rust-600);
-  --color-bg-danger-hover: var(--color-rust-700);
-  --color-bg-danger-pressed: var(--color-rust-800);
-  --color-bg-placeholder: var(--color-gray-200);
-
-  /* Semantic colors — layout */
-  --color-grid-gutter: var(--color-gray-300);
-
   /* Typography */
   --font-family: 'Inter', -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -171,7 +137,51 @@
   --icon-stroke: 1.5;
 }
 
-[data-theme="dark"] {
+/* Light semantics apply to the page and to inverse zones inside a dark page. */
+:root,
+[data-theme="light"],
+[data-theme="dark"] [data-theme="inverse"] {
+  color-scheme: light;
+
+  /* Semantic colors — text */
+  --color-text-primary: var(--color-gray-800);
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-placeholder: var(--color-gray-500);
+  --color-text-disabled: var(--color-gray-400);
+  --color-text-inverse: var(--color-white);
+  --color-text-error: var(--color-rust-600);
+  --color-text-strong: var(--color-black);
+  --color-text-muted: var(--color-gray-500);
+
+  /* Semantic colors — border */
+  --color-border-default: var(--color-gray-700);
+  --color-border-focused: var(--color-black);
+  --color-border-error: var(--color-rust-500);
+  --color-border-disabled: var(--color-gray-100);
+  --color-border-strong: var(--color-black);
+
+  /* Semantic colors — background */
+  --color-bg-page: var(--color-white);
+  --color-bg-surface: var(--color-gray-25);
+  --color-bg-hover: var(--color-gray-100);
+  --color-bg-disabled: var(--color-gray-25);
+  --color-bg-inverse: var(--color-black);
+  --color-bg-inverse-hover: var(--color-gray-800);
+  --color-bg-inverse-pressed: var(--color-gray-700);
+  --color-bg-pressed: var(--color-gray-200);
+  --color-bg-danger: var(--color-rust-600);
+  --color-bg-danger-hover: var(--color-rust-700);
+  --color-bg-danger-pressed: var(--color-rust-800);
+  --color-bg-placeholder: var(--color-gray-200);
+
+  /* Semantic colors — layout */
+  --color-grid-gutter: var(--color-gray-300);
+}
+
+[data-theme="dark"],
+[data-theme="inverse"] {
+  color-scheme: dark;
+
   --color-text-primary: var(--color-gray-25);
   --color-text-secondary: var(--color-gray-100);
   --color-text-placeholder: var(--color-gray-350);
@@ -201,6 +211,12 @@
   --color-bg-placeholder: var(--color-gray-500);
 
   --color-grid-gutter: var(--color-gray-700);
+}
+
+/* Inverse zones provide their own page surface; inverse zones must not be nested. */
+[data-theme="inverse"] {
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
 }
 
 * {

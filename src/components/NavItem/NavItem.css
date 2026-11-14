@@ -20,6 +20,8 @@
   white-space: nowrap;
 }
 
+.nav-item__label { display: inline; }
+
 /* ─── Status: hover ───────────────────────────────── */
 
 .nav-item[data-status="hover"],

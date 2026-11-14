@@ -58,7 +58,7 @@ export function Chip({
           aria-label={`Remove ${label}`}
           onClick={onClose}
         >
-          <Icon name="x" size={24} />
+          <Icon name="x" size={16} />
         </button>
       )}
     </div>

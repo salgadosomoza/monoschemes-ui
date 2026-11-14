@@ -1,5 +1,4 @@
 /* Chip — MonoSchemes Design System
- * Source: monoschemes-kit/src/components/chip.css
  * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 10:468
  */
 
@@ -11,13 +10,13 @@
   gap: var(--gap-sm);
   padding: var(--spacing-xs);
   background: var(--color-bg-page);
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-none);
   font-family: var(--font-family);
-  font-size: var(--font-caption-size);
-  font-weight: var(--font-caption-weight);
-  line-height: var(--font-caption-line-height);
-  color: var(--color-text-primary);
+  font-size: var(--font-body1-size);
+  font-weight: var(--font-body1-weight);
+  line-height: var(--font-body1-line-height);
+  color: var(--color-text-strong);
   user-select: none;
 }
 
@@ -41,12 +40,16 @@
   width: var(--spacing-md);
   height: var(--spacing-md);
   flex-shrink: 0;
-  color: var(--color-text-secondary);
+  color: var(--color-text-strong);
 }
 
 .chip[data-selected="true"] .chip-drag-handle,
 .chip[data-selected="true"] .chip-close {
   color: var(--color-text-inverse);
+}
+
+.chip[data-selected="true"] .chip-close:hover {
+  background: var(--color-bg-inverse-hover);
 }
 
 /* ─── Label ───────────────────────────────────────── */
@@ -84,7 +87,7 @@
   background: none;
   border: none;
   border-radius: var(--radius-none);
-  color: var(--color-text-primary);
+  color: var(--color-text-strong);
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -94,6 +97,6 @@
 }
 
 .chip-close:focus-visible {
-  outline: 2px solid var(--color-border-default);
+  outline: 2px solid var(--color-border-focused);
   outline-offset: 1px;
 }

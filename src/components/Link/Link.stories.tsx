@@ -11,7 +11,7 @@ const meta = {
   component: Link,
   parameters: {
     layout: 'centered',
-    docs: { description: { component: 'For a custom icon, pass an Icon such as <Icon name="chevron-down" size={16} />. The default icon is download.' } },
+    docs: { description: { component: 'For a custom icon, pass an Icon such as <Icon name="chevron-down" size={16} />. The default icon is download. On inverted backgrounds, place Link inside a `data-theme="inverse"` zone instead of adding a variant.' } },
   },
   tags: ['autodocs'],
   argTypes: {

@@ -27,7 +27,7 @@ export function NavItem({
         href={href}
         onClick={onClick}
       >
-        {label}
+        <span className="nav-item__label">{label}</span>
       </a>
     );
   }
@@ -39,7 +39,7 @@ export function NavItem({
       onClick={onClick}
       type="button"
     >
-      {label}
+      <span className="nav-item__label">{label}</span>
     </button>
   );
 }

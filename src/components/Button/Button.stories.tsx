@@ -18,7 +18,7 @@ const meta = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'The primary control for an action. Choose primary for the main action, secondary or tertiary for supporting actions, danger for destructive actions and link for text actions. Use Link for navigation and Form/Toggle for on/off settings. An icon-only Button requires an accessible `label`; loading keeps the button width and prevents repeat activation.',
+        component: 'The primary control for an action. Choose primary for the main action, secondary or tertiary for supporting actions, danger for destructive actions and link for text actions. Use Link for navigation and Form/Toggle for on/off settings. On inverted backgrounds, place the Button inside a `data-theme="inverse"` zone; do not add an inverse variant, and avoid danger inside the zone. An icon-only Button requires an accessible `label`; loading keeps the button width and prevents repeat activation.',
       },
     },
   },
