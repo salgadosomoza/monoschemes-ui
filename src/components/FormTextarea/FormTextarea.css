@@ -25,7 +25,7 @@
   width: 100%;
   min-height: 117px;
   padding: var(--spacing-xs);
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--color-border-strong);
   background: var(--color-bg-page);
   font-family: var(--font-family);
   font-size: var(--font-caption-size);

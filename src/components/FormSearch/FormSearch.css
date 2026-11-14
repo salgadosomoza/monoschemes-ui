@@ -12,7 +12,7 @@
   gap: var(--gap-sm);
   height: 40px;
   padding: var(--spacing-xs);
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--color-border-strong);
   background: var(--color-bg-page);
   box-sizing: border-box;
   cursor: text;

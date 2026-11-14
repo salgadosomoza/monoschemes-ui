@@ -39,6 +39,16 @@
 .spinner[data-type="squares"] .spinner__shape i { animation-name:spinner-square-step; }
 @keyframes spinner-square-step { 0%,33.32% { background:var(--spinner-active-color,var(--color-text-strong)); } 33.33%,100% { background:var(--color-bg-placeholder); } }
 @media(prefers-reduced-motion:reduce) {
+  .spinner:not([data-size="small"])[data-type="squares"] .spinner__shape i { animation-duration:900ms; }
+  .spinner:not([data-size="small"]):not([data-type="squares"]) .spinner__shape i { animation-duration:1200ms; }
+  .spinner:not([data-size="small"])[data-type="squares"] i:nth-child(2) { animation-delay:300ms; }
+  .spinner:not([data-size="small"])[data-type="squares"] i:nth-child(3) { animation-delay:600ms; }
+  .spinner:not([data-size="small"])[data-type="grid"] i:nth-child(2),
+  .spinner:not([data-size="small"])[data-type="outline"] i:nth-child(2) { animation-delay:300ms; }
+  .spinner:not([data-size="small"])[data-type="grid"] i:nth-child(3),
+  .spinner:not([data-size="small"])[data-type="outline"] i:nth-child(3) { animation-delay:600ms; }
+  .spinner:not([data-size="small"])[data-type="grid"] i:nth-child(4),
+  .spinner:not([data-size="small"])[data-type="outline"] i:nth-child(4) { animation-delay:900ms; }
   .spinner[data-size="small"][data-type="squares"] .spinner__shape i { animation-duration:900ms; }
   .spinner[data-size="small"]:not([data-type="squares"]) .spinner__shape i { animation-duration:1200ms; }
   .spinner[data-size="small"][data-type="squares"] i:nth-child(2) { animation-delay:300ms; }

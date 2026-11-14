@@ -24,4 +24,10 @@ describe('Calendar', () => {
     fireEvent.click(screen.getByRole('button', { name: /Thursday, April 9, 2026/i }));
     expect(onChange).toHaveBeenLastCalledWith({ start: new Date(2026, 3, 6), end: new Date(2026, 3, 9) });
   });
+
+  it('uses narrow, Monday-first weekday headings', () => {
+    render(<Calendar type="date" month={new Date(2026, 3, 1)} locale="en" />);
+    const headings = screen.getAllByRole('columnheader').map((heading) => heading.textContent);
+    expect(headings).toEqual(['M', 'T', 'W', 'T', 'F', 'S', 'S']);
+  });
 });

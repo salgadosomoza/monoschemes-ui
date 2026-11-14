@@ -49,6 +49,7 @@ export function FormDate({ value: controlledValue, onChange, min, max, disabled 
   const [draftValue, setDraftValue] = useState<string | null>(null);
   const value = isValueControlled ? controlledValue : internalValue;
   const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const [focusCalendarOnOpen, setFocusCalendarOnOpen] = useState(defaultOpen || controlledOpen === true);
   const isOpen = controlledOpen ?? internalOpen;
   const [placement, setPlacement] = useState<'bottom' | 'top'>('bottom');
   const date = parseDisplayDate(value ?? '');
@@ -72,11 +73,18 @@ export function FormDate({ value: controlledValue, onChange, min, max, disabled 
     if (!isValueControlled) setInternalValue(next);
     onChange?.(next);
   }
-  function openCalendar() {
-    if (!disabled) setOpen(true);
+  function openCalendar(focusCalendar: boolean) {
+    if (!disabled) {
+      setFocusCalendarOnOpen(focusCalendar);
+      setOpen(true);
+    }
   }
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const digits = event.target.value.replace(/\D/g, '').slice(0, 8);
+    if (digits.length === 0) {
+      commitValue('');
+      return;
+    }
     const display = digits.length > 4 ? `${digits.slice(0, 2)} / ${digits.slice(2, 4)} / ${digits.slice(4)}` : digits.length > 2 ? `${digits.slice(0, 2)} / ${digits.slice(2)}` : digits;
     setDraftValue(display);
     const typed = digits.length === 8 ? `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}` : null;
@@ -87,7 +95,7 @@ export function FormDate({ value: controlledValue, onChange, min, max, disabled 
     }
   }
   function handleInputKeyDown(event: KeyboardEvent<HTMLInputElement>) {
-    if (event.altKey && event.key === 'ArrowDown') { event.preventDefault(); openCalendar(); }
+    if (event.altKey && event.key === 'ArrowDown') { event.preventDefault(); openCalendar(true); }
   }
 
   useEffect(() => {
@@ -115,11 +123,11 @@ export function FormDate({ value: controlledValue, onChange, min, max, disabled 
   return <div className="form-date" ref={rootRef} data-error={hasError || undefined} data-open={isOpen || undefined} data-placement={placement}>
     {label && <label className="form-date-label" htmlFor={id}>{label}</label>}
     <div className="form-date-inner">
-      <input ref={inputRef} id={id} type="text" inputMode="numeric" autoComplete="off" className="form-date-input" placeholder="-- / -- / ----" value={inputValue} disabled={disabled} aria-invalid={hasError || undefined} aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={isOpen ? dialogId : undefined} onClick={openCalendar} onChange={handleInputChange} onKeyDown={handleInputKeyDown} />
-      <button type="button" className="form-date-icon-btn" aria-label="Choose date" aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={isOpen ? dialogId : undefined} disabled={disabled} onClick={openCalendar}><Icon className="form-date-icon" name="calendar" size={20} /></button>
+      <input ref={inputRef} id={id} type="text" inputMode="numeric" autoComplete="off" className="form-date-input" placeholder="-- / -- / ----" value={inputValue} disabled={disabled} aria-invalid={hasError || undefined} aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={isOpen ? dialogId : undefined} onClick={() => openCalendar(false)} onChange={handleInputChange} onKeyDown={handleInputKeyDown} />
+      <button type="button" className="form-date-icon-btn" aria-label="Choose date" aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={isOpen ? dialogId : undefined} disabled={disabled} onClick={() => openCalendar(true)}><Icon className="form-date-icon" name="calendar" size={20} /></button>
     </div>
     {isOpen && <div id={dialogId} className="form-date-popover" role="dialog" aria-label={label || 'Choose date'} data-placement={placement}>
-      <Calendar type="date" value={calendarDate} defaultMonth={date ?? today()} defaultFocusDate={date ?? today()} locale={locale} minDate={minDate ?? undefined} maxDate={maxDate ?? undefined} autoFocus onChange={(selected) => {
+      <Calendar type="date" value={calendarDate} defaultMonth={date ?? today()} defaultFocusDate={date ?? today()} locale={locale} minDate={minDate ?? undefined} maxDate={maxDate ?? undefined} autoFocus={focusCalendarOnOpen} onChange={(selected) => {
         if (!selected) return;
         commitValue(formatDisplayDate(selected));
         setOpen(false);

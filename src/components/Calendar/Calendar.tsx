@@ -27,7 +27,7 @@ function monthDays(month: Date) {
   return Array.from({length:42},(_,i)=>new Date(start.getFullYear(),start.getMonth(),start.getDate()+i));
 }
 function monthLabel(date: Date, locale: string) { return new Intl.DateTimeFormat(locale,{month:'long',year:'numeric'}).format(date); }
-function weekdayLabels(locale: string) { const formatter=new Intl.DateTimeFormat(locale,{weekday:'short'}); return Array.from({length:7},(_,i)=>formatter.format(new Date(2024,0,1+i))); }
+function weekdayLabels(locale: string) { const formatter=new Intl.DateTimeFormat(locale,{weekday:'narrow'}); return Array.from({length:7},(_,i)=>formatter.format(new Date(2024,0,1+i))); }
 
 export function Calendar(props: CalendarProps) {
   const {locale='en',className,onMonthChange}=props;
@@ -120,9 +120,9 @@ export function Calendar(props: CalendarProps) {
   }
   return <div className={['calendar',rangeMode?'calendar--range':'',className].filter(Boolean).join(' ')} data-type={rangeMode?'date-range':'date'}>
     <div className="calendar__header">
-      <button type="button" className="calendar__nav" aria-label="Previous month" onClick={()=>changeMonth(addMonths(visibleMonth,-1))}><Icon name="chevron-left" size={20}/></button>
+      <button type="button" className="calendar__nav" aria-label="Previous month" onClick={()=>changeMonth(addMonths(visibleMonth,-1))}><Icon name="chevron-left" size={24}/></button>
       {!rangeMode&&<span className="calendar__header-title">{monthLabel(visibleMonth,locale)}</span>}
-      <button type="button" className="calendar__nav" aria-label="Next month" onClick={()=>changeMonth(addMonths(visibleMonth,1))}><Icon name="chevron-right" size={20}/></button>
+      <button type="button" className="calendar__nav" aria-label="Next month" onClick={()=>changeMonth(addMonths(visibleMonth,1))}><Icon name="chevron-right" size={24}/></button>
     </div>
     <div className="calendar__months">{months.map(renderMonth)}</div>
   </div>;

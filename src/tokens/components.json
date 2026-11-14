@@ -219,7 +219,7 @@
     },
     "Form/Date": {
       "figmaNode": "1441:422",
-      "props": {
+      "figmaVariants": {
         "status": {
           "type": "variant",
           "values": [
@@ -231,7 +231,15 @@
           ],
           "default": "default"
         },
-        "value": { "type": "variant", "values": ["empty", "filled"], "default": "empty" },
+        "value": { "type": "variant", "values": ["empty", "filled"], "default": "empty" }
+      },
+      "props": {
+        "value": { "type": "string", "format": "DD/MM/YYYY" },
+        "onChange": { "type": "event", "valueFormat": "DD/MM/YYYY" },
+        "min": { "type": "string", "format": "YYYY-MM-DD" },
+        "max": { "type": "string", "format": "YYYY-MM-DD" },
+        "disabled": { "type": "boolean", "default": false },
+        "label": { "type": "string" },
         "open": { "type": "boolean" },
         "defaultOpen": { "type": "boolean", "default": false },
         "onOpenChange": { "type": "event" },
