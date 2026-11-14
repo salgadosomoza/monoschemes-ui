@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Logo } from './Logo';
-import type { LogoType } from './Logo';
+import type { LogoSize, LogoType } from './Logo';
 
 const TYPES: LogoType[] = ['text', 'image', 'icon'];
+const SIZES: LogoSize[] = ['md', 'lg'];
 
 const meta = {
   title: 'Components/Logo',
@@ -17,6 +18,7 @@ const meta = {
       options: TYPES,
       description: 'Determines the logo content: text label, image, or icon mark.',
     },
+    size: { control: 'select', options: SIZES, description: 'md for headers and footers; lg for prominent branding.' },
     label: {
       control: 'text',
       description: 'Text label shown when type="text".',
@@ -75,6 +77,42 @@ export const LogoIconDark: Story = {
     </div>
   ),
   parameters: figma('727-2495'),
+};
+
+export const LargeCombinations: Story = {
+  args: { size: 'lg' },
+  parameters: figma('727-2495'),
+  render: () => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+      <Logo type="text" size="lg" label="Logo" />
+      <Logo type="image" size="lg" />
+      <Logo type="icon" size="lg" label="MonoSchemes" mark="brand-react" />
+    </div>
+  ),
+};
+
+export const LargeCombinationsDark: Story = {
+  globals: { theme: 'dark' },
+  parameters: figma('727-2495'),
+  render: () => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 32, padding: 24, background: 'var(--color-bg-page)' }}>
+      <Logo type="text" size="lg" label="Logo" />
+      <Logo type="image" size="lg" />
+      <Logo type="icon" size="lg" label="MonoSchemes" mark="brand-react" />
+    </div>
+  ),
+};
+
+export const MediumCombinationsDark: Story = {
+  globals: { theme: 'dark' },
+  parameters: figma('727-2495'),
+  render: () => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 32, padding: 24, background: 'var(--color-bg-page)' }}>
+      <Logo type="text" size="md" label="Logo" />
+      <Logo type="image" size="md" />
+      <Logo type="icon" size="md" label="MonoSchemes" mark="brand-react" />
+    </div>
+  ),
 };
 
 export const AllCombinations: Story = {

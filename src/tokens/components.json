@@ -467,7 +467,8 @@
             "large"
           ],
           "default": "medium"
-        }
+        },
+        "icon": { "type": "ReactNode", "default": { "component": "Icon", "props": { "name": "download", "size": 16 } } }
       }
     },
     "Logo": {
@@ -482,7 +483,8 @@
           ],
           "default": "text"
         },
-        "mark": { "type": "enum", "reference": "Icon.name", "default": "search" }
+        "mark": { "type": "enum", "reference": "Icon.name", "default": "search" },
+        "size": { "type": "variant", "values": ["md", "lg"], "default": "md" }
       }
     },
     "Menu": {
@@ -579,7 +581,8 @@
             "body-1",
             "body-2",
             "caption",
-            "overline"
+            "overline",
+            "display"
           ],
           "default": "body-1"
         },
@@ -862,6 +865,15 @@
         "type": { "type": "variant", "values": ["squares", "grid", "outline"], "default": "grid" },
         "size": { "type": "variant", "values": ["default", "small"], "default": "default" },
         "showLabel": { "type": "boolean", "default": true, "onlyWhen": { "size": "default" } }
+      }
+    },
+    "Stat": {
+      "figmaNode": "2429:762",
+      "props": {
+        "label": { "type": "string" },
+        "value": { "type": "string" },
+        "unit": { "type": "string" },
+        "tone": { "type": "variant", "values": ["default", "muted"], "default": "default" }
       }
     }
   }

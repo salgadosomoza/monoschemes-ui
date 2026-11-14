@@ -6,7 +6,7 @@ const STYLES: TextStyle[] = [
   'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
   'subtitle-1', 'subtitle-2',
   'body-1', 'body-2',
-  'caption', 'overline',
+  'caption', 'overline', 'display',
 ];
 
 const meta = {
@@ -14,6 +14,7 @@ const meta = {
   component: Text,
   parameters: {
     layout: 'centered',
+    docs: { description: { component: 'Display is for a single prominent figure per view.' } },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -105,6 +106,17 @@ export const Caption: Story = {
 export const Overline: Story = {
   args: { style: 'overline', children: SAMPLE },
   parameters: figma('130-1786'),
+};
+
+export const Display: Story = {
+  args: { style: 'display', children: '660' },
+  parameters: figma('2426-1598'),
+};
+
+export const DisplayDark: Story = {
+  args: { style: 'display', children: '660' },
+  globals: { theme: 'dark' },
+  parameters: figma('2426-1598'),
 };
 
 // ─── All styles overview ────────────────────────────

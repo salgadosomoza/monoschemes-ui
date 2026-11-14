@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Text } from '../Text/Text';
 import type { TextStyle } from '../Text/Text';
+import { Icon } from '../Icon';
 import './Link.css';
 
 export type LinkType = 'default' | 'icon';
@@ -29,21 +30,6 @@ const SIZE_TO_TEXT_STYLE: Record<LinkSize, TextStyle> = {
   large:  'body-1',
 };
 
-function DefaultIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-      className="link-icon"
-    >
-      <path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
-    </svg>
-  );
-}
-
 export function Link({
   type = 'default',
   size = 'medium',
@@ -66,7 +52,7 @@ export function Link({
       <Text style={SIZE_TO_TEXT_STYLE[size]} as="span">
         {label}
       </Text>
-      {type === 'icon' && (icon ?? <DefaultIcon />)}
+      {type === 'icon' && (icon ?? <Icon name="download" size={16} />)}
     </a>
   );
 }

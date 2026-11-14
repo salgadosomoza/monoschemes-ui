@@ -5,7 +5,7 @@ export type TextStyle =
   | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   | 'subtitle-1' | 'subtitle-2'
   | 'body-1' | 'body-2'
-  | 'caption' | 'overline';
+  | 'caption' | 'overline' | 'display';
 export type TextAlign = 'left' | 'center' | 'right';
 
 export interface TextProps {
@@ -38,6 +38,7 @@ const DEFAULT_TAG: Record<TextStyle, ElementType> = {
   'body-2':     'p',
   'caption':    'span',
   'overline':   'span',
+  'display':    'span',
 };
 
 export function Text({

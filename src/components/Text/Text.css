@@ -18,7 +18,8 @@
 
 .text[data-style="h1"],
 .text[data-style="h2"],
-.text[data-style="h3"] { max-width: 960px; }
+.text[data-style="h3"],
+.text[data-style="display"] { max-width: 960px; }
 
 .text[data-style="h4"],
 .text[data-style="h5"],
@@ -50,6 +51,12 @@
   font-size: var(--font-h3-size);
   font-weight: var(--font-h3-weight);
   line-height: var(--font-h3-line-height);
+}
+
+.text[data-style="display"] {
+  font-size: var(--font-display-size);
+  font-weight: var(--font-display-weight);
+  line-height: var(--font-display-line-height);
 }
 
 .text[data-style="h4"] {

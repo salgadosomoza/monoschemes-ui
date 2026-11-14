@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Link } from './Link';
+import { Icon } from '../Icon';
 import type { LinkType, LinkSize } from './Link';
 
 const TYPES: LinkType[] = ['default', 'icon'];
@@ -10,6 +11,7 @@ const meta = {
   component: Link,
   parameters: {
     layout: 'centered',
+    docs: { description: { component: 'For a custom icon, pass an Icon such as <Icon name="chevron-down" size={16} />. The default icon is download.' } },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -79,6 +81,17 @@ export const IconMedium: Story = {
 export const IconLarge: Story = {
   args: { type: 'icon', size: 'large', label: 'Link' },
   parameters: figma('86-552'),
+};
+
+export const CustomIcon: Story = {
+  args: { type: 'icon', size: 'small', label: 'Español (Latinoamérica)', icon: <Icon name="chevron-down" size={16} /> },
+  parameters: figma('86-502'),
+};
+
+export const CustomIconDark: Story = {
+  globals: { theme: 'dark' },
+  args: { type: 'icon', size: 'small', label: 'Español (Latinoamérica)', icon: <Icon name="chevron-down" size={16} /> },
+  parameters: figma('86-502'),
 };
 
 // ─── All combinations ───────────────────────────────

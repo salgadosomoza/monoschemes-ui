@@ -3,11 +3,14 @@ import { Icon, type IconName } from '../Icon';
 import './Logo.css';
 
 export type LogoType = 'text' | 'image' | 'icon';
+export type LogoSize = 'md' | 'lg';
 
 export interface LogoProps {
   /** Determines the logo content: text label or image. */
   type?: LogoType;
-  /** Text label displayed when type="text". Maps to Text style="h6". */
+  /** Display size; md preserves the current sizing. */
+  size?: LogoSize;
+  /** Text label displayed when type="text". Uses h6 at md and h3 at lg. */
   label?: string;
   /** Image URL when type="image". Falls back to a placeholder when omitted. */
   src?: string;
@@ -25,7 +28,7 @@ function ImagePlaceholder() {
   return <div className="logo-image-placeholder" aria-hidden="true" />;
 }
 
-function LogoContent({ type, label, src, alt, mark }: Pick<LogoProps, 'type' | 'label' | 'src' | 'alt' | 'mark'>) {
+function LogoContent({ type, size, label, src, alt, mark }: Pick<LogoProps, 'type' | 'size' | 'label' | 'src' | 'alt' | 'mark'>) {
   if (type === 'image') {
     return src ? (
       <img className="logo-image" src={src} alt={alt} />
@@ -37,13 +40,13 @@ function LogoContent({ type, label, src, alt, mark }: Pick<LogoProps, 'type' | '
   if (type === 'icon') {
     return (
       <span className="logo-icon" aria-hidden="true">
-        <Icon name={mark ?? 'search'} size={24} />
+        <Icon name={mark ?? 'search'} size={size === 'lg' ? 48 : 24} />
       </span>
     );
   }
 
   return (
-    <Text style="h6" as="span">
+    <Text style={size === 'lg' ? 'h3' : 'h6'} as="span">
       {label}
     </Text>
   );
@@ -51,6 +54,7 @@ function LogoContent({ type, label, src, alt, mark }: Pick<LogoProps, 'type' | '
 
 export function Logo({
   type = 'text',
+  size = 'md',
   label = 'Logo',
   src,
   mark,
@@ -58,13 +62,14 @@ export function Logo({
   onClick,
   href,
 }: LogoProps) {
-  const content = <LogoContent type={type} label={label} src={src} alt={alt} mark={mark} />;
+  const content = <LogoContent type={type} size={size} label={label} src={src} alt={alt} mark={mark} />;
 
   if (href) {
     return (
       <a
         className="logo"
         data-type={type}
+        data-size={size}
         href={href}
         onClick={onClick}
         aria-label={type === 'icon' || (type === 'image' && !src) ? label : undefined}
@@ -75,7 +80,7 @@ export function Logo({
   }
 
   return (
-    <div className="logo" data-type={type} onClick={onClick} role={onClick ? 'button' : undefined}>
+    <div className="logo" data-type={type} data-size={size} onClick={onClick} role={onClick ? 'button' : undefined}>
       {content}
     </div>
   );

@@ -32,6 +32,12 @@ a.logo {
   flex-shrink: 0;
 }
 
+.logo[data-size="lg"] .logo-image,
+.logo[data-size="lg"] .logo-image-placeholder {
+  width: 80px;
+  height: 80px;
+}
+
 .logo-icon {
   display: inline-flex;
   flex: 0 0 40px;
@@ -42,4 +48,10 @@ a.logo {
   border-radius: var(--radius-none);
   background: var(--color-bg-inverse);
   color: var(--color-text-inverse);
+}
+
+.logo[data-size="lg"] .logo-icon {
+  flex-basis: 48px;
+  width: 48px;
+  height: 48px;
 }

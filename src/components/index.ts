@@ -47,6 +47,7 @@ export * from './Pagination';
 export * from './ProgressBar';
 export * from './Skeleton';
 export * from './Spinner';
+export * from './Stat';
 export * from './Table';
 export * from './Tag';
 export * from './Text';

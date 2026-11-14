@@ -91,6 +91,10 @@
   --font-h6-weight: 500;
   --font-h6-line-height: 1.21;
 
+  --font-display-size: 160px;
+  --font-display-weight: 700;
+  --font-display-line-height: 1;
+
   --font-subtitle1-size: 16px;
   --font-subtitle1-weight: 700;
   --font-subtitle1-line-height: 1.21;
