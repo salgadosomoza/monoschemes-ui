@@ -57,6 +57,8 @@ export function Text({
 }: TextProps) {
   if (style === 'display' && import.meta.env?.DEV && !warnedAboutDisplayAlias) {
     warnedAboutDisplayAlias = true;
+    // Keep the one-time development migration notice for the deprecated public alias.
+    // eslint-disable-next-line no-console
     console.warn('Text style "display" is deprecated; use "display-1" instead.');
   }
   const Tag = as ?? DEFAULT_TAG[style];

@@ -15,6 +15,10 @@ export interface FormNumberProps {
   label?: string;
   helperText?: string;
   placeholder?: string;
+  name?: string;
+  autoComplete?: string;
+  id?: string;
+  required?: boolean;
 }
 
 function alignToStep(value: number, step: number, base: number) {
@@ -22,8 +26,9 @@ function alignToStep(value: number, step: number, base: number) {
   return Number((base + Math.round((value - base) / step) * step).toFixed(places));
 }
 
-export function FormNumber({ value: controlledValue, defaultValue = null, onChange, min, max, step = 1, disabled = false, error = false, label, helperText, placeholder }: FormNumberProps) {
-  const id = useId();
+export function FormNumber({ value: controlledValue, defaultValue = null, onChange, min, max, step = 1, disabled = false, error = false, label, helperText, placeholder, name, autoComplete, id: providedId, required = false }: FormNumberProps) {
+  const generatedId = useId();
+  const id = providedId ?? generatedId;
   const helperId = `${id}-helper`;
   const controlled = controlledValue !== undefined;
   const [internalValue, setInternalValue] = useState<number | null>(defaultValue);
@@ -78,7 +83,7 @@ export function FormNumber({ value: controlledValue, defaultValue = null, onChan
     <div className="form-number" data-error={error || undefined}>
       {label && <label className="form-number__label" htmlFor={id}>{label}</label>}
       <div className="form-number__field">
-        <input id={id} className="form-number__input" type="text" inputMode="decimal" role="spinbutton" placeholder={placeholder} value={draft ?? (value ?? '')} disabled={disabled} aria-valuenow={value ?? undefined} aria-valuemin={min} aria-valuemax={max} aria-invalid={error || undefined} aria-describedby={helperText ? helperId : undefined} onChange={handleChange} onBlur={handleBlur} onKeyDown={handleKeyDown} />
+        <input id={id} name={name} autoComplete={autoComplete} required={required} className="form-number__input" type="text" inputMode="decimal" role="spinbutton" placeholder={placeholder} value={draft ?? (value ?? '')} disabled={disabled} aria-valuenow={value ?? undefined} aria-valuemin={min} aria-valuemax={max} aria-invalid={error || undefined} aria-describedby={helperText ? helperId : undefined} onChange={handleChange} onBlur={handleBlur} onKeyDown={handleKeyDown} />
         <div className="form-number__controls">
           <button type="button" aria-label="Decrease" tabIndex={-1} disabled={disabled || !!atMin} onClick={() => stepValue(-1)}><Icon name="minus" size={24} /></button>
           <button type="button" aria-label="Increase" tabIndex={-1} disabled={disabled || !!atMax} onClick={() => stepValue(1)}><Icon name="plus" size={24} /></button>

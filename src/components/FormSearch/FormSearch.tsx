@@ -13,6 +13,10 @@ export interface FormSearchProps {
   onSearch?: (value: string) => void;
   /** Renders the field in a disabled state. */
   disabled?: boolean;
+  name?: string;
+  autoComplete?: string;
+  id?: string;
+  required?: boolean;
 }
 
 export function FormSearch({
@@ -21,8 +25,13 @@ export function FormSearch({
   onChange,
   onSearch,
   disabled = false,
+  name,
+  autoComplete,
+  id: providedId,
+  required = false,
 }: FormSearchProps) {
-  const id = useId();
+  const generatedId = useId();
+  const id = providedId ?? generatedId;
   const isControlled = controlledValue !== undefined;
   const [internalValue, setInternalValue] = useState('');
   const value = isControlled ? controlledValue : internalValue;
@@ -43,6 +52,9 @@ export function FormSearch({
         <input
           id={id}
           type="search"
+          name={name}
+          autoComplete={autoComplete}
+          required={required}
           className="form-search-input"
           placeholder={placeholder}
           value={value}

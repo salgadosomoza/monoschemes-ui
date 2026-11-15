@@ -13,6 +13,7 @@ interface ButtonBaseProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
   disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
   loading?: boolean;
   className?: string;
   style?: CSSProperties;
@@ -37,6 +38,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   variant = 'primary',
   size = 'md',
   disabled = false,
+  type = 'button',
   loading = false,
   label = 'Button',
   iconLeft,
@@ -73,7 +75,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       data-loading={loading ? '' : undefined}
       disabled={effectiveDisabled}
       onClick={onClick}
-      type="button"
+      type={type}
       aria-label={resolvedIconOnly ? label : undefined}
       aria-current={ariaCurrent}
       aria-expanded={ariaExpanded}

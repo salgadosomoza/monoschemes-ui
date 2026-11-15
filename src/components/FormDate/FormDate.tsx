@@ -19,6 +19,10 @@ export interface FormDateProps {
   onOpenChange?: (open: boolean) => void;
   locale?: string;
   error?: boolean;
+  name?: string;
+  autoComplete?: string;
+  id?: string;
+  required?: boolean;
 }
 
 const today = () => new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
@@ -39,8 +43,9 @@ function parseIsoDate(value?: string): Date | null {
 const formatDisplayDate = (date: Date) => `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
 const compareDate = (a: Date, b: Date) => new Date(a.getFullYear(), a.getMonth(), a.getDate()).getTime() - new Date(b.getFullYear(), b.getMonth(), b.getDate()).getTime();
 
-export function FormDate({ value: controlledValue, onChange, min, max, disabled = false, label, open: controlledOpen, defaultOpen = false, onOpenChange, locale = 'en', error = false }: FormDateProps) {
-  const id = useId();
+export function FormDate({ value: controlledValue, onChange, min, max, disabled = false, label, open: controlledOpen, defaultOpen = false, onOpenChange, locale = 'en', error = false, name, autoComplete = 'off', id: providedId, required = false }: FormDateProps) {
+  const generatedId = useId();
+  const id = providedId ?? generatedId;
   const dialogId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -128,7 +133,7 @@ export function FormDate({ value: controlledValue, onChange, min, max, disabled 
   return <div className="form-date" ref={rootRef} data-error={hasError || undefined} data-open={isOpen || undefined} data-placement={placement}>
     {label && <label className="form-date-label" htmlFor={id}>{label}</label>}
     <div className="form-date-inner">
-      <input ref={inputRef} id={id} type="text" inputMode="numeric" autoComplete="off" className="form-date-input" placeholder="-- / -- / ----" value={inputValue} disabled={disabled} aria-invalid={hasError || undefined} aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={isOpen ? dialogId : undefined} onClick={() => openCalendar(false)} onChange={handleInputChange} onKeyDown={handleInputKeyDown} />
+    <input ref={inputRef} id={id} name={name} required={required} type="text" inputMode="numeric" autoComplete={autoComplete} className="form-date-input" placeholder="-- / -- / ----" value={inputValue} disabled={disabled} aria-invalid={hasError || undefined} aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={isOpen ? dialogId : undefined} onClick={() => openCalendar(false)} onChange={handleInputChange} onKeyDown={handleInputKeyDown} />
       <button type="button" className="form-date-icon-btn" aria-label="Choose date" aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={isOpen ? dialogId : undefined} disabled={disabled} onClick={() => openCalendar(true)}><Icon className="form-date-icon" name="calendar" size={20} /></button>
     </div>
     {presence.mounted && <div ref={popoverRef} id={dialogId} className="form-date-popover" data-state={presence.state} aria-hidden={!isOpen || undefined} onTransitionEnd={presence.onTransitionEnd} role="dialog" aria-label={label || 'Choose date'} data-placement={placement}>

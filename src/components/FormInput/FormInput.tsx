@@ -12,6 +12,12 @@ export type FormInputType =
 export interface FormInputProps {
   /** Layout variant of the input. */
   type?: FormInputType;
+  /** Native input type; separate from the visual layout variant. */
+  inputType?: 'text' | 'email' | 'tel' | 'url' | 'search';
+  name?: string;
+  autoComplete?: string;
+  id?: string;
+  required?: boolean;
   /** Placeholder text. */
   placeholder?: string;
   /** Controlled value. */
@@ -38,6 +44,11 @@ function CloseIcon() {
 
 export function FormInput({
   type = 'simple',
+  inputType = 'text',
+  name,
+  autoComplete,
+  id: providedId,
+  required = false,
   placeholder = 'Placeholder',
   value,
   onChange,
@@ -46,7 +57,8 @@ export function FormInput({
   label,
   helperText,
 }: FormInputProps) {
-  const id = useId();
+  const generatedId = useId();
+  const id = providedId ?? generatedId;
   const inputClass = ['form-input-field', error ? 'form-input-field--error' : ''].filter(Boolean).join(' ');
 
   const renderControl = () => {
@@ -57,7 +69,10 @@ export function FormInput({
             <input
               id={id}
               className={inputClass}
-              type="text"
+              type={inputType}
+              name={name}
+              autoComplete={autoComplete}
+              required={required}
               placeholder={placeholder}
               value={value}
               disabled={disabled}
@@ -84,7 +99,10 @@ export function FormInput({
             <input
               id={id}
               className={inputClass}
-              type="text"
+              type={inputType}
+              name={name}
+              autoComplete={autoComplete}
+              required={required}
               placeholder={placeholder}
               value={value}
               disabled={disabled}
@@ -100,7 +118,10 @@ export function FormInput({
             <input
               id={id}
               className={inputClass}
-              type="text"
+              type={inputType}
+              name={name}
+              autoComplete={autoComplete}
+              required={required}
               placeholder={placeholder}
               value={value}
               disabled={disabled}
@@ -116,7 +137,10 @@ export function FormInput({
             <input
               id={id}
               className={inputClass}
-              type="text"
+              type={inputType}
+              name={name}
+              autoComplete={autoComplete}
+              required={required}
               placeholder={placeholder}
               value={value}
               disabled={disabled}
@@ -131,7 +155,10 @@ export function FormInput({
           <input
             id={id}
             className={inputClass}
-            type="text"
+            type={inputType}
+            name={name}
+            autoComplete={autoComplete}
+            required={required}
             placeholder={placeholder}
             value={value}
             disabled={disabled}

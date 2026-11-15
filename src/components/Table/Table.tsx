@@ -1,4 +1,5 @@
 import './Table.css';
+import type { ReactNode } from 'react';
 
 export interface TableColumn {
   key: string;
@@ -8,10 +9,10 @@ export interface TableColumn {
 
 export interface TableProps {
   columns: TableColumn[];
-  data: Array<Record<string, string | number>>;
+  data: Array<Record<string, ReactNode>>;
   striped?: boolean;
   bordered?: boolean;
-  onRowClick?: (row: Record<string, string | number>) => void;
+  onRowClick?: (row: Record<string, ReactNode>) => void;
 }
 
 export function Table({

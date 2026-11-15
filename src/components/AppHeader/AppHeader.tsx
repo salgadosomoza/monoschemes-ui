@@ -5,7 +5,6 @@ import type { LogoType } from '../Logo';
 import type { IconName } from '../Icon';
 import { Avatar } from '../Avatar';
 import { Button } from '../Button';
-import { Nav } from '../Nav';
 import { usePresence } from '../../utils/usePresence';
 import { MegaMenuContext } from '../MegaMenu/MegaMenuContext';
 import './AppHeader.css';
@@ -85,7 +84,7 @@ export function AppHeader({
   const isMegaMenuOpen = hasNav && megaMenu !== undefined && (controlledMegaMenuOpen ?? internalMegaMenuOpen);
   const menuPresence = usePresence(isMenuOpen, 120);
   const mobileState = isMenuOpen ? 'open' : menuPresence.state;
-  const navContent = nav ?? <Nav />;
+  const navContent = nav;
 
   const setMenuOpen = useCallback((next: boolean) => {
     if (controlledMenuOpen === undefined) setInternalMenuOpen(next);

@@ -17,14 +17,19 @@ export interface FormTimeProps {
   error?: boolean;
   label?: string;
   helperText?: string;
+  name?: string;
+  autoComplete?: string;
+  id?: string;
+  required?: boolean;
 }
 
 const validTime = (value: string) => /^([01]\d|2[0-3]):[0-5]\d$/.test(value);
 const pad = (value: number) => String(value).padStart(2, '0');
 
-export function FormTime({ value: controlledValue, onChange, min, max, minuteStep = 5, open: controlledOpen, defaultOpen = false, onOpenChange, disabled = false, error = false, label, helperText }: FormTimeProps) {
+export function FormTime({ value: controlledValue, onChange, min, max, minuteStep = 5, open: controlledOpen, defaultOpen = false, onOpenChange, disabled = false, error = false, label, helperText, name, autoComplete = 'off', id: providedId, required = false }: FormTimeProps) {
   const safeMinuteStep = Number.isFinite(minuteStep) && minuteStep > 0 ? minuteStep : 5;
-  const id = useId();
+  const generatedId = useId();
+  const id = providedId ?? generatedId;
   const panelId = useId();
   const helperId = `${id}-helper`;
   const rootRef = useRef<HTMLDivElement>(null);
@@ -144,7 +149,7 @@ export function FormTime({ value: controlledValue, onChange, min, max, minuteSte
   return <div className="form-time" ref={rootRef} data-error={hasError || undefined}>
     {label && <label className="form-time__label" htmlFor={id}>{label}</label>}
     <div className="form-time__field" data-open={isOpen || undefined}>
-      <input ref={inputRef} id={id} className="form-time__input" type="text" inputMode="numeric" autoComplete="off" placeholder="-- : --" value={display} disabled={disabled} aria-invalid={hasError || undefined} aria-describedby={helperText ? helperId : undefined} onChange={handleInputChange} />
+      <input ref={inputRef} id={id} name={name} required={required} className="form-time__input" type="text" inputMode="numeric" autoComplete={autoComplete} placeholder="-- : --" value={display} disabled={disabled} aria-invalid={hasError || undefined} aria-describedby={helperText ? helperId : undefined} onChange={handleInputChange} />
       <button className="form-time__trigger" type="button" aria-label="Choose time" aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={panelId} disabled={disabled} onClick={() => setOpen(!isOpen)}><Icon name="clock" size={20} /></button>
     </div>
     {presence.mounted && <div ref={(node) => node?.toggleAttribute('inert', !isOpen)} id={panelId} data-time-panel className="form-time__panel" data-state={presence.state} onTransitionEnd={presence.onTransitionEnd} role="dialog" aria-label="Choose time" aria-hidden={!isOpen || undefined}>

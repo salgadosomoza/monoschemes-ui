@@ -18,6 +18,10 @@ export interface FormTextareaProps {
   label?: string;
   /** Helper text shown below the textarea. */
   helperText?: string;
+  name?: string;
+  autoComplete?: string;
+  id?: string;
+  required?: boolean;
 }
 
 export function FormTextarea({
@@ -29,8 +33,13 @@ export function FormTextarea({
   error = false,
   label,
   helperText,
+  name,
+  autoComplete,
+  id: providedId,
+  required = false,
 }: FormTextareaProps) {
-  const id = useId();
+  const generatedId = useId();
+  const id = providedId ?? generatedId;
   const isControlled = controlledValue !== undefined;
   const [internalValue, setInternalValue] = useState('');
   const value = isControlled ? controlledValue : internalValue;
@@ -49,6 +58,9 @@ export function FormTextarea({
       )}
       <textarea
         id={id}
+        name={name}
+        autoComplete={autoComplete}
+        required={required}
         className={['form-textarea-field', error ? 'form-textarea-field--error' : ''].filter(Boolean).join(' ')}
         placeholder={placeholder}
         value={value}

@@ -1,5 +1,5 @@
-import { afterEach, describe, expect, it } from 'vitest';
-import { cleanup, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { Button } from './Button';
 import { ButtonIcon } from '../ButtonIcon/ButtonIcon';
 import { ButtonText } from '../ButtonText/ButtonText';
@@ -45,6 +45,13 @@ describe('Button', () => {
   it('preserves disabled behavior', () => {
     render(<Button label="Unavailable" disabled />);
     expect((screen.getByRole('button', { name: 'Unavailable' }) as HTMLButtonElement).disabled).toBe(true);
+  });
+
+  it('submits its form when type is submit', () => {
+    const submit = vi.fn();
+    render(<form onSubmit={(event) => { event.preventDefault(); submit(); }}><Button label="Send" type="submit" /></form>);
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }));
+    expect(submit).toHaveBeenCalledTimes(1);
   });
 });
 

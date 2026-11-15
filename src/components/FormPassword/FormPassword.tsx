@@ -14,6 +14,11 @@ export interface FormPasswordProps {
   defaultVisible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   autoComplete?: string;
+  name?: string;
+  id?: string;
+  required?: boolean;
+  showLabel?: string;
+  hideLabel?: string;
 }
 
 export function FormPassword({
@@ -28,8 +33,14 @@ export function FormPassword({
   defaultVisible = false,
   onVisibleChange,
   autoComplete = 'current-password',
+  name,
+  id: providedId,
+  required = false,
+  showLabel = 'Show password',
+  hideLabel = 'Hide password',
 }: FormPasswordProps) {
-  const id = useId();
+  const generatedId = useId();
+  const id = providedId ?? generatedId;
   const [internalVisible, setInternalVisible] = useState(defaultVisible);
   const visible = controlledVisible ?? internalVisible;
   const helperId = `${id}-helper`;
@@ -50,6 +61,8 @@ export function FormPassword({
           placeholder={placeholder}
           value={value}
           autoComplete={autoComplete}
+          name={name}
+          required={required}
           disabled={disabled}
           aria-invalid={error || undefined}
           aria-describedby={helperText ? helperId : undefined}
@@ -58,7 +71,7 @@ export function FormPassword({
         <button
           className="form-password__toggle"
           type="button"
-          aria-label={visible ? 'Hide password' : 'Show password'}
+          aria-label={visible ? hideLabel : showLabel}
           aria-pressed={visible}
           aria-controls={id}
           disabled={disabled}

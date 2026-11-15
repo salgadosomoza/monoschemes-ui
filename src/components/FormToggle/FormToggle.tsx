@@ -33,10 +33,8 @@ export function FormToggle({
   const isActive = status === 'active';
 
   function handleChange(checked: boolean) {
-    console.log('[FormToggle] handleChange fired', { checked, status, isControlled });
     if (!isControlled) {
       const next: FormToggleStatus = checked ? 'active' : 'inactive';
-      console.log('[FormToggle] setting internal status →', next);
       setInternalStatus(next);
     }
     onChange?.(checked);

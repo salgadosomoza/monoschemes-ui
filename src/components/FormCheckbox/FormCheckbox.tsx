@@ -47,11 +47,9 @@ export function FormCheckbox({
   }, [status]);
 
   function handleChange(checked: boolean) {
-    console.log('[FormCheckbox] handleChange fired', { checked, status, isControlled });
     if (!isControlled) {
       // indeterminated → active on click; active → inactive; inactive → active
       const next = status === 'indeterminated' ? 'active' : checked ? 'active' : 'inactive';
-      console.log('[FormCheckbox] setting internal status →', next);
       setInternalStatus(next);
     }
     onChange?.(checked);

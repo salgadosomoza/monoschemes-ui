@@ -14,14 +14,44 @@ npm install @monoschemes/ui
 
 ## Usage
 
+`@monoschemes/ui` requires React 18 or later. Import the stylesheet once in your application entry point:
+
 ```tsx
 import { Button } from '@monoschemes/ui';
-import '@monoschemes/ui/dist/style.css';
+import '@monoschemes/ui/style.css';
 
 export default function App() {
-  return <Button>Hello</Button>;
+  return <Button label="Get started" />;
 }
 ```
+
+### Themes
+
+Set the theme on the root `<html>` element. The default is Light; set `data-theme="dark"` to use the dark theme. Use `data-theme="inverse"` on a section to create a color-inverted zone relative to its surrounding theme:
+
+```html
+<html data-theme="dark">
+  <body>
+    <main>
+      <section data-theme="inverse">This section uses the inverse theme.</section>
+    </main>
+  </body>
+</html>
+```
+
+Supported values are `data-theme="light"`, `data-theme="dark"` and `data-theme="inverse"`. Inverse zones cannot be nested.
+
+### Fonts
+
+The design system uses **Inter** for interface text and **JetBrains Mono** for code. Fonts are not bundled with the package; load them in your app, for example from Google Fonts:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+```
+
+You can also install the corresponding `@fontsource/inter` and `@fontsource/jetbrains-mono` packages and import their CSS from your application.
 
 ## Development
 
@@ -66,7 +96,7 @@ Figma Variables are the canonical source for design tokens. `src/tokens/tokens.j
 src/
   components/   # React components
   tokens/       # Versioned design token JSON exported from Figma Variables
-  styles/       # Global CSS (tokens, resets)
+  styles/       # Package tokens and the documented border-box sizing reset
 stories/        # Storybook stories
 dist/           # Build output (gitignored)
 ```

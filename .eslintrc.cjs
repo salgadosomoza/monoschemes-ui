@@ -10,4 +10,11 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
+  rules: { 'no-console': 'error' },
+  overrides: [
+    {
+      files: ['**/*.stories.ts', '**/*.stories.tsx', '**/*.test.ts', '**/*.test.tsx'],
+      rules: { 'no-console': 'off' },
+    },
+  ],
 };

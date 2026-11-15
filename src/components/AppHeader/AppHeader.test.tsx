@@ -69,6 +69,11 @@ describe('AppHeader compact navigation', () => {
     expect(container.querySelector('.app-header-mobile-menu')).toBeNull();
   });
 
+  it('does not render example links when no nav is supplied', () => {
+    render(<AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} />);
+    expect(screen.queryByRole('link')).toBeNull();
+  });
+
   it('opens a mega menu by click, closes with Escape, and restores trigger focus', () => {
     setDesktopWidth();
     const { container } = render(<AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} nav={<Nav><NavItem label="Products" hasMenu menuId="products" /></Nav>} megaMenu={<MegaMenu id="products" groups={[{ heading: 'Build', items: [{ label: 'Components', href: '#components' }] }]} />} />);
