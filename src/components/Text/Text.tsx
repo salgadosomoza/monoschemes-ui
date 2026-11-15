@@ -5,7 +5,7 @@ export type TextStyle =
   | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   | 'subtitle-1' | 'subtitle-2'
   | 'body-1' | 'body-2'
-  | 'caption' | 'overline' | 'display';
+  | 'caption' | 'overline' | 'display-1' | 'display-2' | 'display-3' | 'display';
 export type TextAlign = 'left' | 'center' | 'right';
 
 export interface TextProps {
@@ -38,8 +38,13 @@ const DEFAULT_TAG: Record<TextStyle, ElementType> = {
   'body-2':     'p',
   'caption':    'span',
   'overline':   'span',
+  'display-1':  'span',
+  'display-2':  'span',
+  'display-3':  'span',
   'display':    'span',
 };
+
+let warnedAboutDisplayAlias = false;
 
 export function Text({
   style = 'body-1',
@@ -50,6 +55,10 @@ export function Text({
   as,
   className,
 }: TextProps) {
+  if (style === 'display' && import.meta.env?.DEV && !warnedAboutDisplayAlias) {
+    warnedAboutDisplayAlias = true;
+    console.warn('Text style "display" is deprecated; use "display-1" instead.');
+  }
   const Tag = as ?? DEFAULT_TAG[style];
 
   return (

@@ -7,7 +7,7 @@ const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSche
 const meta = {
   title: 'Components/Footer',
   component: Footer,
-  parameters: { layout: 'fullscreen', design: { type: 'figma', url: `${FIGMA_BASE}2271-269` } },
+  parameters: { layout: 'fullscreen', design: { type: 'figma', url: `${FIGMA_BASE}2535-940` } },
   tags: ['autodocs'],
 } satisfies Meta<typeof Footer>;
 
@@ -73,6 +73,29 @@ export const WithoutBrandAndLegalLinks: Story = {
           <Link size="small" label="Privacy" href="#privacy" />
           <Link size="small" label="Terms" href="#terms" />
           <Link size="small" label="Cookies" href="#cookies" />
+        </>
+      )}
+    />
+  ),
+};
+
+export const Minimal: Story = {
+  args: { variant: 'minimal', legal: '© 2026 MonoSchemes. All rights reserved.', columns: null },
+  render: () => (
+    <Footer
+      variant="minimal"
+      legal="© 2026 MonoSchemes. All rights reserved."
+      columns={(
+        <FooterColumn heading="Hidden column">
+          <Link size="small" label="Hidden link" href="#hidden" />
+        </FooterColumn>
+      )}
+      brandName="Hidden brand"
+      brandDescription="Hidden description"
+      meta={(
+        <>
+          <Link size="small" label="Privacy" href="#privacy" />
+          <Link size="small" label="Terms" href="#terms" />
         </>
       )}
     />

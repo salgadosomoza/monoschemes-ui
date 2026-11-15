@@ -3,10 +3,11 @@ import { Text } from './Text';
 import type { TextStyle } from './Text';
 
 const STYLES: TextStyle[] = [
+  'display-1', 'display-2', 'display-3',
   'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
   'subtitle-1', 'subtitle-2',
   'body-1', 'body-2',
-  'caption', 'overline', 'display',
+  'caption', 'overline',
 ];
 
 const meta = {
@@ -14,7 +15,7 @@ const meta = {
   component: Text,
   parameters: {
     layout: 'centered',
-    docs: { description: { component: 'Display is for a single prominent figure per view.' } },
+    docs: { description: { component: 'Use one display style per view for a single prominent figure. The legacy "display" style aliases display-1.' } },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -108,13 +109,28 @@ export const Overline: Story = {
   parameters: figma('130-1786'),
 };
 
-export const Display: Story = {
+export const Display1: Story = {
+  args: { style: 'display-1', children: '660' },
+  parameters: figma('2426-1598'),
+};
+
+export const Display2: Story = {
+  args: { style: 'display-2', children: '660' },
+  parameters: figma('2426-1598'),
+};
+
+export const Display3: Story = {
+  args: { style: 'display-3', children: '660' },
+  parameters: figma('2426-1598'),
+};
+
+export const DisplayAlias: Story = {
   args: { style: 'display', children: '660' },
   parameters: figma('2426-1598'),
 };
 
 export const DisplayDark: Story = {
-  args: { style: 'display', children: '660' },
+  args: { style: 'display-1', children: '660' },
   globals: { theme: 'dark' },
   parameters: figma('2426-1598'),
 };
@@ -125,7 +141,7 @@ export const AllStyles: Story = {
   args: { children: SAMPLE },
   parameters: figma('130-1708'),
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 480 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 900 }}>
       {STYLES.map((style) => (
         <div key={style} style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
           <span
@@ -139,7 +155,7 @@ export const AllStyles: Story = {
           >
             {style}
           </span>
-          <Text style={style}>{SAMPLE}</Text>
+          <Text style={style}>{style.startsWith('display') ? '660' : SAMPLE}</Text>
         </div>
       ))}
     </div>

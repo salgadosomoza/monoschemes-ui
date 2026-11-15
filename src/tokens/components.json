@@ -534,8 +534,9 @@
       }
     },
     "Footer": {
-      "figmaNode": "2271:269",
+      "figmaNode": "2535:940",
       "props": {
+        "variant": { "type": "variant", "values": ["default", "minimal"], "default": "default" },
         "brandName": { "type": "string", "default": "Brand" },
         "brandDescription": { "type": "string", "default": "One-line description of the product." },
         "showBrand": { "type": "boolean", "default": true },

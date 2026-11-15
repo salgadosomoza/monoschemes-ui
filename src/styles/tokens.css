@@ -69,9 +69,14 @@
   --font-h6-weight: 500;
   --font-h6-line-height: 1.21;
 
-  --font-display-size: 160px;
+  --font-display-1-size: 160px;
+  --font-display-2-size: 112px;
+  --font-display-3-size: 80px;
+  /* @deprecated Use --font-display-1-size. */
+  --font-display-size: var(--font-display-1-size);
   --font-display-weight: 700;
   --font-display-line-height: 1;
+  --font-display-letter-spacing: -0.02em;
 
   --font-subtitle1-size: 16px;
   --font-subtitle1-weight: 700;

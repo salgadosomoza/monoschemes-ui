@@ -94,6 +94,27 @@ export const CustomIconDark: Story = {
   parameters: figma('86-502'),
 };
 
+export const DottedUnderlineStates: Story = {
+  parameters: figma('86-502'),
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 20, padding: 24 }}>
+      <div style={{ display: 'flex', gap: 32 }}>
+        <Link label="Default dotted underline" href="#" />
+        <div className="link-story-hover"><Link label="Hover solid underline" href="#" /></div>
+      </div>
+      <div data-theme="dark" style={{ display: 'flex', gap: 32, padding: 24, background: 'var(--color-bg-page)' }}>
+        <Link label="Dark default" href="#" />
+        <div className="link-story-hover"><Link label="Dark hover" href="#" /></div>
+      </div>
+      <div data-theme="inverse" style={{ display: 'flex', gap: 32, padding: 24 }}>
+        <Link label="Inverse default" href="#" />
+        <div className="link-story-hover"><Link label="Inverse hover" href="#" /></div>
+      </div>
+      <style>{'.link-story-hover .link__label { text-decoration-style: solid; }'}</style>
+    </div>
+  ),
+};
+
 // ─── All combinations ───────────────────────────────
 
 export const AllCombinations: Story = {

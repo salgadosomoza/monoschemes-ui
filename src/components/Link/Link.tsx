@@ -49,7 +49,7 @@ export function Link({
       target={target}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
     >
-      <Text style={SIZE_TO_TEXT_STYLE[size]} as="span">
+      <Text className="link__label" style={SIZE_TO_TEXT_STYLE[size]} as="span">
         {label}
       </Text>
       {type === 'icon' && (icon ?? <Icon name="download" size={16} />)}
