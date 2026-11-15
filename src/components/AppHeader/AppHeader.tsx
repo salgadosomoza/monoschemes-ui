@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import type { MouseEvent, ReactNode } from 'react';
 import { Logo } from '../Logo';
 import type { LogoType } from '../Logo';
@@ -7,6 +7,7 @@ import { Avatar } from '../Avatar';
 import { Button } from '../Button';
 import { Nav } from '../Nav';
 import { usePresence } from '../../utils/usePresence';
+import { MegaMenuContext } from '../MegaMenu/MegaMenuContext';
 import './AppHeader.css';
 
 export interface AppHeaderLogoProps {
@@ -42,6 +43,11 @@ export interface AppHeaderProps {
   defaultMenuOpen?: boolean;
   /** Called when the compact navigation panel requests a state change. */
   onMenuOpenChange?: (open: boolean) => void;
+  /** Mega menu panel rendered below the navigation. Trigger it with NavItem hasMenu. */
+  megaMenu?: ReactNode;
+  megaMenuOpen?: boolean;
+  defaultMegaMenuOpen?: boolean;
+  onMegaMenuOpenChange?: (open: boolean) => void;
 }
 
 export function AppHeader({
@@ -58,14 +64,25 @@ export function AppHeader({
   menuOpen: controlledMenuOpen,
   defaultMenuOpen = false,
   onMenuOpenChange,
+  megaMenu,
+  megaMenuOpen: controlledMegaMenuOpen,
+  defaultMegaMenuOpen = false,
+  onMegaMenuOpenChange,
 }: AppHeaderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const navId = useId();
+  const megaMenuId = useId();
   const [internalMenuOpen, setInternalMenuOpen] = useState(defaultMenuOpen);
+  const [internalMegaMenuOpen, setInternalMegaMenuOpen] = useState(defaultMegaMenuOpen);
+  const [activeMenuId, setActiveMenuId] = useState<string | undefined>();
   const [isCompact, setIsCompact] = useState(false);
+  const megaTriggerRef = useRef<HTMLElement | null>(null);
+  const hoverOpenTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hoverCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isMenuOpen = hasNav && (controlledMenuOpen ?? internalMenuOpen);
+  const isMegaMenuOpen = hasNav && megaMenu !== undefined && (controlledMegaMenuOpen ?? internalMegaMenuOpen);
   const menuPresence = usePresence(isMenuOpen, 120);
   const mobileState = isMenuOpen ? 'open' : menuPresence.state;
   const navContent = nav ?? <Nav />;
@@ -74,6 +91,72 @@ export function AppHeader({
     if (controlledMenuOpen === undefined) setInternalMenuOpen(next);
     onMenuOpenChange?.(next);
   }, [controlledMenuOpen, onMenuOpenChange]);
+
+  const setMegaMenuOpen = useCallback((next: boolean, menuId?: string) => {
+    if (controlledMegaMenuOpen === undefined) setInternalMegaMenuOpen(next);
+    if (next && menuId !== undefined) setActiveMenuId(menuId);
+    onMegaMenuOpenChange?.(next);
+  }, [controlledMegaMenuOpen, onMegaMenuOpenChange]);
+  const toggleMegaMenu = useCallback((trigger: HTMLElement, menuId?: string) => {
+    if (hoverOpenTimer.current) clearTimeout(hoverOpenTimer.current);
+    if (hoverCloseTimer.current) clearTimeout(hoverCloseTimer.current);
+    hoverOpenTimer.current = null;
+    hoverCloseTimer.current = null;
+    const sameTrigger = megaTriggerRef.current === trigger;
+    megaTriggerRef.current = trigger;
+    if (isMegaMenuOpen && (sameTrigger || activeMenuId === undefined)) setMegaMenuOpen(false);
+    else setMegaMenuOpen(true, menuId);
+  }, [activeMenuId, isMegaMenuOpen, setMegaMenuOpen]);
+  const cancelMegaClose = useCallback(() => {
+    if (hoverCloseTimer.current) clearTimeout(hoverCloseTimer.current);
+    hoverCloseTimer.current = null;
+  }, []);
+  const megaMenuContext = useMemo(() => ({
+    open: isMegaMenuOpen,
+    compactOpen: isCompact && isMenuOpen,
+    panelId: megaMenuId,
+    activeMenuId,
+    setOpen: setMegaMenuOpen,
+    toggle: toggleMegaMenu,
+    setTrigger: (trigger: HTMLElement | null) => { megaTriggerRef.current = trigger; },
+    scheduleOpen: (trigger: HTMLElement, menuId?: string) => {
+      megaTriggerRef.current = trigger;
+      cancelMegaClose();
+      if (hoverOpenTimer.current) clearTimeout(hoverOpenTimer.current);
+      hoverOpenTimer.current = setTimeout(() => setMegaMenuOpen(true, menuId), 150);
+    },
+    scheduleClose: () => {
+      if (hoverOpenTimer.current) clearTimeout(hoverOpenTimer.current);
+      hoverOpenTimer.current = null;
+      cancelMegaClose();
+      hoverCloseTimer.current = setTimeout(() => setMegaMenuOpen(false), 200);
+    },
+    cancelClose: cancelMegaClose,
+  }), [isMegaMenuOpen, isCompact, isMenuOpen, activeMenuId, megaMenuId, setMegaMenuOpen, toggleMegaMenu, cancelMegaClose]);
+
+  useEffect(() => () => {
+    if (hoverOpenTimer.current) clearTimeout(hoverOpenTimer.current);
+    if (hoverCloseTimer.current) clearTimeout(hoverCloseTimer.current);
+  }, []);
+
+  useEffect(() => {
+    if (!isMegaMenuOpen) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) setMegaMenuOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMegaMenuOpen(false);
+        megaTriggerRef.current?.focus();
+      }
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isMegaMenuOpen, setMegaMenuOpen]);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -99,6 +182,7 @@ export function AppHeader({
     function closeAtDesktopWidth(width: number) {
       setIsCompact(width < 1024);
       if (width >= 1024 && isMenuOpen) setMenuOpen(false);
+      if (width < 1024 && isMegaMenuOpen) setMegaMenuOpen(false);
     }
     const onResize = () => closeAtDesktopWidth(container.getBoundingClientRect().width);
     const observer = typeof ResizeObserver !== 'undefined'
@@ -111,13 +195,14 @@ export function AppHeader({
       observer?.disconnect();
       if (!observer) window.removeEventListener('resize', onResize);
     };
-  }, [isMenuOpen, setMenuOpen]);
+  }, [isMenuOpen, isMegaMenuOpen, setMenuOpen, setMegaMenuOpen]);
 
   function handleNavClick(event: MouseEvent<HTMLDivElement>) {
     if (event.target instanceof Element && event.target.closest('a[href], [role="link"]')) setMenuOpen(false);
   }
 
   return (
+    <MegaMenuContext.Provider value={megaMenuContext}>
     <div className="app-header-container" ref={containerRef}>
       <header className="app-header">
         <div className="app-header-top">
@@ -141,6 +226,7 @@ export function AppHeader({
               onClick={handleNavClick}
             >
               {navContent}
+              {megaMenu}
             </div>
           )}
 
@@ -171,5 +257,6 @@ export function AppHeader({
         </div>
       </header>
     </div>
+    </MegaMenuContext.Provider>
   );
 }

@@ -22,6 +22,10 @@
 }
 
 .nav-item__label { display: inline; border-bottom: 1px solid transparent; transition: border-color var(--duration-instant) var(--ease-out); }
+.nav-item__chevron { flex: 0 0 auto;transition:transform var(--duration-fast) var(--ease-out); }
+.nav-item[aria-expanded="true"] .nav-item__chevron { transform:rotate(180deg); }
+.nav-item[data-has-menu] { gap:var(--gap-sm); }
+.nav-item:focus-visible { outline:2px solid var(--color-border-focused);outline-offset:2px; }
 
 /* ─── Status: hover ───────────────────────────────── */
 

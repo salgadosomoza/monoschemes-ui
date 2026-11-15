@@ -4,9 +4,14 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { AppHeader } from './AppHeader';
 import { Nav } from '../Nav';
 import { NavItem } from '../NavItem';
+import { MegaMenu } from '../MegaMenu';
 
 describe('AppHeader compact navigation', () => {
-  afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
+  afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks(); vi.useRealTimers(); });
+
+  function setDesktopWidth() {
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({ width: 1200, height: 56, top: 0, left: 0, right: 1200, bottom: 56, x: 0, y: 0, toJSON: () => ({}) });
+  }
 
   function renderHeader(props: ComponentProps<typeof AppHeader> = {}) {
     return render(<AppHeader {...props} logo={{ type: 'text', label: 'MonoSchemes' }} nav={
@@ -62,5 +67,61 @@ describe('AppHeader compact navigation', () => {
   it('does not render its menu button when navigation is disabled', () => {
     const { container } = render(<AppHeader hasNav={false} logo={{ type: 'text', label: 'MonoSchemes' }} />);
     expect(container.querySelector('.app-header-mobile-menu')).toBeNull();
+  });
+
+  it('opens a mega menu by click, closes with Escape, and restores trigger focus', () => {
+    setDesktopWidth();
+    const { container } = render(<AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} nav={<Nav><NavItem label="Products" hasMenu menuId="products" /></Nav>} megaMenu={<MegaMenu id="products" groups={[{ heading: 'Build', items: [{ label: 'Components', href: '#components' }] }]} />} />);
+    const trigger = screen.getByRole('button', { name: /Products/ });
+    fireEvent.click(trigger);
+    expect(screen.getByRole('navigation', { name: 'Mega menu' })).toBeTruthy();
+    expect(trigger.getAttribute('aria-expanded')).toBe('true');
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(trigger.getAttribute('aria-expanded')).toBe('false');
+    expect(document.activeElement).toBe(trigger);
+    expect(container.querySelector('.mega-menu')?.getAttribute('aria-hidden')).toBe('true');
+  });
+
+  it('opens on hover after 150 ms and closes 200 ms after leaving', () => {
+    vi.useFakeTimers();
+    setDesktopWidth();
+    render(<AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} nav={<Nav><NavItem label="Products" hasMenu menuId="products" /></Nav>} megaMenu={<MegaMenu id="products" groups={[{ heading: 'Build', items: [{ label: 'Components', href: '#components' }] }]} />} />);
+    const trigger = screen.getByRole('button', { name: /Products/ });
+    fireEvent.pointerEnter(trigger);
+    act(() => vi.advanceTimersByTime(149));
+    expect(trigger.getAttribute('aria-expanded')).toBe('false');
+    act(() => vi.advanceTimersByTime(1));
+    expect(trigger.getAttribute('aria-expanded')).toBe('true');
+    fireEvent.pointerLeave(trigger);
+    act(() => vi.advanceTimersByTime(199));
+    expect(trigger.getAttribute('aria-expanded')).toBe('true');
+    act(() => vi.advanceTimersByTime(1));
+    expect(trigger.getAttribute('aria-expanded')).toBe('false');
+  });
+
+  it('closes the mega menu after selecting one of its links', () => {
+    setDesktopWidth();
+    render(<AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} nav={<Nav><NavItem label="Products" hasMenu menuId="products" /></Nav>} megaMenu={<MegaMenu id="products" groups={[{ heading: 'Build', items: [{ label: 'Components', href: '#components' }] }]} />} />);
+    fireEvent.click(screen.getByRole('button', { name: /Products/ }));
+    fireEvent.click(screen.getByRole('link', { name: 'Components' }));
+    expect(screen.getByRole('button', { name: /Products/ }).getAttribute('aria-expanded')).toBe('false');
+  });
+
+  it('shows mega menu groups as sections in the compact navigation panel', () => {
+    render(<AppHeader defaultMenuOpen logo={{ type: 'text', label: 'MonoSchemes' }} nav={<Nav><NavItem label="Products" hasMenu menuId="products" /></Nav>} megaMenu={<MegaMenu id="products" groups={[{ heading: 'Build', items: [{ label: 'Components', href: '#components' }] }, { heading: 'Learn', items: [{ label: 'Guides', href: '#guides' }] }]} />} />);
+    expect(screen.getByRole('heading', { name: 'Build' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Learn' })).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'Components' })).toBeTruthy();
+  });
+
+  it('switches panels directly when another menu trigger is opened', () => {
+    setDesktopWidth();
+    render(<AppHeader logo={{ type: 'text', label: 'MonoSchemes' }} nav={<Nav><NavItem label="Products" hasMenu menuId="products" /><NavItem label="Resources" hasMenu menuId="resources" /></Nav>} megaMenu={<><MegaMenu id="products" groups={[{ heading: 'Build', items: [{ label: 'Components', href: '#components' }] }]} /><MegaMenu id="resources" groups={[{ heading: 'Learn', items: [{ label: 'Guides', href: '#guides' }] }]} /></>} />);
+    fireEvent.click(screen.getByRole('button', { name: /Products/ }));
+    expect(screen.getByRole('link', { name: 'Components' })).toBeTruthy();
+    fireEvent.click(screen.getByRole('button', { name: /Resources/ }));
+    expect(screen.getByRole('link', { name: 'Guides' })).toBeTruthy();
+    expect(screen.queryByRole('link', { name: 'Components' })).toBeNull();
+    expect(screen.getByRole('button', { name: /Resources/ }).getAttribute('aria-expanded')).toBe('true');
   });
 });
