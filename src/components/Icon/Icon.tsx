@@ -1,5 +1,6 @@
 import type { CSSProperties, SVGProps } from 'react';
 import {
+  IconAlertCircle,
   IconAlertTriangle,
   IconAdjustments,
   IconArrowRight,
@@ -62,6 +63,7 @@ import {
 import './Icon.css';
 
 const ICONS = {
+  'alert-circle': IconAlertCircle,
   'info-circle': IconInfoCircle,
   'alert-triangle': IconAlertTriangle,
   copy: IconCopy,

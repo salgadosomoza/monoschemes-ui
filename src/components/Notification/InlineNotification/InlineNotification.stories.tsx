@@ -10,13 +10,34 @@ const meta = {
   parameters: { layout: 'padded', ...figma('492-2172') },
   tags: ['autodocs'],
   args: { message: 'Volutpat felis mattis risus mauris id aenean nascetur aliquam.' },
-  argTypes: { message: { control: 'text' } },
+  argTypes: {
+    message: { control: 'text' },
+    type: { control: 'inline-radio', options: ['default', 'error'] },
+  },
 } satisfies Meta<typeof InlineNotification>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+export const DefaultDark: Story = { ...Default, globals: { theme: 'dark' } };
+export const DefaultInverse: Story = {
+  ...Default,
+  parameters: { ...figma('492-2172') },
+  render: (args) => <div data-theme="inverse" style={{ padding: 24 }}><InlineNotification {...args} /></div>,
+};
+
+export const Error: Story = {
+  args: { type: 'error' },
+  parameters: { ...figma('2545-354') },
+};
+export const ErrorDark: Story = { ...Error, globals: { theme: 'dark' } };
+export const ErrorInverse: Story = {
+  ...Error,
+  parameters: { ...figma('2545-354') },
+  render: (args) => <div data-theme="inverse" style={{ padding: 24 }}><InlineNotification {...args} /></div>,
+};
+
 export const LongMessage: Story = {
   args: { message: 'This message stays visible beside the form while the user works. It can wrap across multiple lines without obscuring the controls.' },
 };
