@@ -1,6 +1,6 @@
 # Guía de primera publicación en npm
 
-Esta guía prepara la publicación pública de `@monoschemes/ui@0.1.0`, que se hará después de completar el paso 2 del [roadmap](roadmap.md). Carlos realiza y confirma la publicación. No publiques desde una sesión de trabajo no revisada.
+Esta guía prepara la publicación pública de `@monoschemes/ui@0.1.0`, después de completar y revisar el paquete para agentes. La versión debe estar committeada y subida al repositorio antes de publicar. No publiques desde una sesión de trabajo no revisada.
 
 ## 1. Preparar la cuenta y la organización
 
@@ -33,7 +33,7 @@ npm run check:dist
 npm pack --dry-run
 ```
 
-Revisa que el paquete contiene `dist/`, `README.md`, `LICENSE`, `AGENTS.md` y `llms.txt`, además de `package.json`; comprueba que no arrastra pruebas, stories, secretos ni archivos de trabajo. Confirma que `package.json` declara `name: "@monoschemes/ui"`, `version: "0.1.0"`, `private: false` y `publishConfig.access: "public"`.
+Revisa que el paquete contiene `dist/`, `README.md`, `LICENSE`, `docs/agent-package/AGENTS.md`, `docs/agent-package/recipes.md`, `skills/monoschemes-ui/SKILL.md`, `src/tokens/components.json`, `src/tokens/tokens.json` y `llms.txt`, además de `package.json`; comprueba que no arrastra pruebas, stories, secretos ni archivos de trabajo. Confirma que `package.json` declara `name: "@monoschemes/ui"`, `version: "0.1.0"`, `private: false` y `publishConfig.access: "public"`.
 
 La versión se prepara en un cambio revisado por Carlos. No publiques hasta tener el commit y el push de esa versión.
 
