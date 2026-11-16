@@ -50,4 +50,8 @@ npm run build
 npm run build:storybook
 ```
 
+## Roadmap y pruebas con agentes
+
+Consulta [docs/roadmap.md](docs/roadmap.md) y [docs/agent-test/](docs/agent-test/) para el roadmap del paquete y el protocolo de evaluación con agentes. Mantén `docs/roadmap.md` al día en cada entrega.
+
 Storybook 10 está instalado en este repositorio. Usa sus paquetes y APIs de la versión 10.
