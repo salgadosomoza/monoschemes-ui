@@ -109,3 +109,7 @@ dist/           # Build output (gitignored)
 - [Figma rules](docs/figma-rules.md)
 - [Review checklist](docs/review-checklist.md)
 - [Contributing](CONTRIBUTING.md)
+
+## Building with an agent
+
+The npm package includes a consumer-focused [agent guide](docs/agent-package/AGENTS.md), a [component selection map](src/tokens/components.json), [application recipes](docs/agent-package/recipes.md), a [Claude Code skill](skills/monoschemes-ui/SKILL.md), and [`llms.txt`](llms.txt). The guide is separate from the repository's root `AGENTS.md`, which contains maintainer instructions.

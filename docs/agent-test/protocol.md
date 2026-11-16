@@ -60,7 +60,7 @@ Componentes esperados: zona `data-theme="inverse"`, `Text` display-2/display-3, 
 | Completa | Sí/no según si la pantalla solicitada está implementada y puede compilarse. |
 | Pasos | Acciones del agente extraídas del transcript; si el formato TUI no permite contarlas con fiabilidad, indicar N/D. |
 | Tiempo | Duración final indicada por Claude Code; no sumar duraciones repetidas por redibujados del TUI. Si no se puede verificar, indicar N/D. |
-| Errores de sistema | Cuenta errores detectados: props/componentes inventados (incluye `tsc`), tokens inventados o colores en bruto, componente equivocado, CSS del paquete omitido, incumplimiento de Recto y fallos de accesibilidad. Registrar evidencia y recuento, no solo una impresión. |
+| Errores de sistema | Cuenta errores detectados: props/componentes inventados (incluye `tsc`), tokens inventados o colores en bruto, componente equivocado, CSS del paquete omitido, incumplimiento de la geometría MonoSchemes y fallos de accesibilidad. Registrar evidencia y recuento, no solo una impresión. |
 | Fidelidad | 0–12: componentes, tokens, principios visuales y claro/oscuro, cada dimensión de 0 a 3. Codex puntúa leyendo código y, si hay capturas, comparando el resultado visual. |
 | Intervenciones | Mensajes del usuario posteriores al primero. El procedimiento previsto es cero; registrar el texto y contexto si ocurre. |
 

@@ -12,7 +12,7 @@ componentes.
 Las discrepancias se describen y se resuelven explícitamente. No se elige automáticamente un
 ganador fuera del dominio de autoridad de cada superficie.
 
-## Recto
+## Geometría MonoSchemes
 
 El layout no llama la atención; el contenido sí. La estructura se expresa con espaciado, divisiones
 de 1 px, tipografía y tonos, nunca con esquinas redondeadas.

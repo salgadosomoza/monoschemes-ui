@@ -8,7 +8,7 @@ function DesignPrinciplesPage() {
       </h1>
       <section>
         <h2 style={{ margin: '0 0 12px', fontFamily: 'var(--font-family)', fontSize: 'var(--font-h6-size)', fontWeight: 'var(--font-h6-weight)' }}>
-          Recto
+          MonoSchemes geometry
         </h2>
         <p style={{ margin: '0 0 16px', fontFamily: 'var(--font-family)', fontSize: 'var(--font-body1-size)', lineHeight: 'var(--font-body1-line-height)' }}>
           The layout stays quiet so the content can stand out. Express structure with spacing, 1 px dividers, typography, and tone, never with rounded corners.
@@ -30,7 +30,7 @@ function DesignPrinciplesPage() {
 }
 
 const meta = {
-  title: 'Foundations/Design Principles',
+  title: 'Foundations/MonoSchemes Principles',
   component: DesignPrinciplesPage,
   parameters: {
     layout: 'padded',
@@ -45,8 +45,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Recto: Story = {};
-export const RectoDark: Story = {
+export const MonoSchemesGeometry: Story = {};
+export const MonoSchemesGeometryDark: Story = {
   globals: { theme: 'dark' },
   render: () => (
     <div style={{ background: 'var(--color-bg-page)' }}>

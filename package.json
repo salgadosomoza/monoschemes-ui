@@ -1,7 +1,7 @@
 {
   "name": "@monoschemes/ui",
   "version": "0.0.2",
-  "description": "Recto, monochrome React design system — tokens, components and themes synced with Figma",
+  "description": "MonoSchemes monochrome React design system — tokens, components and themes synced with Figma",
   "keywords": [
     "design-system",
     "react",
@@ -40,7 +40,12 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "llms.txt",
+    "docs/agent-package",
+    "skills/monoschemes-ui",
+    "src/tokens/components.json",
+    "src/tokens/tokens.json"
   ],
   "sideEffects": ["**/*.css"],
   "publishConfig": {

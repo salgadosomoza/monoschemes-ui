@@ -587,8 +587,12 @@
             "body-2",
             "caption",
             "overline",
+            "display-1",
+            "display-2",
+            "display-3",
             "display"
           ],
+          "deprecatedValues": ["display"],
           "default": "body-1"
         },
         "align": { "type": "enum", "values": ["left", "center", "right"], "default": "left" },
@@ -1007,5 +1011,182 @@
         "onExpandedChange": { "type": "event" }
       }
     }
+  },
+  "agentGuidance": {
+    "apiAuthority": "Use the installed dist/index.d.ts for the complete React API. The components entries map public components to Figma and record the design-system contract; do not infer missing React props from this mapping.",
+    "principles": [
+      {
+        "name": "MonoSchemes geometry",
+        "rule": "Build hierarchy with spacing, typography, and one-pixel divisions. Keep layout corners square and avoid decorative shadows."
+      },
+      {
+        "name": "Semantic color",
+        "rule": "Use semantic color variables from the package stylesheet. Do not add raw hex/RGB values or local copies of token definitions."
+      },
+      {
+        "name": "Inverse zone",
+        "rule": "Use data-theme=\"inverse\" for a region that needs the opposite theme from its parent. It adapts to both page themes. Do not nest inverse zones or replace one with a fixed dark region."
+      }
+    ],
+    "componentSelection": {
+      "Button": {
+        "intent": "Perform an action in the current view.",
+        "whenToUse": "Use for submit, save, create, confirm, and other actions.",
+        "avoidWhen": "Use Link or a navigation item when the interaction navigates to another location.",
+        "composition": "Use one primary action per decision area; use secondary or tertiary actions for supporting actions.",
+        "accessibility": "Give icon-only buttons a label. Use type=\"submit\" for form submission and retain visible keyboard focus.",
+        "example": "<Button type=\"submit\" label=\"Save\" />"
+      },
+      "Link": {
+        "intent": "Navigate to a resource or location.",
+        "whenToUse": "Use for inline or standalone navigation.",
+        "avoidWhen": "Do not use as a substitute for an action button.",
+        "composition": "Place inline links in explanatory text or use them as secondary navigation.",
+        "accessibility": "Use a meaningful label and a real href. Keep the built-in focus-visible treatment.",
+        "example": "<Link label=\"View documentation\" href=\"/docs\" />"
+      },
+      "Text": {
+        "intent": "Apply the system's type scale and semantic text colors.",
+        "whenToUse": "Use for headings, body copy, labels, captions, and a single leading display headline.",
+        "avoidWhen": "Do not use repeated display styles for ordinary section headings.",
+        "composition": "Choose the smallest style that establishes the needed hierarchy; use display-1, display-2, or display-3 only for a leading figure or headline. The display alias is deprecated.",
+        "accessibility": "Use a semantic heading level through the as prop and keep heading order meaningful.",
+        "example": "<Text as=\"h1\" style=\"h1\">Campaigns</Text>"
+      },
+      "Form/Input": {
+        "intent": "Collect a single line of text, including email, phone, URL, or search text.",
+        "whenToUse": "Use when the value is a short textual input.",
+        "avoidWhen": "Use Form/Password, Form/Number, Form/Date, Form/Time, or Form/Textarea for those specialized roles.",
+        "composition": "Use FormInput with a visible label and helper or error text where needed.",
+        "accessibility": "Set label, name, and inputType as appropriate; forward required and autoComplete when applicable.",
+        "example": "<FormInput label=\"Email\" inputType=\"email\" name=\"email\" autoComplete=\"email\" />"
+      },
+      "Form/Password": {
+        "intent": "Collect a password with the built-in show/hide control.",
+        "whenToUse": "Use for password entry and confirmation.",
+        "avoidWhen": "Do not build a password reveal control around FormInput.",
+        "composition": "Pair with an adjacent recovery Link and the form's submit Button when appropriate.",
+        "accessibility": "Provide a visible label, name, autoComplete, and required state; keep the reveal button's accessible label.",
+        "example": "<FormPassword label=\"Password\" name=\"password\" autoComplete=\"current-password\" />"
+      },
+      "Form/Select": {
+        "intent": "Choose one value from a finite list of options.",
+        "whenToUse": "Use for a single selection such as language or country.",
+        "avoidWhen": "Use Form/Multi-select for multiple selections or SegmentedControl for a small always-visible choice.",
+        "composition": "Provide options as value/label pairs and a visible field label.",
+        "accessibility": "Keep the label visible and provide a clear placeholder or current value.",
+        "example": "<FormSelect label=\"Language\" options={languages} value={language} onChange={setLanguage} />"
+      },
+      "Form/Checkbox": {
+        "intent": "Choose an independent boolean option or opt in/out.",
+        "whenToUse": "Use when an option does not exclude other checkboxes.",
+        "avoidWhen": "Use Form/Radio or SegmentedControl for mutually exclusive choices; use Form/Toggle for an immediate on/off setting.",
+        "composition": "Group related choices under a visible fieldset label when there is more than one.",
+        "accessibility": "Associate each checkbox with its label and expose the checked state through the component API.",
+        "example": "<FormCheckbox label=\"Remember me\" status={remember ? 'active' : 'inactive'} onChange={setRemember} />"
+      },
+      "Form/Toggle": {
+        "intent": "Set an independent on/off preference.",
+        "whenToUse": "Use for a setting that takes effect immediately or is clearly a boolean preference.",
+        "avoidWhen": "Use Checkbox for form consent or a choice that is submitted with other fields.",
+        "composition": "Place the label beside the control and group related preferences vertically.",
+        "accessibility": "Keep a persistent label and expose the current boolean state; do not indicate state using color alone.",
+        "example": "<FormToggle label=\"Email notifications\" status={enabled ? 'active' : 'inactive'} onChange={setEnabled} />"
+      },
+      "Tabs": {
+        "intent": "Switch between related panels within the same view.",
+        "whenToUse": "Use for a small set of peer sections that share the same context.",
+        "avoidWhen": "Use navigation for distinct routes or SegmentedControl for an immediate value choice without content panels.",
+        "composition": "Pair each Tab value with a TabPanel using the same value.",
+        "accessibility": "Set aria-label on the tab list and preserve the built-in arrow-key, Home, and End navigation.",
+        "example": "<Tabs value={tab} onChange={setTab} aria-label=\"Settings\">…</Tabs>"
+      },
+      "SegmentedControl": {
+        "intent": "Choose one option from a small, visible set.",
+        "whenToUse": "Use for immediate choices such as Light/Dark or a compact view mode.",
+        "avoidWhen": "Use Tabs when each choice switches a content panel; use FormSelect for longer option lists.",
+        "composition": "Provide stable values and short labels; store the selected value in the parent.",
+        "accessibility": "Provide aria-label and keep the radio-group arrow-key behavior.",
+        "example": "<SegmentedControl aria-label=\"Theme\" options={themes} value={theme} onChange={setTheme} />"
+      },
+      "AppHeader": {
+        "intent": "Provide the app's global identity, primary navigation, and actions.",
+        "whenToUse": "Use at the top of an application shell.",
+        "avoidWhen": "Do not add a second mobile menu or duplicate navigation that AppHeader already renders.",
+        "composition": "Pass nav and actions explicitly; use SideNav for section navigation within the application.",
+        "accessibility": "Use concise labels for icon actions and ensure the mobile menu controls its navigation panel.",
+        "example": "<AppHeader siteTitle=\"Workspace\" nav={<Nav>…</Nav>} actions={<Button label=\"Create\" />} />"
+      },
+      "SideNav": {
+        "intent": "Navigate between sections of one application area.",
+        "whenToUse": "Use for persistent, hierarchical or category navigation beside the main content.",
+        "avoidWhen": "Use AppHeader/Nav for global destinations or Tabs for switching panels in one view.",
+        "composition": "Render SideNavItem children and mark the current destination selected.",
+        "accessibility": "Keep the nav heading meaningful and provide a real href for navigation items when possible.",
+        "example": "<SideNav heading=\"Workspace\"><SideNavItem label=\"Campaigns\" href=\"/campaigns\" selected /></SideNav>"
+      },
+      "Stat": {
+        "intent": "Present one concise metric with its label and optional unit.",
+        "whenToUse": "Use for key figures in a dashboard or summary.",
+        "avoidWhen": "Do not use as a substitute for a full chart or dense data table.",
+        "composition": "Group related Stat components in a responsive layout; add Card only when the content needs a container.",
+        "accessibility": "Keep the label understandable when read together with the value and unit.",
+        "example": "<Stat label=\"Active campaigns\" value=\"12\" unit=\"total\" />"
+      },
+      "Table": {
+        "intent": "Present records with shared columns and row relationships.",
+        "whenToUse": "Use when users need to compare or scan multiple structured records.",
+        "avoidWhen": "Use cards or a list for independent, unaligned content; do not place an entire application inside a table cell.",
+        "composition": "Define columns and rows; cells may contain React nodes such as Tag for a status.",
+        "accessibility": "Use descriptive column headings and keep row actions operable and labelled.",
+        "example": "<Table columns={columns} data={rows} />"
+      },
+      "Pagination": {
+        "intent": "Move through a large, paged result set.",
+        "whenToUse": "Use below a table or list when results are split across pages.",
+        "avoidWhen": "Omit it when the full result set is small enough to show at once.",
+        "composition": "Calculate pageCount from the filtered result set and reset the page when filters change.",
+        "accessibility": "Keep the component's navigation label and current-page semantics.",
+        "example": "<Pagination page={page} pageCount={pageCount} onPageChange={setPage} />"
+      },
+      "EmptyState": {
+        "intent": "Explain why a section has no content and offer a useful next step.",
+        "whenToUse": "Use for no results, first-use, or unavailable content states.",
+        "avoidWhen": "Do not show it alongside stale results or use it for a transient loading state; use Skeleton while loading.",
+        "composition": "State the condition plainly and provide a recovery action when one exists.",
+        "accessibility": "Use a clear title and concise description; make action controls keyboard accessible.",
+        "example": "<EmptyState title=\"No results\" description=\"Change or clear your filters.\" actions={<Button label=\"Clear filters\" />} />"
+      },
+      "Card/Feature": {
+        "intent": "Summarize one feature with an icon, title, and short description.",
+        "whenToUse": "Use for a small set of peer benefits or capabilities.",
+        "avoidWhen": "Use Card for arbitrary content; avoid using feature cards for dense records better represented by Table.",
+        "composition": "Place a repeated set in a responsive grid and keep descriptions concise.",
+        "accessibility": "Keep a meaningful title and do not rely on the icon alone to convey the feature.",
+        "example": "<FeatureCard icon=\"palette\" title=\"Shared tokens\" description=\"One semantic system across themes.\" />"
+      },
+      "Footer": {
+        "intent": "Provide closing site identity, navigation, and legal information.",
+        "whenToUse": "Use Footer default for a full site footer or Footer minimal for a compact legal row.",
+        "avoidWhen": "Do not use the full variant for a short footer that only needs legal text and a few links.",
+        "composition": "Use FooterColumn for grouped navigation in the default variant; use meta for compact secondary links.",
+        "accessibility": "Keep link labels distinct and group footer navigation with meaningful headings.",
+        "example": "<Footer variant=\"minimal\" columns={null} legal=\"© 2026 Example\" meta={legalLinks} />"
+      },
+      "Notification/InlineNotification": {
+        "intent": "Show a concise message in the context of the current page or form.",
+        "whenToUse": "Use for a form submission result or an inline status message.",
+        "avoidWhen": "Do not assume it has a configurable error variant; check its installed type declaration. Use Banner or Toast for their documented status behavior.",
+        "composition": "Render near the content or field the message describes.",
+        "accessibility": "Use the component's documented live-region semantics and keep the message text clear without color alone.",
+        "example": "<InlineNotification message=\"Changes saved.\" />"
+      }
+    },
+    "recipes": [
+      { "name": "login", "file": "docs/agent-package/recipes.md", "uses": ["Form/Input", "Form/Password", "Form/Checkbox", "Button", "Link", "Notification/InlineNotification"] },
+      { "name": "settings", "file": "docs/agent-package/recipes.md", "uses": ["Tabs", "Form/Input", "Form/Select", "SegmentedControl", "Form/Toggle", "Button"] },
+      { "name": "filtered-dashboard", "file": "docs/agent-package/recipes.md", "uses": ["AppHeader", "SideNav", "Stat", "Form/Search", "Form/Multi-select", "Table", "Pagination", "EmptyState"] },
+      { "name": "landing", "file": "docs/agent-package/recipes.md", "uses": ["inverse zone", "Text", "Card/Feature", "Card", "Footer"] }
+    ]
   }
 }

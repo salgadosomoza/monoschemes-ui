@@ -1,0 +1,24 @@
+# MonoSchemes UI
+
+> MonoSchemes monochrome React design system — semantic tokens, accessible components, and light, dark, and inverse themes.
+
+## Start building
+
+- [Consumer README](README.md): installation, stylesheet, themes, and fonts.
+- [Agent instructions](docs/agent-package/AGENTS.md): component selection, usage rules, accessibility, themes, and validation.
+- [Application recipes](docs/agent-package/recipes.md): login, settings, filtered dashboard, and landing page.
+- [Component-to-Figma map](src/tokens/components.json): component names, Figma node references, props, and agent guidance.
+- [TypeScript declarations](dist/index.d.ts): authoritative React API and prop types.
+
+## Core rules
+
+- Import `@monoschemes/ui/style.css` once.
+- Use the provided React components and semantic CSS variables; do not invent tokens, colors, component names, or props.
+- Set the page theme on `<html>` with `data-theme="light"` or `data-theme="dark"`.
+- Use `data-theme="inverse"` for a contrasting region that must adapt to either page theme. Do not nest inverse regions.
+- Keep component styling in the library. Use consumer CSS for layout and responsive composition.
+- Load Inter and JetBrains Mono in the consuming app; the package does not bundle these fonts.
+
+## More information
+
+- [Claude Code skill](skills/monoschemes-ui/SKILL.md)
