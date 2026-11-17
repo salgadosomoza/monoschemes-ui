@@ -7,9 +7,17 @@ const figma = (nodeId: string) => ({ design: { type: 'figma', url: `${FIGMA_BASE
 const meta = {
   title: 'Components/Notification/InlineNotification',
   component: InlineNotification,
-  parameters: { layout: 'padded', ...figma('492-2172') },
   tags: ['autodocs'],
-  args: { message: 'Volutpat felis mattis risus mauris id aenean nascetur aliquam.' },
+  args: { message: 'Changes saved.' },
+  parameters: {
+    layout: 'padded',
+    ...figma('492-2172'),
+    docs: {
+      description: {
+        component: 'Visual check: Default and Error with one line should measure 56 px tall, with the first line centered against the 24 px icon. Verify the alignment and height in Light, Dark, and inside a data-theme="inverse" zone.',
+      },
+    },
+  },
   argTypes: {
     message: { control: 'text' },
     type: { control: 'inline-radio', options: ['default', 'error'] },
