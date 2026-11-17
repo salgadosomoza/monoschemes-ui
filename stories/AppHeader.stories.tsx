@@ -66,6 +66,20 @@ export const TabletOpen: Story = {
   parameters: figma('2420-994'),
 };
 
+export const ActionsWithoutNav: Story = {
+  render: () => (
+    <div style={{ width: 1440, maxWidth: '100%' }}>
+      <AppHeader
+        hasNav={false}
+        logo={{ type: 'text', label: 'MonoSchemes' }}
+        siteTitle="Workspace"
+        actions={<><Button variant="secondary" label="Share" /><Avatar type="initials" size="sm" initials="CS" /></>}
+      />
+    </div>
+  ),
+  parameters: figma('2-45'),
+};
+
 export const DesktopDark: Story = { ...Desktop, globals: { theme: 'dark' } };
 export const TabletDark: Story = { ...Tablet, globals: { theme: 'dark' } };
 export const TabletOpenDark: Story = { ...TabletOpen, globals: { theme: 'dark' } };

@@ -5,6 +5,10 @@ import { Icon } from '../Icon';
 export interface FormSearchProps {
   /** Controlled value. */
   value?: string;
+  /** Visible field label. When omitted, the placeholder is used as the accessible name. */
+  label?: string;
+  /** Accessible name when a visible label is not suitable. */
+  'aria-label'?: string;
   /** Placeholder text. */
   placeholder?: string;
   /** Callback fired on every keystroke. */
@@ -21,6 +25,8 @@ export interface FormSearchProps {
 
 export function FormSearch({
   value: controlledValue,
+  label,
+  'aria-label': ariaLabel,
   placeholder = 'Search',
   onChange,
   onSearch,
@@ -47,10 +53,12 @@ export function FormSearch({
 
   return (
     <div className="form-search">
-      <label className="form-search-inner" htmlFor={id}>
-        <Icon className="form-search-icon" name="search" size={20} />
+      {label && <label className="form-search-label" htmlFor={id}>{label}</label>}
+      <div className="form-search-inner">
+        <span className="form-search-icon" aria-hidden="true"><Icon name="search" size={20} /></span>
         <input
           id={id}
+          aria-label={ariaLabel ?? (label ? undefined : placeholder)}
           type="search"
           name={name}
           autoComplete={autoComplete}
@@ -62,7 +70,7 @@ export function FormSearch({
           onChange={(e) => handleChange(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-      </label>
+      </div>
     </div>
   );
 }

@@ -12,6 +12,8 @@ const meta = {
     disabled: { control: 'boolean' },
     error: { control: 'boolean' },
     label: { control: 'text' },
+    name: { control: 'text' },
+    id: { control: 'text' },
     helperText: { control: 'text' },
   },
 } satisfies Meta<typeof FormSelect>;
@@ -37,7 +39,7 @@ export const Default: Story = {
 };
 
 export const WithOptions: Story = {
-  args: { options: SAMPLE_OPTIONS, placeholder: 'Select a team', label: 'Team' },
+  args: { options: SAMPLE_OPTIONS, placeholder: 'Select a team', label: 'Team', name: 'team', id: 'team' },
   parameters: figma('2006-368'),
 };
 

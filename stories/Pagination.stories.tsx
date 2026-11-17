@@ -28,6 +28,10 @@ const meta = {
     showNext: { control: 'boolean' },
     prevLabel: { control: 'text' },
     nextLabel: { control: 'text' },
+    'aria-label': { control: 'text' },
+    pagesAriaLabel: { control: 'text' },
+    pageAriaLabel: { control: 'text' },
+    currentPageAriaLabel: { control: 'text' },
   },
 } satisfies Meta<typeof Pagination>;
 
@@ -55,6 +59,19 @@ export const LastPage: Story = {
 
 export const ManyPages: Story = {
   args: { page: 6, pageCount: 131 },
+};
+
+export const LocalizedSpanish: Story = {
+  args: {
+    page: 5,
+    pageCount: 131,
+    prevLabel: 'Anterior',
+    nextLabel: 'Siguiente',
+    'aria-label': 'Paginación',
+    pagesAriaLabel: 'Páginas',
+    pageAriaLabel: 'Ir a la página {page}',
+    currentPageAriaLabel: 'Página {page}, actual',
+  },
 };
 
 export const Dark: Story = {

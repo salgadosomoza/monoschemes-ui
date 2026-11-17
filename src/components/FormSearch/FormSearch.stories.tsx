@@ -8,6 +8,8 @@ const meta = {
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
   argTypes: {
+    label: { control: 'text', description: 'Visible field label.' },
+    'aria-label': { control: 'text', description: 'Accessible name when no visible label is provided.' },
     placeholder: { control: 'text', description: 'Placeholder text shown when the search field is empty. Defaults to Search.' },
     value: { control: 'text' },
     disabled: { control: 'boolean' },
@@ -48,6 +50,11 @@ export const Interactive: Story = {
       </div>
     );
   },
+};
+
+export const Labeled: Story = {
+  args: { label: 'Campaigns', placeholder: 'Search campaigns' },
+  parameters: figma('20-518'),
 };
 
 export const Disabled: Story = {

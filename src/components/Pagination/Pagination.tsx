@@ -7,11 +7,12 @@ export interface PaginationItemProps {
   label?: string;
   state?: PaginationItemState;
   onClick?: () => void;
+  ariaLabel?: string;
 }
 
-export function PaginationItem({ label = '1', state = 'default', onClick }: PaginationItemProps) {
+export function PaginationItem({ label = '1', state = 'default', onClick, ariaLabel }: PaginationItemProps) {
   if (state === 'ellipsis') {
-    return <span className="pagination-item pagination-item--ellipsis" aria-label="More pages">…</span>;
+    return <span className="pagination-item pagination-item--ellipsis" aria-hidden="true">…</span>;
   }
 
   return (
@@ -20,7 +21,7 @@ export function PaginationItem({ label = '1', state = 'default', onClick }: Pagi
       type="button"
       data-state={state}
       aria-current={state === 'current' ? 'page' : undefined}
-      aria-label={state === 'current' ? 'Page ' + label + ', current page' : 'Go to page ' + label}
+      aria-label={ariaLabel ?? (state === 'current' ? 'Page ' + label + ', current page' : 'Go to page ' + label)}
       onClick={onClick}
     >
       {label}
@@ -37,6 +38,10 @@ export interface PaginationProps {
   showNext?: boolean;
   prevLabel?: string;
   nextLabel?: string;
+  'aria-label'?: string;
+  pagesAriaLabel?: string;
+  pageAriaLabel?: string;
+  currentPageAriaLabel?: string;
 }
 
 function pageRange(start: number, end: number) {
@@ -72,6 +77,10 @@ export function Pagination({
   showNext = true,
   prevLabel = 'Prev',
   nextLabel = 'Next',
+  'aria-label': ariaLabel = 'Pagination',
+  pagesAriaLabel = 'Pages',
+  pageAriaLabel = 'Go to page {page}',
+  currentPageAriaLabel = 'Page {page}, current page',
 }: PaginationProps) {
   const safePageCount = Math.max(1, Math.floor(pageCount));
   const currentPage = Math.min(Math.max(1, Math.floor(page)), safePageCount);
@@ -79,7 +88,7 @@ export function Pagination({
   const items = getPageItems(currentPage, safePageCount, safeSiblingCount);
 
   return (
-    <nav className="pagination" aria-label="Pagination">
+    <nav className="pagination" aria-label={ariaLabel}>
       {showPrev ? (
         <Button
           variant="secondary"
@@ -90,7 +99,7 @@ export function Pagination({
           onClick={() => onPageChange(currentPage - 1)}
         />
       ) : <span className="pagination__spacer" aria-hidden="true" />}
-      <div className="pagination-pages" aria-label="Pages">
+      <div className="pagination-pages" role="group" aria-label={pagesAriaLabel}>
         {items.map((item, index) => item === 'ellipsis-left' || item === 'ellipsis-right'
           ? <PaginationItem key={item} state="ellipsis" />
           : (
@@ -98,6 +107,7 @@ export function Pagination({
               key={String(item) + '-' + index}
               label={String(item)}
               state={item === currentPage ? 'current' : 'default'}
+              ariaLabel={(item === currentPage ? currentPageAriaLabel : pageAriaLabel).replace('{page}', String(item))}
               onClick={() => onPageChange(item)}
             />
           ))}

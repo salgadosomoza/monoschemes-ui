@@ -7,6 +7,14 @@
   max-width: 232px;
 }
 
+.form-search-label {
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  color: var(--color-text-primary);
+}
+
 .form-search-inner {
   display: flex;
   align-items: center;

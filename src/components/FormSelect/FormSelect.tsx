@@ -21,6 +21,10 @@ export interface FormSelectProps {
   disabled?: boolean;
   /** Field label shown above the select. */
   label?: string;
+  /** Native form field name; submitted through a hidden input. */
+  name?: string;
+  /** ID for the visible trigger and its label. */
+  id?: string;
   /** Renders the select in an error state. */
   error?: boolean;
   /** Helper text shown below the select. */
@@ -34,10 +38,13 @@ export function FormSelect({
   onChange,
   disabled = false,
   label,
+  name,
+  id: providedId,
   error = false,
   helperText,
 }: FormSelectProps) {
-  const id = useId();
+  const generatedId = useId();
+  const id = providedId ?? generatedId;
   const isControlled = controlledValue !== undefined;
   const [internalValue, setInternalValue] = useState<string>('');
   const [isOpen, setIsOpen] = useState(false);
@@ -90,6 +97,8 @@ export function FormSelect({
           {label}
         </label>
       )}
+
+      {name && <input type="hidden" name={name} value={value ?? ''} disabled={disabled} />}
 
       <button
         id={id}

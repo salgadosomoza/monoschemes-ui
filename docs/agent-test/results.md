@@ -57,3 +57,38 @@ Ejecutada el 16 de noviembre de 2026 con `@monoschemes/ui@0.0.2`, a partir del t
 El script `score.mjs` reportó `tsc` correcto en las cuatro carpetas, importación de `style.css` en las cuatro, cero definiciones locales de tokens, cero colores en crudo y cero dependencias adicionales. Ejecuté también build y lint después de terminar cada agente; ambos comandos pasaron en las cuatro.
 
 La ronda 1 sigue siendo solo diagnóstico histórico y no se compara estadísticamente con esta muestra de cuatro tareas. La ronda 2 queda como línea base para la prueba comparativa después de publicar el paquete para agentes. La muestra actual es pequeña (una ejecución por tarea); no mide variabilidad entre agentes ni permite concluir si el paquete reduce errores frente a otra versión.
+
+
+## Ronda comparativa · paquete publicado 0.1.1 · completada
+
+Ejecutada el 17 de noviembre de 2026. Se repitieron las cuatro tareas con el paquete publicado `@monoschemes/ui@0.1.1`, que incluye `llms.txt`, `docs/agent-package/AGENTS.md`, recetas y la skill distribuida. Cada tarea usó una sesión nueva de Claude Code Opus 5.5 con `--safe-mode`, en su propia carpeta. El prompt exacto fue el primer mensaje; no hubo intervenciones posteriores. Los cuatro transcripts TUI y el código de cada intento se conservaron en la carpeta de la ronda.
+
+La instalación del paquete advirtió de 5 vulnerabilidades de severidad alta en el árbol heredado de dependencias de la plantilla. No se ejecutó `npm audit fix` ni se cambiaron versiones para no contaminar la comparación.
+
+### Resultado
+
+- **4 de 4 aplicaciones completas.** Las cuatro pasan `npm run build`, `npm run lint` y `tsc --noEmit`.
+- Las cuatro importan `@monoschemes/ui/style.css`; el análisis encuentra **0 tokens locales**, **0 colores en crudo**, **0 radios** y **0 sombras** en CSS de la aplicación.
+- No añadieron dependencias de UI ni colores del sistema. Las dependencias de Vite, TypeScript y lint ya estaban en la plantilla.
+- Fidelidad revisada: **47/48**, igual que la ronda 2.
+- **1 error de sistema** en T4: el hero usa `data-theme="dark"` en vez de `data-theme="inverse"`, aunque la guía y la receta incluidas en el paquete indican expresamente que no se sustituya una zona inversa por una zona fija oscura. La captura de Dark confirma que el hero permanece oscuro en vez de invertir al tema claro.
+- La hipótesis H1 **no queda apoyada por esta muestra**: la ronda 2 tenía 1 error y 47/48; la ronda comparativa repite 1 error y 47/48. No hay reducción del 50 % de errores ni una mejora de al menos 3 puntos. Son cuatro tareas únicas, así que esto no demuestra que las instrucciones no ayuden en general; indica que esta ronda no detectó mejora.
+
+| Intento | Completa | Pasos | Tiempo | Errores de sistema | Fidelidad /12 | Intervenciones | Notas |
+|---|---|---|---:|---:|---:|---|---|
+| t1-login | Sí | N/D | 1m 10s | 0 | 12 | 0 | Usa los componentes de login previstos; añade Card y un selector de tema para permitir la comprobación Light/Dark. Autenticación simulada. |
+| t2-ajustes | Sí | N/D | 1m 52s | 0 | 12 | 0 | Usa Tabs, FormInput, FormSelect, SegmentedControl, FormToggle y Button. Tema de sistema, cancelar y guardar funcionales. |
+| t3-dashboard | Sí | N/D | 2m 53s | 0 | 12 | 0 | Usa AppHeader, SideNav, Stat, FormSearch, FormMultiSelect, Table, Pagination y EmptyState; filtros y estado vacío funcionales. |
+| t4-landing | Sí | N/D | 2m 28s | 1 | 11 | 0 | Usa FeatureCard, Card, Footer minimal, Text display y Button. El hero fijo oscuro incumple el patrón inverse. |
+
+Los pasos se dejan como N/D porque el formato TUI no permite contar acciones con fiabilidad; se registran los tiempos finales comunicados por Claude, sin sumar intervalos de redibujado. Las comprobaciones automáticas se ejecutaron después de cerrar las cuatro tareas. `score.mjs` se ejecutó sobre una copia temporal de análisis para no alterar las carpetas de la ronda.
+
+### Fricciones de API detectadas
+
+- **AppHeader:** cuando no hay navegación superior, las acciones no se alinean al extremo derecho en escritorio. T3 lo resolvió con una regla sobre la clase interna `.app-header-actions`; es una dependencia de implementación que conviene eliminar o documentar.
+- **FormSearch:** no acepta una etiqueta visible como prop. T3 añadió una etiqueta HTML enlazada mediante `id`.
+- **Pagination:** las etiquetas accesibles del contenedor siguen en inglés y no son configurables; T3 sí pudo traducir los botones Prev/Next.
+- **FormSelect:** no acepta `name` ni `id`; T2 mantuvo el valor en el estado de React.
+- **Text display:** los tamaños son fijos. T4 seleccionó display-2/display-3/h1 según el ancho de pantalla y añadió reglas de ajuste de línea para evitar desbordamiento móvil.
+
+Estas fricciones no se cuentan como errores de sistema de la tarea: las pantallas compilan y mantienen sus funciones y semántica. Se anotan para decidir si requieren cambios de API o recetas de consumo. La única discrepancia de patrón observada que afecta la puntuación es el uso de `dark` en T4.

@@ -325,36 +325,47 @@
     },
     "Form/Search": {
       "figmaNode": "1441:387",
+      "figmaVariants": {
+        "status": {
+          "type": "variant",
+          "values": ["default", "focused", "disabled"],
+          "default": "default"
+        }
+      },
       "props": {
         "placeholder": { "type": "string", "default": "Search" },
         "value": { "type": "string" },
         "onChange": { "type": "event" },
         "onSearch": { "type": "event" },
         "disabled": { "type": "boolean", "default": false },
-        "status": {
-          "type": "variant",
-          "values": [
-            "default",
-            "focused",
-            "disabled"
-          ],
-          "default": "default"
-        }
+        "label": { "type": "string" },
+        "aria-label": { "type": "string" },
+        "name": { "type": "string" },
+        "autoComplete": { "type": "string" },
+        "id": { "type": "string" },
+        "required": { "type": "boolean", "default": false }
       }
     },
     "Form/Select": {
       "figmaNode": "1441:371",
-      "props": {
+      "figmaVariants": {
         "status": {
           "type": "variant",
-          "values": [
-            "default",
-            "open",
-            "disabled",
-            "error"
-          ],
+          "values": ["default", "open", "disabled", "error"],
           "default": "default"
         }
+      },
+      "props": {
+        "options": { "type": "array", "items": { "value": "string", "label": "string" } },
+        "value": { "type": "string" },
+        "placeholder": { "type": "string", "default": "Select" },
+        "onChange": { "type": "event" },
+        "disabled": { "type": "boolean", "default": false },
+        "label": { "type": "string" },
+        "name": { "type": "string" },
+        "id": { "type": "string" },
+        "error": { "type": "boolean", "default": false },
+        "helperText": { "type": "string" }
       },
       "subcomponents": {
         "Option": {
@@ -609,7 +620,11 @@
         "showPrev": { "type": "boolean", "default": true },
         "showNext": { "type": "boolean", "default": true },
         "prevLabel": { "type": "string", "default": "Prev" },
-        "nextLabel": { "type": "string", "default": "Next" }
+        "nextLabel": { "type": "string", "default": "Next" },
+        "aria-label": { "type": "string", "default": "Pagination" },
+        "pagesAriaLabel": { "type": "string", "default": "Pages" },
+        "pageAriaLabel": { "type": "string", "default": "Go to page {page}" },
+        "currentPageAriaLabel": { "type": "string", "default": "Page {page}, current page" }
       }
     },
     "Pagination/Item": {
@@ -617,7 +632,8 @@
       "props": {
         "label": { "type": "string", "default": "1" },
         "state": { "type": "variant", "values": ["default", "current", "ellipsis"], "default": "default" },
-        "onClick": { "type": "event" }
+        "onClick": { "type": "event" },
+        "ariaLabel": { "type": "string" }
       }
     },
     "Table": {

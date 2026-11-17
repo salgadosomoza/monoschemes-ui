@@ -36,7 +36,7 @@ Use a toggle for an independent on/off setting; use a segmented control when exa
 
 ## Dashboard with filters
 
-Compose `AppHeader`, `SideNav`, `Stat`, `FormSearch`, `FormMultiSelect`, `Table`, `Pagination`, and `EmptyState`. Filter the source rows first, derive the page count from the filtered rows, and show `EmptyState` when none remain. Reset the page to 1 when the search or filters change.
+Compose `AppHeader`, `SideNav`, `Stat`, `FormSearch`, `FormMultiSelect`, `Table`, `Pagination`, and `EmptyState`. Give search a visible `label`; localize Pagination's `aria-label`, `pagesAriaLabel`, `pageAriaLabel`, and `currentPageAriaLabel` when the UI is not English. Filter the source rows first, derive the page count from the filtered rows, and show `EmptyState` when none remain. Reset the page to 1 when the search or filters change.
 
 ```tsx
 {filteredRows.length === 0 ? (
@@ -69,4 +69,4 @@ Use an inverse zone for the hero so it contrasts with either page theme. Use `Te
 <Footer variant="minimal" columns={null} legal="© 2026 Example" meta={legalLinks} />
 ```
 
-Do not hard-code a dark zone for the hero: `data-theme="dark"` does not invert when the surrounding page is dark.
+Do not hard-code a dark zone for the hero: `data-theme="dark"` does not invert when the surrounding page is dark. Verify the hero twice: it should be dark on a Light page and light on a Dark page. If its background stays dark in both captures, the zone is fixed-dark rather than inverse.

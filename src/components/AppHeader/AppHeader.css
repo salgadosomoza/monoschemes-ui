@@ -53,6 +53,10 @@
   flex: 0 0 auto;
 }
 
+.app-header-top[data-has-nav="false"] .app-header-actions {
+  margin-inline-start: auto;
+}
+
 .app-header-mobile-menu { display: none; }
 
 @container app-header (max-width: 1023px) {

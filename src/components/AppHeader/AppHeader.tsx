@@ -204,7 +204,7 @@ export function AppHeader({
     <MegaMenuContext.Provider value={megaMenuContext}>
     <div className="app-header-container" ref={containerRef}>
       <header className="app-header">
-        <div className="app-header-top">
+        <div className="app-header-top" data-has-nav={hasNav}>
           <div className="app-header-left">
             {hasLogo && <Logo type={logo.type} label={logo.label} src={logo.src} alt={logo.alt} mark={logo.mark} />}
             {hasSiteTitle && <span className="app-header-site-title">{siteTitle}</span>}
