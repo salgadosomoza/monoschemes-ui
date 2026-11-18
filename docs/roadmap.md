@@ -1,41 +1,80 @@
-# Roadmap del paquete y de los agentes
+# MonoSchemes · roadmap de diseño, UI y agentes
 
-Actualizado: 17 de noviembre de 2026.
+Actualizado: 18 de noviembre de 2026.
 
-## Objetivo · decisión F-04
+## Cómo usar este roadmap
 
-Hacer que otros equipos y sus agentes puedan usar `@monoschemes/ui` como punto de partida para explorar y construir MVPs. Para el agente consumidor, la fuente de verdad es el paquete: código, contrato, documentación de uso y recetas. Figma sigue siendo la fuente visual.
+Este archivo es la fuente única del estado, las prioridades y la siguiente acción de MonoSchemes. Incluye el trabajo de diseño y código de `monoschemes-ui`, además del paquete y las pruebas con agentes.
 
-**Hipótesis H1:** un agente sin contexto construye pantallas correctas en menos pasos y con menos errores con un paquete para agentes que con el paquete npm por sí solo. Se considerará apoyada si los errores de sistema se reducen al menos a la mitad y la fidelidad visual sube al menos 3 puntos sobre 12, sin reducir el número de tareas completas.
+- **Figma/FigJam** conserva ideación, especificaciones, exploraciones y pruebas visuales. Figma sigue siendo la autoridad visual.
+- **Este roadmap** indica qué está hecho, qué sigue y qué está aparcado.
+- **Google Sheets** conserva decisiones y datos de pruebas/auditorías. No es una segunda lista de tareas. [Registro y resultados](https://docs.google.com/spreadsheets/d/1ikcrIwANXxgAbemlEyYaduw7WdIrOqd1jYdNTBLUR5w/edit).
+- **Código y Storybook** registran la implementación y permiten comprobarla.
 
-La ronda 1 no es una línea base válida: se ejecutó con el paquete 0.0.1, cuyo CSS no incluía los tokens, y hubo contaminación entre intentos por `claude-mem`. La ronda 2 con 0.0.2 queda como línea base válida. Carlos autorizó a Codex a lanzar las rondas en sesiones aisladas; los resultados y límites están en [resultados](agent-test/results.md). La ronda comparativa con el paquete npm 0.1.1 terminó con 47/48, igual que la línea base 0.0.2, por lo que H1 no queda apoyada todavía.
+Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx/MonoSchemes-kit?node-id=1237-938), [librería visual de Figma](https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit) y [decisión F-04](https://docs.google.com/spreadsheets/d/1ikcrIwANXxgAbemlEyYaduw7WdIrOqd1jYdNTBLUR5w/edit?gid=3000#gid=3000).
 
-## Estado y siguiente acción
+## Siguiente acción
 
-| Estado | Tema | Situación | Siguiente acción |
+| Estado | Trabajo | Situación | Siguiente acción |
 |---|---|---|---|
-| Hecho | Paso 0 · paquete instalable | Exports, CSS, metadatos, `sideEffects`, `publishConfig`, README de consumo y fuentes tipográficas documentadas. | Mantener las comprobaciones del paquete en cada entrega. |
-| Hecho | Paso 1 · ronda 1 | Ocho intentos con Claude Code Opus 5.5 y el paquete 0.0.1. Resultado contaminado; no usar como línea base. | Consultar [resultados](agent-test/results.md) solo como diagnóstico inicial. |
-| Hecho | Paquete 0.0.2 | Commit `00a44f5`, publicado en GitHub. Incluye tokens y temas en CSS, `check:dist`, `no-console`, `Button type`, celdas `ReactNode`, AppHeader sin navegación ficticia y etiquetas accesibles configurables en FormPassword. | Base para la ronda 2. |
-| Hecho | Paso 1b · ronda 2 | Cuatro tareas terminadas con el tarball local 0.0.2: login, ajustes, dashboard y landing. Todas compilan, pasan lint y typecheck; la revisión encontró una desviación en T4 (hero `dark` en vez de `inverse`). | Conservar la ronda como línea base antes del paquete para agentes. Ver [resultados](agent-test/results.md). |
-| Hecho | Paso 2 · paquete para agentes | Guía de consumo, `llms.txt`, skill para Claude Code, recetas y orientación para 19 componentes principales en `components.json`. La guía distingue los tipos React de las propiedades de diseño y explica la zona `inverse`. | Mantener las instrucciones alineadas con los tipos publicados y las decisiones de Figma. |
-| Hecho | Prueba prepublicación del paquete de agentes | El tarball local 0.0.2 incluye la documentación; un proyecto Vite limpio instaló el paquete, encontró las instrucciones y compiló una landing. El ensayo también detectó y permitió corregir la escala display incompleta en el mapa. | Ver [informe de la prueba](agent-test/package-smoke-test.md). Esta comprobación no es la ronda comparativa. |
-| Hecho | Publicación npm 0.1.0 | Publicado como paquete público; instalado desde el registro en un proyecto Vite limpio y compilado correctamente. Preparación en el commit `86cdb82`. | Mantener la comprobación de instalación para los siguientes releases. |
-| Hecho | InlineNotification · error (0.1.1, K-26, I-03) | Diseño aprobado y cambios publicados en npm 0.1.1; `check:dist` comprueba el CSS de error. | Mantener la prueba de distribución en cada entrega. |
-| Backlog | Toast · decisión de diseño | La API acepta `success`, `warning` y `error`, pero Figma/código no definen estilos para esos tipos. | Decidir en Figma qué variantes existen y sus estilos antes de cambiar Toast. |
-| Backlog | Storybook público | Publicar Storybook con GitHub Pages. El repo es público. | Añadir GitHub Action que construya `storybook-static` en cada push a `main` y publique el resultado. |
-| Preparado local | Paso 3 · alineación de integraciones | AppHeader alinea las acciones cuando no hay navegación; FormSearch acepta una etiqueta visible y nombre accesible; Pagination permite localizar sus nombres ARIA; FormSelect acepta `name` e `id` y participa en envíos de formulario. La receta de `inverse` exige comprobar que el fondo se invierte entre Light y Dark. | Revisar en Storybook y validar estos cambios antes del commit. Repetir la ronda comparativa solo después de publicar cambios sustantivos. |
-| Backlog | Paso 4 · verificación automática | Comprobación de valores en bruto y accesibilidad en Storybook. | Definir alcance y umbrales después de fijar el paquete para agentes y las recetas. |
-| Hecho | Paso 5 · prueba comparativa | Cuatro tareas con `@monoschemes/ui@0.1.1`, comparadas con la línea base 0.0.2. Resultado: 4/4 completas, 47/48 y 1 error, igual que la ronda 2; H1 no queda apoyada en esta muestra. | Usar las fricciones detectadas para priorizar el paso 3 y repetir la ronda solo cuando haya cambios sustantivos en recetas o API. |
-| Backlog | Code Connect | Falta confirmar el plan de Figma apropiado. | Confirmar plan y alcance antes de implementar Code Connect. |
-| Aparcado | pen.dev | No forma parte de la ruta actual. | No iniciar salvo que se reactive explícitamente. |
+| Siguiente | Revisión visual de la alineación | El commit `2c09750` alinea AppHeader sin navegación, FormSearch, Pagination y FormSelect con sus casos de consumo. Lint, typecheck y builds pasan; falta revisar las historias renderizadas. | Revisar esos casos en Storybook en Light y Dark, y comprobar la zona `inverse` en los dos temas. |
+| Hecho | Traspaso del registro y resultados | Las tres rondas de agentes y el estado actual de la auditoría de color están en Sheets; el plan inicial quedó archivado y la decisión K-09 ya no está duplicada. | Mantener Sheets para los datos y consultar este archivo para las prioridades vigentes. |
+| Backlog | Recetas y plantilla de arranque | Hay guía de consumo y recetas, pero falta cerrar el conjunto de patrones de producto y una plantilla Vite lista para clonar. | Priorizar login, ajustes, listado con filtros, detalle, formulario por pasos y estados vacío/error; crear la plantilla si sigue siendo útil tras revisar las recetas. |
+| Backlog | Verificación automática | Falta acordar qué comprobar automáticamente además de lint, tipos y builds. | Definir alcance para tokens/valores en bruto, contrato y accesibilidad en Storybook sin imponer reglas que bloqueen usos válidos. |
+| Backlog | Storybook público | Storybook aún no tiene una publicación pública enlazada desde el paquete. | Publicar `storybook-static` (por ejemplo, en GitHub Pages) y enlazarlo desde README y `llms.txt`. |
+| Backlog | Code Connect | No se ha confirmado el plan de Figma ni el alcance práctico. | Confirmar elegibilidad y componentes prioritarios antes de implementar. |
 
-La guía de publicación está en [publishing.md](publishing.md). Las versiones `0.1.0` y `0.1.1` están publicadas en npm.
+## Diseño y sistema de componentes
 
-## Dependencias de diseño relacionadas
+### Hecho
 
-- El diseño de error de InlineNotification está aprobado en Figma y publicado en npm 0.1.1. La variante `success`/`warning` de Toast sigue sin decisión de diseño.
-- Componentes de interacción que pueden ser necesarios: Tooltip, Popover, Drawer, Combobox y paleta de comandos. Su prioridad se decide con los resultados de la ronda 2.
-- La publicación del kit en Figma Community no tiene fecha; `monoschemes-kit` se archivará cuando corresponda.
-- Las dudas de color C-05 (D2 divisores, D3 relleno de progreso, D4 subrayado Button/Text) siguen pendientes de confirmación.
-- Footer debe revisarse para contenedores estrechos (960 px) si la necesidad aparece de nuevo.
+- Los paquetes 1–6 de UI están implementados y versionados: componentes de controles, contenido y navegación; Calendar integrado en Form/Date; nuevos campos, Stepper y Mega menu.
+- Los tokens semánticos Light/Dark, la zona `data-theme="inverse"` y el principio Recto están implementados. `--radius-full` se limita a Avatar round, Radio y el pulgar del Slider.
+- El componente Accordion es atómico; el contrato `components.json` recoge los nodos y props de Figma, y las stories documentan los componentes.
+- Figma tiene descripciones de uso y páginas de prueba visual: Tabler Icons, landing TTS, test de velocidad y recreación de salgadosomoza.com.
+- Las decisiones y referencias principales están registradas en Sheets: F-01–F-04, C-01–C-07, R-01–R-03, K-01–K-26, T-01–T-02, I-01–I-03 y M-01. El registro de decisiones conserva también las decisiones sustituidas, como K-08 y R-01, para mantener trazabilidad.
+- La exploración visual de Figma/FigJam sigue abierta a pruebas de componentes y páginas; sus marcos no son estados del roadmap. Una propuesta solo pasa a trabajo activo cuando se registra aquí con un siguiente paso.
+
+### Backlog de diseño
+
+| Estado | Tema | Alcance / criterio |
+|---|---|---|
+| Backlog | Toast | La API tiene `success`, `warning` y `error`, pero no hay diseño acordado para esos estados. Decidir en Figma antes de cambiar su apariencia. |
+| Backlog | Decisiones de color C-05 | Resolver D2 (divisores suaves), D3 (relleno de progreso) y D4 (subrayado de Button/Text) en Figma y luego reflejar el resultado en tokens/código. |
+| Backlog | Interacciones según necesidad | Tooltip, Popover, Drawer, Combobox y paleta de comandos son candidatos; priorizarlos desde casos reales, no por completar una lista. |
+| Condicional | Footer estrecho | Revisar el Footer a 960 px si vuelve a aparecer el caso de uso. |
+| Backlog | Publicación en Figma Community | Preparar portada, descripción, etiquetas, licencia y contenido publicable; no hay fecha fijada. |
+| Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |
+| Por revisar | Issues históricos de Table y Tag | Confirmar que los issues públicos siguen abiertos y son útiles; el soporte de celdas `ReactNode` y los componentes actuales pueden haber resuelto parte del alcance. |
+
+Las páginas de prueba de Figma son referencias de exploración, no entregas independientes. Añadir allí pruebas nuevas cuando aporten un caso concreto.
+
+## Paquete y pruebas con agentes
+
+### Hecho
+
+- El paquete se puede instalar y consumir como `@monoschemes/ui`; las versiones `0.1.0` y `0.1.1` están publicadas en npm.
+- La versión 0.1.1 incluye el error de InlineNotification, tokens y temas en el CSS publicado, contrato, documentación de consumo, `llms.txt`, recetas y skill para Claude Code.
+- **Ronda 1 · 0.0.1:** 8 intentos diagnósticos, contaminados por `claude-mem`; no es línea base. El problema principal fue el CSS publicado sin definiciones de tokens.
+- **Ronda 2 · 0.0.2:** 4/4 aplicaciones completas; 47/48 de fidelidad; 1 error de sistema en T4 por usar `data-theme="dark"` en vez de `inverse`.
+- **Ronda comparativa · 0.1.1:** 4/4 completas; 47/48; 1 error de sistema, el mismo uso fijo de `dark` en T4. Con esta muestra, la hipótesis H1 no queda apoyada; tampoco se demuestra que el paquete para agentes no ayude en general.
+- La última revisión de fricciones llevó a mejoras de integración en el commit `2c09750`. Los datos por intento, puntuaciones e incidencias se guardan en Sheets; [el resumen metodológico](agent-test/results.md) conserva conclusiones y límites, sin duplicar filas.
+- Tras la consolidación, Sheets es el registro de resultados detallados y auditorías; este archivo conserva conclusiones, límites y acciones, no filas duplicadas de medición.
+
+### Backlog de agentes
+
+| Estado | Trabajo | Siguiente paso |
+|---|---|---|
+| Hecho | Registro de resultados | Las rondas y auditorías están consolidadas en Sheets; este roadmap y `docs/agent-test/results.md` conservan prioridades e interpretación. |
+| Backlog | Recetas / plantilla | Completar los patrones de producto y decidir si conviene una plantilla inicial Vite. |
+| Backlog | Verificación automática | Añadir comprobaciones acordadas de contrato, tokens y accesibilidad; no ocultar diferencias válidas entre React y Figma. |
+| Después de cambios sustantivos | Nueva prueba comparativa | Repetir las mismas tareas y métricas solo cuando cambien de forma material las instrucciones, recetas o APIs. La muestra seguirá siendo pequeña y debe presentarse como tal. |
+
+## Ideas aparcadas
+
+- **pen.dev:** experimento opcional; Figma sigue siendo la fuente visual.
+- **Plugin de sincronización Figma ↔ código:** fuera del trabajo activo.
+
+## Criterio para incorporar ideas desde Figma
+
+Las ideas y pruebas del FigJam no pasan automáticamente a backlog. Se traen a este archivo cuando existe una necesidad concreta, una decisión o una siguiente acción verificable. Las métricas, resultados por intento y auditorías detalladas viven en las pestañas correspondientes de [Google Sheets](https://docs.google.com/spreadsheets/d/1ikcrIwANXxgAbemlEyYaduw7WdIrOqd1jYdNTBLUR5w/edit); las decisiones vigentes y sustituidas permanecen en `Registro`.
