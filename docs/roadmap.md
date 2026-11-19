@@ -1,6 +1,6 @@
 # MonoSchemes · roadmap de diseño, UI y agentes
 
-Actualizado: 18 de noviembre de 2026.
+Actualizado: 19 de noviembre de 2026.
 
 ## Cómo usar este roadmap
 
@@ -17,9 +17,10 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 
 | Estado | Trabajo | Situación | Siguiente acción |
 |---|---|---|---|
-| Siguiente | Revisión visual de la alineación | El commit `2c09750` alinea AppHeader sin navegación, FormSearch, Pagination y FormSelect con sus casos de consumo. Lint, typecheck y builds pasan; falta revisar las historias renderizadas. | Revisar esos casos en Storybook en Light y Dark, y comprobar la zona `inverse` en los dos temas. |
-| Hecho | Traspaso del registro y resultados | Las tres rondas de agentes y el estado actual de la auditoría de color están en Sheets; el plan inicial quedó archivado y la decisión K-09 ya no está duplicada. | Mantener Sheets para los datos y consultar este archivo para las prioridades vigentes. |
-| Backlog | Recetas y plantilla de arranque | Hay guía de consumo y recetas, pero falta cerrar el conjunto de patrones de producto y una plantilla Vite lista para clonar. | Priorizar login, ajustes, listado con filtros, detalle, formulario por pasos y estados vacío/error; crear la plantilla si sigue siendo útil tras revisar las recetas. |
+| Hecho | Revisión visual de la alineación y zona `inverse` | Carlos revisó AppHeader sin navegación, FormSearch, Pagination y FormSelect en Light y Dark. La zona `inverse` también se comprobó en ambos temas y se ve bien. | Registrar cualquier discrepancia visual futura como una tarea independiente. |
+| Hecho | Comprobación focalizada de comprensión de `inverse` | En una prueba separada, el prompt especificó que el hero debía ser oscuro en Light y claro en Dark, sin nombrar `inverse`. Claude Code consultó la documentación del paquete, eligió `data-theme="inverse"` y el resultado se confirmó visualmente en ambos temas. Build y lint pasan. | Conservar R2/R3 como resultados históricos; no atribuir causalidad a la documentación con una sola prueba ni compararla como si el prompt fuera idéntico. |
+| Hecho | Traspaso del registro y resultados | Las tres rondas comparativas, la comprobación focalizada R4 y el estado actual de la auditoría de color están en Sheets; el plan inicial quedó archivado y la decisión K-09 ya no está duplicada. | Mantener Sheets para los datos y consultar este archivo para las prioridades vigentes. |
+| Siguiente | Recetas y plantilla de arranque | Hay guía de consumo y recetas, pero falta cerrar el conjunto de patrones de producto y una plantilla Vite lista para clonar. | Revisar los patrones prioritarios (login, ajustes, listado con filtros, detalle, formulario por pasos y estados vacío/error) y decidir si conviene crear la plantilla. |
 | Backlog | Verificación automática | Falta acordar qué comprobar automáticamente además de lint, tipos y builds. | Definir alcance para tokens/valores en bruto, contrato y accesibilidad en Storybook sin imponer reglas que bloqueen usos válidos. |
 | Backlog | Storybook público | Storybook aún no tiene una publicación pública enlazada desde el paquete. | Publicar `storybook-static` (por ejemplo, en GitHub Pages) y enlazarlo desde README y `llms.txt`. |
 | Backlog | Code Connect | No se ha confirmado el plan de Figma ni el alcance práctico. | Confirmar elegibilidad y componentes prioritarios antes de implementar. |
@@ -58,6 +59,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 - **Ronda 1 · 0.0.1:** 8 intentos diagnósticos, contaminados por `claude-mem`; no es línea base. El problema principal fue el CSS publicado sin definiciones de tokens.
 - **Ronda 2 · 0.0.2:** 4/4 aplicaciones completas; 47/48 de fidelidad; 1 error de sistema en T4 por usar `data-theme="dark"` en vez de `inverse`.
 - **Ronda comparativa · 0.1.1:** 4/4 completas; 47/48; 1 error de sistema, el mismo uso fijo de `dark` en T4. Con esta muestra, la hipótesis H1 no queda apoyada; tampoco se demuestra que el paquete para agentes no ayude en general.
+- **Comprobación focalizada · 19 nov 2026:** T4 se repitió con el criterio visual explícito (oscuro en página Light, claro en Dark), sin nombrar `inverse`. Claude Code consultó README, `llms.txt`, guía y receta; eligió `data-theme="inverse"`. Codex confirmó visualmente ambos temas; build y lint pasan. No es una ronda comparable ni permite aislar el efecto de cada documento.
 - La última revisión de fricciones llevó a mejoras de integración en el commit `2c09750`. Los datos por intento, puntuaciones e incidencias se guardan en Sheets; [el resumen metodológico](agent-test/results.md) conserva conclusiones y límites, sin duplicar filas.
 - Tras la consolidación, Sheets es el registro de resultados detallados y auditorías; este archivo conserva conclusiones, límites y acciones, no filas duplicadas de medición.
 
