@@ -40,9 +40,11 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 
 | Estado | Tema | Alcance / criterio |
 |---|---|---|
-| En curso | Toast | Diseño acordado en Figma (K-27, C-08, I-04); implementación en curso. Incluye iconos y semántica por tipo, tratamiento visual de error y presentación en Light, Dark e `inverse`. |
+| Hecho | Toast | Diseño de Figma implementado (K-27, C-08, I-04): iconos y semántica por tipo, tratamiento visual de error y presentación en Light, Dark e `inverse`. |
 | Hecho | Decisiones de color C-05 | C-05 queda cerrado según el Sheet: D2 usa `border/default`, D3 usa `bg/inverse` y D4 usa el color del texto para el subrayado y `border-focused` para el foco. No hacen falta tokens nuevos; Divider, Modal, ProgressBar y Button ya cumplen. |
-| En curso | Interacciones según necesidad | Tooltip está diseñado en Figma (K-28) y en implementación. Popover queda aplazado hasta que exista un caso real (K-29); Drawer, Combobox y paleta de comandos siguen como candidatos a priorizar desde necesidades concretas. |
+| Hecho | Tooltip | Diseñado e implementado según K-28, con acceso por teclado, posición adaptativa y soporte Light, Dark e `inverse`. |
+| Aplazado | Popover | Esperar a que exista un caso real antes de diseñarlo o implementarlo (K-29). |
+| Backlog | Otras interacciones | Drawer, Combobox y paleta de comandos siguen como candidatos a priorizar desde necesidades concretas. |
 | Condicional | Footer estrecho | Revisar el Footer a 960 px si vuelve a aparecer el caso de uso. |
 | Backlog | Publicación en Figma Community | Preparar portada, descripción, etiquetas, licencia y contenido publicable; no hay fecha fijada. |
 | Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |

@@ -3,7 +3,7 @@
 }
 
 .tooltip {
-  --tooltip-gap: var(--spacing-2xs);
+  --tooltip-gap: var(--motion-distance-md);
   --tooltip-edge: var(--spacing-xs);
   position: fixed;
   z-index: 10000;
@@ -17,6 +17,8 @@
   background: var(--color-bg-inverse);
   color: var(--color-text-inverse);
   box-shadow: none;
+  outline: 1px solid transparent;
+  outline-offset: -1px;
   font-family: var(--font-family);
   font-size: var(--font-caption-size);
   font-weight: var(--font-caption-weight);
@@ -44,6 +46,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .tooltip {
+    --tooltip-gap: var(--spacing-xs);
     transition: none;
   }
 }
