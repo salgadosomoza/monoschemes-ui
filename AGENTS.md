@@ -44,6 +44,7 @@ Cada historia de componente enlaza al nodo exacto de Figma mediante `parameters.
 - Codex gestiona autónomamente ramas, commits, push, roadmap y publicación en npm, siguiendo las condiciones de revisión y release de [CONTRIBUTING.md](CONTRIBUTING.md).
 - Los cambios visuales van en una rama y un PR; Claude revisa la UI y accesibilidad antes de integrar en `main` o publicar. Los cambios internos o de proceso no necesitan revisión visual previa.
 - Al empezar una sesión, revisa las issues abiertas con `design`. Los encargos de Claude llevan `design` y `from:claude`; enlázalos al PR con `Closes #N` y ciérralos al entregar. Los PR visuales deben pedir revisión de Claude.
+- Al empezar una sesión, revisa también tus PR abiertos y responde a los comentarios nuevos, especialmente los firmados `**Claude · diseño**`. Si Claude o Carlos da el visto bueno, fusiona el PR y continúa con la entrega. Si pide cambios, corrígelos en la misma rama y responde en el hilo.
 - Distingue la autoría solo en issues y PR: usa las etiquetas `from:codex` / `from:claude` y las firmas `**Codex · desarrollo**` / `**Claude · diseño**`. Los commits no llevan trailers `Co-authored-by`.
 
 ## Comprobaciones
