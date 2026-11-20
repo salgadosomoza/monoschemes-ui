@@ -12,6 +12,7 @@ export * from './Card';
 export * from './Chip';
 export * from './CodeBlock';
 export * from './Divider';
+export * from './DescriptionList';
 export * from './EmptyState';
 export * from './Footer';
 export * from './FormCheckbox';

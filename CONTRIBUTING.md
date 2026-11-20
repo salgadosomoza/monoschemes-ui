@@ -21,6 +21,15 @@ Esta guía describe el flujo público para proponer cambios a `@monoschemes/ui`.
   explícitamente la decisión antes de propagar el cambio.
 - Mantén las historias enlazadas al nodo de Figma pertinente mediante `parameters.design`.
 
+### Revisión, integración y publicación (F-05)
+
+- Desarrolla cambios visuales en una rama dedicada y solicita revisión de Claude/Carlos antes de integrarlos. Tras el visto bueno, Codex puede fusionarlos a `main` y preparar la publicación.
+- Los cambios internos o de proceso —CI, scripts, documentación, tests y refactors sin efecto visual— no necesitan revisión visual previa; Codex puede integrarlos según el roadmap.
+- Los encargos de diseño de Claude se gestionan como issues `design` + `from:claude`. Los PR visuales llevan `Closes #N` y piden revisión de Claude; las correcciones se hacen en la misma rama, respondiendo a los comentarios. Al iniciar una sesión, Codex revisa las issues abiertas con `design`.
+- Distingue la autoría solo en issues y PR: Codex usa la etiqueta `from:codex` y firma `**Codex · desarrollo**`; Claude usa `from:claude` y firma `**Claude · diseño**`. Los commits no llevan trailers de coautoría.
+- No publiques si falla cualquiera de estas comprobaciones: tests, lint, typecheck, build, `check:dist` o smoke test de instalación del paquete. Cada release usa una versión semver nueva y una entrada en `CHANGELOG.md`.
+- La vía prevista de npm es GitHub Actions con Trusted Publishing mediante OIDC; para este paquete público en un repositorio público, npm genera provenance automáticamente. En npmjs.com registra el publisher de GitHub con owner `salgadosomoza`, repository `monoschemes-ui` y el nombre exacto del workflow bajo `.github/workflows/`; el environment es opcional. El job necesita `id-token: write`, runner hospedado por GitHub y npm CLI ≥ 11.5.1 con Node ≥ 22.14.0. Hasta validar OIDC, no publiques con una credencial persistente. Si una publicación urgente lo exigiera, crea un token granular limitado al paquete y a publicar, guárdalo solo como secreto de GitHub, evita incluirlo en `.npmrc` o el repo y revócalo al terminar.
+
 ## Comprobaciones locales
 
 Desde la raíz del repositorio:

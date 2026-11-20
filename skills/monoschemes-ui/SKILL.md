@@ -8,6 +8,7 @@ description: Build application screens with the installed @monoschemes/ui React 
 ## Workflow
 
 1. Read the consumer `README.md`, `docs/agent-package/AGENTS.md`, and `docs/agent-package/recipes.md` shipped with the package.
+   The recipes cover login, settings, filtered dashboard, landing page, detail page, multi-step form, and view states.
 2. Inspect the installed package declarations at `node_modules/@monoschemes/ui/dist/index.d.ts`. Use the exact component names, prop names, and union values from these types.
 3. Use `src/tokens/components.json` to find the matching design-system component and its Figma node. Use Storybook docs for rendered examples and interaction states.
 4. Import `@monoschemes/ui/style.css` once. Load Inter and JetBrains Mono from the application; they are not included in the package.
@@ -23,6 +24,7 @@ description: Build application screens with the installed @monoschemes/ui React 
 - Form controls: use the matching `Form*` component; `FormPassword` includes show/hide behavior.
 - Mutually exclusive short choices: `SegmentedControl`. Content sections with associated panels: `Tabs` and `TabPanel`.
 - Result sets: `FormSearch`/`FormMultiSelect` + `Table` + `Pagination`; use `EmptyState` when there are no results.
+- Detail metadata: use `DescriptionList`; use `Table` for comparable values across records.
 - Marketing content: `FeatureCard`, `Card`, `Stat`, and `Footer`.
 - Do not invent an error variant for `InlineNotification`; use its documented API.
 
