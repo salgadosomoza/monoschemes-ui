@@ -7,17 +7,19 @@ describe('DescriptionList', () => {
     const { container } = render(<DescriptionList items={[
       { term: 'Client', description: <a href="/client">Mar Sala Estudio</a> },
       { term: 'Status', description: 'Active' },
+      { term: 'Activity', description: <ul><li>Created project</li></ul> },
     ]} />);
 
-    expect(screen.getAllByRole('term')).toHaveLength(2);
-    expect(screen.getAllByRole('definition')).toHaveLength(2);
-    expect(container.querySelector('dl')?.children).toHaveLength(2);
-    expect(container.querySelectorAll('.description-list__row dt')).toHaveLength(2);
-    expect(container.querySelectorAll('.description-list__row dd')).toHaveLength(2);
+    expect(screen.getAllByRole('term')).toHaveLength(3);
+    expect(screen.getAllByRole('definition')).toHaveLength(3);
+    expect(container.querySelector('dl')?.children).toHaveLength(3);
+    expect(container.querySelectorAll('.description-list__row dt')).toHaveLength(3);
+    expect(container.querySelectorAll('.description-list__row dd')).toHaveLength(3);
     expect(container.querySelector('dt')?.textContent).toBe('Client');
     expect(container.querySelector('dd')?.textContent).toBe('Mar Sala Estudio');
     expect(screen.getByRole('link', { name: 'Mar Sala Estudio' }).getAttribute('href')).toBe('/client');
     expect(container.querySelectorAll('dt')[1].textContent).toBe('Status');
+    expect(container.querySelector('dd > div > ul > li')?.textContent).toBe('Created project');
   });
 
   it('does not divide the last row', () => {
