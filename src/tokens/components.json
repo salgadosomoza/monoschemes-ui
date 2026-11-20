@@ -277,6 +277,9 @@
     },
     "Form/Input": {
       "figmaNode": "444:3191",
+      "figmaVariants": {
+        "value": { "type": "variant", "values": ["empty", "filled"], "reactMapping": "empty uses placeholder; filled displays the typed value" }
+      },
       "props": {
         "type": {
           "type": "variant",
@@ -353,7 +356,8 @@
           "type": "variant",
           "values": ["default", "open", "disabled", "error"],
           "default": "default"
-        }
+        },
+        "value": { "type": "variant", "values": ["empty", "filled"], "reactMapping": "empty uses placeholder; filled displays the selected value" }
       },
       "props": {
         "options": { "type": "array", "items": { "value": "string", "label": "string" } },
@@ -380,6 +384,9 @@
     },
     "Form/Textarea": {
       "figmaNode": "1441:406",
+      "figmaVariants": {
+        "value": { "type": "variant", "values": ["empty", "filled"], "reactMapping": "empty uses placeholder; filled displays the typed value" }
+      },
       "props": {
         "placeholder": { "type": "string", "default": "Text" },
         "status": {
@@ -393,6 +400,24 @@
           "default": "default"
         }
       }
+    },
+    "DescriptionList": {
+      "figmaNode": "2652:1126",
+      "props": {
+        "items": { "type": "array", "items": { "term": "string", "description": "ReactNode" } }
+      },
+      "usage": "Use for detail data; use Table when values should be compared across rows."
+    },
+    "Form/Field": {
+      "figmaNode": "2652:1112",
+      "mappingOnly": true,
+      "reactMapping": ["Form/Input", "Form/Select", "Form/Textarea", "Form/Date", "Form/Number", "Form/Password", "Form/Time", "Form/Multi-select"],
+      "fieldProps": {
+        "label": "Field label where supported by the control",
+        "helperText": "Supporting or corrective text where supported by the control",
+        "error": "Error state where supported by the control"
+      },
+      "description": "Figma's Form/Field is a mapping pattern, not a new React component. Compose it using the corresponding props exposed by each Form control."
     },
     "Form/Toggle": {
       "figmaNode": "444:3173",
@@ -738,6 +763,7 @@
       "figmaNode": "2334:1580",
       "props": {
         "icon": { "type": "enum", "reference": "Icon.name", "default": "search" },
+        "iconTone": { "type": "enum", "values": ["default", "error"], "default": "default" },
         "showIcon": { "type": "boolean", "default": true },
         "title": { "type": "string" },
         "description": { "type": "string" },
@@ -1183,6 +1209,19 @@
         "accessibility": "Use a clear title and concise description; make action controls keyboard accessible.",
         "example": "<EmptyState title=\"No results\" description=\"Change or clear your filters.\" actions={<Button label=\"Clear filters\" />} />"
       },
+      "DescriptionList": {
+        "intent": "Present a small set of term/value details for one record.",
+        "whenToUse": "Use on detail pages for metadata and key/value facts.",
+        "avoidWhen": "Use Table when the same fields must be compared across multiple records.",
+        "composition": "Pass each label as term and its value as description; descriptions can contain links or Tags.",
+        "example": "<DescriptionList items={[{ term: 'Client', description: 'Mar Sala Estudio' }]} />"
+      },
+      "Form/Field": {
+        "intent": "Describe the shared label, helper text, and error pattern around a form control.",
+        "whenToUse": "Map the Figma field wrapper to the label, helperText, and error props supported by the chosen Form control.",
+        "avoidWhen": "Do not create a separate React FormField wrapper unless a future API decision adds one.",
+        "composition": "Form/Field is a Figma-only mapping to existing Form controls, not an exported React component."
+      },
       "Card/Feature": {
         "intent": "Summarize one feature with an icon, title, and short description.",
         "whenToUse": "Use for a small set of peer benefits or capabilities.",
@@ -1220,7 +1259,10 @@
       { "name": "login", "file": "docs/agent-package/recipes.md", "uses": ["Form/Input", "Form/Password", "Form/Checkbox", "Button", "Link", "Notification/InlineNotification"] },
       { "name": "settings", "file": "docs/agent-package/recipes.md", "uses": ["Tabs", "Form/Input", "Form/Select", "SegmentedControl", "Form/Toggle", "Button"] },
       { "name": "filtered-dashboard", "file": "docs/agent-package/recipes.md", "uses": ["AppHeader", "SideNav", "Stat", "Form/Search", "Form/Multi-select", "Table", "Pagination", "EmptyState"] },
-      { "name": "landing", "file": "docs/agent-package/recipes.md", "uses": ["inverse zone", "Text", "Card/Feature", "Card", "Footer"] }
+      { "name": "landing", "file": "docs/agent-package/recipes.md", "uses": ["inverse zone", "Text", "Card/Feature", "Card", "Footer"] },
+      { "name": "detail-page", "file": "docs/agent-package/recipes.md", "uses": ["Breadcrumb", "Tag", "Text", "Button", "Stat", "Divider", "Avatar"] },
+      { "name": "multi-step-form", "file": "docs/agent-package/recipes.md", "uses": ["Stepper", "Notification/InlineNotification", "Form/Input", "Button"] },
+      { "name": "view-states", "file": "docs/agent-package/recipes.md", "uses": ["Skeleton", "EmptyState", "Notification/InlineNotification", "Button"] }
     ]
   }
 }

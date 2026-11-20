@@ -16,6 +16,8 @@
   color: var(--color-text-secondary);
 }
 
+.empty-state__icon[data-tone="error"] { color: var(--color-text-error); }
+
 .empty-state__title,
 .empty-state__description {
   width: 100%;

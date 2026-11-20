@@ -70,3 +70,120 @@ Use an inverse zone for the hero so it contrasts with either page theme. Use `Te
 ```
 
 Do not hard-code a dark zone for the hero: `data-theme="dark"` does not invert when the surrounding page is dark. Verify the hero twice: it should be dark on a Light page and light on a Dark page. If its background stays dark in both captures, the zone is fixed-dark rather than inverse.
+
+## Detail page
+
+Use the last `Breadcrumb` item as the current page (without an `href`). Put the status `Tag` above the `Text` h3, with actions aligned to the right. Follow with a row of `Stat` values, a `Divider`, and a two-column body. Keep the key/value data semantic with `<dl>`, `<dt>`, and `<dd>`; put recent activity in a 320 px sidebar.
+
+```tsx
+<main>
+  <Breadcrumb items={[{ label: 'Projects', href: '/projects' }, { label: project.name }]} />
+  <header className="detail-header">
+    <div>
+      <Tag label={project.status} />
+      <Text as="h1" style="h3">{project.name}</Text>
+    </div>
+    <div className="detail-header__actions">
+      <Button variant="tertiary" size="sm" iconOnly iconLeft="dots" label="More actions" />
+      <Button variant="secondary" label="Edit" onClick={editProject} />
+      <Button label="Publish" onClick={publishProject} />
+    </div>
+  </header>
+
+  <div className="detail-stats">
+    <Stat label="Tasks" value="24" />
+    <Stat label="Completed" value="18" />
+    <Stat label="Updated" value="Today" />
+  </div>
+  <Divider />
+
+  <div className="detail-body">
+    <div className="detail-body__main">
+      <section><Text as="h2" style="h5">Overview</Text><p>{project.description}</p></section>
+      <section>
+        <Text as="h2" style="h5">Details</Text>
+        <DescriptionList items={properties.map(({ label, value }) => ({ term: label, description: value }))} />
+      </section>
+    </div>
+    <aside className="detail-body__sidebar" style={{ width: 320 }}>
+      <div className="detail-person"><Avatar type="initials" size="sm" initials={owner.initials} /><Text>{owner.name}</Text></div>
+      <Text style="caption" color="var(--color-text-muted)">Last activity · {project.lastActivity}</Text>
+    </aside>
+  </div>
+</main>
+```
+
+Use consumer CSS for the responsive two-column layout; collapse the sidebar below the available content width. Use `DescriptionList` for detail metadata and `Table` when the values need row-to-row comparison.
+
+## Multi-step form
+
+Render a `Stepper` from the current step and keep all form values in parent state so changing steps does not discard them. On failed submission, show an error `InlineNotification` above the fields, move focus to it, and give each invalid field a corrective `helperText`.
+
+```tsx
+const [values, setValues] = useState({ name: '', email: '' });
+const [step, setStep] = useState(0);
+const [invalidFields, setInvalidFields] = useState<string[]>([]);
+const errorNoticeRef = useRef<HTMLDivElement>(null);
+
+function continueForm() {
+  const invalid = validateStep(step, values);
+  setInvalidFields(invalid);
+  if (invalid.length) {
+    requestAnimationFrame(() => errorNoticeRef.current?.focus());
+    return;
+  }
+  setStep((current) => current + 1);
+}
+
+return (
+  <form onSubmit={(event) => { event.preventDefault(); continueForm(); }}>
+    <Stepper steps={steps} current={step} />
+    {invalidFields.length > 0 && (
+      <div ref={errorNoticeRef} tabIndex={-1}>
+        <InlineNotification type="error" message={`${invalidFields.length} fields need your attention.`} />
+      </div>
+    )}
+    <FormInput label="Name" name="name" value={values.name}
+      onChange={(name) => setValues((current) => ({ ...current, name }))}
+      error={invalidFields.includes('name')}
+      helperText={invalidFields.includes('name') ? 'Enter your full name.' : 'Use the name shown on your account.'} />
+    <FormInput label="Email" inputType="email" name="email" value={values.email}
+      onChange={(email) => setValues((current) => ({ ...current, email }))}
+      error={invalidFields.includes('email')}
+      helperText={invalidFields.includes('email') ? 'Enter a valid email address.' : 'We will use this for updates.'} />
+    <div className="form-step-actions">
+      <Button variant="tertiary" label="Back" onClick={() => setStep((current) => Math.max(0, current - 1))} />
+      <div><Button variant="secondary" label="Save draft" onClick={saveDraft} />
+        <Button type="submit" label="Continue" /></div>
+    </div>
+  </form>
+);
+```
+
+Use an error-summary ref with `tabIndex={-1}` as the focus target; the notification itself remains a live region. Keep the values object above the step-specific content so unmounting or changing a step preserves the data.
+
+## View states
+
+Model loading, empty, whole-view failure, and partial failure separately. Skeletons should resemble the final content layout; do not replace an entire page with a spinner. Use `EmptyState` actions for recovery and place a partial error notice above content that loaded successfully.
+
+```tsx
+if (loading) return <ProjectDetailSkeleton />; // Compose Skeletons to match the page shape.
+
+if (projects.length === 0) {
+  return <EmptyState title="No projects yet" description="Create a project to get started."
+    actions={<Button label="Create project" onClick={createProject} />} />;
+}
+
+if (pageError) {
+  return <EmptyState icon="alert-circle" iconTone="error" title="Projects could not load"
+    description="Check your connection and try again."
+    actions={<Button variant="secondary" label="Retry" onClick={retry} />} />;
+}
+
+return <>
+  {activityError && <InlineNotification type="error" message="Some recent activity could not load." />}
+  <ProjectContent projects={projects} activity={activity} />
+</>;
+```
+
+Use `iconTone="error"` only for a whole-view error state; ordinary empty states keep the default icon tone. A partial failure should leave successfully loaded content visible.
