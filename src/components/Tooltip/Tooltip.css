@@ -1,0 +1,49 @@
+.tooltip-trigger {
+  display: contents;
+}
+
+.tooltip {
+  --tooltip-gap: var(--spacing-2xs);
+  --tooltip-edge: var(--spacing-xs);
+  position: fixed;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  width: max-content;
+  max-width: min(240px, calc(100vw - var(--tooltip-edge) - var(--tooltip-edge)));
+  padding: var(--spacing-2xs) var(--spacing-xs);
+  border-radius: var(--radius-none);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  box-shadow: none;
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+  box-sizing: border-box;
+  opacity: 1;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.tooltip__content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tooltip[data-state='closed'] {
+  opacity: 0;
+  transition-duration: var(--duration-instant);
+}
+
+@starting-style {
+  .tooltip[data-state='open'] {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tooltip {
+    transition: none;
+  }
+}

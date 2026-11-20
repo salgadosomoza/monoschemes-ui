@@ -57,3 +57,4 @@ export * from './Stat';
 export * from './Table';
 export * from './Tag';
 export * from './Text';
+export * from './Tooltip';

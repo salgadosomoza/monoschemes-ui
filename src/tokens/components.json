@@ -671,6 +671,15 @@
         "onClose": { "type": "event" }
       }
     },
+    "Tooltip": {
+      "figmaNode": "2631:266",
+      "props": {
+        "content": { "type": "string" },
+        "shortcut": { "type": "string" },
+        "placement": { "type": "variant", "values": ["top", "bottom", "left", "right"], "default": "top" },
+        "children": { "type": "slot", "description": "One focusable trigger" }
+      }
+    },
     "Notification/Banner": {
       "figmaNode": "475:79",
       "props": {
@@ -1197,6 +1206,14 @@
         "composition": "Render near the content or field the message describes.",
         "accessibility": "Default uses a status region; error uses an alert region. Keep the message clear without relying on color alone.",
         "example": "<InlineNotification message=\"Changes saved.\" />; <InlineNotification message=\"Could not save changes.\" type=\"error\" />"
+      },
+      "Tooltip": {
+        "intent": "Show brief supplementary text for a control.",
+        "whenToUse": "Use when a concise hint or keyboard shortcut helps explain an action.",
+        "avoidWhen": "Use only for supplementary text, never essential information or interactive content.",
+        "composition": "Wrap one focusable trigger; keep the tooltip text short and let placement flip when it does not fit.",
+        "accessibility": "The trigger references the tooltip with aria-describedby. The tooltip itself never receives focus.",
+        "example": "<Tooltip content=\"Copy link\" shortcut=\"⌘C\"><Button variant=\"tertiary\" iconOnly iconLeft=\"copy\" label=\"\" /></Tooltip>"
       }
     },
     "recipes": [
