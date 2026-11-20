@@ -121,8 +121,8 @@
           "default": "Button",
           "requiredWhen": { "iconOnly": true }
         },
-        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock"], "reference": "Icon.name" },
-        "iconRight": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock"], "reference": "Icon.name" },
+        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock"], "reference": "Icon.name" },
+        "iconRight": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock"], "reference": "Icon.name" },
         "iconOnly": { "type": "boolean", "default": false },
         "aria-current": { "type": "enum", "values": ["page"] },
         "aria-expanded": { "type": "boolean" },
@@ -196,7 +196,7 @@
     "Card/Feature": {
       "figmaNode": "2163:354",
       "props": {
-        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock"], "reference": "Icon.name" },
+        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock"], "reference": "Icon.name" },
         "title": { "type": "string", "default": "Feature title" },
         "description": { "type": "string" }
       }
@@ -204,7 +204,7 @@
     "Icon": {
       "figmaNode": "130:2058",
       "props": {
-        "name": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock"] },
+        "name": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock"] },
         "size": { "type": "number", "default": 24 },
         "stroke": { "type": "number", "default": 1.5 }
       }
@@ -650,7 +650,7 @@
       }
     },
     "Notification/Toast": {
-      "figmaNode": "10:479",
+      "figmaNode": "2612:382",
       "props": {
         "message": { "type": "string" },
         "type": {
@@ -658,8 +658,8 @@
           "values": [
             "default",
             "success",
-            "error",
-            "warning"
+            "warning",
+            "error"
           ],
           "default": "default"
         },
@@ -1193,7 +1193,7 @@
       "Notification/InlineNotification": {
         "intent": "Show a concise message in the context of the current page or form.",
         "whenToUse": "Use for a form submission result or an inline status message.",
-        "avoidWhen": "Use Banner for page-level notices and Toast for transient feedback; do not add success or warning variants without an approved design.",
+        "avoidWhen": "Use Banner for page-level notices and InlineNotification for contextual messages; do not use Toast for required actions or long-form content.",
         "composition": "Render near the content or field the message describes.",
         "accessibility": "Default uses a status region; error uses an alert region. Keep the message clear without relying on color alone.",
         "example": "<InlineNotification message=\"Changes saved.\" />; <InlineNotification message=\"Could not save changes.\" type=\"error\" />"

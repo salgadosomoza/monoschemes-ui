@@ -1,9 +1,15 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
-import { Icon } from '../../Icon';
+import { Icon, type IconName } from '../../Icon';
 import './Toast.css';
 import { usePresence } from '../../../utils/usePresence';
 
 export type ToastType = 'default' | 'success' | 'error' | 'warning';
+
+const toastIcons: Partial<Record<ToastType, IconName>> = {
+  success: 'circle-check',
+  warning: 'alert-triangle',
+  error: 'alert-circle',
+};
 
 export interface ToastProps {
   message: string;
@@ -40,8 +46,20 @@ export function Toast({
 
   if (!presence.mounted) return null;
 
+  const isError = type === 'error';
+  const iconName = toastIcons[type];
+
   return (
-    <div ref={toastRef} className="toast" data-type={type} data-state={presence.state} onTransitionEnd={presence.onTransitionEnd} role="alert" aria-live="assertive">
+    <div
+      ref={toastRef}
+      className="toast"
+      data-type={type}
+      data-state={presence.state}
+      onTransitionEnd={presence.onTransitionEnd}
+      role={isError ? 'alert' : 'status'}
+      aria-live={isError ? 'assertive' : 'polite'}
+    >
+      {iconName && <Icon className="toast-icon" name={iconName} size={24} />}
       <span className="toast-message">{message}</span>
       <button
         type="button"

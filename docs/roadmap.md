@@ -33,14 +33,14 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 - Los tokens semánticos Light/Dark, la zona `data-theme="inverse"` y el principio Recto están implementados. `--radius-full` se limita a Avatar round, Radio y el pulgar del Slider.
 - El componente Accordion es atómico; el contrato `components.json` recoge los nodos y props de Figma, y las stories documentan los componentes.
 - Figma tiene descripciones de uso y páginas de prueba visual: Tabler Icons, landing TTS, test de velocidad y recreación de salgadosomoza.com.
-- Las decisiones y referencias principales están registradas en Sheets: F-01–F-04, C-01–C-07, R-01–R-03, K-01–K-26, T-01–T-02, I-01–I-03 y M-01. El registro de decisiones conserva también las decisiones sustituidas, como K-08 y R-01, para mantener trazabilidad.
+- Las decisiones y referencias principales están registradas en Sheets: F-01–F-04, C-01–C-08, R-01–R-03, K-01–K-27, T-01–T-02, I-01–I-04 y M-01. El registro de decisiones conserva también las decisiones sustituidas, como K-08 y R-01, para mantener trazabilidad.
 - La exploración visual de Figma/FigJam sigue abierta a pruebas de componentes y páginas; sus marcos no son estados del roadmap. Una propuesta solo pasa a trabajo activo cuando se registra aquí con un siguiente paso.
 
 ### Backlog de diseño
 
 | Estado | Tema | Alcance / criterio |
 |---|---|---|
-| Backlog | Toast | La API tiene `success`, `warning` y `error`, pero no hay diseño acordado para esos estados. Decidir en Figma antes de cambiar su apariencia. |
+| En curso | Toast | Diseño acordado en Figma (K-27, C-08, I-04); implementación en curso. Incluye iconos y semántica por tipo, tratamiento visual de error y presentación en Light, Dark e `inverse`. |
 | Backlog | Decisiones de color C-05 | Resolver D2 (divisores suaves), D3 (relleno de progreso) y D4 (subrayado de Button/Text) en Figma y luego reflejar el resultado en tokens/código. |
 | Backlog | Interacciones según necesidad | Tooltip, Popover, Drawer, Combobox y paleta de comandos son candidatos; priorizarlos desde casos reales, no por completar una lista. |
 | Condicional | Footer estrecho | Revisar el Footer a 960 px si vuelve a aparecer el caso de uso. |

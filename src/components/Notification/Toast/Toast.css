@@ -4,7 +4,7 @@
   right: 40px;
   display: flex;
   align-items: flex-start;
-  gap: var(--gap-md);
+  gap: var(--spacing-sm);
   padding: 40px;
   background: var(--color-bg-page);
   color: var(--color-text-strong);
@@ -21,10 +21,28 @@
 
 .toast-message {
   flex: 1;
+  margin: calc((24px - 1lh) / 2) 0 0;
   font-family: var(--font-family);
-  font-size: var(--font-body2-size);
-  font-weight: var(--font-body2-weight);
-  line-height: var(--font-body2-line-height);
+  font-size: var(--font-body1-size);
+  font-weight: var(--font-body1-weight);
+  line-height: var(--font-body1-line-height);
+}
+
+.toast-icon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  margin-top: 0;
+  color: var(--color-text-strong);
+}
+
+.toast[data-type='error'] {
+  border-color: var(--color-border-error);
+  box-shadow: -4px 4px 0 var(--color-border-error);
+}
+
+.toast[data-type='error'] .toast-icon {
+  color: var(--color-text-error);
 }
 
 .toast-close {
