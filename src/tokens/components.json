@@ -610,6 +610,7 @@
       "figmaNode": "2665:412",
       "props": {
         "tags": { "type": "array", "items": { "label": "string" } },
+        "aria-label": { "type": "string", "default": "Tags" },
         "maxVisible": { "type": "number", "default": 4 },
         "type": { "type": "variant", "values": ["default", "subtle"], "default": "default" },
         "size": { "type": "variant", "values": ["md", "sm"], "default": "md" },

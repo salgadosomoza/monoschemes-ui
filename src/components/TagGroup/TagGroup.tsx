@@ -10,6 +10,8 @@ export interface TagGroupItem {
 export interface TagGroupProps {
   /** Labels displayed as tags. */
   tags: TagGroupItem[];
+  /** Accessible name for the tag list. */
+  'aria-label'?: string;
   /** Maximum number of tags shown while collapsed. */
   maxVisible?: number;
   /** Shared visual treatment for every tag in the group. */
@@ -35,6 +37,7 @@ export interface TagGroupProps {
 /** A wrapping list of tags with an accessible control for revealing overflow. */
 export function TagGroup({
   tags,
+  'aria-label': ariaLabel = 'Tags',
   maxVisible = 4,
   type = 'default',
   size = 'md',
@@ -60,7 +63,7 @@ export function TagGroup({
   };
 
   return (
-    <ul className="tag-group" aria-label="Tags">
+    <ul className="tag-group" aria-label={ariaLabel}>
       {visibleTags.map((tag, index) => (
         <li className="tag-group__item" key={`${tag.label}-${index}`}>
           <Tag label={tag.label} type={type} size={size} />
