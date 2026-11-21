@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { FormTime } from '../src/components/FormTime';
+import { FormTime } from '.';
 
-const meta = { title: 'Components/Form/Time', component: FormTime, tags: ['autodocs'], parameters: { layout: 'centered', design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2504-904' } } } satisfies Meta<typeof FormTime>;
+const meta = { title: 'Forms/Time', component: FormTime, tags: ['autodocs'], parameters: { layout: 'centered', design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2504-904' } } } satisfies Meta<typeof FormTime>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

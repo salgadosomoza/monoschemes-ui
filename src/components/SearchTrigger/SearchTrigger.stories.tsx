@@ -5,7 +5,7 @@ import { SearchTrigger } from './SearchTrigger';
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 
 const meta = {
-  title: 'Components/SearchTrigger',
+  title: 'Forms/Search trigger',
   component: SearchTrigger,
   args: { placeholder: 'Search icons', size: 'md', onClick: () => {} },
   tags: ['autodocs'],

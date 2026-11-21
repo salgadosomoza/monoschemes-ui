@@ -127,6 +127,7 @@
         "aria-current": { "type": "enum", "values": ["page"] },
         "aria-expanded": { "type": "boolean" },
         "aria-controls": { "type": "string" },
+        "aria-label": { "type": "string" },
         "disabled": { "type": "boolean", "default": false },
         "loading": { "type": "boolean", "default": false }
       }

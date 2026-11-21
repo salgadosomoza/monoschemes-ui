@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { Button } from '../../src/components/Button';
-import { Toast, type ToastType } from '../../src/components/Notification/Toast';
+import { Button } from '../../Button';
+import { Toast, type ToastType } from '.';
 
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 const figma = (id: string) => ({ design: { type: 'figma', url: `${FIGMA_BASE}${id}` } });
@@ -13,7 +13,7 @@ const figmaNodeByType: Record<ToastType, string> = {
 };
 
 const meta = {
-  title: 'Components/Notification/Toast',
+  title: 'Feedback/Toast',
   component: Toast,
   tags: ['autodocs'],
   args: { message: 'This is a notification message.', isVisible: true, duration: 0 },

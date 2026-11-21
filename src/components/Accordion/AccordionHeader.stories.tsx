@@ -8,7 +8,7 @@ const figma = (nodeId: string) => ({
 });
 
 const meta = {
-  title: 'Components/Accordion/AccordionHeader',
+  title: 'Layout/Accordion/Header',
   component: AccordionHeader,
   parameters: { layout: 'padded', ...figma('1684-482') },
   tags: ['autodocs'],

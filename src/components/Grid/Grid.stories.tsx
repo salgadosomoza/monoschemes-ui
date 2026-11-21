@@ -3,7 +3,7 @@ import { Grid } from './Grid';
 import type { GridType } from './Grid';
 
 const meta = {
-  title: 'Components/Grid',
+  title: 'Foundations/Grid',
   component: Grid,
   parameters: {
     layout: 'fullscreen',

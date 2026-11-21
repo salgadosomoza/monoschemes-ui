@@ -12,10 +12,11 @@ const figma = (nodeId: string) => ({
 });
 
 const meta = {
-  title: 'Components/ButtonText',
+  title: 'Actions/Button text',
   component: ButtonText,
   parameters: {
     layout: 'centered',
+    docs: { description: { component: 'Deprecated compatibility wrapper. Use Button with variant="link" for new work.' } },
   },
   tags: ['autodocs'],
   argTypes: {

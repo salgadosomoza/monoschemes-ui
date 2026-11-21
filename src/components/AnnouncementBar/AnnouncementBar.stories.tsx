@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { AnnouncementBar } from '../src/components/AnnouncementBar';
+import { AnnouncementBar } from '.';
 
 const FIGMA_URL = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2333-620';
 
 const meta = {
-  title: 'Components/Notification/AnnouncementBar',
+  title: 'Feedback/Announcement bar',
   component: AnnouncementBar,
   args: {
     message: 'Announcement message goes here.',

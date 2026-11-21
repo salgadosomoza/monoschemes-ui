@@ -7,7 +7,7 @@ const SHAPES: AvatarShape[] = ['round', 'square'];
 const SIZES = ['sm', 'md', 'lg'] as const;
 
 const meta = {
-  title: 'Components/Avatar',
+  title: 'Data display/Avatar',
   component: Avatar,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

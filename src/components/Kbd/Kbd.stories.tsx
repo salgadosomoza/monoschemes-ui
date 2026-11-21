@@ -4,7 +4,7 @@ import { Kbd } from './Kbd';
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 
 const meta = {
-  title: 'Components/Kbd',
+  title: 'Data display/Kbd',
   component: Kbd,
   tags: ['autodocs'],
   parameters: {

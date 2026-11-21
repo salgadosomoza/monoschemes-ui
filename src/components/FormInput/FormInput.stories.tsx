@@ -11,7 +11,7 @@ const TYPES: FormInputType[] = [
 ];
 
 const meta = {
-  title: 'Components/Form/Input',
+  title: 'Forms/Input',
   component: FormInput,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

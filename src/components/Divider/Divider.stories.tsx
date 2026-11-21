@@ -3,7 +3,7 @@ import { Divider } from './Divider';
 
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 const meta = {
-  title: 'Components/Divider',
+  title: 'Data display/Divider',
   component: Divider,
   parameters: { layout: 'padded', design: { type: 'figma', url: `${FIGMA_BASE}2270-316` } },
   tags: ['autodocs'],

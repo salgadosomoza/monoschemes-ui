@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { Button } from '../src/components/Button';
-import { EmptyState } from '../src/components/EmptyState';
+import { Button } from '../Button';
+import { EmptyState } from '.';
 
 const FIGMA_URL = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2334-1580';
 
 const meta = {
-  title: 'Components/EmptyState',
+  title: 'Feedback/Empty state',
   component: EmptyState,
   args: {
     title: 'No results',

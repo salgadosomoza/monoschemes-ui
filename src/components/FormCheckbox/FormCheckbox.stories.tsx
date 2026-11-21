@@ -6,7 +6,7 @@ const TYPES: FormCheckboxType[] = ['label', 'icon'];
 const STATUSES: FormCheckboxStatus[] = ['inactive', 'active', 'indeterminated'];
 
 const meta = {
-  title: 'Components/Form/Checkbox',
+  title: 'Forms/Checkbox',
   component: FormCheckbox,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

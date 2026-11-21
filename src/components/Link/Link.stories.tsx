@@ -7,7 +7,7 @@ const TYPES: LinkType[] = ['default', 'icon'];
 const SIZES: LinkSize[] = ['small', 'medium', 'large'];
 
 const meta = {
-  title: 'Components/Link',
+  title: 'Actions/Link',
   component: Link,
   parameters: {
     layout: 'centered',

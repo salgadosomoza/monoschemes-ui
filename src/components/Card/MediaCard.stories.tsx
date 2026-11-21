@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { MediaCard } from './MediaCard';
 
 const meta = {
-  title: 'Components/MediaCard',
+  title: 'Layout/Card/Media',
   component: MediaCard,
   parameters: {
     layout: 'centered',
@@ -59,7 +59,7 @@ export const Interactive: Story = {
   render: () => <div style={{ width: 200 }}><InteractiveMediaCardDemo /></div>,
 };
 
-export const Grid: Story = {
+export const ExampleGrid: Story = {
   parameters: { layout: 'fullscreen' },
   render: () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: 16, padding: 24 }}>

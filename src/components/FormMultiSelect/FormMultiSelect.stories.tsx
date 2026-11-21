@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { FormMultiSelect } from '../src/components/FormMultiSelect';
+import { FormMultiSelect } from '.';
 
 const options = [{ value: 'design', label: 'Design' }, { value: 'engineering', label: 'Engineering' }, { value: 'product', label: 'Product' }, { value: 'research', label: 'Research' }];
-const meta = { title: 'Components/Form/Multi-select', component: FormMultiSelect, tags: ['autodocs'], parameters: { layout: 'centered', design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2504-1045' } }, args: { options } } satisfies Meta<typeof FormMultiSelect>;
+const meta = { title: 'Forms/Multi-select', component: FormMultiSelect, tags: ['autodocs'], parameters: { layout: 'centered', design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2504-1045' } }, args: { options } } satisfies Meta<typeof FormMultiSelect>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
-import { Button } from '../src/components/Button';
-import { Tag } from '../src/components/Tag';
-import { Table } from '../src/components/Table';
+import { Button } from '../Button';
+import { Tag } from '../Tag';
+import { Table, type TableRowKey } from '.';
 
 const meta = {
-  title: 'Components/Table',
+  title: 'Data display/Table',
   component: Table,
   parameters: { layout: 'padded' },
   tags: ['autodocs'],
@@ -46,9 +46,10 @@ export const Sortable: Story = {
 };
 export const SelectablePartial: Story = {
   render: function SelectablePartialStory() {
-    const [selectedKeys, setSelectedKeys] = useState(['1']);
+    const [selectedKeys, setSelectedKeys] = useState<TableRowKey[]>(['1']);
     return <Table {...common} selectable selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys} selectionActions={<Button variant="secondary" size="sm" label="Archive" />} />;
   },
+  args: common,
   parameters: figma('2657-408'),
 };
 export const WithSearch: Story = { args: { ...common, searchable: true, searchPlaceholder: 'Search people' }, parameters: figma('2657-552') };
@@ -58,12 +59,14 @@ export const NoResults: Story = {
     const [search, setSearch] = useState('not found');
     return <Table {...common} searchable searchValue={search} onSearchChange={setSearch} />;
   },
+  args: common,
   parameters: figma('2659-835'),
 };
 export const Loading: Story = { args: { ...common, loading: true }, parameters: figma('2659-835') };
 
 export const InverseZone: Story = {
   render: () => <div data-theme="inverse" style={{ padding: 'var(--spacing-xl)' }}><Table {...common} selectable searchable pageSize={5} /></div>,
+  args: common,
   parameters: figma('2659-835'),
 };
 
@@ -72,5 +75,6 @@ export const ControlledSort: Story = {
     const [sort, setSort] = useState<{ key: string; direction: 'ascending' | 'descending' } | null>(null);
     return <Table {...common} sort={sort} onSortChange={setSort} />;
   },
+  args: common,
   parameters: figma('2657-384'),
 };
