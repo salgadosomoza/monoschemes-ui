@@ -35,6 +35,11 @@ describe('Button', () => {
     expect(screen.getByRole('button', { name: 'Search' })).toBeTruthy();
   });
 
+  it('supports an explicit accessible name for text buttons', () => {
+    render(<Button label="+2" aria-label="Show 2 more tags" variant="link" size="sm" />);
+    expect(screen.getByRole('button', { name: 'Show 2 more tags' }).textContent).toBe('+2');
+  });
+
   it('keeps its accessible name and marks itself busy while loading', () => {
     render(<Button label="Saving" loading />);
     const button = screen.getByRole('button', { name: 'Saving' });

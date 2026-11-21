@@ -1,0 +1,13 @@
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap-sm);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-group__item { display: inline-flex; min-width: 0; }
+.tag-group__control { align-items: center; }
