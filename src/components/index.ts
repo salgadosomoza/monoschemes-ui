@@ -57,5 +57,6 @@ export * from './Stepper';
 export * from './Stat';
 export * from './Table';
 export * from './Tag';
+export * from './TagGroup';
 export * from './Text';
 export * from './Tooltip';

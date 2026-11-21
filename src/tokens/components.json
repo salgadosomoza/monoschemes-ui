@@ -605,6 +605,23 @@
         "color": { "type": "string" }
       }
     },
+    "TagGroup": {
+      "figmaNode": "2665:412",
+      "props": {
+        "tags": { "type": "array", "items": { "label": "string" } },
+        "maxVisible": { "type": "number", "default": 4 },
+        "type": { "type": "variant", "values": ["default", "subtle"], "default": "default" },
+        "size": { "type": "variant", "values": ["md", "sm"], "default": "md" },
+        "defaultExpanded": { "type": "boolean", "default": false },
+        "expanded": { "type": "boolean" },
+        "onExpandedChange": { "type": "event" },
+        "moreLabel": { "type": "function", "default": "+N" },
+        "lessLabel": { "type": "string", "default": "Show less" },
+        "moreAriaLabel": { "type": "function", "default": "Show N more tags" },
+        "lessAriaLabel": { "type": "string", "default": "Show fewer tags" }
+      },
+      "usage": ["The overflow control is a Button with variant link and size sm; do not create a separate internal button component."]
+    },
     "Text": {
       "figmaNode": "130:1708",
       "props": {
