@@ -65,11 +65,11 @@ const preview: Preview = {
       storySort: {
         method: 'alphabetical',
         order: [
-          'Foundations', ['Principles', 'Inverse zone', 'Motion', 'Text', 'Grid', 'Icons'],
+          'Foundations', ['Principles', 'Inverse zone', 'Text', 'Grid', 'Icons', 'Motion'],
           'Actions', ['Button', 'Button text', 'Link', 'Chip'],
           'Forms', ['Input', 'Select', 'Search', 'Textarea', 'Date', 'File upload', 'Checkbox', 'Radio', 'Toggle', 'Search trigger', 'Slider', 'Color field', 'Password', 'Number', 'Time', 'Multi-select', 'Date picker', 'Segmented control'],
           'Navigation', ['App header', 'Mega menu', 'Side nav', 'Tabs', 'Breadcrumb', 'Pagination', 'Stepper', 'Menu'],
-          'Feedback', ['Inline notification', 'Toast', 'Banner', 'Modal', 'Announcement bar', 'Tooltip', 'Progress', 'Empty state'],
+          'Feedback', ['Toast', 'Banner', 'Modal', 'Inline notification', 'Announcement bar', 'Tooltip', 'Progress', 'Empty state'],
           'Data display', ['Table', 'Tag', 'Tag group', 'Avatar', 'Description list', 'Stat', 'Kbd', 'Code block', 'Divider', 'Icon tile', 'Image'],
           'Layout', ['Card', 'Footer', 'Accordion'],
           'Patterns',
