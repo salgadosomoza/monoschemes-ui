@@ -36,25 +36,23 @@ Use a toggle for an independent on/off setting; use a segmented control when exa
 
 ## Dashboard with filters
 
-Compose `AppHeader`, `SideNav`, `Stat`, `FormSearch`, `FormMultiSelect`, `Table`, `Pagination`, and `EmptyState`. Give search a visible `label`; localize Pagination's `aria-label`, `pagesAriaLabel`, `pageAriaLabel`, and `currentPageAriaLabel` when the UI is not English. Filter the source rows first, derive the page count from the filtered rows, and show `EmptyState` when none remain. Reset the page to 1 when the search or filters change.
+Compose `AppHeader`, `SideNav`, `Stat`, `FormMultiSelect`, and `Table`. Table can own text search, sorting, row selection, page size, pagination, loading, and empty states. Use the external filter controls to derive the data passed to Table; the table resets its page when its search or page size changes.
 
 ```tsx
-{filteredRows.length === 0 ? (
-  <EmptyState
-    icon="search"
-    title="No results"
-    description="Try changing or clearing your filters."
-    actions={<Button variant="secondary" label="Clear filters" onClick={clearFilters} />}
-  />
-) : (
-  <>
-    <Table columns={columns} data={pageRows} />
-    <Pagination page={page} pageCount={pageCount} onPageChange={setPage} />
-  </>
-)}
+<Table
+  aria-label="Campaigns"
+  columns={columns}
+  data={filteredRows}
+  searchable
+  searchPlaceholder="Search campaigns"
+  selectable
+  getRowKey={(row) => row.id}
+  selectionActions={<Button variant="secondary" size="sm" label="Archive selected" onClick={archiveSelected} />}
+  pageSize={25}
+/>
 ```
 
-Use `Tag` in a table cell when a value represents a status; the table accepts React nodes in its cells.
+Use `Tag` in a table cell when a value represents a status; cells accept React nodes. Use `DescriptionList` for the details of one selected record rather than stretching the table into a detail view.
 
 ## Landing page with a contrasting hero
 

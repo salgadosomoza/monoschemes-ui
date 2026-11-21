@@ -24,8 +24,8 @@ export function EmptyState({
   return (
     <section className="empty-state" aria-label={title}>
       {showIcon && <Icon className="empty-state__icon" data-tone={iconTone} name={icon} size={48} aria-hidden="true" />}
-      <Text className="empty-state__title" style="h6" as="h2">{title}</Text>
-      <Text className="empty-state__description" style="body-2" as="p">{description}</Text>
+      <Text className="empty-state__title" style="h6" as="h2" align="center">{title}</Text>
+      <Text className="empty-state__description" style="body-2" as="p" align="center">{description}</Text>
       {actions && <div className="empty-state__actions">{actions}</div>}
     </section>
   );
