@@ -50,4 +50,9 @@ describe('TagGroup', () => {
     render(<TagGroup tags={tags} maxVisible={2} />);
     expect(screen.getByRole('list', { name: 'Tags' }).querySelectorAll('li')).toHaveLength(3);
   });
+
+  it('allows the accessible name of the list to be localized or disambiguated', () => {
+    render(<TagGroup tags={tags} aria-label="Product filters" />);
+    expect(screen.getByRole('list', { name: 'Product filters' })).toBeTruthy();
+  });
 });
