@@ -8,7 +8,7 @@ const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSche
 const figma = (nodeId: string) => ({ design: { type: 'figma', url: `${FIGMA_BASE}${nodeId}` } });
 
 const meta = {
-  title: 'Components/Tag',
+  title: 'Data display/Tag',
   component: Tag,
   parameters: { layout: 'centered', ...figma('285-4420') },
   tags: ['autodocs'],

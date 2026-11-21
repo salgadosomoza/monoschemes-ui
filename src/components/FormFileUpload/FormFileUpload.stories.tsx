@@ -5,7 +5,7 @@ import type { FormFileUploadType } from './FormFileUpload';
 const TYPES: FormFileUploadType[] = ['default', 'drag-and-drop'];
 
 const meta = {
-  title: 'Components/Form/FileUpload',
+  title: 'Forms/File upload',
   component: FormFileUpload,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

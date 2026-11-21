@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Banner } from '../../src/components/Notification/Banner';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Banner } from '.';
 
 const meta = {
-  title: 'Components/Notification/Banner',
+  title: 'Feedback/Banner',
   component: Banner,
   parameters: {
     layout: 'fullscreen',

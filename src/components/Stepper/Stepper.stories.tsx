@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Stepper } from '../src/components/Stepper';
+import { Stepper } from '.';
 
 const steps = [{ label: 'Account', description: 'Create your profile' }, { label: 'Details', description: 'Add your information' }, { label: 'Review', description: 'Check everything' }, { label: 'Complete' }];
-const meta = { title: 'Components/Stepper', component: Stepper, tags: ['autodocs'], parameters: { layout: 'padded', design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2505-345' } } } satisfies Meta<typeof Stepper>;
+const meta = { title: 'Navigation/Stepper', component: Stepper, tags: ['autodocs'], parameters: { layout: 'padded', design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2505-345' } } } satisfies Meta<typeof Stepper>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

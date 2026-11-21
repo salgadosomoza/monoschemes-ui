@@ -6,7 +6,7 @@ import { Tab, TabPanel, Tabs } from './Tabs';
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 
 const meta = {
-  title: 'Components/Tabs',
+  title: 'Navigation/Tabs',
   component: Tabs,
   args: { value: 'react', onChange: () => {}, 'aria-label': 'Framework example', children: null },
   tags: ['autodocs'],

@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { AppHeader } from '../src/components/AppHeader';
-import { Avatar } from '../src/components/Avatar';
-import { Button } from '../src/components/Button';
-import { Nav } from '../src/components/Nav';
-import { NavItem } from '../src/components/NavItem';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { AppHeader } from '.';
+import { Avatar } from '../Avatar';
+import { Button } from '../Button';
+import { Nav } from '../Nav';
+import { NavItem } from '../NavItem';
 
 const meta = {
-  title: 'Components/AppHeader',
+  title: 'Navigation/App header',
   component: AppHeader,
   parameters: { layout: 'fullscreen' },
   tags: ['autodocs'],
@@ -84,7 +84,7 @@ export const DesktopDark: Story = { ...Desktop, globals: { theme: 'dark' } };
 export const TabletDark: Story = { ...Tablet, globals: { theme: 'dark' } };
 export const TabletOpenDark: Story = { ...TabletOpen, globals: { theme: 'dark' } };
 
-export const CustomSlots: Story = {
+export const ExampleCustomSlots: Story = {
   render: () => (
     <div style={{ width: 1440, maxWidth: '100%' }}>
       <AppHeader

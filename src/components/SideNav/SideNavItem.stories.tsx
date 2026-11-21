@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { SideNavItem } from '../src/components/SideNav';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { SideNavItem } from '.';
 
 const FIGMA_URL = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2260-1195';
 
 const meta = {
-  title: 'Components/SideNav/Item',
+  title: 'Navigation/Side nav/Item',
   component: SideNavItem,
   args: { label: 'All icons', count: '5,203', showCount: true },
   tags: ['autodocs'],

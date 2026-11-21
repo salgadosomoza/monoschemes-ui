@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { Modal } from '../../src/components/Notification/Modal';
-import { Button } from '../../src/components/Button';
+import { Modal } from '.';
+import { Button } from '../../Button';
 
 const meta = {
-  title: 'Components/Notification/Modal',
+  title: 'Feedback/Modal',
   component: Modal,
   parameters: {
     layout: 'fullscreen',

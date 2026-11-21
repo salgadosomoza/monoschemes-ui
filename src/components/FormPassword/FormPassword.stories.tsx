@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { FormPassword } from '../src/components/FormPassword';
+import { FormPassword } from '.';
 
-const meta = { title: 'Components/Form/Password', component: FormPassword, tags: ['autodocs'], parameters: { layout: 'centered', design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2502-814' } } } satisfies Meta<typeof FormPassword>;
+const meta = { title: 'Forms/Password', component: FormPassword, tags: ['autodocs'], parameters: { layout: 'centered', design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2502-814' } } } satisfies Meta<typeof FormPassword>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

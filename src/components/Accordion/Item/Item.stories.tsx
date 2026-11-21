@@ -7,7 +7,7 @@ const figma = (nodeId: string) => ({
 });
 
 const meta = {
-  title: 'Components/Accordion/Item',
+  title: 'Layout/Accordion/Item',
   component: Item,
   parameters: { layout: 'padded', ...figma('1690-480') },
   tags: ['autodocs'],

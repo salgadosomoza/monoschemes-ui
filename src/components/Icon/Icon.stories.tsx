@@ -13,7 +13,7 @@ const iconNames: IconName[] = [
 ];
 
 const meta = {
-  title: 'Components/Icon',
+  title: 'Foundations/Icons',
   component: Icon,
   args: { name: 'info-circle', size: 24 },
   tags: ['autodocs'],

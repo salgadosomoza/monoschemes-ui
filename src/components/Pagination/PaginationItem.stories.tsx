@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { PaginationItem } from '../src/components/Pagination';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { PaginationItem } from '.';
 
 const FIGMA_URL = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2324-286';
 
 const meta = {
-  title: 'Components/Pagination/Item',
+  title: 'Navigation/Pagination/Item',
   component: PaginationItem,
   args: { label: '2', state: 'default' },
   tags: ['autodocs'],

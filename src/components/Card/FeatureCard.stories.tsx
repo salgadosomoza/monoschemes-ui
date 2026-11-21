@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FeatureCard } from './FeatureCard';
 
 const meta = {
-  title: 'Components/FeatureCard',
+  title: 'Layout/Card/Feature',
   component: FeatureCard,
   parameters: {
     layout: 'centered',
@@ -20,7 +20,7 @@ export const Default: Story = {
   render: (args) => <div style={{ width: 384 }}><FeatureCard {...args} /></div>,
 };
 
-export const Grid: Story = {
+export const ExampleGrid: Story = {
   parameters: { layout: 'fullscreen' },
   render: () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 16, padding: 24 }}>

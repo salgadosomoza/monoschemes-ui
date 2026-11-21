@@ -6,7 +6,7 @@ const TYPES: FormRadioType[] = ['label', 'icon'];
 const STATUSES: FormRadioStatus[] = ['inactive', 'active'];
 
 const meta = {
-  title: 'Components/Form/Radio',
+  title: 'Forms/Radio',
   component: FormRadio,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
