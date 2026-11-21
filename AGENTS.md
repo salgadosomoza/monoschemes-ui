@@ -34,10 +34,13 @@ src/components/[ComponentName]/
   [ComponentName].tsx
   [ComponentName].css
   index.ts
-stories/[ComponentName].stories.tsx
+  [ComponentName].stories.tsx
+stories/[FoundationOrPattern].stories.tsx
 ```
 
-Cada historia de componente enlaza al nodo exacto de Figma mediante `parameters.design`.
+Las historias de cada componente viven junto a su implementación. La carpeta raíz `stories/`
+se reserva para fundamentos y patrones que combinan varios componentes. Cada historia de
+componente enlaza al nodo exacto de Figma mediante `parameters.design`.
 
 ## Flujo de trabajo
 

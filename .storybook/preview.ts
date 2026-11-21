@@ -61,12 +61,20 @@ const preview: Preview = {
       focus: true,
       active: true,
     },
-  },
-
-  options: {
-    storySort: {
-      method: 'alphabetical',
-      order: ['Components'],
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [
+          'Foundations', ['Principles', 'Inverse zone', 'Motion', 'Text', 'Grid', 'Icons'],
+          'Actions', ['Button', 'Button text', 'Link', 'Chip'],
+          'Forms', ['Input', 'Select', 'Search', 'Textarea', 'Date', 'File upload', 'Checkbox', 'Radio', 'Toggle', 'Search trigger', 'Slider', 'Color field', 'Password', 'Number', 'Time', 'Multi-select', 'Date picker', 'Segmented control'],
+          'Navigation', ['App header', 'Mega menu', 'Side nav', 'Tabs', 'Breadcrumb', 'Pagination', 'Stepper', 'Menu'],
+          'Feedback', ['Inline notification', 'Toast', 'Banner', 'Modal', 'Announcement bar', 'Tooltip', 'Progress', 'Empty state'],
+          'Data display', ['Table', 'Tag', 'Tag group', 'Avatar', 'Description list', 'Stat', 'Kbd', 'Code block', 'Divider', 'Icon tile', 'Image'],
+          'Layout', ['Card', 'Footer', 'Accordion'],
+          'Patterns',
+        ],
+      },
     },
   },
 

@@ -6,7 +6,7 @@ import type { NavItemStatus } from './NavItem';
 const STATUSES: NavItemStatus[] = ['default', 'hover', 'active'];
 
 const meta = {
-  title: 'Components/NavItem',
+  title: 'Navigation/App header/Nav item',
   component: NavItem,
   parameters: {
     layout: 'centered',

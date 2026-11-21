@@ -4,7 +4,7 @@ import { CodeBlock } from './CodeBlock';
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 
 const meta = {
-  title: 'Components/CodeBlock',
+  title: 'Data display/Code block',
   component: CodeBlock,
   tags: ['autodocs'],
   parameters: {

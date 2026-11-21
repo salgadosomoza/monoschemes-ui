@@ -6,7 +6,7 @@ import type { ChipType } from './Chip';
 const TYPES: ChipType[] = ['default', 'drag'];
 
 const meta = {
-  title: 'Components/Chip',
+  title: 'Actions/Chip',
   component: Chip,
   parameters: {
     layout: 'centered',
@@ -113,7 +113,7 @@ function FilterGroupDemo() {
   );
 }
 
-export const FilterGroup: Story = {
+export const ExampleFilterGroup: Story = {
   parameters: figma('10-468'),
   render: () => <FilterGroupDemo />,
 };

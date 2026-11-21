@@ -9,7 +9,7 @@ const figma = (nodeId: string) => ({
 });
 
 const meta = {
-  title: 'Components/Accordion',
+  title: 'Layout/Accordion',
   component: Accordion,
   parameters: { layout: 'padded', ...figma('1690-480') },
   tags: ['autodocs'],
@@ -68,7 +68,7 @@ export const MultipleItems: Story = {
   ),
 };
 
-export const ExclusiveGroup: Story = {
+export const ExampleExclusiveGroup: Story = {
   name: 'Exclusive group (one open at a time)',
   args: { children: PANEL_CONTENT },
   render: () => {

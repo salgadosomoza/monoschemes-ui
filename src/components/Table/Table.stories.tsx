@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Table } from '../src/components/Table';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Table } from '.';
 
 const meta = {
-  title: 'Components/Table',
+  title: 'Data display/Table',
   component: Table,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

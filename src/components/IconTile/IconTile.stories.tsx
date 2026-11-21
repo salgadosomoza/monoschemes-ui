@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import type { IconName } from '../src/components/Icon';
-import { IconTile } from '../src/components/IconTile';
+import type { IconName } from '../Icon';
+import { IconTile } from '.';
 
 const ICONS: Array<{ icon: IconName; label: string }> = [
   { icon: 'search', label: 'search' },
@@ -14,7 +14,7 @@ const ICONS: Array<{ icon: IconName; label: string }> = [
 const FIGMA_URL = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2334-1599';
 
 const meta = {
-  title: 'Components/IconTile',
+  title: 'Data display/Icon tile',
   component: IconTile,
   args: { icon: 'search', label: 'search' },
   tags: ['autodocs'],
@@ -59,5 +59,5 @@ function IconGrid() {
 
 export const Default: Story = { args: { icon: 'search', label: 'search' } };
 export const Selected: Story = { args: { icon: 'search', label: 'search', selected: true, onClick: () => {} } };
-export const IconLibraryGrid: Story = { render: () => <IconGrid /> };
+export const ExampleIconLibraryGrid: Story = { render: () => <IconGrid /> };
 export const Dark: Story = { globals: { theme: 'dark' }, render: () => <IconGrid /> };

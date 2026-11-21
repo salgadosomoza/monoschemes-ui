@@ -6,7 +6,7 @@ const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSche
 const figma = (nodeId: string) => ({ design: { type: 'figma', url: `${FIGMA_BASE}${nodeId}` } });
 
 const meta = {
-  title: 'Components/Nav',
+  title: 'Navigation/App header/Nav',
   component: Nav,
   parameters: { layout: 'centered', ...figma('673-2323') },
   tags: ['autodocs'],

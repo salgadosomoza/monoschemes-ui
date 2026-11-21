@@ -11,7 +11,7 @@ const STYLES: TextStyle[] = [
 ];
 
 const meta = {
-  title: 'Components/Text',
+  title: 'Foundations/Text',
   component: Text,
   parameters: {
     layout: 'centered',

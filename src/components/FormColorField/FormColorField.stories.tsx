@@ -5,7 +5,7 @@ import { FormColorField } from './FormColorField';
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 
 const meta = {
-  title: 'Components/Form/ColorField',
+  title: 'Forms/Color field',
   component: FormColorField,
   args: { label: 'Ink', value: '#262626', onChange: () => {} },
   tags: ['autodocs'],

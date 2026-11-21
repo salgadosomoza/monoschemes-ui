@@ -30,7 +30,7 @@ function DesignPrinciplesPage() {
 }
 
 const meta = {
-  title: 'Foundations/MonoSchemes Principles',
+  title: 'Foundations/Principles',
   component: DesignPrinciplesPage,
   parameters: {
     layout: 'padded',

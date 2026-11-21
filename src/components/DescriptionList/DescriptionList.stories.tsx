@@ -4,7 +4,7 @@ import { Tag } from '../Tag';
 import { DescriptionList } from './DescriptionList';
 
 const meta = {
-  title: 'Components/DescriptionList',
+  title: 'Data display/Description list',
   component: DescriptionList,
   tags: ['autodocs'],
   parameters: { layout: 'padded' },
