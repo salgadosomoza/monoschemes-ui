@@ -57,10 +57,36 @@ describe('Table', () => {
     expect(onSelectionChange).toHaveBeenLastCalledWith(['a', 'b', 'c']);
   });
 
+  it('replaces search with the Figma selection toolbar and keeps actions on the right', () => {
+    render(<Table
+      columns={columns}
+      data={rows}
+      searchable
+      selectable
+      selectedKeys={['a']}
+      getRowKey={rowKey}
+      selectionActions={<button type="button">Archive</button>}
+    />);
+
+    expect(screen.queryByRole('searchbox')).toBeNull();
+    expect(screen.getByText('1 selected')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Clear selection' }).getAttribute('data-variant')).toBe('link');
+    expect(screen.getByRole('button', { name: 'Archive' })).toBeTruthy();
+  });
+
   it('shows an empty state and omits the footer when there are no results', () => {
     render(<Table columns={columns} data={rows} searchable searchValue="missing" getRowKey={rowKey} />);
     expect(screen.getByText('No results')).toBeTruthy();
+    expect(screen.getByText('No results').getAttribute('data-align')).toBe('center');
+    expect(screen.getByText('Try changing or clearing your search.').getAttribute('data-align')).toBe('center');
     expect(screen.queryByRole('navigation', { name: 'Table pages' })).toBeNull();
     expect(screen.getByRole('columnheader', { name: 'Name' })).toBeTruthy();
+  });
+
+  it('shows the page-size label and keeps the pagination at its natural width', () => {
+    render(<Table columns={columns} data={rows} getRowKey={rowKey} />);
+    expect(screen.getByText('Rows per page')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Rows per page' })).toBeTruthy();
+    expect(screen.getByText('1–3 of 3')).toBeTruthy();
   });
 });

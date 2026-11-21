@@ -199,14 +199,20 @@ export function Table({
     <section className="table-component">
       {(searchable || actions || (selectable && selectedKeys.length > 0)) && (
         <div className="table-toolbar">
-          {searchable && <FormSearch aria-label={searchPlaceholder} placeholder={searchPlaceholder} value={search} onChange={setSearch} />}
           {selectable && selectedKeys.length > 0 ? (
-            <div className="table-toolbar__selection" aria-live="polite">
-              <span>{selectedKeys.length} selected</span>
-              {selectionActions}
-              <Button variant="tertiary" size="sm" label="Clear selection" onClick={() => changeSelection([])} />
-            </div>
-          ) : actions}
+            <>
+              <div className="table-toolbar__selection" aria-live="polite">
+                <span className="table-toolbar__selection-count">{selectedKeys.length} selected</span>
+                <Button variant="link" size="sm" label="Clear selection" onClick={() => changeSelection([])} />
+              </div>
+              {selectionActions && <div className="table-toolbar__actions">{selectionActions}</div>}
+            </>
+          ) : (
+            <>
+              {searchable && <FormSearch aria-label={searchPlaceholder} placeholder={searchPlaceholder} value={search} onChange={setSearch} />}
+              {actions && <div className="table-toolbar__actions">{actions}</div>}
+            </>
+          )}
         </div>
       )}
 
@@ -250,15 +256,24 @@ export function Table({
       )}
 
       {loading && <span className="table-sr-only" role="status" aria-live="polite">Loading rows</span>}
-      {!loading && sortedRows.length > 0 && <footer className="table-footer">
-        <div className="table-footer__details" aria-live="polite">
-          <label className="table-page-size-label"><span className="table-sr-only">Rows per page</span>
-            <span className="table-page-size"><FormSelect value={String(pageSize)} options={sizeOptions.map((size) => ({ value: String(size), label: String(size) }))} onChange={(value) => setPageSize(Number(value))} /></span>
+      {!loading && sortedRows.length > 0 && (
+        <footer className="table-footer">
+          <label className="table-page-size-label">
+            <span>Rows per page</span>
+            <span className="table-page-size">
+              <FormSelect
+                value={String(pageSize)}
+                options={sizeOptions.map((size) => ({ value: String(size), label: String(size) }))}
+                onChange={(value) => setPageSize(Number(value))}
+              />
+            </span>
           </label>
-          <span className="table-range">{rangeStart}–{rangeEnd} of {sortedRows.length}</span>
-        </div>
-        <Pagination page={currentPage} pageCount={pageCount} onPageChange={setPage} aria-label="Table pages" />
-      </footer>}
+          <span className="table-range" aria-live="polite">{rangeStart}–{rangeEnd} of {sortedRows.length}</span>
+          <div className="table-footer__pagination">
+            <Pagination page={currentPage} pageCount={pageCount} onPageChange={setPage} aria-label="Table pages" />
+          </div>
+        </footer>
+      )}
     </section>
   );
 }
