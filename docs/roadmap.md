@@ -1,6 +1,6 @@
 # MonoSchemes · roadmap de diseño, UI y agentes
 
-Actualizado: 19 de noviembre de 2026.
+Actualizado: 20 de noviembre de 2026.
 
 ## Cómo usar este roadmap
 
@@ -30,9 +30,9 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Revisión visual de la alineación y zona `inverse` | Carlos revisó AppHeader sin navegación, FormSearch, Pagination y FormSelect en Light y Dark. La zona `inverse` también se comprobó en ambos temas y se ve bien. | Registrar cualquier discrepancia visual futura como una tarea independiente. |
 | Hecho | Comprobación focalizada de comprensión de `inverse` | En una prueba separada, el prompt especificó que el hero debía ser oscuro en Light y claro en Dark, sin nombrar `inverse`. Claude Code consultó la documentación del paquete, eligió `data-theme="inverse"` y el resultado se confirmó visualmente en ambos temas. Build y lint pasan. | Conservar R2/R3 como resultados históricos; no atribuir causalidad a la documentación con una sola prueba ni compararla como si el prompt fuera idéntico. |
 | Hecho | Traspaso del registro y resultados | Las tres rondas comparativas, la comprobación focalizada R4 y el estado actual de la auditoría de color están en Sheets; el plan inicial quedó archivado y la decisión K-09 ya no está duplicada. | Mantener Sheets para los datos y consultar este archivo para las prioridades vigentes. |
-| En curso | Rediseño de Table | Issue #5 recoge las decisiones vigentes para ordenación, selección, búsqueda, paginación y estados; también cierra el alcance histórico de #1. La implementación está en la rama `feat/table-redesign` y espera la segunda revisión visual. | Corregir comentarios de Claude y fusionar tras el visto bueno. |
-| En curso | TagGroup | Issue #6 concreta el diseño aprobado de etiquetas agrupadas con control `+N`; también cubre el alcance histórico de #2. | Implementar en rama y abrir PR para revisión visual de Claude. |
-| Siguiente | Clasificación de Storybook | Issue #8 recoge la organización por las ocho categorías de Figma. | Reagrupar títulos y ordenar las historias tras preparar TagGroup. |
+| Hecho | Rediseño de Table | PR #7 se fusionó tras el visto bueno visual; incluye ordenación, selección, búsqueda, paginación y estados, y cierra los issues #1 y #5. | Mantener stories y contrato alineados con futuras mejoras. |
+| En curso | TagGroup | El PR #9 implementa el control `+N` accesible y configurable. Claude dio el visto bueno; se integra después de sincronizar la rama con `main`. Al fusionarse cerrará #2 y #6. | Integrar tras resolver el conflicto de roadmap. |
+| En curso | Clasificación de Storybook | El PR #10 organiza las historias según las ocho categorías de Figma. Claude dio el visto bueno; los ajustes de orden solicitados ya están subidos. | Integrar en `main` después del PR #9. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList están integrados; la receta de dashboard usa búsqueda, selección y paginación de Table. | Mantener los ejemplos alineados con futuras APIs. |
 | Siguiente | Plantilla de arranque Vite | Aprobada por Carlos para facilitar el consumo de `@monoschemes/ui`. | Preparar una plantilla inicial lista para clonar y validar su instalación. |
 | Backlog | Verificación automática | Falta acordar qué comprobar automáticamente además de lint, tipos y builds. | Definir alcance para tokens/valores en bruto, contrato y accesibilidad en Storybook sin imponer reglas que bloqueen usos válidos. |
@@ -62,7 +62,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Condicional | Footer estrecho | Revisar el Footer a 960 px si vuelve a aparecer el caso de uso. |
 | Backlog | Publicación en Figma Community | Preparar portada, descripción, etiquetas, licencia y contenido publicable; no hay fecha fijada. |
 | Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |
-| En curso | Issues anteriores de Table y Tag | Los encargos vigentes están en #5 y #6; sus PR cierran los duplicados históricos #1 y #2 al fusionarse. |
+| En curso | Issue de TagGroup | El PR #9 implementa el alcance de #6 y cerrará el duplicado histórico #2 al fusionarse. |
 
 Las páginas de prueba de Figma son referencias de exploración, no entregas independientes. Añadir allí pruebas nuevas cuando aporten un caso concreto.
 
@@ -92,7 +92,8 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 | Estado | Trabajo | Siguiente paso |
 |---|---|---|
 | Hecho | Registro de resultados | Las rondas y auditorías están consolidadas en Sheets; este roadmap y `docs/agent-test/results.md` conservan prioridades e interpretación. |
-| En curso | Recetas / DescriptionList / plantilla | Las siete recetas están hechas; DescriptionList está en rama para revisión visual. La plantilla inicial Vite está aprobada. | Revisar y aprobar la rama; después crear y validar la plantilla Vite. |
+| Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList ya están integrados. La receta de dashboard usa las capacidades propias de búsqueda, selección y paginación de Table. | Mantener ejemplos alineados con cambios de API. |
+| Siguiente | Plantilla inicial Vite | Aprobada por Carlos y preparada para empezar cuando cierre el rediseño de Table. | Crear y validar una plantilla de consumo nueva con `@monoschemes/ui`. |
 | Backlog | Verificación automática | Añadir comprobaciones acordadas de contrato, tokens y accesibilidad; no ocultar diferencias válidas entre React y Figma. |
 | Después de cambios sustantivos | Nueva prueba comparativa | Repetir las mismas tareas y métricas solo cuando cambien de forma material las instrucciones, recetas o APIs. La muestra seguirá siendo pequeña y debe presentarse como tal. |
 

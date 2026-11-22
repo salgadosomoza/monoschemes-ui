@@ -11,6 +11,7 @@ const required = [
   ['Tooltip style', /\.tooltip\s*\{/],
   ['Tooltip forced-colors outline', /\.tooltip\s*\{[^}]*outline:\s*1px solid transparent;[^}]*outline-offset:\s*-1px/],
   ['DescriptionList style', /\.description-list\s*\{/],
+  ['Table style', /\.table\s*\{/],
 ];
 const missing = required.filter(([, pattern]) => !pattern.test(css)).map(([name]) => name);
 
@@ -18,5 +19,5 @@ if (missing.length) {
   console.error(`dist/style.css is missing: ${missing.join(', ')}`);
   process.exitCode = 1;
 } else {
-  console.log('dist/style.css includes page tokens, dark/inverse themes, reduced-motion rules, InlineNotification/Toast error styles, Tooltip styles with a forced-colors outline, and DescriptionList styles.');
+  console.log('dist/style.css includes page tokens, dark/inverse themes, reduced-motion rules, InlineNotification/Toast error styles, Tooltip styles with a forced-colors outline, DescriptionList styles, and Table styles.');
 }
