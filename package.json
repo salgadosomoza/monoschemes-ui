@@ -59,6 +59,7 @@
     "dev": "storybook dev -p 6006",
     "build": "vite build",
     "check:dist": "node scripts/check-dist-css.mjs",
+    "check:design-system": "node scripts/check-design-system.mjs",
     "smoke:pack": "node scripts/smoke-pack.mjs",
     "build:storybook": "storybook build",
     "lint": "eslint src --ext .ts,.tsx",

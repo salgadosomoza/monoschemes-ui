@@ -39,7 +39,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Aplazado | Stories de Patterns | Las recetas siguen documentadas en el paquete de agentes; las historias de páginas completas se añadirán cuando haya una revisión visual específica para esa categoría. | Retomar cuando Figma tenga ejemplos listos para validar. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList están integrados; la receta de dashboard usa búsqueda, selección y paginación de Table. | Mantener los ejemplos alineados con futuras APIs. |
 | Hecho | Plantilla de arranque Vite | PR #14 integrada. La plantilla usa `@monoschemes/ui` 0.2.0 y `DescriptionList`. | Mantener la versión de la plantilla alineada con cada release. |
-| Backlog | Verificación automática | Falta acordar qué comprobar automáticamente además de lint, tipos y builds. | Definir alcance para tokens/valores en bruto, contrato y accesibilidad en Storybook sin imponer reglas que bloqueen usos válidos. |
+| Hecho | Verificación automática de tokens y contrato | `npm run check:design-system` valida referencias a primitivos y tokens CSS, y estructura básica del contrato sin pretender comparar datos con Figma. CI corre lint, tipos, tests, builds, `check:dist`, smoke test y esta validación en PR y push a `main`. | Ampliar solo ante una regla concreta y verificable; Figma y accesibilidad visual siguen requiriendo revisión explícita. |
 | Backlog | Storybook público | Storybook aún no tiene una publicación pública enlazada desde el paquete. | Publicar `storybook-static` (por ejemplo, en GitHub Pages) y enlazarlo desde README y `llms.txt`. |
 | Backlog | Code Connect | No se ha confirmado el plan de Figma ni el alcance práctico. | Confirmar elegibilidad y componentes prioritarios antes de implementar. |
 
@@ -100,7 +100,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 | Hecho | Registro de resultados | Las rondas y auditorías están consolidadas en Sheets; este roadmap y `docs/agent-test/results.md` conservan prioridades e interpretación. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList ya están integrados. La receta de dashboard usa las capacidades propias de búsqueda, selección y paginación de Table. | Mantener ejemplos alineados con cambios de API. |
 | Hecho | Plantilla inicial Vite | PR #14 integrada y actualizada para `@monoschemes/ui` 0.2.0. |
-| Backlog | Verificación automática | Añadir comprobaciones acordadas de contrato, tokens y accesibilidad; no ocultar diferencias válidas entre React y Figma. |
+| Hecho | Verificación automática de contrato y tokens | Valida referencias locales y forma del JSON; no compara con Figma ni reemplaza la revisión accesible de Storybook. |
 | Después de cambios sustantivos | Nueva prueba comparativa | Repetir las mismas tareas y métricas solo cuando cambien de forma material las instrucciones, recetas o APIs. La muestra seguirá siendo pequeña y debe presentarse como tal. |
 
 ## Ideas aparcadas

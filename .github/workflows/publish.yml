@@ -27,6 +27,7 @@ jobs:
       - run: npm run test:run
       - run: npm run build
       - run: npm run check:dist
+      - run: npm run check:design-system
       - run: npm run build:storybook
       - run: npm run smoke:pack
       - name: Verify tag matches package version
