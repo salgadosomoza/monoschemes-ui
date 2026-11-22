@@ -11,6 +11,7 @@ export * from './ButtonText';
 export * from './Card';
 export * from './Chip';
 export * from './CodeBlock';
+export * from './CommandPalette';
 export * from './Divider';
 export * from './DescriptionList';
 export * from './EmptyState';

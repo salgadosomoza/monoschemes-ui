@@ -173,6 +173,38 @@
         "onSelectedChange": { "type": "event" }
       }
     },
+    "CommandPalette": {
+      "figmaNode": "2727:850",
+      "props": {
+        "open": { "type": "boolean" },
+        "defaultOpen": { "type": "boolean", "default": false },
+        "onOpenChange": { "type": "event" },
+        "shortcut": { "type": "union", "values": ["string", "null"], "default": "mod+k" },
+        "placeholder": { "type": "string", "default": "Search commands" },
+        "query": { "type": "string" },
+        "onQueryChange": { "type": "event" },
+        "loading": { "type": "boolean", "default": false },
+        "emptyTitle": { "type": "string", "default": "No results" },
+        "children": { "type": "slot", "description": "CommandPaletteGroup elements" }
+      },
+      "usage": "Use for local command discovery and navigation; do not replace a page's primary navigation."
+    },
+    "CommandPalette/Group": {
+      "figmaNode": "2726:429",
+      "props": { "label": { "type": "string" }, "children": { "type": "slot" } }
+    },
+    "CommandPalette/Item": {
+      "figmaNode": "2726:428",
+      "props": {
+        "label": { "type": "string" },
+        "description": { "type": "string" },
+        "icon": { "type": "enum", "reference": "Icon.name" },
+        "shortcut": { "type": "string" },
+        "keywords": { "type": "array", "items": "string" },
+        "disabled": { "type": "boolean", "default": false },
+        "onSelect": { "type": "event" }
+      }
+    },
     "Card": {
       "figmaNode": "2163:253",
       "props": {
@@ -1255,6 +1287,14 @@
         "composition": "State the condition plainly and provide a recovery action when one exists.",
         "accessibility": "Use a clear title and concise description; make action controls keyboard accessible.",
         "example": "<EmptyState title=\"No results\" description=\"Change or clear your filters.\" actions={<Button label=\"Clear filters\" />} />"
+      },
+      "CommandPalette": {
+        "intent": "Help users find and run commands without leaving the current view.",
+        "whenToUse": "Use when a product has a broad set of local navigation targets or actions.",
+        "avoidWhen": "Do not use as a replacement for primary navigation or server-side search results.",
+        "composition": "Group related items and provide useful keywords; use SearchTrigger as an optional visible entry point.",
+        "accessibility": "The search field retains focus, announces result counts, and exposes the active option through aria-activedescendant.",
+        "example": "<CommandPalette><CommandPaletteGroup label=\"Pages\"><CommandPaletteItem label=\"Dashboard\" onSelect={openDashboard} /></CommandPaletteGroup></CommandPalette>"
       },
       "DescriptionList": {
         "intent": "Present a small set of term/value details for one record.",
