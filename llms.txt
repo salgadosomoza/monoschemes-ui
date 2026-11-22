@@ -10,6 +10,7 @@
 - [Component-to-Figma map](src/tokens/components.json): component names, Figma node references, props, and agent guidance.
 - [Figma Community kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit): the published Figma file with the same components and tokens, plus visual documentation and examples.
 - [TypeScript declarations](dist/index.d.ts): authoritative React API and prop types.
+- [Vite prototype starter](templates/vite-prototype/README.md): ready-to-run React + TypeScript app with fonts, theme switching, an inverse zone, and instructions for agents.
 
 ## Core rules
 

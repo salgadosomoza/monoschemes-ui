@@ -1,6 +1,6 @@
 # MonoSchemes · roadmap de diseño, UI y agentes
 
-Actualizado: 20 de noviembre de 2026.
+Actualizado: 22 de noviembre de 2026.
 
 ## Cómo usar este roadmap
 
@@ -32,10 +32,10 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Traspaso del registro y resultados | Las tres rondas comparativas, la comprobación focalizada R4 y el estado actual de la auditoría de color están en Sheets; el plan inicial quedó archivado y la decisión K-09 ya no está duplicada. | Mantener Sheets para los datos y consultar este archivo para las prioridades vigentes. |
 | Hecho | Rediseño de Table | PR #7 se fusionó tras el visto bueno visual; incluye ordenación, selección, búsqueda, paginación y estados, y cierra los issues #1 y #5. | Mantener stories y contrato alineados con futuras mejoras. |
 | Hecho | TagGroup | PR #9 se fusionó tras el visto bueno visual; cierra los issues #2 y #6. | Mantener el componente alineado con futuras mejoras. |
-| En curso | Clasificación de Storybook | El PR #10 organiza las historias según las ocho categorías de Figma. Claude dio el visto bueno y los ajustes de orden solicitados ya están subidos. | Integrar en `main` después de verificar la rama actualizada. |
+| Hecho | Clasificación de Storybook | El PR #10 organiza las historias según las ocho categorías de Figma y aplica el orden revisado por Claude. | Mantener la estructura alineada con futuras historias. |
 | Aplazado | Stories de Patterns | Las recetas siguen documentadas en el paquete de agentes; las historias de páginas completas se añadirán cuando haya una revisión visual específica para esa categoría. | Retomar cuando Figma tenga ejemplos listos para validar. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList están integrados; la receta de dashboard usa búsqueda, selección y paginación de Table. | Mantener los ejemplos alineados con futuras APIs. |
-| Siguiente | Plantilla de arranque Vite | Aprobada por Carlos para facilitar el consumo de `@monoschemes/ui`. | Preparar una plantilla inicial lista para clonar y validar su instalación. |
+| En curso | Plantilla de arranque Vite | Aprobada por Carlos. Claude revisó el PR #14 y pidió ajustes de desbordamiento móvil, Tag y breakpoint; ya están corregidos en la misma rama, junto con los detalles menores de espaciado y cifras. | Esperar la nueva revisión visual de Claude; integrar tras su visto bueno. |
 | Backlog | Verificación automática | Falta acordar qué comprobar automáticamente además de lint, tipos y builds. | Definir alcance para tokens/valores en bruto, contrato y accesibilidad en Storybook sin imponer reglas que bloqueen usos válidos. |
 | Backlog | Storybook público | Storybook aún no tiene una publicación pública enlazada desde el paquete. | Publicar `storybook-static` (por ejemplo, en GitHub Pages) y enlazarlo desde README y `llms.txt`. |
 | Backlog | Code Connect | No se ha confirmado el plan de Figma ni el alcance práctico. | Confirmar elegibilidad y componentes prioritarios antes de implementar. |
@@ -63,7 +63,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Condicional | Footer estrecho | Revisar el Footer a 960 px si vuelve a aparecer el caso de uso. |
 | Hecho | Publicación en Figma Community | Librería publicada como [MonoSchemes · Monochrome UI Kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit). | Mantener la ficha y el archivo de Figma alineados con futuras entregas. |
 | Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |
-| En curso | Issue de TagGroup | El PR #9 implementa el alcance de #6 y cerrará el duplicado histórico #2 al fusionarse. |
+| Hecho | Issue de TagGroup | El PR #9 cerró los issues #2 y #6 al integrarse en `main`. |
 
 Las páginas de prueba de Figma son referencias de exploración, no entregas independientes. Añadir allí pruebas nuevas cuando aporten un caso concreto.
 
@@ -94,7 +94,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 |---|---|---|
 | Hecho | Registro de resultados | Las rondas y auditorías están consolidadas en Sheets; este roadmap y `docs/agent-test/results.md` conservan prioridades e interpretación. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList ya están integrados. La receta de dashboard usa las capacidades propias de búsqueda, selección y paginación de Table. | Mantener ejemplos alineados con cambios de API. |
-| Siguiente | Plantilla inicial Vite | Aprobada por Carlos y preparada para empezar cuando cierre el rediseño de Table. | Crear y validar una plantilla de consumo nueva con `@monoschemes/ui`. |
+| En curso | Plantilla inicial Vite | La primera versión está en `templates/vite-prototype`; Claude revisó el PR #14 y solicitó ajustes móviles y visuales. Se corrigieron en la misma rama y se ha pedido una nueva revisión. | Integrar tras el visto bueno de Claude. |
 | Backlog | Verificación automática | Añadir comprobaciones acordadas de contrato, tokens y accesibilidad; no ocultar diferencias válidas entre React y Figma. |
 | Después de cambios sustantivos | Nueva prueba comparativa | Repetir las mismas tareas y métricas solo cuando cambien de forma material las instrucciones, recetas o APIs. La muestra seguirá siendo pequeña y debe presentarse como tal. |
 

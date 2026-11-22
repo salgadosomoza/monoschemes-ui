@@ -115,3 +115,12 @@ dist/           # Build output (gitignored)
 ## Building with an agent
 
 The npm package includes a consumer-focused [agent guide](docs/agent-package/AGENTS.md), a [component selection map](src/tokens/components.json), [application recipes](docs/agent-package/recipes.md), a [Claude Code skill](skills/monoschemes-ui/SKILL.md), and [`llms.txt`](llms.txt). The guide is separate from the repository's root `AGENTS.md`, which contains maintainer instructions.
+
+For a new React + TypeScript prototype, copy the [Vite prototype starter](templates/vite-prototype/README.md):
+
+```bash
+npx tiged salgadosomoza/monoschemes-ui/templates/vite-prototype my-prototype
+cd my-prototype
+npm install
+npm run dev
+```
