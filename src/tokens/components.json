@@ -63,7 +63,8 @@
         "initials": { "type": "string", "default": "WM" },
         "src": { "type": "string" },
         "alt": { "type": "string", "default": "" }
-      }
+      },
+      "useFor": "A person or account represented by a photo, initials or a system icon."
     },
     "AppHeader": {
       "figmaNode": "2:45",
@@ -121,8 +122,8 @@
           "default": "Button",
           "requiredWhen": { "iconOnly": true }
         },
-        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort"], "reference": "Icon.name" },
-        "iconRight": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort"], "reference": "Icon.name" },
+        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
+        "iconRight": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
         "iconOnly": { "type": "boolean", "default": false },
         "aria-current": { "type": "enum", "values": ["page"] },
         "aria-expanded": { "type": "boolean" },
@@ -130,7 +131,8 @@
         "aria-label": { "type": "string" },
         "disabled": { "type": "boolean", "default": false },
         "loading": { "type": "boolean", "default": false }
-      }
+      },
+      "useFor": "Actions that change state or submit work; use Link for navigation to another location."
     },
     "Button/Icon": {
       "figmaNode": "2030:1786",
@@ -211,7 +213,8 @@
         "children": { "type": "slot" },
         "selected": { "type": "boolean", "default": false },
         "onClick": { "type": "event" }
-      }
+      },
+      "useFor": "General content containers and grouped content; use a more specific card pattern when the content has a defined structure."
     },
     "Card/Media": {
       "figmaNode": "2163:296",
@@ -229,15 +232,25 @@
     "Card/Feature": {
       "figmaNode": "2163:354",
       "props": {
-        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort"], "reference": "Icon.name" },
+        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
         "title": { "type": "string", "default": "Feature title" },
         "description": { "type": "string" }
+      }
+    },
+    "Card/Image": {
+      "figmaNode": "2773:1361",
+      "useFor": "Image-led listings and content cards with a photo, status, title, metadata, key facts, price and action.",
+      "props": {
+        "src": { "type": "string", "required": true },
+        "alt": { "type": "string", "required": true },
+        "ratio": { "type": "variant", "values": ["1:1", "16:9", "9:16", "5:4", "4:5", "4:3", "3:4", "3:2", "2:3"], "default": "4:3", "reference": "Image.type" },
+        "children": { "type": "slot" }
       }
     },
     "Icon": {
       "figmaNode": "130:2058",
       "props": {
-        "name": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort"] },
+        "name": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"] },
         "size": { "type": "number", "default": 24 },
         "stroke": { "type": "number", "default": 1.5 }
       }
@@ -335,7 +348,8 @@
           ],
           "default": "default"
         }
-      }
+      },
+      "useFor": "A labeled single-line text, email, telephone, URL or search field."
     },
     "Form/Radio": {
       "figmaNode": "75:119",
@@ -413,7 +427,8 @@
             "state": { "type": "variant", "values": ["default", "hover", "selected"], "default": "default" }
           }
         }
-      }
+      },
+      "useFor": "A labeled single-choice field for a short, fixed list of options."
     },
     "Form/Combobox": {
       "figmaNode": "2741:1637",
@@ -442,7 +457,8 @@
         "required": { "type": "boolean", "default": false },
         "aria-label": { "type": "string" }
       },
-      "accessibility": "Input combobox retains focus, announces result counts, and exposes the active option with aria-activedescendant. Escape restores the prior selection; only listed options can be selected."
+      "accessibility": "Input combobox retains focus, announces result counts, and exposes the active option with aria-activedescendant. Escape restores the prior selection; only listed options can be selected.",
+      "useFor": "A searchable single-choice field, including long or asynchronously loaded option lists."
     },
     "Form/Textarea": {
       "figmaNode": "1441:406",
@@ -468,7 +484,8 @@
       "props": {
         "items": { "type": "array", "items": { "term": "string", "description": "ReactNode" } }
       },
-      "usage": "Use for detail data; use Table when values should be compared across rows."
+      "usage": "Use for detail data; use Table when values should be compared across rows.",
+      "useFor": "Detail data for one record; use Table when the same values should be compared across rows."
     },
     "Drawer": {
       "figmaNode": "2737:539",
@@ -495,7 +512,8 @@
         "helperText": "Supporting or corrective text where supported by the control",
         "error": "Error state where supported by the control"
       },
-      "description": "Figma's Form/Field is a mapping pattern, not a new React component. Compose it using the corresponding props exposed by each Form control."
+      "description": "Figma's Form/Field is a mapping pattern, not a new React component. Compose it using the corresponding props exposed by each Form control.",
+      "useFor": "A form-field wrapper with a visible label, helper text and an error message, composed through the matching Form control props."
     },
     "Form/Toggle": {
       "figmaNode": "444:3173",
@@ -564,7 +582,8 @@
           ],
           "default": "16:9"
         }
-      }
+      },
+      "useFor": "Photos and other image content with a defined aspect ratio or a semantic placeholder."
     },
     "Link": {
       "figmaNode": "86:502",
@@ -617,7 +636,7 @@
       "figmaNode": "2075:306",
       "props": {
         "label": { "type": "string" },
-        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort"], "reference": "Icon.name" },
+        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
         "shortcut": { "type": "string" },
         "variant": { "type": "enum", "values": ["default", "danger"], "default": "default" },
         "disabled": { "type": "boolean", "default": false },
@@ -645,7 +664,8 @@
         "orientation": { "type": "variant", "values": ["horizontal", "vertical"], "default": "horizontal" },
         "tone": { "type": "variant", "values": ["default", "strong"], "default": "default" },
         "decorative": { "type": "boolean", "default": false }
-      }
+      },
+      "useFor": "A subtle line separating adjacent groups or sections without introducing a container."
     },
     "Footer": {
       "figmaNode": "2535:940",
@@ -681,7 +701,8 @@
         "size": { "type": "variant", "values": ["md", "sm"], "default": "md" },
         "label": { "type": "string", "default": "Tag name" },
         "color": { "type": "string" }
-      }
+      },
+      "useFor": "Short status labels, categories and compact metadata; use TagGroup for a collection of tags with overflow."
     },
     "TagGroup": {
       "figmaNode": "2665:412",
@@ -699,7 +720,8 @@
         "moreAriaLabel": { "type": "function", "default": "Show N more tags" },
         "lessAriaLabel": { "type": "string", "default": "Show fewer tags" }
       },
-      "usage": ["The overflow control is a Button with variant link and size sm; do not create a separate internal button component."]
+      "usage": ["The overflow control is a Button with variant link and size sm; do not create a separate internal button component."],
+      "useFor": "A collection of related tags that can wrap or collapse into an overflow count."
     },
     "Text": {
       "figmaNode": "130:1708",
@@ -746,7 +768,8 @@
         "pagesAriaLabel": { "type": "string", "default": "Pages" },
         "pageAriaLabel": { "type": "string", "default": "Go to page {page}" },
         "currentPageAriaLabel": { "type": "string", "default": "Page {page}, current page" }
-      }
+      },
+      "useFor": "Navigation between pages of a large result set or collection."
     },
     "Pagination/Item": {
       "figmaNode": "2324:286",
@@ -789,7 +812,8 @@
         "bordered": { "type": "boolean", "deprecated": true },
         "onRowClick": { "type": "event" }
       },
-      "usage": "Right-align numeric columns. Use DescriptionList for detail about one record; use Table when comparing the same fields across records."
+      "usage": "Right-align numeric columns. Use DescriptionList for detail about one record; use Table when comparing the same fields across records.",
+      "useFor": "Structured records with columns, sorting, selection or row actions, especially when values are compared across rows."
     },
     "Table/Head": { "figmaNode": "2657:409", "mappingOnly": true },
     "Table/Header cell": { "figmaNode": "2657:384", "mappingOnly": true },
@@ -869,7 +893,8 @@
       "props": {
         "message": { "type": "string" },
         "type": { "type": "enum", "values": ["default", "error"], "default": "default" }
-      }
+      },
+      "useFor": "A concise status or error message placed alongside the content it describes."
     },
     "Notification/AnnouncementBar": {
       "figmaNode": "2333:620",
@@ -892,7 +917,8 @@
         "title": { "type": "string" },
         "description": { "type": "string" },
         "actions": { "type": "slot" }
-      }
+      },
+      "useFor": "A page or region with no content, no search results, or a recoverable full-view failure."
     },
     "IconTile": {
       "figmaNode": "2334:1599",
@@ -943,7 +969,8 @@
       "props": {
         "children": { "type": "slot" },
         "size": { "type": "variant", "values": ["sm", "md"], "default": "sm" }
-      }
+      },
+      "useFor": "A keyboard key or shortcut shown as supporting interface guidance."
     },
     "SearchTrigger": {
       "figmaNode": "2284:1900",
@@ -1011,7 +1038,8 @@
     },
     "Breadcrumb": {
       "figmaNode": "2389:322",
-      "props": { "items": { "type": "array", "items": { "label": "string", "href": "string?" } } }
+      "props": { "items": { "type": "array", "items": { "label": "string", "href": "string?" } } },
+      "useFor": "A hierarchical navigation trail showing the current location within a site or application."
     },
     "Calendar": {
       "figmaNode": "129:674",
@@ -1059,7 +1087,8 @@
         "value": { "type": "string" },
         "unit": { "type": "string" },
         "tone": { "type": "variant", "values": ["default", "muted"], "default": "default" }
-      }
+      },
+      "useFor": "Key figures, KPIs, metrics, property facts such as area, bedrooms and bathrooms, and prices."
     },
     "Form/Password": {
       "figmaNode": "2502:814",
@@ -1402,7 +1431,8 @@
       { "name": "landing", "file": "docs/agent-package/recipes.md", "uses": ["inverse zone", "Text", "Card/Feature", "Card", "Footer"] },
       { "name": "detail-page", "file": "docs/agent-package/recipes.md", "uses": ["Breadcrumb", "Tag", "Text", "Button", "Stat", "Divider", "Avatar"] },
       { "name": "multi-step-form", "file": "docs/agent-package/recipes.md", "uses": ["Stepper", "Notification/InlineNotification", "Form/Input", "Button"] },
-      { "name": "view-states", "file": "docs/agent-package/recipes.md", "uses": ["Skeleton", "EmptyState", "Notification/InlineNotification", "Button"] }
+      { "name": "view-states", "file": "docs/agent-package/recipes.md", "uses": ["Skeleton", "EmptyState", "Notification/InlineNotification", "Button"] },
+      { "name": "listing-card", "file": "docs/agent-package/recipes.md", "uses": ["Card/Image", "Tag", "Button", "Text", "Icon"] }
     ]
   }
 }

@@ -6,7 +6,7 @@
 
 - [Consumer README](README.md): installation, stylesheet, themes, and fonts.
 - [Agent instructions](docs/agent-package/AGENTS.md): component selection, usage rules, accessibility, themes, and validation.
-- [Application recipes](docs/agent-package/recipes.md): login, settings, filtered dashboard, landing page, detail page (with `DescriptionList`), multi-step form, and view states.
+- [Application recipes](docs/agent-package/recipes.md): login, settings, filtered dashboard, landing page, detail page (with `DescriptionList`), multi-step form, view states, and listing cards.
 - [Component-to-Figma map](src/tokens/components.json): component names, Figma node references, props, and agent guidance.
 - [Figma Community kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit): the published Figma file with the same components and tokens, plus visual documentation and examples.
 - [TypeScript declarations](dist/index.d.ts): authoritative React API and prop types.
@@ -22,6 +22,31 @@
 - Keep component styling in the library. Use consumer CSS for layout and responsive composition.
 - Load Inter and JetBrains Mono in the consuming app; the package does not bundle these fonts.
 - Kbd uses JetBrains Mono at 12/16 or 14/20; CodeBlock uses 14/20. Larger code examples can use the 16/24 mono/body 1 scale.
+
+## Component finder
+
+| Component | Use for |
+|---|---|
+| `Stat` | Key figures, KPIs, metrics, property facts such as area, bedrooms and bathrooms, and prices. |
+| `Form/Field` | A form-field wrapper with a visible label, helper text and an error message, composed through the matching Form control props. |
+| `DescriptionList` | Detail data for one record; use Table when the same values should be compared across rows. |
+| `Card` | General content containers and grouped content; use a more specific card pattern when the content has a defined structure. |
+| `Card/Image` | Image-led listings and content cards with a photo, status, title, metadata, key facts, price and action. |
+| `Image` | Photos and other image content with a defined aspect ratio or a semantic placeholder. |
+| `Tag` | Short status labels, categories and compact metadata; use TagGroup for a collection of tags with overflow. |
+| `TagGroup` | A collection of related tags that can wrap or collapse into an overflow count. |
+| `Avatar` | A person or account represented by a photo, initials or a system icon. |
+| `EmptyState` | A page or region with no content, no search results, or a recoverable full-view failure. |
+| `Notification/InlineNotification` | A concise status or error message placed alongside the content it describes. |
+| `Breadcrumb` | A hierarchical navigation trail showing the current location within a site or application. |
+| `Pagination` | Navigation between pages of a large result set or collection. |
+| `Divider` | A subtle line separating adjacent groups or sections without introducing a container. |
+| `Table` | Structured records with columns, sorting, selection or row actions, especially when values are compared across rows. |
+| `Form/Input` | A labeled single-line text, email, telephone, URL or search field. |
+| `Form/Select` | A labeled single-choice field for a short, fixed list of options. |
+| `Form/Combobox` | A searchable single-choice field, including long or asynchronously loaded option lists. |
+| `Button` | Actions that change state or submit work; use Link for navigation to another location. |
+| `Kbd` | A keyboard key or shortcut shown as supporting interface guidance. |
 
 ## More information
 

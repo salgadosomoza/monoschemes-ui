@@ -46,11 +46,38 @@ npm run dev
 - Use `Tabs` for switching between associated panels. Use `SegmentedControl` for a small mutually exclusive choice such as a theme setting.
 - Use `AppHeader` and `SideNav` for application navigation. Pass navigation and actions explicitly; do not add a second copy of built-in controls.
 - Use `Stat` for a prominent metric, `Table` for structured rows and columns, `Pagination` for large result sets, and `EmptyState` when filtering produces no results.
-- Use `FeatureCard` for a concise feature summary, `Card` for a general content container, and `Footer variant="minimal"` for a compact legal footer.
+- Use `CardImage` for photo-led listings; use `Card/Media` for compact people or voice choices. Use `FeatureCard` for a concise feature summary and `Card` for a general content container.
+- Use `DescriptionList` for details about one record, not for values that need row-to-row comparison.
+- Use `Footer variant="minimal"` for a compact legal footer.
 - Use `InlineNotification` for an inline message, `Banner` for a status notice, and `AnnouncementBar` for a site-wide announcement.
 - For a display headline, use `Text` styles `display-1`, `display-2`, or `display-3`; `display` is a deprecated alias for `display-1`.
 
 The machine-readable component map is in `src/tokens/components.json`. Recipes are in `docs/agent-package/recipes.md`.
+
+### Component finder
+
+| Component | Use for |
+|---|---|
+| `Stat` | Key figures, KPIs, metrics, property facts such as area, bedrooms and bathrooms, and prices. |
+| `Form/Field` | A form-field wrapper with a visible label, helper text and an error message, composed through the matching Form control props. |
+| `DescriptionList` | Detail data for one record; use Table when the same values should be compared across rows. |
+| `Card` | General content containers and grouped content; use a more specific card pattern when the content has a defined structure. |
+| `Card/Image` | Image-led listings and content cards with a photo, status, title, metadata, key facts, price and action. |
+| `Image` | Photos and other image content with a defined aspect ratio or a semantic placeholder. |
+| `Tag` | Short status labels, categories and compact metadata; use TagGroup for a collection of tags with overflow. |
+| `TagGroup` | A collection of related tags that can wrap or collapse into an overflow count. |
+| `Avatar` | A person or account represented by a photo, initials or a system icon. |
+| `EmptyState` | A page or region with no content, no search results, or a recoverable full-view failure. |
+| `Notification/InlineNotification` | A concise status or error message placed alongside the content it describes. |
+| `Breadcrumb` | A hierarchical navigation trail showing the current location within a site or application. |
+| `Pagination` | Navigation between pages of a large result set or collection. |
+| `Divider` | A subtle line separating adjacent groups or sections without introducing a container. |
+| `Table` | Structured records with columns, sorting, selection or row actions, especially when values are compared across rows. |
+| `Form/Input` | A labeled single-line text, email, telephone, URL or search field. |
+| `Form/Select` | A labeled single-choice field for a short, fixed list of options. |
+| `Form/Combobox` | A searchable single-choice field, including long or asynchronously loaded option lists. |
+| `Button` | Actions that change state or submit work; use Link for navigation to another location. |
+| `Kbd` | A keyboard key or shortcut shown as supporting interface guidance. |
 
 ## Composition examples
 

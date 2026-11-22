@@ -42,6 +42,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Verificación automática de tokens y contrato | `npm run check:design-system` valida referencias a primitivos y tokens CSS, y estructura básica del contrato sin pretender comparar datos con Figma. CI corre lint, tipos, tests, builds, `check:dist`, smoke test y esta validación en PR y push a `main`. | Ampliar solo ante una regla concreta y verificable; Figma y accesibilidad visual siguen requiriendo revisión explícita. |
 | Backlog | Storybook público | Storybook aún no tiene una publicación pública enlazada desde el paquete. | Publicar `storybook-static` (por ejemplo, en GitHub Pages) y enlazarlo desde README y `llms.txt`. |
 | Backlog | Code Connect | No se ha confirmado el plan de Figma ni el alcance práctico. | Confirmar elegibilidad y componentes prioritarios antes de implementar. |
+| Hecho | Backlog de diseño desde las pruebas con agentes (#27) | Las prioridades quedaron ordenadas aquí y divididas en tareas diseñadas independientes. | Activar cada punto solo cuando exista un diseño verificable. |
 
 ## Diseño y sistema de componentes
 
@@ -69,6 +70,10 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Publicación en Figma Community | Librería publicada como [MonoSchemes · Monochrome UI Kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit). | Mantener la ficha y el archivo de Figma alineados con futuras entregas. |
 | Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |
 | Hecho | Issue de TagGroup | El PR #9 cerró los issues #2 y #6 al integrarse en `main`. |
+| En curso | Descubribilidad, iconos y Card/Image (#28) | Figma ya define las descripciones «Use for», seis iconos nuevos, Card/Image y la receta Listing card. Implementación y documentación en PR. |
+| Diseñado | Gallery y Gallery/Viewer (#29) | Figma define variantes featured/grid/mobile y el visor modal con teclado y miniaturas; pendiente implementar foco, teclado y gestos táctiles. |
+| En Figma | Map y Rating | Ideas del FigJam aún sin especificación visual lista para código; crear issues separadas después del diseño. |
+| Exploración | Componentes para agentes | Hilo, entrada con voz, estados de pensamiento y llamadas a herramientas; explorar primero en FigJam. |
 
 Las páginas de prueba de Figma son referencias de exploración, no entregas independientes. Añadir allí pruebas nuevas cuando aporten un caso concreto.
 

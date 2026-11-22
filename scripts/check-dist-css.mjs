@@ -14,6 +14,7 @@ const required = [
   ['CommandPalette style', /\.command-palette\s*\{/],
   ['Drawer style', /\.drawer\s*\{/],
   ['Table style', /\.table\s*\{/],
+  ['CardImage style', /\.card-image\s*\{/],
   ['FormCombobox style', /\.form-combobox\s*\{/],
 ];
 const missing = required.filter(([, pattern]) => !pattern.test(css)).map(([name]) => name);
