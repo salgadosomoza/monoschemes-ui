@@ -14,6 +14,7 @@ const required = [
   ['CommandPalette style', /\.command-palette\s*\{/],
   ['Drawer style', /\.drawer\s*\{/],
   ['Table style', /\.table\s*\{/],
+  ['FormCombobox style', /\.form-combobox\s*\{/],
 ];
 const missing = required.filter(([, pattern]) => !pattern.test(css)).map(([name]) => name);
 
@@ -21,5 +22,5 @@ if (missing.length) {
   console.error(`dist/style.css is missing: ${missing.join(', ')}`);
   process.exitCode = 1;
 } else {
-  console.log('dist/style.css includes page tokens, dark/inverse themes, reduced-motion rules, error styles, Tooltip forced-colors outline, DescriptionList and Table styles, CommandPalette, and Drawer styles.');
+  console.log('dist/style.css includes page tokens, dark/inverse themes, reduced-motion rules, error styles, FormCombobox, Tooltip forced-colors outline, DescriptionList and Table styles, CommandPalette, and Drawer styles.');
 }

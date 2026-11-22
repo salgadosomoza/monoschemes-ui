@@ -42,7 +42,7 @@ npm run dev
 ## Component selection
 
 - Use `Button` for actions and `Link` for navigation. Use `NavItem` or `SideNavItem` for navigation menus.
-- Use `FormInput`, `FormPassword`, `FormSelect`, `FormCheckbox`, `FormToggle`, `FormRadio`, `FormDate`, `FormTime`, `FormNumber`, `FormMultiSelect`, and `FormSearch` for their matching input roles. Keep labels visible and pass the available `name`, `id`, `required`, and `autoComplete` props where appropriate.
+- Use `FormInput`, `FormPassword`, `FormSelect`, `FormCombobox`, `FormCheckbox`, `FormToggle`, `FormRadio`, `FormDate`, `FormTime`, `FormNumber`, `FormMultiSelect`, and `FormSearch` for their matching input roles. Use `FormCombobox` for searchable single-choice lists and `FormMultiSelect` when several values are allowed. Keep labels visible and pass the available `name`, `id`, `required`, and `autoComplete` props where appropriate.
 - Use `Tabs` for switching between associated panels. Use `SegmentedControl` for a small mutually exclusive choice such as a theme setting.
 - Use `AppHeader` and `SideNav` for application navigation. Pass navigation and actions explicitly; do not add a second copy of built-in controls.
 - Use `Stat` for a prominent metric, `Table` for structured rows and columns, `Pagination` for large result sets, and `EmptyState` when filtering produces no results.

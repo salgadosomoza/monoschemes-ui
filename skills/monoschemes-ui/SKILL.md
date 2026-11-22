@@ -21,7 +21,7 @@ description: Build application screens with the installed @monoschemes/ui React 
 ## Component selection reminders
 
 - Actions: `Button`. Navigation: `Link`, `NavItem`, or `SideNavItem`.
-- Form controls: use the matching `Form*` component; `FormPassword` includes show/hide behavior.
+- Form controls: use the matching `Form*` component; `FormCombobox` searches a single-choice list, `FormMultiSelect` supports several choices, and `FormPassword` includes show/hide behavior.
 - Mutually exclusive short choices: `SegmentedControl`. Content sections with associated panels: `Tabs` and `TabPanel`.
 - Result sets: `FormSearch`/`FormMultiSelect` + `Table` + `Pagination`; use `EmptyState` when there are no results.
 - Detail metadata: use `DescriptionList`; use `Table` for comparable values across records.

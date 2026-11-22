@@ -102,9 +102,16 @@
   --font-overline-letter-spacing: 0.2em;
   --font-overline-text-transform: uppercase;
 
-  --font-code-size: 13px;
+  --font-mono-caption-size: 12px;
+  --font-mono-caption-line: 16px;
+  --font-mono-body2-size: 14px;
+  --font-mono-body2-line: 20px;
+  --font-mono-body1-size: 16px;
+  --font-mono-body1-line: 24px;
+  /* @deprecated Use --font-mono-body2-size and --font-mono-body2-line. */
+  --font-code-size: var(--font-mono-body2-size);
   --font-code-weight: 400;
-  --font-code-line-height: 20px;
+  --font-code-line-height: var(--font-mono-body2-line);
 
   /* Spacing */
   --spacing-3xs: 2px;

@@ -18,6 +18,7 @@ export * from './Drawer';
 export * from './EmptyState';
 export * from './Footer';
 export * from './FormCheckbox';
+export * from './FormCombobox';
 export * from './FormColorField';
 export * from './FormDate';
 export * from './FormFileUpload';

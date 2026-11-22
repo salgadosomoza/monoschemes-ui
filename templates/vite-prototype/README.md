@@ -18,7 +18,7 @@ Open the local URL printed by Vite. The starter is also suitable for an AI codin
 ## Included
 
 - `@monoschemes/ui` with the package stylesheet already imported.
-- Inter and JetBrains Mono loaded from Google Fonts; the package does not bundle fonts.
+- Inter and JetBrains Mono loaded from Google Fonts; the package does not bundle fonts. JetBrains Mono supplies the 12/16, 14/20 and 16/24 mono text scales used by Kbd and code examples.
 - A working Light/Dark selector and an adaptive `data-theme="inverse"` hero.
 - Example composition with `Logo`, `SegmentedControl`, `Button`, `Tag`, `Stat`, `Card`, `EmptyState`, `Divider`, and minimal `Footer`.
 - Responsive page layout using MonoSchemes semantic tokens.

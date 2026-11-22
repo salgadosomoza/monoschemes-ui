@@ -38,9 +38,9 @@
   padding: var(--spacing-md);
   color: var(--color-text-primary);
   font-family: var(--font-family-mono);
-  font-size: var(--font-code-size);
-  font-weight: var(--font-code-weight);
-  line-height: var(--font-code-line-height);
+  font-size: var(--font-mono-body2-size);
+  font-weight: 400;
+  line-height: var(--font-mono-body2-line);
   white-space: pre;
 }
 
