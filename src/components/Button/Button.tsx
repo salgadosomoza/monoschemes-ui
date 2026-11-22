@@ -29,6 +29,7 @@ interface ButtonBaseProps {
   'aria-current'?: 'page';
   'aria-expanded'?: boolean;
   'aria-controls'?: string;
+  'aria-label'?: string;
 }
 
 export type ButtonProps = ButtonBaseProps &
@@ -52,6 +53,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   'aria-current': ariaCurrent,
   'aria-expanded': ariaExpanded,
   'aria-controls': ariaControls,
+  'aria-label': ariaLabel,
 }: ButtonProps, ref) {
   const resolvedIconOnly = iconOnly || iconPosition === 'only';
   const resolvedLeft = iconLeft ?? (iconPosition === 'left' ? iconName : undefined) ?? (iconPosition === 'only' ? iconName : undefined);
@@ -76,7 +78,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       disabled={effectiveDisabled}
       onClick={onClick}
       type={type}
-      aria-label={resolvedIconOnly ? label : undefined}
+      aria-label={ariaLabel ?? (resolvedIconOnly ? label : undefined)}
       aria-current={ariaCurrent}
       aria-expanded={ariaExpanded}
       aria-controls={ariaControls}
