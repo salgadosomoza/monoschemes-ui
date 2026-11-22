@@ -35,7 +35,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Clasificación de Storybook | El PR #10 organiza las historias según las ocho categorías de Figma y aplica el orden revisado por Claude. | Mantener la estructura alineada con futuras historias. |
 | Aplazado | Stories de Patterns | Las recetas siguen documentadas en el paquete de agentes; las historias de páginas completas se añadirán cuando haya una revisión visual específica para esa categoría. | Retomar cuando Figma tenga ejemplos listos para validar. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList están integrados; la receta de dashboard usa búsqueda, selección y paginación de Table. | Mantener los ejemplos alineados con futuras APIs. |
-| En curso | Plantilla de arranque Vite | Aprobada por Carlos. Hay un starter en `templates/vite-prototype`, copiable con `npx tiged`; incluye el paquete, fuentes, selector Light/Dark, zona `inverse` y guía para agentes. | Probar una copia limpia, validar el uso por agentes y pedir revisión visual. |
+| En curso | Plantilla de arranque Vite | Aprobada por Carlos. La copia con `npx tiged`, instalación limpia, typecheck y build pasan; PR #14 está listo para revisión visual de Claude. | Atender los comentarios en la misma rama; integrar tras su visto bueno. |
 | Backlog | Verificación automática | Falta acordar qué comprobar automáticamente además de lint, tipos y builds. | Definir alcance para tokens/valores en bruto, contrato y accesibilidad en Storybook sin imponer reglas que bloqueen usos válidos. |
 | Backlog | Storybook público | Storybook aún no tiene una publicación pública enlazada desde el paquete. | Publicar `storybook-static` (por ejemplo, en GitHub Pages) y enlazarlo desde README y `llms.txt`. |
 | Backlog | Code Connect | No se ha confirmado el plan de Figma ni el alcance práctico. | Confirmar elegibilidad y componentes prioritarios antes de implementar. |
@@ -94,7 +94,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 |---|---|---|
 | Hecho | Registro de resultados | Las rondas y auditorías están consolidadas en Sheets; este roadmap y `docs/agent-test/results.md` conservan prioridades e interpretación. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList ya están integrados. La receta de dashboard usa las capacidades propias de búsqueda, selección y paginación de Table. | Mantener ejemplos alineados con cambios de API. |
-| En curso | Plantilla inicial Vite | La primera versión está en `templates/vite-prototype` y puede copiarse como subdirectorio del repositorio mediante `tiged`. | Validar instalación, typecheck, build y uso con una tarea de prototipo en un proyecto limpio. |
+| En curso | Plantilla inicial Vite | La primera versión está en `templates/vite-prototype`; la copia con `tiged`, instalación limpia, typecheck y build pasan. PR #14 espera revisión visual. | Atender los comentarios en la misma rama e integrar tras el visto bueno de Claude. |
 | Backlog | Verificación automática | Añadir comprobaciones acordadas de contrato, tokens y accesibilidad; no ocultar diferencias válidas entre React y Figma. |
 | Después de cambios sustantivos | Nueva prueba comparativa | Repetir las mismas tareas y métricas solo cuando cambien de forma material las instrucciones, recetas o APIs. La muestra seguirá siendo pequeña y debe presentarse como tal. |
 
