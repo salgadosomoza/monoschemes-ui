@@ -185,3 +185,27 @@ return <>
 ```
 
 Use `iconTone="error"` only for a whole-view error state; ordinary empty states keep the default icon tone. A partial failure should leave successfully loaded content visible.
+
+## Listing card
+
+Use `CardImage` for image-led search results such as homes, products, or places. Combine it with a subtle status `Tag`, a labeled tertiary icon button, `Text` for the name and location, a price, and a compact row of facts. Keep the image ratio configurable and use `Icon` for the 16 px fact symbols.
+
+```tsx
+<CardImage src={listing.image} alt={listing.imageAlt} ratio="4:3">
+  <div className="listing-card__top">
+    <Tag type="subtle" size="sm" label={listing.status} />
+    <Button variant="tertiary" size="sm" iconOnly iconLeft="heart" label="Save listing" onClick={saveListing} />
+  </div>
+  <Text style="subtitle-1">{listing.name}</Text>
+  <Text style="body-2" color="var(--color-text-secondary)">{listing.location}</Text>
+  <Text style="h6">{listing.price}</Text>
+  <div className="listing-card__facts">
+    <span><Icon name="bed" size={16} /> {listing.bedrooms} bedrooms</span>
+    <span><Icon name="bath" size={16} /> {listing.bathrooms} bathrooms</span>
+    <span><Icon name="ruler-measure" size={16} /> {listing.area}</span>
+  </div>
+  <Button variant="secondary" label="View listing" onClick={openListing} />
+</CardImage>
+```
+
+Use `Card/Media` for compact people or voice choices; it is not the image-led listing card. Use `Stat` for prominent standalone figures rather than assembling metric labels and values from loose text.
