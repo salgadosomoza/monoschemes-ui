@@ -68,7 +68,7 @@ button.pagination-item[data-state="current"] {
 
 @media (max-width: 620px) {
   .pagination { gap: var(--gap-xs); }
-  .pagination-pages { gap: var(--gap-3xs); }
+  .pagination-pages { gap: var(--gap-xs); }
   .pagination .button { min-width: 0; }
   .pagination .button-label { flex: 0 1 auto; }
   .pagination__spacer { flex-basis: 0; }
