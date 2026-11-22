@@ -14,6 +14,7 @@ export * from './CodeBlock';
 export * from './CommandPalette';
 export * from './Divider';
 export * from './DescriptionList';
+export * from './Drawer';
 export * from './EmptyState';
 export * from './Footer';
 export * from './FormCheckbox';

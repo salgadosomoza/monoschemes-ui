@@ -441,6 +441,22 @@
       },
       "usage": "Use for detail data; use Table when values should be compared across rows."
     },
+    "Drawer": {
+      "figmaNode": "2737:539",
+      "props": {
+        "open": { "type": "boolean" },
+        "defaultOpen": { "type": "boolean", "default": false },
+        "onOpenChange": { "type": "event" },
+        "side": { "type": "variant", "values": ["right", "left", "bottom"], "default": "right" },
+        "size": { "type": "variant", "values": ["sm", "md", "lg"], "default": "md", "note": "Affects side panels only" },
+        "title": { "type": "string", "required": true },
+        "description": { "type": "string" },
+        "children": { "type": "slot", "description": "Scrollable panel body" },
+        "actions": { "type": "slot", "description": "Optional footer actions" },
+        "closeLabel": { "type": "string", "default": "Close" }
+      },
+      "usage": "Use for modal side panels with focused tasks; use Modal for centered, short decisions."
+    },
     "Form/Field": {
       "figmaNode": "2652:1112",
       "mappingOnly": true,
@@ -1287,6 +1303,14 @@
         "composition": "State the condition plainly and provide a recovery action when one exists.",
         "accessibility": "Use a clear title and concise description; make action controls keyboard accessible.",
         "example": "<EmptyState title=\"No results\" description=\"Change or clear your filters.\" actions={<Button label=\"Clear filters\" />} />"
+      },
+      "Drawer": {
+        "intent": "Present a focused task or supporting workflow in a modal side panel.",
+        "whenToUse": "Use for forms and workflows that need more space than a Modal and should keep the current page context visible.",
+        "avoidWhen": "Do not use for a non-modal panel or short confirmation; use Modal for the latter.",
+        "composition": "Keep the header stable, allow the body to scroll, and place actions in the optional footer with the primary action last.",
+        "accessibility": "The panel is a modal dialog with a labelled title, trapped and restored focus, Escape dismissal, and background scroll lock.",
+        "example": "<Drawer open={open} onOpenChange={setOpen} title=\"Edit profile\" actions={<><Button variant=\"secondary\" label=\"Cancel\" /><Button label=\"Save\" /></>}>…</Drawer>"
       },
       "CommandPalette": {
         "intent": "Help users find and run commands without leaving the current view.",

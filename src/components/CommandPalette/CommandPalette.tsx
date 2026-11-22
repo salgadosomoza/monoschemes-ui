@@ -120,6 +120,11 @@ export function CommandPalette({ open: controlledOpen, defaultOpen = false, onOp
   }, [open, setOpen, shortcut]);
 
   useEffect(() => { setActiveId(enabledItems[0]?.id ?? null); }, [enabledItems]);
+  useEffect(() => {
+    if (!activeId) return;
+    const activeElement = document.getElementById(activeId) as HTMLElement | null;
+    activeElement?.scrollIntoView?.({ block: 'nearest' });
+  }, [activeId]);
 
   const close = useCallback(() => setOpen(false), [setOpen]);
   const selectActive = useCallback(() => {
