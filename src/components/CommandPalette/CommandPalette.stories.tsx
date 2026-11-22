@@ -4,6 +4,8 @@ import { Button } from '../Button';
 import { SearchTrigger } from '../SearchTrigger';
 import { CommandPalette, CommandPaletteGroup, CommandPaletteItem } from './CommandPalette';
 
+const platformShortcut = typeof navigator !== 'undefined' && navigator.platform.toLowerCase().includes('mac') ? '⌘K' : 'Ctrl K';
+
 const meta = {
   title: 'Navigation/Command palette',
   component: CommandPalette,
@@ -24,7 +26,7 @@ function Example({ mode = 'default' }: { mode?: 'default' | 'empty' | 'loading' 
   const [query, setQuery] = useState(mode === 'empty' ? 'no-match' : '');
   const inverse = mode === 'inverse';
   return <div data-theme={inverse ? 'inverse' : undefined} style={{ minHeight: '80vh', padding: 32, background: 'var(--color-bg-page)' }}>
-    <SearchTrigger placeholder="Search commands" shortcut="⌘K" onClick={() => setOpen(true)} />
+    <SearchTrigger placeholder="Search commands" shortcut={platformShortcut} onClick={() => setOpen(true)} />
     <div style={{ marginTop: 24 }}><Button label="Open palette" variant="secondary" onClick={() => setOpen(true)} /></div>
     {inverse && <p style={{ marginTop: 24, padding: 24 }}>The palette inherits the trigger theme.</p>}
     <CommandPalette open={open} onOpenChange={setOpen} query={query} onQueryChange={setQuery} loading={mode === 'loading'}>
