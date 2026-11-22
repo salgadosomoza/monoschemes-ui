@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -8,8 +8,10 @@ const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const temp = await mkdtemp(join(tmpdir(), 'monoschemes-smoke-'));
 
 try {
-  const packResult = JSON.parse(execFileSync('npm', ['pack', '--json', '--pack-destination', temp], { cwd: root, encoding: 'utf8' }));
-  const tarball = join(temp, packResult[0].filename);
+  const packageJson = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
+  const filename = `${packageJson.name.replace(/^@/, '').replace('/', '-')}-${packageJson.version}.tgz`;
+  execFileSync('npm', ['pack', '--pack-destination', temp], { cwd: root, stdio: 'inherit' });
+  const tarball = join(temp, filename);
   const app = join(temp, 'app');
   await mkdir(join(app, 'src'), { recursive: true });
   await writeFile(join(app, 'package.json'), JSON.stringify({
@@ -24,7 +26,7 @@ try {
   await writeFile(join(app, 'vite.config.js'), `import { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\nexport default defineConfig({ plugins: [react()] });`);
   execFileSync('npm', ['install', '--no-audit', '--no-fund'], { cwd: app, stdio: 'inherit' });
   execFileSync('npm', ['run', 'build'], { cwd: app, stdio: 'inherit' });
-  console.log(`Package smoke test passed for ${packResult[0].filename}.`);
+  console.log(`Package smoke test passed for ${filename}.`);
 } finally {
   await rm(temp, { recursive: true, force: true });
 }
