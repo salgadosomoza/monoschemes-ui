@@ -15,6 +15,15 @@ These instructions are for agents building a consumer application with the insta
 4. Load Inter and JetBrains Mono in the application. The package does not bundle fonts.
 5. Build the screen with the closest exported components. Use application CSS for layout and semantic tokens for any necessary layout styling.
 
+For a new React + TypeScript prototype, start from the [Vite prototype template](../../templates/vite-prototype/README.md) instead of rebuilding the package setup:
+
+```bash
+npx tiged salgadosomoza/monoschemes-ui/templates/vite-prototype my-prototype
+cd my-prototype
+npm install
+npm run dev
+```
+
 ## Theme and color
 
 - Set `data-theme="light"` or `data-theme="dark"` on `<html>`.

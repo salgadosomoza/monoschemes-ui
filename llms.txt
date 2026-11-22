@@ -9,6 +9,7 @@
 - [Application recipes](docs/agent-package/recipes.md): login, settings, filtered dashboard, landing page, detail page (with `DescriptionList`), multi-step form, and view states.
 - [Component-to-Figma map](src/tokens/components.json): component names, Figma node references, props, and agent guidance.
 - [TypeScript declarations](dist/index.d.ts): authoritative React API and prop types.
+- [Vite prototype starter](templates/vite-prototype/README.md): ready-to-run React + TypeScript app with fonts, theme switching, an inverse zone, and instructions for agents.
 
 ## Core rules
 
