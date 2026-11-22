@@ -11,13 +11,13 @@ Este archivo es la fuente única del estado, las prioridades y la siguiente acci
 - **Google Sheets**, en «MonoSchemes · Registro de decisiones» → «Registro», conserva decisiones y aprendizajes. No es una segunda lista de tareas. [Registro](https://docs.google.com/spreadsheets/d/1ikcrIwANXxgAbemlEyYaduw7WdIrOqd1jYdNTBLUR5w/edit).
 - **GitHub** registra el trabajo en curso: issues, ramas, PR y comentarios de revisión. **Código y Storybook** registran la implementación y permiten comprobarla.
 - Codex lleva el desarrollo de `monoschemes-ui`, el proceso, el roadmap y las entregas. Claude y Carlos llevan diseño en Figma, mejoras de UI/UX y revisión visual y de accesibilidad.
-- Los cambios visuales —componentes, tokens, estilos, stories y recetas con UI— van en una rama y un PR; se fusionan a `main` y se publican solo después del visto bueno de Claude. Los cambios internos o de proceso pueden integrarse sin revisión visual previa.
+- Los cambios visuales —componentes, tokens, estilos, stories y recetas con UI— van en una rama y un PR; se integran tras las comprobaciones. La revisión de Claude es opcional y se solicita solo si Carlos la pide.
 - Cada entrega mantiene este roadmap actualizado. Los estados representan el trabajo vigente; decisiones y aprendizajes se registran en Sheets, sin duplicar sus datos aquí.
 
 ### Canal Claude ↔ Codex y autoría
 
 - Los encargos de diseño llegan como issues de `salgadosomoza/monoschemes-ui` etiquetadas `design` y `from:claude`. Al empezar una sesión, Codex revisa las issues abiertas `design`, las enlaza a su rama o PR y las cierra al entregar. Hasta que Claude use GitHub directamente, Carlos seguirá pasando los encargos a mano.
-- Los PR de cambios visuales incluyen `Closes #N` y piden revisión de Claude en su descripción. Claude deja comentarios con capturas y nodos de Figma; Codex corrige en la misma rama y responde en los hilos.
+- Los PR de cambios visuales incluyen `Closes #N`. Si se solicita revisión, Claude deja comentarios con capturas y nodos de Figma; Codex corrige en la misma rama y responde en los hilos.
 - Codex y Claude usan la cuenta GitHub `salgadosomoza`, igual que Carlos. La autoría se distingue en issues y PR: Codex etiqueta con `from:codex` y firma `**Codex · desarrollo**`; Claude etiqueta con `from:claude` y firma `**Claude · diseño**`. Los mensajes sin firma son de Carlos.
 - Claude usa GitHub solo para issues, comentarios de revisión y etiquetas: no hace commits, push, merges ni cambios de configuración del repositorio.
 
@@ -27,6 +27,8 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 
 | Estado | Trabajo | Situación | Siguiente acción |
 |---|---|---|---|
+| Hecho | Pendientes #13, #14 y #16 | CommandPalette (#13, PR #19), plantilla Vite (#14, PR #14) y Drawer (#16, PR #21) están integrados en `main`. | Mantener las stories y el contrato alineados con el sistema. |
+| En curso | EmptyState y publicación 0.2.0 (#17) | Título y descripción ya se centran; se añade prueba de regresión. El paquete incluye CommandPalette, Drawer y la plantilla actualizada. | Completar las comprobaciones del tarball y configurar Trusted Publishing en npm antes de crear el tag de publicación. |
 | Hecho | Revisión visual de la alineación y zona `inverse` | Carlos revisó AppHeader sin navegación, FormSearch, Pagination y FormSelect en Light y Dark. La zona `inverse` también se comprobó en ambos temas y se ve bien. | Registrar cualquier discrepancia visual futura como una tarea independiente. |
 | Hecho | Comprobación focalizada de comprensión de `inverse` | En una prueba separada, el prompt especificó que el hero debía ser oscuro en Light y claro en Dark, sin nombrar `inverse`. Claude Code consultó la documentación del paquete, eligió `data-theme="inverse"` y el resultado se confirmó visualmente en ambos temas. Build y lint pasan. | Conservar R2/R3 como resultados históricos; no atribuir causalidad a la documentación con una sola prueba ni compararla como si el prompt fuera idéntico. |
 | Hecho | Traspaso del registro y resultados | Las tres rondas comparativas, la comprobación focalizada R4 y el estado actual de la auditoría de color están en Sheets; el plan inicial quedó archivado y la decisión K-09 ya no está duplicada. | Mantener Sheets para los datos y consultar este archivo para las prioridades vigentes. |
@@ -35,7 +37,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Clasificación de Storybook | El PR #10 organiza las historias según las ocho categorías de Figma y aplica el orden revisado por Claude. | Mantener la estructura alineada con futuras historias. |
 | Aplazado | Stories de Patterns | Las recetas siguen documentadas en el paquete de agentes; las historias de páginas completas se añadirán cuando haya una revisión visual específica para esa categoría. | Retomar cuando Figma tenga ejemplos listos para validar. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList están integrados; la receta de dashboard usa búsqueda, selección y paginación de Table. | Mantener los ejemplos alineados con futuras APIs. |
-| En curso | Plantilla de arranque Vite | Aprobada por Carlos. Claude revisó el PR #14 y pidió ajustes de desbordamiento móvil, Tag y breakpoint; ya están corregidos en la misma rama, junto con los detalles menores de espaciado y cifras. | Esperar la nueva revisión visual de Claude; integrar tras su visto bueno. |
+| Hecho | Plantilla de arranque Vite | PR #14 integrada. La plantilla usa `@monoschemes/ui` 0.2.0 y `DescriptionList`. | Mantener la versión de la plantilla alineada con cada release. |
 | Backlog | Verificación automática | Falta acordar qué comprobar automáticamente además de lint, tipos y builds. | Definir alcance para tokens/valores en bruto, contrato y accesibilidad en Storybook sin imponer reglas que bloqueen usos válidos. |
 | Backlog | Storybook público | Storybook aún no tiene una publicación pública enlazada desde el paquete. | Publicar `storybook-static` (por ejemplo, en GitHub Pages) y enlazarlo desde README y `llms.txt`. |
 | Backlog | Code Connect | No se ha confirmado el plan de Figma ni el alcance práctico. | Confirmar elegibilidad y componentes prioritarios antes de implementar. |
@@ -59,7 +61,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Decisiones de color C-05 | C-05 queda cerrado según el Sheet: D2 usa `border/default`, D3 usa `bg/inverse` y D4 usa el color del texto para el subrayado y `border-focused` para el foco. No hacen falta tokens nuevos; Divider, Modal, ProgressBar y Button ya cumplen. |
 | Hecho | Tooltip | Diseñado e implementado según K-28, con acceso por teclado, posición adaptativa y soporte Light, Dark e `inverse`. |
 | Aplazado | Popover | Esperar a que exista un caso real antes de diseñarlo o implementarlo (K-29). |
-| Backlog | Otras interacciones | Drawer, Combobox y paleta de comandos siguen como candidatos a priorizar desde necesidades concretas. |
+| Hecho | CommandPalette y Drawer | CommandPalette (#13, PR #19) y Drawer (#16, PR #21) están implementados y en `main`. |
 | Condicional | Footer estrecho | Revisar el Footer a 960 px si vuelve a aparecer el caso de uso. |
 | Hecho | Publicación en Figma Community | Librería publicada como [MonoSchemes · Monochrome UI Kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit). | Mantener la ficha y el archivo de Figma alineados con futuras entregas. |
 | Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |
@@ -71,7 +73,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 
 ### Flujo de entrega y publicación (F-05)
 
-- Los cambios visuales —componentes, tokens, estilos y stories— se desarrollan en una rama y esperan la revisión de Claude/Carlos. Tras el visto bueno, Codex los integra en `main` y prepara una versión.
+- Los cambios visuales —componentes, tokens, estilos y stories— se desarrollan en una rama y PR. Codex los integra tras las comprobaciones; la revisión de Claude es opcional salvo que Carlos la solicite.
 - Los cambios internos o de proceso —CI, scripts, documentación, tests y refactors sin efecto visual— pueden integrarse sin una revisión visual previa.
 - Una publicación requiere que tests, lint, typecheck, build, `check:dist` y el smoke test de instalación del tarball pasen; también requiere versión semver nueva y entrada en `CHANGELOG.md`.
 - Publicación propuesta: GitHub Actions con npm Trusted Publishing (OIDC); para un paquete público en un repo público npm genera provenance automáticamente. En npmjs.com habrá que registrar como publisher `salgadosomoza` / `monoschemes-ui` y el nombre exacto del workflow que se cree en `.github/workflows/`; el environment de GitHub es opcional y se decidirá al añadir protección de despliegues. El job necesitará `id-token: write`, runner alojado por GitHub y npm CLI ≥ 11.5.1 con Node ≥ 22.14.0. Hasta completar y probar OIDC, no publicar desde una credencial persistente. Si hiciera falta una publicación urgente, usar un token granular limitado al paquete y a publicar, guardarlo solo como secreto de GitHub, no en `.npmrc` ni en el repo, y revocarlo al terminar.
@@ -94,7 +96,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 |---|---|---|
 | Hecho | Registro de resultados | Las rondas y auditorías están consolidadas en Sheets; este roadmap y `docs/agent-test/results.md` conservan prioridades e interpretación. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList ya están integrados. La receta de dashboard usa las capacidades propias de búsqueda, selección y paginación de Table. | Mantener ejemplos alineados con cambios de API. |
-| En curso | Plantilla inicial Vite | La primera versión está en `templates/vite-prototype`; Claude revisó el PR #14 y solicitó ajustes móviles y visuales. Se corrigieron en la misma rama y se ha pedido una nueva revisión. | Integrar tras el visto bueno de Claude. |
+| Hecho | Plantilla inicial Vite | PR #14 integrada y actualizada para `@monoschemes/ui` 0.2.0. |
 | Backlog | Verificación automática | Añadir comprobaciones acordadas de contrato, tokens y accesibilidad; no ocultar diferencias válidas entre React y Figma. |
 | Después de cambios sustantivos | Nueva prueba comparativa | Repetir las mismas tareas y métricas solo cuando cambien de forma material las instrucciones, recetas o APIs. La muestra seguirá siendo pequeña y debe presentarse como tal. |
 
