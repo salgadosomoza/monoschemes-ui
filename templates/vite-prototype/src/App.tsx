@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   Button,
   Card,
+  DescriptionList,
   Divider,
   EmptyState,
   Footer,
@@ -87,22 +88,11 @@ export function App() {
                 <Text as="h3" style="h6">Getting started</Text>
                 <Tag label="Ready to edit" type="subtle" size="sm" />
               </div>
-              <div className="prototype-details">
-                <div className="prototype-detail-row">
-                  <Text style="body-2" color="var(--color-text-muted)">Design system</Text>
-                  <Text style="body-1">@monoschemes/ui</Text>
-                </div>
-                <Divider decorative />
-                <div className="prototype-detail-row">
-                  <Text style="body-2" color="var(--color-text-muted)">Theme</Text>
-                  <Text style="body-1">Light, Dark, and adaptive inverse zones</Text>
-                </div>
-                <Divider decorative />
-                <div className="prototype-detail-row">
-                  <Text style="body-2" color="var(--color-text-muted)">Next step</Text>
-                  <Text style="body-1">Describe the product screen you want to prototype</Text>
-                </div>
-              </div>
+              <DescriptionList items={[
+                { term: 'Design system', description: '@monoschemes/ui' },
+                { term: 'Theme', description: 'Light, Dark, and adaptive inverse zones' },
+                { term: 'Next step', description: 'Describe the product screen you want to prototype' },
+              ]} />
             </Card>
           </div>
 
