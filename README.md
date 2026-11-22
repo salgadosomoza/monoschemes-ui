@@ -2,6 +2,8 @@
 
 React component library for the **MonoSchemes** design system, synced with Figma.
 
+Figma kit on Community: [MonoSchemes · Monochrome UI Kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit).
+
 ## Overview
 
 `@monoschemes/ui` is the React implementation of the MonoSchemes design system. It provides reusable, typed components and design tokens kept in sync with the MonoSchemes Figma file.

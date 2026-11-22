@@ -61,7 +61,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Aplazado | Popover | Esperar a que exista un caso real antes de diseñarlo o implementarlo (K-29). |
 | Backlog | Otras interacciones | Drawer, Combobox y paleta de comandos siguen como candidatos a priorizar desde necesidades concretas. |
 | Condicional | Footer estrecho | Revisar el Footer a 960 px si vuelve a aparecer el caso de uso. |
-| Backlog | Publicación en Figma Community | Preparar portada, descripción, etiquetas, licencia y contenido publicable; no hay fecha fijada. |
+| Hecho | Publicación en Figma Community | Librería publicada como [MonoSchemes · Monochrome UI Kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit). | Mantener la ficha y el archivo de Figma alineados con futuras entregas. |
 | Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |
 | En curso | Issue de TagGroup | El PR #9 implementa el alcance de #6 y cerrará el duplicado histórico #2 al fusionarse. |
 
