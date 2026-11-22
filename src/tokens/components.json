@@ -1139,6 +1139,27 @@
         "helperText": { "type": "string" }
       }
     },
+    "Gallery": {
+      "figmaNode": "2775:1061",
+      "useFor": "Present up to three photos in a featured or grid layout and let people browse the complete collection in a full-screen viewer.",
+      "props": {
+        "images": { "type": "array", "required": true, "items": { "src": "string", "alt": "string (required)", "caption": "string (optional)" } },
+        "layout": { "type": "variant", "values": ["featured", "grid"], "default": "featured" },
+        "showAll": { "type": "boolean", "default": true }
+      }
+    },
+    "Gallery/Viewer": {
+      "figmaNode": "2775:1062",
+      "subcomponentOf": "Gallery",
+      "useFor": "Browse the complete photo collection in a fullscreen dark viewer.",
+      "props": {
+        "images": { "type": "array", "required": true },
+        "index": { "type": "number", "required": true },
+        "onIndexChange": { "type": "event", "required": true },
+        "onClose": { "type": "event", "required": true },
+        "showThumbnails": { "type": "boolean", "default": true }
+      }
+    },
     "Form/Multi-select": {
       "figmaNode": "2504:1045",
       "props": {
@@ -1432,7 +1453,8 @@
       { "name": "detail-page", "file": "docs/agent-package/recipes.md", "uses": ["Breadcrumb", "Tag", "Text", "Button", "Stat", "Divider", "Avatar"] },
       { "name": "multi-step-form", "file": "docs/agent-package/recipes.md", "uses": ["Stepper", "Notification/InlineNotification", "Form/Input", "Button"] },
       { "name": "view-states", "file": "docs/agent-package/recipes.md", "uses": ["Skeleton", "EmptyState", "Notification/InlineNotification", "Button"] },
-      { "name": "listing-card", "file": "docs/agent-package/recipes.md", "uses": ["Card/Image", "Tag", "Button", "Text", "Icon"] }
+      { "name": "listing-card", "file": "docs/agent-package/recipes.md", "uses": ["Card/Image", "Tag", "Button", "Text", "Icon"] },
+      { "name": "photo-gallery", "file": "docs/agent-package/recipes.md", "uses": ["Gallery", "Gallery/Viewer"] }
     ]
   }
 }

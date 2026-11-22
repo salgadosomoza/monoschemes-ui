@@ -209,3 +209,20 @@ Use `CardImage` for image-led search results such as homes, products, or places.
 ```
 
 Use `Card/Media` for compact people or voice choices; it is not the image-led listing card. Use `Stat` for prominent standalone figures rather than assembling metric labels and values from loose text.
+
+## Photo gallery
+
+Use `Gallery` when photos are a primary part of a listing or product detail. Keep the first three photos in the page layout; the viewer gives access to the remaining photos. Write meaningful alternative text for every image and add a caption only when it gives useful context.
+
+```tsx
+<Gallery
+  layout="featured"
+  images={listing.photos.map((photo) => ({
+    src: photo.url,
+    alt: photo.description,
+    caption: photo.caption,
+  }))}
+/>
+```
+
+Use `layout="grid"` when the photos have equal priority. Below 768 px, Gallery uses its mobile carousel automatically; no responsive prop is needed.

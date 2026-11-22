@@ -33,6 +33,7 @@ export * from './FormSelect';
 export * from './FormTextarea';
 export * from './FormToggle';
 export * from './FormTime';
+export * from './Gallery';
 export * from './Grid';
 export * from './Image';
 export * from './Icon';
