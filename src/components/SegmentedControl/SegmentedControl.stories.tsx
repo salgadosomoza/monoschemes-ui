@@ -10,7 +10,7 @@ const OPTIONS = [
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 
 const meta = {
-  title: 'Components/SegmentedControl',
+  title: 'Forms/Segmented control',
   component: SegmentedControl,
   args: { options: OPTIONS, value: 'outline', onChange: () => {}, 'aria-label': 'View style' },
   tags: ['autodocs'],

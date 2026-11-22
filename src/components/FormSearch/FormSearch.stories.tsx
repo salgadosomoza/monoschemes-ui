@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FormSearch } from './FormSearch';
 
 const meta = {
-  title: 'Components/Form/Search',
+  title: 'Forms/Search',
   component: FormSearch,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

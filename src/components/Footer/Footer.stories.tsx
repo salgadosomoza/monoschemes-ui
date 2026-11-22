@@ -5,7 +5,7 @@ import { Footer, FooterColumn } from './index';
 
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 const meta = {
-  title: 'Components/Footer',
+  title: 'Layout/Footer',
   component: Footer,
   parameters: { layout: 'fullscreen', design: { type: 'figma', url: `${FIGMA_BASE}2535-940` } },
   tags: ['autodocs'],

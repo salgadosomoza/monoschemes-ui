@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { FormNumber } from '../src/components/FormNumber';
+import { FormNumber } from '.';
 
-const meta = { title: 'Components/Form/Number', component: FormNumber, tags: ['autodocs'], parameters: { layout: 'centered', design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2502-854' } } } satisfies Meta<typeof FormNumber>;
+const meta = { title: 'Forms/Number', component: FormNumber, tags: ['autodocs'], parameters: { layout: 'centered', design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2502-854' } } } satisfies Meta<typeof FormNumber>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

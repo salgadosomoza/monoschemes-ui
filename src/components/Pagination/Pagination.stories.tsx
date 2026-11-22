@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { Pagination } from '../src/components/Pagination';
+import { Pagination } from '.';
 
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 const figma = (id: string) => ({ design: { type: 'figma', url: FIGMA_BASE + id } });
 
 const meta = {
-  title: 'Components/Pagination',
+  title: 'Navigation/Pagination',
   component: Pagination,
   args: { page: 5, pageCount: 131, onPageChange: () => {} },
   parameters: {

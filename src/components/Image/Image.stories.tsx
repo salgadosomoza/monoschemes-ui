@@ -17,7 +17,7 @@ const NODE_ID: Record<ImageType, string> = {
 };
 
 const meta = {
-  title: 'Components/Image',
+  title: 'Data display/Image',
   component: Image,
   parameters: {
     layout: 'centered',

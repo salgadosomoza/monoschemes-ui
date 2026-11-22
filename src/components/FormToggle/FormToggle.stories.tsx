@@ -6,7 +6,7 @@ const TYPES: FormToggleType[] = ['label', 'icon'];
 const STATUSES: FormToggleStatus[] = ['inactive', 'active'];
 
 const meta = {
-  title: 'Components/Form/Toggle',
+  title: 'Forms/Toggle',
   component: FormToggle,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

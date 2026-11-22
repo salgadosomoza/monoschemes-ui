@@ -6,7 +6,7 @@ const TYPES: LogoType[] = ['text', 'image', 'icon'];
 const SIZES: LogoSize[] = ['md', 'lg'];
 
 const meta = {
-  title: 'Components/Logo',
+  title: 'Navigation/App header/Logo',
   component: Logo,
   parameters: {
     layout: 'centered',

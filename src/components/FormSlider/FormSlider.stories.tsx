@@ -5,7 +5,7 @@ import { FormSlider } from './FormSlider';
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 
 const meta = {
-  title: 'Components/Form/Slider',
+  title: 'Forms/Slider',
   component: FormSlider,
   args: {
     value: 1.8,

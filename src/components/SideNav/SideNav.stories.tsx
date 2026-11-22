@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { SideNav, SideNavItem } from '../src/components/SideNav';
+import { SideNav, SideNavItem } from '.';
 
 const CATEGORIES = [
   ['All icons', '5,203'],
@@ -17,8 +17,9 @@ const CATEGORIES = [
 const FIGMA_URL = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2334-1613';
 
 const meta = {
-  title: 'Components/SideNav',
+  title: 'Navigation/Side nav',
   component: SideNav,
+  args: { children: null },
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -58,5 +59,5 @@ function CategoriesExample() {
   );
 }
 
-export const TenCategories: Story = { render: () => <CategoriesExample /> };
+export const ExampleTenCategories: Story = { render: () => <CategoriesExample /> };
 export const Dark: Story = { globals: { theme: 'dark' }, render: () => <CategoriesExample /> };

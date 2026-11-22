@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button } from '../src/components/Button';
-import { Tooltip, type TooltipPlacement } from '../src/components/Tooltip';
+import { Button } from '../Button';
+import { Tooltip, type TooltipPlacement } from '.';
 
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 const figma = (nodeId: string) => ({ design: { type: 'figma', url: `${FIGMA_BASE}${nodeId}` } });
 
 const meta = {
-  title: 'Components/Tooltip',
+  title: 'Feedback/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   args: { content: 'Copy link', placement: 'top' },
@@ -60,6 +60,7 @@ function placementExamples(inverse = false) {
 
 function themedStory(theme: 'light' | 'dark', nodeId: string, options: DemoOptions = {}): Story {
   return {
+    args: { content: 'Copy link', children: <Button variant="tertiary" label="Copy link" /> },
     globals: { theme },
     parameters: figma(nodeId),
     render: () => singleTooltip(options),
@@ -68,6 +69,7 @@ function themedStory(theme: 'light' | 'dark', nodeId: string, options: DemoOptio
 
 function placementsStory(theme: 'light' | 'dark', nodeId: string, inverse = false): Story {
   return {
+    args: { content: 'Tooltip', children: <Button variant="secondary" label="Trigger" /> },
     globals: { theme },
     parameters: figma(nodeId),
     render: () => placementExamples(inverse),

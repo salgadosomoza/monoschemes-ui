@@ -3,7 +3,7 @@ import { TagGroup } from './TagGroup';
 
 const FIGMA_BASE = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=';
 const meta = {
-  title: 'Components/Tag group',
+  title: 'Data display/Tag group',
   component: TagGroup,
   parameters: { layout: 'padded', design: { type: 'figma', url: `${FIGMA_BASE}2665-412` } },
   tags: ['autodocs'],

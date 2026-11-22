@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FormDate } from './FormDate';
 
 const meta = {
-  title: 'Components/Form/Date', component: FormDate, parameters: { layout: 'centered' }, tags: ['autodocs'],
+  title: 'Forms/Date', component: FormDate, parameters: { layout: 'centered' }, tags: ['autodocs'],
   argTypes: {
     value: { control: 'text', description: 'Format: DD/MM/YYYY' }, min: { control: 'text' }, max: { control: 'text' },
     disabled: { control: 'boolean' }, label: { control: 'text' }, open: { control: 'boolean' }, defaultOpen: { control: 'boolean' },
