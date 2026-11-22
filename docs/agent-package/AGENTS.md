@@ -47,6 +47,7 @@ npm run dev
 - Use `AppHeader` and `SideNav` for application navigation. Pass navigation and actions explicitly; do not add a second copy of built-in controls.
 - Use `Stat` for a prominent metric, `Table` for structured rows and columns, `Pagination` for large result sets, and `EmptyState` when filtering produces no results.
 - Use `CardImage` for photo-led listings; use `Card/Media` for compact people or voice choices. Use `FeatureCard` for a concise feature summary and `Card` for a general content container.
+- Use `Gallery` for a listing or product photo collection. Provide meaningful `alt` text for every image; keep up to three photos in the page layout and let the Gallery viewer expose the full set.
 - Use `DescriptionList` for details about one record, not for values that need row-to-row comparison.
 - Use `Footer variant="minimal"` for a compact legal footer.
 - Use `InlineNotification` for an inline message, `Banner` for a status notice, and `AnnouncementBar` for a site-wide announcement.
@@ -63,6 +64,7 @@ The machine-readable component map is in `src/tokens/components.json`. Recipes a
 | `DescriptionList` | Detail data for one record; use Table when the same values should be compared across rows. |
 | `Card` | General content containers and grouped content; use a more specific card pattern when the content has a defined structure. |
 | `Card/Image` | Image-led listings and content cards with a photo, status, title, metadata, key facts, price and action. |
+| `Gallery` | A featured or grid photo collection with a full-screen viewer, keyboard navigation and thumbnails. |
 | `Image` | Photos and other image content with a defined aspect ratio or a semantic placeholder. |
 | `Tag` | Short status labels, categories and compact metadata; use TagGroup for a collection of tags with overflow. |
 | `TagGroup` | A collection of related tags that can wrap or collapse into an overflow count. |

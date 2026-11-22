@@ -16,6 +16,8 @@ const required = [
   ['Table style', /\.table\s*\{/],
   ['CardImage style', /\.card-image\s*\{/],
   ['FormCombobox style', /\.form-combobox\s*\{/],
+  ['Gallery style', /\.gallery\s*\{/],
+  ['GalleryViewer style', /\.gallery-viewer\s*\{/],
 ];
 const missing = required.filter(([, pattern]) => !pattern.test(css)).map(([name]) => name);
 
@@ -23,5 +25,5 @@ if (missing.length) {
   console.error(`dist/style.css is missing: ${missing.join(', ')}`);
   process.exitCode = 1;
 } else {
-  console.log('dist/style.css includes page tokens, dark/inverse themes, reduced-motion rules, error styles, FormCombobox, Tooltip forced-colors outline, DescriptionList and Table styles, CommandPalette, and Drawer styles.');
+  console.log('dist/style.css includes page tokens, dark/inverse themes, reduced-motion rules, error styles, FormCombobox, Tooltip forced-colors outline, DescriptionList, Table, CommandPalette, Drawer and Gallery styles.');
 }

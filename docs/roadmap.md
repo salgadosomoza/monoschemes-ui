@@ -70,8 +70,8 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Publicación en Figma Community | Librería publicada como [MonoSchemes · Monochrome UI Kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit). | Mantener la ficha y el archivo de Figma alineados con futuras entregas. |
 | Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |
 | Hecho | Issue de TagGroup | El PR #9 cerró los issues #2 y #6 al integrarse en `main`. |
-| En curso | Descubribilidad, iconos y Card/Image (#28) | Figma ya define las descripciones «Use for», seis iconos nuevos, Card/Image y la receta Listing card. Implementación y documentación en PR. |
-| Diseñado | Gallery y Gallery/Viewer (#29) | Figma define variantes featured/grid/mobile y el visor modal con teclado y miniaturas; pendiente implementar foco, teclado y gestos táctiles. |
+| Hecho | Descubribilidad, iconos y Card/Image (#27, #28) | Descripciones «Use for», seis iconos nuevos, Card/Image y la receta Listing card integrados en main. |
+| En curso | Gallery y Gallery/Viewer (#29) | Figma define variantes featured/grid/mobile y el visor modal con teclado, miniaturas, foco y gestos táctiles; implementación en curso. |
 | En Figma | Map y Rating | Ideas del FigJam aún sin especificación visual lista para código; crear issues separadas después del diseño. |
 | Exploración | Componentes para agentes | Hilo, entrada con voz, estados de pensamiento y llamadas a herramientas; explorar primero en FigJam. |
 
