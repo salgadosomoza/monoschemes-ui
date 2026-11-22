@@ -16,10 +16,12 @@
 
 - Import `@monoschemes/ui/style.css` once.
 - Use the provided React components and semantic CSS variables; do not invent tokens, colors, component names, or props.
+- For searchable single-choice fields use `FormCombobox`; use `FormMultiSelect` when several choices are allowed.
 - Set the page theme on `<html>` with `data-theme="light"` or `data-theme="dark"`.
 - Use `data-theme="inverse"` for a contrasting region that must adapt to either page theme. Do not nest inverse regions.
 - Keep component styling in the library. Use consumer CSS for layout and responsive composition.
 - Load Inter and JetBrains Mono in the consuming app; the package does not bundle these fonts.
+- Kbd uses JetBrains Mono at 12/16 or 14/20; CodeBlock uses 14/20. Larger code examples can use the 16/24 mono/body 1 scale.
 
 ## More information
 

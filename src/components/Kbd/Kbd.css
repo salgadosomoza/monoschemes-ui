@@ -6,19 +6,19 @@
   border-radius: var(--radius-none);
   background: var(--color-bg-page);
   color: var(--color-text-primary);
-  font-family: var(--font-family);
+  font-family: var(--font-family-mono);
   font-weight: 400;
   white-space: nowrap;
 }
 
 .kbd[data-size="sm"] {
   padding: 2px 4px;
-  font-size: var(--font-caption-size);
-  line-height: var(--font-caption-line-height);
+  font-size: var(--font-mono-caption-size);
+  line-height: var(--font-mono-caption-line);
 }
 
 .kbd[data-size="md"] {
   padding: 4px 8px;
-  font-size: var(--font-body2-size);
-  line-height: var(--font-body2-line-height);
+  font-size: var(--font-mono-body2-size);
+  line-height: var(--font-mono-body2-line);
 }

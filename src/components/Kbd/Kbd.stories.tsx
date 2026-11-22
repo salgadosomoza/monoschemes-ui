@@ -12,7 +12,7 @@ const meta = {
     design: { type: 'figma', url: `${FIGMA_BASE}2284-1878` },
     docs: {
       description: {
-        component: 'Displays a keyboard key or shortcut. Use `sm` for compact shortcuts and `md` when the key needs more emphasis. Content is rendered with the semantic HTML `<kbd>` element.',
+        component: 'Displays a keyboard key or shortcut in JetBrains Mono. `sm` uses the mono/caption scale (12/16) and `md` uses mono/body 2 (14/20). Content is rendered with the semantic HTML `<kbd>` element.',
       },
     },
   },

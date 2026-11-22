@@ -27,8 +27,9 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 
 | Estado | Trabajo | Situación | Siguiente acción |
 |---|---|---|---|
+| Hecho | Combobox y escala mono (#20, #23) | FormCombobox y la escala JetBrains Mono para Kbd y CodeBlock están implementados y probados. | Mantener contrato, documentación y estilos alineados con Figma. |
 | Hecho | Pendientes #13, #14 y #16 | CommandPalette (#13, PR #19), plantilla Vite (#14, PR #14) y Drawer (#16, PR #21) están integrados en `main`. | Mantener las stories y el contrato alineados con el sistema. |
-| En curso | EmptyState y publicación 0.2.0 (#17) | Título y descripción ya se centran; se añade prueba de regresión. El paquete incluye CommandPalette, Drawer y la plantilla actualizada. El workflow OIDC terminó correctamente y npm recibió la versión, pero la revisión automática de npm sigue pendiente; `latest` continúa en 0.1.1. | Esperar a que npm active 0.2.0 y verificar la instalación antes de cerrar #17. |
+| Hecho | EmptyState y publicación 0.2.0 (#17) | Título y descripción centrados con prueba de regresión; el paquete incluye CommandPalette, Drawer y la plantilla actualizada. npm publica 0.2.0 como `latest` mediante Trusted Publishing. | Mantener la versión de la plantilla alineada con futuros releases. |
 | Hecho | Revisión visual de la alineación y zona `inverse` | Carlos revisó AppHeader sin navegación, FormSearch, Pagination y FormSelect en Light y Dark. La zona `inverse` también se comprobó en ambos temas y se ve bien. | Registrar cualquier discrepancia visual futura como una tarea independiente. |
 | Hecho | Comprobación focalizada de comprensión de `inverse` | En una prueba separada, el prompt especificó que el hero debía ser oscuro en Light y claro en Dark, sin nombrar `inverse`. Claude Code consultó la documentación del paquete, eligió `data-theme="inverse"` y el resultado se confirmó visualmente en ambos temas. Build y lint pasan. | Conservar R2/R3 como resultados históricos; no atribuir causalidad a la documentación con una sola prueba ni compararla como si el prompt fuera idéntico. |
 | Hecho | Traspaso del registro y resultados | Las tres rondas comparativas, la comprobación focalizada R4 y el estado actual de la auditoría de color están en Sheets; el plan inicial quedó archivado y la decisión K-09 ya no está duplicada. | Mantener Sheets para los datos y consultar este archivo para las prioridades vigentes. |
@@ -62,6 +63,8 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Tooltip | Diseñado e implementado según K-28, con acceso por teclado, posición adaptativa y soporte Light, Dark e `inverse`. |
 | Aplazado | Popover | Esperar a que exista un caso real antes de diseñarlo o implementarlo (K-29). |
 | Hecho | CommandPalette y Drawer | CommandPalette (#13, PR #19) y Drawer (#16, PR #21) están implementados y en `main`. |
+| Hecho | FormCombobox (#20) | Selector de una opción con búsqueda sin acentos, lista accesible y estados para resultados, vacío y carga remota. |
+| Hecho | Escala mono (#23) | Añadidos mono/caption, mono/body 2 y mono/body 1; Kbd y CodeBlock usan JetBrains Mono. |
 | Condicional | Footer estrecho | Revisar el Footer a 960 px si vuelve a aparecer el caso de uso. |
 | Hecho | Publicación en Figma Community | Librería publicada como [MonoSchemes · Monochrome UI Kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit). | Mantener la ficha y el archivo de Figma alineados con futuras entregas. |
 | Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |
@@ -76,13 +79,13 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 - Los cambios visuales —componentes, tokens, estilos y stories— se desarrollan en una rama y PR. Codex los integra tras las comprobaciones; la revisión de Claude es opcional salvo que Carlos la solicite.
 - Los cambios internos o de proceso —CI, scripts, documentación, tests y refactors sin efecto visual— pueden integrarse sin una revisión visual previa.
 - Una publicación requiere que tests, lint, typecheck, build, `check:dist` y el smoke test de instalación del tarball pasen; también requiere versión semver nueva y entrada en `CHANGELOG.md`.
-- Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`; npm aceptó el primer intento de publicación 0.2.0 y está completando la validación automática. El workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar; no requiere un token persistente.
+- Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`. La versión 0.2.0 está disponible como `latest`; el workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar, sin token persistente.
 - Recomendación para `0.0.0-stage`: deprecar esa versión suelta para desaconsejar su instalación; queda pendiente ejecutar la acción en npm y verificar el mensaje de deprecación.
 
 ### Hecho
 
 - El paquete se puede instalar y consumir como `@monoschemes/ui`; las versiones `0.1.0` y `0.1.1` están publicadas en npm.
-- La versión 0.1.1 incluye el error de InlineNotification, tokens y temas en el CSS publicado, contrato, documentación de consumo, `llms.txt`, recetas y skill para Claude Code. La publicación 0.2.0 fue aceptada por GitHub Actions con OIDC el 22 nov 2026; su disponibilidad en el registro está pendiente de la revisión automática de npm.
+- La versión 0.1.1 incluye el error de InlineNotification, tokens y temas en el CSS publicado, contrato, documentación de consumo, `llms.txt`, recetas y skill para Claude Code. La versión 0.2.0 quedó publicada con OIDC el 22 nov 2026 e incluye CommandPalette, Drawer y la plantilla Vite actualizada.
 - **Ronda 1 · 0.0.1:** 8 intentos diagnósticos, contaminados por `claude-mem`; no es línea base. El problema principal fue el CSS publicado sin definiciones de tokens.
 - **Ronda 2 · 0.0.2:** 4/4 aplicaciones completas; 47/48 de fidelidad; 1 error de sistema en T4 por usar `data-theme="dark"` en vez de `inverse`.
 - **Ronda comparativa · 0.1.1:** 4/4 completas; 47/48; 1 error de sistema, el mismo uso fijo de `dark` en T4. Con esta muestra, la hipótesis H1 no queda apoyada; tampoco se demuestra que el paquete para agentes no ayude en general.

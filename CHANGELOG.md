@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add FormCombobox, a searchable single-select field with async loading, accessible listbox navigation, and accent-insensitive matching.
+- Add JetBrains Mono caption/body scales and apply mono/body 2 to Kbd and CodeBlock.
+
 ## 0.2.0 — 2026-11-22
 
 - Add the CommandPalette, Drawer, redesigned Table, TagGroup, DescriptionList, Tooltip, and typed Toast patterns.

@@ -415,6 +415,35 @@
         }
       }
     },
+    "Form/Combobox": {
+      "figmaNode": "2741:1637",
+      "figmaVariants": {
+        "status": { "type": "variant", "values": ["default", "focused", "disabled", "error", "open"], "default": "default" },
+        "results": { "type": "variant", "values": ["list", "empty", "loading"], "reactMapping": "Derived from filtered options and loading state" },
+        "value": { "type": "variant", "values": ["empty", "filled"], "reactMapping": "empty uses placeholder; filled displays the selected option label" }
+      },
+      "props": {
+        "options": { "type": "array", "items": { "value": "string", "label": "string", "disabled": "boolean" } },
+        "value": { "type": "string|null" },
+        "defaultValue": { "type": "string|null" },
+        "onChange": { "type": "event", "value": "string|null" },
+        "placeholder": { "type": "string", "default": "Search" },
+        "query": { "type": "string" },
+        "onQueryChange": { "type": "event", "value": "string" },
+        "loading": { "type": "boolean", "default": false },
+        "emptyText": { "type": "function", "default": "No matches for query" },
+        "disabled": { "type": "boolean", "default": false },
+        "error": { "type": "boolean", "default": false },
+        "label": { "type": "string" },
+        "helperText": { "type": "string" },
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "autoComplete": { "type": "string" },
+        "required": { "type": "boolean", "default": false },
+        "aria-label": { "type": "string" }
+      },
+      "accessibility": "Input combobox retains focus, announces result counts, and exposes the active option with aria-activedescendant. Escape restores the prior selection; only listed options can be selected."
+    },
     "Form/Textarea": {
       "figmaNode": "1441:406",
       "figmaVariants": {
@@ -460,7 +489,7 @@
     "Form/Field": {
       "figmaNode": "2652:1112",
       "mappingOnly": true,
-      "reactMapping": ["Form/Input", "Form/Select", "Form/Textarea", "Form/Date", "Form/Number", "Form/Password", "Form/Time", "Form/Multi-select"],
+      "reactMapping": ["Form/Input", "Form/Select", "Form/Combobox", "Form/Textarea", "Form/Date", "Form/Number", "Form/Password", "Form/Time", "Form/Multi-select"],
       "fieldProps": {
         "label": "Field label where supported by the control",
         "helperText": "Supporting or corrective text where supported by the control",

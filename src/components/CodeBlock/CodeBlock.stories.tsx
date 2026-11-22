@@ -12,7 +12,7 @@ const meta = {
     design: { type: 'figma', url: `${FIGMA_BASE}2260-1170` },
     docs: {
       description: {
-        component: 'Presents source code without syntax highlighting. Use `filename` to identify the file, `language` to annotate the code element, and `showCopy` to provide a clipboard action. Copy success or failure is announced through a polite live region.',
+        component: 'Presents source code in JetBrains Mono mono/body 2 (14/20), without syntax highlighting. Use `filename` to identify the file, `language` to annotate the code element, and `showCopy` to provide a clipboard action. Copy success or failure is announced through a polite live region.',
       },
     },
   },

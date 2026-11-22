@@ -45,7 +45,7 @@ Supported values are `data-theme="light"`, `data-theme="dark"` and `data-theme="
 
 ### Fonts
 
-The design system uses **Inter** for interface text and **JetBrains Mono** for code. Fonts are not bundled with the package; load them in your app, for example from Google Fonts:
+The design system uses **Inter** for interface text and **JetBrains Mono** for code and keyboard shortcuts. Kbd uses `mono/caption` (12/16) or `mono/body 2` (14/20); CodeBlock uses `mono/body 2` (14/20). `mono/body 1` is 16/24 for larger code examples. Fonts are not bundled with the package; load them in your app, for example from Google Fonts:
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
