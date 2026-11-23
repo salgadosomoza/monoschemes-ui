@@ -22,6 +22,15 @@ const required = [
   ['MapMarker style', /\.map-marker\s*\{/],
   ['Rating style', /\.rating\s*\{/],
   ['RatingInput style', /\.rating-input\s*\{/],
+  ['AgentMark style', /\.agent-mark\s*\{/],
+  ['AgentStatus style', /\.agent-status\s*\{/],
+  ['AgentMessage style', /\.agent-message\s*\{/],
+  ['MessageActions style', /\.message-actions\s*\{/],
+  ['ToolCall style', /\.tool-call\s*\{/],
+  ['ApprovalRequest style', /\.approval-request\s*\{/],
+  ['AgentSuggestions style', /\.agent-suggestions\s*\{/],
+  ['AgentComposer style', /\.agent-composer\s*\{/],
+  ['AgentThread style', /\.agent-thread\s*\{/],
 ];
 const missing = required.filter(([, pattern]) => !pattern.test(css)).map(([name]) => name);
 
@@ -29,5 +38,5 @@ if (missing.length) {
   console.error(`dist/style.css is missing: ${missing.join(', ')}`);
   process.exitCode = 1;
 } else {
-  console.log('dist/style.css includes page tokens, dark/inverse themes, reduced-motion rules, error styles, FormCombobox, Tooltip forced-colors outline, DescriptionList, Table, CommandPalette, Drawer, Gallery, Map and Rating styles.');
+  console.log('dist/style.css includes page tokens, dark/inverse themes, reduced-motion rules, error styles, FormCombobox, Tooltip forced-colors outline, DescriptionList, Table, CommandPalette, Drawer, Gallery, Map, Rating and agent conversation styles.');
 }

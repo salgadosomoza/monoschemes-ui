@@ -28,6 +28,7 @@ interface ButtonBaseProps {
   /** Marks the current page when the button represents the active pagination item. */
   'aria-current'?: 'page';
   'aria-expanded'?: boolean;
+  'aria-pressed'?: boolean | 'mixed';
   'aria-controls'?: string;
   'aria-label'?: string;
 }
@@ -52,6 +53,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   onClick,
   'aria-current': ariaCurrent,
   'aria-expanded': ariaExpanded,
+  'aria-pressed': ariaPressed,
   'aria-controls': ariaControls,
   'aria-label': ariaLabel,
 }: ButtonProps, ref) {
@@ -81,6 +83,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       aria-label={ariaLabel ?? (resolvedIconOnly ? label : undefined)}
       aria-current={ariaCurrent}
       aria-expanded={ariaExpanded}
+      aria-pressed={ariaPressed}
       aria-controls={ariaControls}
       aria-busy={loading || undefined}
     >

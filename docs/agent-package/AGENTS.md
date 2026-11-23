@@ -52,6 +52,7 @@ npm run dev
 - Use `Rating` for read-only scores and `RatingInput` for a one-to-five star response. Keep review counts optional and connect surrounding form help or error text with `aria-describedby`.
 - Use `DescriptionList` for details about one record, not for values that need row-to-row comparison.
 - Use `Footer variant="minimal"` for a compact legal footer.
+- Use `AgentThread`, `Message`, `ToolCall`, `ApprovalRequest`, `AgentStatus`, `Suggestions`, and `Composer` to assemble an agent conversation UI. The consumer app supplies the model, tool execution, and voice provider; the package supplies UI and callbacks.
 - Use `InlineNotification` for an inline message, `Banner` for a status notice, and `AnnouncementBar` for a site-wide announcement.
 - For a display headline, use `Text` styles `display-1`, `display-2`, or `display-3`; `display` is a deprecated alias for `display-1`.
 
@@ -85,6 +86,7 @@ The machine-readable component map is in `src/tokens/components.json`. Recipes a
 | `Form/Combobox` | A searchable single-choice field, including long or asynchronously loaded option lists. |
 | `Button` | Actions that change state or submit work; use Link for navigation to another location. |
 | `Kbd` | A keyboard key or shortcut shown as supporting interface guidance. |
+| `AgentThread` | A dedicated conversation or non-modal side panel, composed with messages, tool calls, approvals and a Composer. |
 
 ## Composition examples
 
