@@ -1,0 +1,122 @@
+/* Rating — Figma XZ8yMM8VJihEwmyFaW6sCB · 2783:1399, 2783:1512, 2783:1326 */
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-md);
+  width: fit-content;
+  color: var(--color-text-strong);
+}
+
+.rating[data-size="sm"] { gap: var(--gap-sm); }
+.rating[data-type="compact"] { gap: var(--gap-sm); }
+
+.rating__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  color: var(--color-text-strong);
+}
+
+.rating[data-size="sm"] .rating__stars { gap: var(--spacing-3xs); }
+.rating[data-type="compact"] .rating__stars { gap: 0; }
+
+.rating__value,
+.rating__count {
+  display: inline;
+  width: auto;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.rating__value { color: var(--color-text-strong); }
+
+.rating-star {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  color: var(--color-text-strong);
+}
+
+.rating-star__filled,
+.rating-star__empty {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rating-star[data-value="empty"] { color: var(--color-text-muted); }
+.rating-star[data-value="half"] .rating-star__empty { color: var(--color-text-muted); }
+.rating-star[data-disabled="true"] { color: var(--color-text-disabled); }
+
+.rating-star__half {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+  color: var(--color-text-strong);
+}
+
+.rating-star[data-disabled="true"] .rating-star__half { color: var(--color-text-disabled); }
+.rating-star__half .icon { max-width: none; }
+
+.rating-input {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-md);
+  width: fit-content;
+}
+
+.rating-input__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.rating-input__option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
+  padding: var(--spacing-2xs);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.rating-input__option input {
+  position: absolute;
+  inset: var(--spacing-2xs);
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.rating-input__option .rating-star { color: var(--color-text-muted); }
+.rating-input__option[data-active="true"] .rating-star,
+.rating-input__option[data-checked="true"] .rating-star { color: var(--color-text-strong); }
+.rating-input[data-disabled="true"] .rating-input__option .rating-star { color: var(--color-text-disabled); }
+
+.rating-input__option:has(input:focus-visible) {
+  outline: 2px solid var(--color-border-focused);
+  outline-offset: 0;
+}
+
+.rating-input__option:has(input:disabled) { cursor: not-allowed; }
+
+.rating-input__label {
+  display: inline;
+  width: auto;
+  max-width: none;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rating-star { transition: none; }
+}

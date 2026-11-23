@@ -71,8 +71,9 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |
 | Hecho | Issue de TagGroup | El PR #9 cerró los issues #2 y #6 al integrarse en `main`. |
 | Hecho | Descubribilidad, iconos y Card/Image (#27, #28) | Descripciones «Use for», seis iconos nuevos, Card/Image y la receta Listing card integrados en main. |
-| En curso | Gallery y Gallery/Viewer (#29) | Figma define variantes featured/grid/mobile y el visor modal con teclado, miniaturas, foco y gestos táctiles; implementación en curso. |
-| En Figma | Map y Rating | Ideas del FigJam aún sin especificación visual lista para código; crear issues separadas después del diseño. |
+| Hecho | Gallery y Gallery/Viewer (#29) | Variantes featured/grid/mobile y visor modal con teclado, miniaturas, foco y gestos táctiles integrados en main. |
+| En curso | Map y MapMarker (#31) | Figma define marco independiente del proveedor, lienzo neutro, atribución, proporciones y marcadores seleccionables. Implementación en curso. |
+| En curso | Rating y RatingInput (#33) | Figma define lectura con media estrella y entrada accesible de 1–5 estrellas. Implementación en curso. |
 | Exploración | Componentes para agentes | Hilo, entrada con voz, estados de pensamiento y llamadas a herramientas; explorar primero en FigJam. |
 
 Las páginas de prueba de Figma son referencias de exploración, no entregas independientes. Añadir allí pruebas nuevas cuando aporten un caso concreto.

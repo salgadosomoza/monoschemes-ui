@@ -9,7 +9,7 @@ const iconNames: IconName[] = [
   'download', 'grip-vertical', 'chevron-up', 'chevron-down', 'square-minus-filled', 'link',
   'map-pin', 'menu-2', 'music', 'photo', 'player-play', 'qrcode', 'circle-dot-filled', 'circle',
   'minus', 'search', 'movie', 'video', 'help-circle', 'password', 'dots', 'upload', 'star',
-  'player-pause', 'volume', 'brand-x', 'brand-instagram', 'brand-linkedin', 'brand-youtube',
+  'star-filled', 'player-pause', 'volume', 'brand-x', 'brand-instagram', 'brand-linkedin', 'brand-youtube',
   'brand-facebook', 'brand-tiktok', 'brand-github',
 ];
 
