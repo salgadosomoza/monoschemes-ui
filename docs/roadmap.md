@@ -1,6 +1,6 @@
 # MonoSchemes · roadmap de diseño, UI y agentes
 
-Actualizado: 22 de noviembre de 2026.
+Actualizado: 23 de noviembre de 2026.
 
 ## Cómo usar este roadmap
 
@@ -38,7 +38,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Clasificación de Storybook | El PR #10 organiza las historias según las ocho categorías de Figma y aplica el orden revisado por Claude. | Mantener la estructura alineada con futuras historias. |
 | Aplazado | Stories de Patterns | Las recetas siguen documentadas en el paquete de agentes; las historias de páginas completas se añadirán cuando haya una revisión visual específica para esa categoría. | Retomar cuando Figma tenga ejemplos listos para validar. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList están integrados; la receta de dashboard usa búsqueda, selección y paginación de Table. | Mantener los ejemplos alineados con futuras APIs. |
-| Hecho | Plantilla de arranque Vite | PR #14 integrada. La plantilla usa `@monoschemes/ui` 0.2.0 y `DescriptionList`. | Mantener la versión de la plantilla alineada con cada release. |
+| Hecho | Plantilla de arranque Vite | PR #14 integrada. La plantilla se actualizará a `@monoschemes/ui` 0.3.0 con este release y usa `DescriptionList`. | Mantener la versión de la plantilla alineada con cada release. |
 | Hecho | Verificación automática de tokens y contrato | `npm run check:design-system` valida referencias a primitivos y tokens CSS, y estructura básica del contrato sin pretender comparar datos con Figma. CI corre lint, tipos, tests, builds, `check:dist`, smoke test y esta validación en PR y push a `main`. | Ampliar solo ante una regla concreta y verificable; Figma y accesibilidad visual siguen requiriendo revisión explícita. |
 | Backlog | Storybook público | Storybook aún no tiene una publicación pública enlazada desde el paquete. | Publicar `storybook-static` (por ejemplo, en GitHub Pages) y enlazarlo desde README y `llms.txt`. |
 | Backlog | Code Connect | No se ha confirmado el plan de Figma ni el alcance práctico. | Confirmar elegibilidad y componentes prioritarios antes de implementar. |
@@ -72,8 +72,8 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Issue de TagGroup | El PR #9 cerró los issues #2 y #6 al integrarse en `main`. |
 | Hecho | Descubribilidad, iconos y Card/Image (#27, #28) | Descripciones «Use for», seis iconos nuevos, Card/Image y la receta Listing card integrados en main. |
 | Hecho | Gallery y Gallery/Viewer (#29) | Variantes featured/grid/mobile y visor modal con teclado, miniaturas, foco y gestos táctiles integrados en main. |
-| En curso | Map y MapMarker (#31) | Figma define marco independiente del proveedor, lienzo neutro, atribución, proporciones y marcadores seleccionables. Implementación en curso. |
-| En curso | Rating y RatingInput (#33) | Figma define lectura con media estrella y entrada accesible de 1–5 estrellas. Implementación en curso. |
+| Hecho | Map y MapMarker (#31) | PR #35 integrada: marco independiente del proveedor, lienzo neutro, atribución, proporciones y marcadores seleccionables. |
+| Hecho | Rating y RatingInput (#33) | PR #35 integrada: lectura con media estrella y entrada accesible de 1–5 estrellas. |
 | Exploración | Componentes para agentes | Hilo, entrada con voz, estados de pensamiento y llamadas a herramientas; explorar primero en FigJam. |
 
 Las páginas de prueba de Figma son referencias de exploración, no entregas independientes. Añadir allí pruebas nuevas cuando aporten un caso concreto.
@@ -85,13 +85,13 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 - Los cambios visuales —componentes, tokens, estilos y stories— se desarrollan en una rama y PR. Codex los integra tras las comprobaciones; la revisión de Claude es opcional salvo que Carlos la solicite.
 - Los cambios internos o de proceso —CI, scripts, documentación, tests y refactors sin efecto visual— pueden integrarse sin una revisión visual previa.
 - Una publicación requiere que tests, lint, typecheck, build, `check:dist` y el smoke test de instalación del tarball pasen; también requiere versión semver nueva y entrada en `CHANGELOG.md`.
-- Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`. La versión 0.2.0 está disponible como `latest`; el workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar, sin token persistente.
+- Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`. La versión 0.2.0 está disponible como `latest`; el workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar, sin token persistente. El release 0.3.0 consolida FormCombobox, CardImage, Gallery, Map y Rating.
 - Recomendación para `0.0.0-stage`: deprecar esa versión suelta para desaconsejar su instalación; queda pendiente ejecutar la acción en npm y verificar el mensaje de deprecación.
 
 ### Hecho
 
 - El paquete se puede instalar y consumir como `@monoschemes/ui`; las versiones `0.1.0` y `0.1.1` están publicadas en npm.
-- La versión 0.1.1 incluye el error de InlineNotification, tokens y temas en el CSS publicado, contrato, documentación de consumo, `llms.txt`, recetas y skill para Claude Code. La versión 0.2.0 quedó publicada con OIDC el 22 nov 2026 e incluye CommandPalette, Drawer y la plantilla Vite actualizada.
+- La versión 0.1.1 incluye el error de InlineNotification, tokens y temas en el CSS publicado, contrato, documentación de consumo, `llms.txt`, recetas y skill para Claude Code. La versión 0.2.0 quedó publicada con OIDC el 22 nov 2026 e incluye CommandPalette, Drawer y la plantilla Vite actualizada. La 0.3.0 queda en preparación para publicación, con FormCombobox, CardImage, Gallery, Map, Rating y la plantilla actualizada.
 - **Ronda 1 · 0.0.1:** 8 intentos diagnósticos, contaminados por `claude-mem`; no es línea base. El problema principal fue el CSS publicado sin definiciones de tokens.
 - **Ronda 2 · 0.0.2:** 4/4 aplicaciones completas; 47/48 de fidelidad; 1 error de sistema en T4 por usar `data-theme="dark"` en vez de `inverse`.
 - **Ronda comparativa · 0.1.1:** 4/4 completas; 47/48; 1 error de sistema, el mismo uso fijo de `dark` en T4. Con esta muestra, la hipótesis H1 no queda apoyada; tampoco se demuestra que el paquete para agentes no ayude en general.
@@ -105,7 +105,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 |---|---|---|
 | Hecho | Registro de resultados | Las rondas y auditorías están consolidadas en Sheets; este roadmap y `docs/agent-test/results.md` conservan prioridades e interpretación. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList ya están integrados. La receta de dashboard usa las capacidades propias de búsqueda, selección y paginación de Table. | Mantener ejemplos alineados con cambios de API. |
-| Hecho | Plantilla inicial Vite | PR #14 integrada y actualizada para `@monoschemes/ui` 0.2.0. |
+| Hecho | Plantilla inicial Vite | PR #14 integrada y actualizada para `@monoschemes/ui` 0.3.0 en este release. |
 | Hecho | Verificación automática de contrato y tokens | Valida referencias locales y forma del JSON; no compara con Figma ni reemplaza la revisión accesible de Storybook. |
 | Después de cambios sustantivos | Nueva prueba comparativa | Repetir las mismas tareas y métricas solo cuando cambien de forma material las instrucciones, recetas o APIs. La muestra seguirá siendo pequeña y debe presentarse como tal. |
 
