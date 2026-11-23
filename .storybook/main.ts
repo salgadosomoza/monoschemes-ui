@@ -10,6 +10,11 @@ const config: StorybookConfig = {
     'storybook-addon-pseudo-states',
     '@storybook/addon-docs'
   ],
+  viteFinal: (config) => ({
+    ...config,
+    // Type declarations belong to the npm package, not the Storybook site.
+    plugins: config.plugins?.filter((plugin) => !(plugin && 'name' in plugin && plugin.name === 'vite:dts')),
+  }),
   framework: {
     name: '@storybook/react-vite',
     options: {},

@@ -25,7 +25,7 @@ function Example({ side = 'right', size = 'md', inverse = false }: { side?: Draw
     <Button label={`Open ${side} drawer`} variant="secondary" onClick={() => setOpen(true)} />
     <Drawer open={open} onOpenChange={setOpen} side={side} size={size} title="Edit profile" description="Update your account details.">
       <Text style="body-1" as="p">Change the information shown on your profile.</Text>
-      <label style={{ display: 'flex', flexDirection: 'column', gap: 8, color: 'var(--color-text-primary)' }}>Display name<input defaultValue="Carlos" /></label>
+      <label style={{ display: 'flex', flexDirection: 'column', gap: 8, color: 'var(--color-text-primary)' }}>Display name<input defaultValue="Demo account" /></label>
     </Drawer>
   </div>;
 }

@@ -2,6 +2,8 @@
 
 React component library for the **MonoSchemes** design system, synced with Figma.
 
+[Public Storybook](https://monoschemes.salgadosomoza.com/) · [LLM reference](https://monoschemes.salgadosomoza.com/llms.txt)
+
 Figma kit on Community: [MonoSchemes · Monochrome UI Kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit).
 
 ## Overview
@@ -70,6 +72,15 @@ npm run build:storybook
 # Lint
 npm run lint
 ```
+
+### Validar el sitio estático
+
+```bash
+npm run build:storybook
+npx wrangler deploy --config storybook.wrangler.toml --dry-run
+```
+
+El build copia `llms.txt` a la raíz de `storybook-static`.
 
 ### Storybook 10
 

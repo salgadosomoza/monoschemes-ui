@@ -8,7 +8,7 @@ Se mantiene junto al archivo de diseño de Figma y se documenta en Storybook.
 - **Figma** define la anatomía, composición y decisiones visuales. Sus Variables son la fuente
   canónica de los design tokens.
 - **React** define la implementación, el comportamiento y la accesibilidad.
-- **Storybook** documenta y valida visualmente la implementación; vive dentro de este repositorio.
+- [**Storybook**](https://monoschemes.salgadosomoza.com/) documenta y valida visualmente la implementación. Sus historias viven en este repositorio.
 - El contrato de componentes registra las props, tipos, valores y defaults acordados.
 
 Las decisiones visuales y los tokens se fijan en Figma antes de propagarlos a la UI. Las decisiones
