@@ -86,7 +86,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 - Los cambios internos o de proceso —CI, scripts, documentación, tests y refactors sin efecto visual— pueden integrarse sin una revisión visual previa.
 - Una publicación requiere que tests, lint, typecheck, build, `check:dist` y el smoke test de instalación del tarball pasen; también requiere versión semver nueva y entrada en `CHANGELOG.md`.
 - Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`. La versión 0.3.0 está disponible como `latest`, publicada con provenance; el workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar, sin token persistente. El release consolida FormCombobox, CardImage, Gallery, Map y Rating.
-- Recomendación para `0.0.0-stage`: deprecar esa versión suelta para desaconsejar su instalación; queda pendiente ejecutar la acción en npm y verificar el mensaje de deprecación.
+- `0.0.0-stage`: comprobado en npm el 23 nov 2026; esa versión no está publicada, así que no hay ninguna versión de prueba que deprecar.
 
 ### Hecho
 
