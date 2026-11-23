@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add agent conversation primitives: AgentMark, AgentStatus, Message, MessageActions, ToolCall, ApprovalRequest, Suggestions, Composer, and AgentThread.
+- Add eight Tabler 3.52 icons for voice, tools, message actions, and stopping generation.
+- Add keyboard, focus, disclosure, approval, and live status behavior with consumer-provided voice callbacks.
+
 ## 0.3.0 — 2026-11-23
 
 - Add FormCombobox, a searchable single-select field with async loading, accessible listbox navigation, and accent-insensitive matching.

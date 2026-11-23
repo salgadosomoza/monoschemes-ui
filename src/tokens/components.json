@@ -98,6 +98,125 @@
         "menu": { "type": "variant", "values": ["closed", "open"], "default": "closed" }
       }
     },
+    "Agent/Mark": {
+      "figmaNode": "2790:123",
+      "useFor": "A compact visual identity and activity indicator for an AI agent; it is decorative and should be paired with a text status when the state matters.",
+      "props": {
+        "state": { "type": "variant", "values": ["idle", "thinking", "listening", "speaking"], "default": "idle" },
+        "size": { "type": "variant", "values": ["sm", "md", "lg"], "default": "sm" },
+        "level": { "type": "number", "default": 0 }
+      }
+    },
+    "Agent/Status": {
+      "figmaNode": "2790:222",
+      "useFor": "A concise status for an agent that is thinking, using a tool, waiting for approval, streaming, stopped or in error; provide Stop while work can be interrupted.",
+      "props": {
+        "state": { "type": "variant", "values": ["thinking", "tool", "approval", "streaming", "stopped", "error"] },
+        "label": { "type": "string" },
+        "onStop": { "type": "event" }
+      }
+    },
+    "Message/Actions": {
+      "figmaNode": "2791:144",
+      "useFor": "Copy, retry or rate an agent response, or edit and copy a user message.",
+      "props": {
+        "role": { "type": "variant", "values": ["agent", "user"], "default": "agent" },
+        "onCopy": { "type": "event" },
+        "onRetry": { "type": "event" },
+        "onGoodResponse": { "type": "event" },
+        "onBadResponse": { "type": "event" },
+        "onEdit": { "type": "event" }
+      }
+    },
+    "Message": {
+      "figmaNode": "2791:202",
+      "useFor": "A user, agent or system turn in a conversation thread; keep readable message content within a 720 px measure.",
+      "props": {
+        "role": { "type": "variant", "values": ["agent", "user", "system"], "default": "agent" },
+        "author": { "type": "string" },
+        "time": { "type": "string" },
+        "children": { "type": "slot" },
+        "actions": { "type": "slot" },
+        "showActions": { "type": "boolean", "default": true }
+      }
+    },
+    "Tool call": {
+      "figmaNode": "2791:350",
+      "useFor": "A collapsible record of an agent tool call, including its status, input and result.",
+      "props": {
+        "name": { "type": "string", "required": true },
+        "summary": { "type": "string", "required": true },
+        "state": { "type": "variant", "values": ["running", "done", "error"], "default": "running" },
+        "input": { "type": "string" },
+        "result": { "type": "ReactNode" },
+        "defaultExpanded": { "type": "boolean", "default": false }
+      }
+    },
+    "Approval request": {
+      "figmaNode": "2792:287",
+      "useFor": "A consequential agent action that needs explicit user approval before it proceeds.",
+      "props": {
+        "title": { "type": "string", "required": true },
+        "description": { "type": "string", "required": true },
+        "preview": { "type": "ReactNode" },
+        "state": { "type": "variant", "values": ["pending", "allowed", "denied"], "default": "pending" },
+        "onAllow": { "type": "event" },
+        "onDeny": { "type": "event" },
+        "onEdit": { "type": "event" }
+      }
+    },
+    "Suggestions": {
+      "figmaNode": "2792:290",
+      "useFor": "A short set of suggested next prompts shown when the composer is empty and the agent is idle.",
+      "props": {
+        "suggestions": { "type": "string[]", "required": true },
+        "onSelect": { "type": "event", "required": true },
+        "inputValue": { "type": "string", "default": "" },
+        "busy": { "type": "boolean", "default": false }
+      }
+    },
+    "Composer": {
+      "figmaNode": "2792:514",
+      "useFor": "The message entry area for an agent thread, with text, attachment, stop and optional voice controls. Voice transcription is provided by the host application.",
+      "props": {
+        "value": { "type": "string" },
+        "defaultValue": { "type": "string", "default": "" },
+        "onChange": { "type": "event" },
+        "onSend": { "type": "event" },
+        "onStop": { "type": "event" },
+        "busy": { "type": "boolean", "default": false },
+        "voiceActive": { "type": "boolean", "default": false },
+        "onVoiceStart": { "type": "event" },
+        "onVoiceEnd": { "type": "event" },
+        "transcript": { "type": "string", "default": "" },
+        "level": { "type": "number", "default": 0 },
+        "attachments": { "type": "ComposerAttachment[]" },
+        "onAttach": { "type": "event" },
+        "onRemoveAttachment": { "type": "event" },
+        "onEditLast": { "type": "event" },
+        "placeholder": { "type": "string", "default": "Ask anything…" },
+        "showHint": { "type": "boolean", "default": true }
+      }
+    },
+    "AgentThread": {
+      "figmaNode": "2793:350",
+      "useFor": "A dedicated conversation surface for user messages, agent responses, tool calls and approvals.",
+      "props": {
+        "children": { "type": "slot", "required": true },
+        "layout": { "type": "variant", "values": ["dedicated", "panel"], "default": "dedicated" },
+        "title": { "type": "string", "default": "Assistant" },
+        "open": { "type": "boolean", "default": true },
+        "onClose": { "type": "event" }
+      }
+    },
+    "AgentThread/Panel": {
+      "figmaNode": "2793:567",
+      "useFor": "A non-modal assistant panel beside the host page; on mobile it fills the viewport. It does not trap focus or add a backdrop.",
+      "props": {
+        "open": { "type": "boolean", "default": true },
+        "onClose": { "type": "event" }
+      }
+    },
     "Button": {
       "figmaNode": "2030:1786",
       "props": {
@@ -122,11 +241,12 @@
           "default": "Button",
           "requiredWhen": { "iconOnly": true }
         },
-        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
-        "iconRight": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
+        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "microphone", "player-stop", "paperclip", "tool", "pencil", "refresh", "thumb-up", "thumb-down", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
+        "iconRight": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "microphone", "player-stop", "paperclip", "tool", "pencil", "refresh", "thumb-up", "thumb-down", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
         "iconOnly": { "type": "boolean", "default": false },
         "aria-current": { "type": "enum", "values": ["page"] },
         "aria-expanded": { "type": "boolean" },
+        "aria-pressed": { "type": "boolean | mixed" },
         "aria-controls": { "type": "string" },
         "aria-label": { "type": "string" },
         "disabled": { "type": "boolean", "default": false },
@@ -232,7 +352,7 @@
     "Card/Feature": {
       "figmaNode": "2163:354",
       "props": {
-        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
+        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "microphone", "player-stop", "paperclip", "tool", "pencil", "refresh", "thumb-up", "thumb-down", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
         "title": { "type": "string", "default": "Feature title" },
         "description": { "type": "string" }
       }
@@ -250,7 +370,7 @@
     "Icon": {
       "figmaNode": "130:2058",
       "props": {
-        "name": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"] },
+        "name": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "microphone", "player-stop", "paperclip", "tool", "pencil", "refresh", "thumb-up", "thumb-down", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"] },
         "size": { "type": "number", "default": 24 },
         "stroke": { "type": "number", "default": 1.5 }
       }
@@ -667,7 +787,7 @@
       "figmaNode": "2075:306",
       "props": {
         "label": { "type": "string" },
-        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
+        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "microphone", "player-stop", "paperclip", "tool", "pencil", "refresh", "thumb-up", "thumb-down", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
         "shortcut": { "type": "string" },
         "variant": { "type": "enum", "values": ["default", "danger"], "default": "default" },
         "disabled": { "type": "boolean", "default": false },
@@ -1522,7 +1642,8 @@
       { "name": "multi-step-form", "file": "docs/agent-package/recipes.md", "uses": ["Stepper", "Notification/InlineNotification", "Form/Input", "Button"] },
       { "name": "view-states", "file": "docs/agent-package/recipes.md", "uses": ["Skeleton", "EmptyState", "Notification/InlineNotification", "Button"] },
       { "name": "listing-card", "file": "docs/agent-package/recipes.md", "uses": ["Card/Image", "Tag", "Button", "Text", "Icon"] },
-      { "name": "photo-gallery", "file": "docs/agent-package/recipes.md", "uses": ["Gallery", "Gallery/Viewer"] }
+      { "name": "photo-gallery", "file": "docs/agent-package/recipes.md", "uses": ["Gallery", "Gallery/Viewer"] },
+      { "name": "agent-thread", "file": "docs/agent-package/recipes.md", "uses": ["AgentThread", "Message", "AgentStatus", "Tool call", "Approval request", "Suggestions", "Composer"] }
     ]
   }
 }

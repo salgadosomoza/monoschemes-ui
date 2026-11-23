@@ -226,3 +226,27 @@ Use `Gallery` when photos are a primary part of a listing or product detail. Kee
 ```
 
 Use `layout="grid"` when the photos have equal priority. Below 768 px, Gallery uses its mobile carousel automatically; no responsive prop is needed.
+
+## Agent conversation
+
+Use `AgentThread` for a dedicated assistant view or a non-modal side panel. Keep model requests, tool execution, and voice recognition or synthesis in the consuming application. Send Composer callbacks to those services and pass their current state back as props.
+
+```tsx
+<AgentThread layout={compact ? 'panel' : 'dedicated'} open={open} onClose={closeAssistant}>
+  <Message role="user" time="09:15">Find a quiet flat near the park.</Message>
+  {working && <AgentStatus state="tool" label="Checking current listings…" onStop={stopRequest} />}
+  <ToolCall name="Search listings" summary="quiet flats near the park" state="done"
+    input="{ area: 'near the park', quiet: true }" result="8 listings found." />
+  {approval && <ApprovalRequest title="Save these filters?" description="The agent wants to save this search."
+    onAllow={allowSave} onDeny={denySave} onEdit={editFilters} />}
+  <Message role="agent" time="09:16" actions={<MessageActions onCopy={copyAnswer} onRetry={retry} />}>
+    I found eight listings that match your request.
+  </Message>
+  <Suggestions suggestions={['Compare the 3 cheapest', 'Show them on a map']} onSelect={sendMessage} />
+  <Composer onSend={sendMessage} busy={working} onStop={stopRequest}
+    onVoiceStart={requestVoicePermission} onVoiceEnd={endVoice} voiceActive={voiceActive}
+    transcript={transcript} level={audioLevel} />
+</AgentThread>
+```
+
+`AgentStatus` announces state transitions rather than streaming text. `AgentMark` is decorative. A pending `ApprovalRequest` moves focus to Allow; keep approval content concise and actionable. The panel does not add an overlay or trap focus. Voice controls are callbacks only: the host application requests microphone permission and provides transcription and speech services.

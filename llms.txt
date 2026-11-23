@@ -16,6 +16,7 @@
 
 - Import `@monoschemes/ui/style.css` once.
 - Use the provided React components and semantic CSS variables; do not invent tokens, colors, component names, or props.
+- Use `AgentThread` with `Message`, `AgentStatus`, `ToolCall`, `ApprovalRequest`, `Suggestions`, and `Composer` to build an agent conversation surface. The consumer app provides model, tool and voice services; this package supplies UI only.
 - For searchable single-choice fields use `FormCombobox`; use `FormMultiSelect` when several choices are allowed.
 - Set the page theme on `<html>` with `data-theme="light"` or `data-theme="dark"`.
 - Use `data-theme="inverse"` for a contrasting region that must adapt to either page theme. Do not nest inverse regions.

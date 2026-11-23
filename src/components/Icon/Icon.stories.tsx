@@ -3,7 +3,7 @@ import { Icon, type IconName } from './Icon';
 
 const iconNames: IconName[] = [
   'info-circle', 'alert-triangle', 'alert-circle', 'circle-check', 'copy', 'check', 'external-link', 'arrow-right', 'adjustments', 'palette',
-  'brand-react', 'brand-vue', 'brand-svelte', 'keyboard', 'user-circle', 'plus', 'chart-bar', 'calendar',
+  'brand-react', 'brand-vue', 'brand-svelte', 'keyboard', 'microphone', 'player-stop', 'paperclip', 'tool', 'pencil', 'refresh', 'thumb-up', 'thumb-down', 'user-circle', 'plus', 'chart-bar', 'calendar',
   'bed', 'bath', 'ruler-measure', 'heart', 'share', 'map',
   'square-check-filled', 'square', 'chevron-left', 'chevron-right', 'x', 'box', 'file-text',
   'download', 'grip-vertical', 'chevron-up', 'chevron-down', 'square-minus-filled', 'link',

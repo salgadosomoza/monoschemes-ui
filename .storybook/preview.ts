@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react-vite';
 import { createElement } from 'react';
 import '../src/styles/tokens.css';
+import '../src/components/Agents/Agents.css';
 import './storybook-base.css';
 
 const preview: Preview = {
@@ -72,6 +73,7 @@ const preview: Preview = {
           'Feedback', ['Toast', 'Banner', 'Modal', 'Drawer', 'Inline notification', 'Announcement bar', 'Tooltip', 'Progress', 'Empty state'],
           'Data display', ['Table', 'Tag', 'Tag group', 'Avatar', 'Description list', 'Stat', 'Kbd', 'Code block', 'Divider', 'Icon tile', 'Image'],
           'Layout', ['Card', 'Footer', 'Accordion'],
+          'Agents', ['Agent Mark', 'Agent Status', 'Message', 'Message Actions', 'Tool Call', 'Approval Request', 'Suggestions', 'Composer', 'Thread Layout'],
           'Patterns',
         ],
       },

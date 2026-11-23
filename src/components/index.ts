@@ -1,5 +1,6 @@
 // Export all components here — alphabetical order
 export * from './Accordion';
+export * from './Agents';
 export * from './AnnouncementBar';
 export * from './AppHeader';
 export * from './Avatar';
