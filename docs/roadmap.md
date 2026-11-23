@@ -85,13 +85,13 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 - Los cambios visuales —componentes, tokens, estilos y stories— se desarrollan en una rama y PR. Codex los integra tras las comprobaciones; la revisión de Claude es opcional salvo que Carlos la solicite.
 - Los cambios internos o de proceso —CI, scripts, documentación, tests y refactors sin efecto visual— pueden integrarse sin una revisión visual previa.
 - Una publicación requiere que tests, lint, typecheck, build, `check:dist` y el smoke test de instalación del tarball pasen; también requiere versión semver nueva y entrada en `CHANGELOG.md`.
-- Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`. La versión 0.3.0 está disponible como `latest`, publicada con provenance; el workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar, sin token persistente. El release consolida FormCombobox, CardImage, Gallery, Map y Rating.
+- Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`. La versión 0.4.0 está disponible como `latest`, publicada con provenance; el workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar, sin token persistente. El release añade Agents v1 y sus recetas.
 - `0.0.0-stage`: comprobado en npm el 23 nov 2026; esa versión no está publicada, así que no hay ninguna versión de prueba que deprecar.
 
 ### Hecho
 
 - El paquete se puede instalar y consumir como `@monoschemes/ui`; las versiones `0.1.0` y `0.1.1` están publicadas en npm.
-- La versión 0.1.1 incluye el error de InlineNotification, tokens y temas en el CSS publicado, contrato, documentación de consumo, `llms.txt`, recetas y skill para Claude Code. La versión 0.2.0 quedó publicada con OIDC el 22 nov 2026 e incluye CommandPalette, Drawer y la plantilla Vite actualizada. La versión 0.3.0 quedó publicada con OIDC y provenance el 23 nov 2026; incluye FormCombobox, CardImage, Gallery, Map, Rating y la plantilla actualizada.
+- La versión 0.1.1 incluye el error de InlineNotification, tokens y temas en el CSS publicado, contrato, documentación de consumo, `llms.txt`, recetas y skill para Claude Code. La versión 0.2.0 quedó publicada con OIDC el 22 nov 2026 e incluye CommandPalette, Drawer y la plantilla Vite actualizada. La versión 0.3.0 quedó publicada con OIDC y provenance el 23 nov 2026; incluye FormCombobox, CardImage, Gallery, Map y Rating. La versión 0.4.0 quedó publicada con OIDC y provenance el 23 nov 2026; añade Agents v1.
 - **Ronda 1 · 0.0.1:** 8 intentos diagnósticos, contaminados por `claude-mem`; no es línea base. El problema principal fue el CSS publicado sin definiciones de tokens.
 - **Ronda 2 · 0.0.2:** 4/4 aplicaciones completas; 47/48 de fidelidad; 1 error de sistema en T4 por usar `data-theme="dark"` en vez de `inverse`.
 - **Ronda comparativa · 0.1.1:** 4/4 completas; 47/48; 1 error de sistema, el mismo uso fijo de `dark` en T4. Con esta muestra, la hipótesis H1 no queda apoyada; tampoco se demuestra que el paquete para agentes no ayude en general.
@@ -105,7 +105,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 |---|---|---|
 | Hecho | Registro de resultados | Las rondas y auditorías están consolidadas en Sheets; este roadmap y `docs/agent-test/results.md` conservan prioridades e interpretación. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList ya están integrados. La receta de dashboard usa las capacidades propias de búsqueda, selección y paginación de Table. | Mantener ejemplos alineados con cambios de API. |
-| Hecho | Plantilla inicial Vite | PR #14 integrada y actualizada para `@monoschemes/ui` 0.3.0. |
+| Hecho | Plantilla inicial Vite | PR #14 integrada y actualizada para `@monoschemes/ui` 0.4.0. |
 | Hecho | Verificación automática de contrato y tokens | Valida referencias locales y forma del JSON; no compara con Figma ni reemplaza la revisión accesible de Storybook. |
 | Después de cambios sustantivos | Nueva prueba comparativa | Repetir las mismas tareas y métricas solo cuando cambien de forma material las instrucciones, recetas o APIs. La muestra seguirá siendo pequeña y debe presentarse como tal. |
 
