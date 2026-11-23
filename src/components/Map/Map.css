@@ -1,0 +1,156 @@
+/* Map and Map/Marker — Figma XZ8yMM8VJihEwmyFaW6sCB · 2778:1290, 2778:1123 */
+
+.map {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-placeholder);
+  box-sizing: border-box;
+}
+
+.map[data-ratio="16:9"] { aspect-ratio: 16 / 9; }
+.map[data-ratio="4:3"] { aspect-ratio: 4 / 3; }
+.map[data-ratio="1:1"] { aspect-ratio: 1 / 1; }
+.map[data-ratio="21:9"] { aspect-ratio: 21 / 9; }
+
+.map__canvas {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+.map__canvas > * { width: 100%; height: 100%; }
+
+.map-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.map__controls {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.map__attribution {
+  position: absolute;
+  right: var(--spacing-xs);
+  bottom: var(--spacing-xs);
+  z-index: 2;
+  padding: 0 var(--spacing-3xs);
+  background: color-mix(in srgb, var(--color-bg-page) 80%, transparent);
+  color: var(--color-text-muted);
+  font-family: var(--font-family);
+  font-size: var(--font-caption-size);
+  font-weight: var(--font-caption-weight);
+  line-height: var(--font-caption-line-height);
+}
+
+.map-marker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-none);
+  background: transparent;
+  color: var(--color-text-strong);
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.map-marker__pin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map-marker__head {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: -4px;
+  border: 2px solid var(--color-bg-page);
+  background: var(--color-bg-inverse);
+  box-sizing: border-box;
+}
+
+.map-marker__dot {
+  width: 10px;
+  height: 10px;
+  background: var(--color-bg-page);
+}
+
+.map-marker__tip {
+  width: 12px;
+  height: 8px;
+  background: var(--color-bg-inverse);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.map-marker[data-selected="true"] .map-marker__head {
+  width: 40px;
+  height: 40px;
+  border-width: 3px;
+  border-color: var(--color-bg-inverse);
+  background: var(--color-bg-page);
+}
+
+.map-marker[data-selected="true"] .map-marker__dot {
+  width: 14px;
+  height: 14px;
+  background: var(--color-bg-inverse);
+}
+
+.map-marker[data-selected="true"] .map-marker__tip {
+  width: 14px;
+  height: 10px;
+  background: var(--color-bg-page);
+}
+
+.map-marker[data-type="label"] {
+  border: 1px solid var(--color-bg-inverse);
+  background: var(--color-bg-page);
+}
+
+.map-marker[data-type="label"] .map-marker__label {
+  padding: var(--spacing-2xs) var(--spacing-sm);
+  font-family: var(--font-family);
+  font-size: var(--font-subtitle2-size);
+  font-weight: var(--font-subtitle2-weight);
+  line-height: var(--font-subtitle2-line-height);
+  white-space: nowrap;
+}
+
+.map-marker[data-type="label"][data-selected="true"] {
+  border-color: var(--color-bg-inverse);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}
+
+.map-marker:focus-visible {
+  outline: 2px solid var(--color-border-focused);
+  outline-offset: 2px;
+}
+
+.map-marker:disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}

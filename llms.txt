@@ -33,6 +33,9 @@
 | `Card` | General content containers and grouped content; use a more specific card pattern when the content has a defined structure. |
 | `Card/Image` | Image-led listings and content cards with a photo, status, title, metadata, key facts, price and action. |
 | `Gallery` | A property or product gallery with featured/grid layouts and a full-screen photo viewer. |
+| `Map` | A provider-independent map frame with semantic labeling, attribution and optional zoom callbacks. |
+| `Rating` | A read-only zero-to-five score with half stars and an optional count; use compact in lists. |
+| `Rating/Input` | An accessible one-to-five radio group for submitting a rating. |
 | `Image` | Photos and other image content with a defined aspect ratio or a semantic placeholder. |
 | `Tag` | Short status labels, categories and compact metadata; use TagGroup for a collection of tags with overflow. |
 | `TagGroup` | A collection of related tags that can wrap or collapse into an overflow count. |

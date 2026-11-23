@@ -122,8 +122,8 @@
           "default": "Button",
           "requiredWhen": { "iconOnly": true }
         },
-        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
-        "iconRight": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
+        "iconLeft": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
+        "iconRight": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
         "iconOnly": { "type": "boolean", "default": false },
         "aria-current": { "type": "enum", "values": ["page"] },
         "aria-expanded": { "type": "boolean" },
@@ -232,7 +232,7 @@
     "Card/Feature": {
       "figmaNode": "2163:354",
       "props": {
-        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
+        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
         "title": { "type": "string", "default": "Feature title" },
         "description": { "type": "string" }
       }
@@ -250,7 +250,7 @@
     "Icon": {
       "figmaNode": "130:2058",
       "props": {
-        "name": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"] },
+        "name": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "circle-check", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"] },
         "size": { "type": "number", "default": 24 },
         "stroke": { "type": "number", "default": 1.5 }
       }
@@ -624,6 +624,37 @@
         "size": { "type": "variant", "values": ["md", "lg"], "default": "md" }
       }
     },
+    "Map": {
+      "figmaNode": "2778:1290",
+      "useFor": "Provide a provider-independent map frame for property, location and place views. Keep the address available as text outside the map.",
+      "props": {
+        "children": { "type": "slot", "description": "Map viewport supplied by the chosen provider; an empty slot uses the neutral placeholder." },
+        "ratio": { "type": "variant", "values": ["16:9", "4:3", "1:1", "21:9"], "default": "16:9" },
+        "showControls": { "type": "boolean", "default": true },
+        "onZoomIn": { "type": "event" },
+        "onZoomOut": { "type": "event" },
+        "attribution": { "type": "node", "description": "Provider attribution, required whenever the map provider requires it." },
+        "label": { "type": "string", "required": true }
+      }
+    },
+    "Map/Marker": {
+      "figmaNode": "2778:1123",
+      "subcomponentOf": "Map",
+      "props": {
+        "type": { "type": "variant", "values": ["pin", "label"], "default": "pin" },
+        "label": { "type": "string", "default": "€320K" },
+        "selected": { "type": "boolean", "default": false },
+        "accessibleName": { "type": "string", "required": true },
+        "onClick": { "type": "event" },
+        "className": { "type": "string" }
+      }
+    },
+    "Map/Canvas": {
+      "figmaNode": "2778:1095",
+      "subcomponentOf": "Map",
+      "mappingOnly": true,
+      "description": "Neutral semantic-token placeholder used when Map has no provider content."
+    },
     "Menu": {
       "figmaNode": "2075:309",
       "props": {
@@ -636,7 +667,7 @@
       "figmaNode": "2075:306",
       "props": {
         "label": { "type": "string" },
-        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
+        "icon": { "type": "enum", "values": ["info-circle", "alert-circle", "alert-triangle", "user-circle", "plus", "chart-bar", "calendar", "square-check-filled", "square", "chevron-left", "chevron-right", "x", "box", "file-text", "download", "grip-vertical", "chevron-up", "chevron-down", "square-minus-filled", "link", "map-pin", "menu-2", "music", "photo", "player-play", "qrcode", "circle-dot-filled", "circle", "minus", "search", "movie", "video", "help-circle", "password", "dots", "upload", "star", "star-filled", "player-pause", "volume", "brand-x", "brand-instagram", "brand-linkedin", "brand-youtube", "brand-facebook", "brand-tiktok", "brand-github", "copy", "check", "external-link", "arrow-right", "adjustments", "palette", "brand-react", "brand-vue", "brand-svelte", "keyboard", "eye", "eye-off", "clock", "arrow-up", "arrow-down", "arrows-sort", "bed", "bath", "ruler-measure", "heart", "share", "map"], "reference": "Icon.name" },
         "shortcut": { "type": "string" },
         "variant": { "type": "enum", "values": ["default", "danger"], "default": "default" },
         "disabled": { "type": "boolean", "default": false },
@@ -1063,6 +1094,43 @@
       "props": {
         "value": { "type": "number", "min": 0, "max": 100 },
         "label": { "type": "string" }
+      }
+    },
+    "Rating": {
+      "figmaNode": "2783:1399",
+      "useFor": "Show a read-only average score for a product, film, book or place, with an optional review count.",
+      "props": {
+        "value": { "type": "number", "required": true, "min": 0, "max": 5, "step": 0.5, "description": "Rounded to the nearest half star and displayed with one decimal place." },
+        "count": { "type": "number" },
+        "type": { "type": "variant", "values": ["stars", "compact"], "default": "stars" },
+        "size": { "type": "variant", "values": ["md", "sm"], "default": "md" },
+        "showValue": { "type": "boolean", "default": true },
+        "showCount": { "type": "boolean", "default": true }
+      }
+    },
+    "Rating/Input": {
+      "figmaNode": "2783:1512",
+      "subcomponentOf": "Rating",
+      "props": {
+        "value": { "type": "number", "min": 1, "max": 5 },
+        "defaultValue": { "type": "number", "min": 1, "max": 5 },
+        "onChange": { "type": "event" },
+        "name": { "type": "string" },
+        "labels": { "type": "array", "items": "string", "default": ["Poor", "Fair", "Good", "Very good", "Excellent"] },
+        "showLabel": { "type": "boolean", "default": true },
+        "disabled": { "type": "boolean", "default": false },
+        "aria-label": { "type": "string", "default": "Rating" },
+        "aria-describedby": { "type": "string" },
+        "aria-invalid": { "type": "boolean" }
+      }
+    },
+    "Rating/Star": {
+      "figmaNode": "2783:1326",
+      "subcomponentOf": "Rating",
+      "mappingOnly": true,
+      "props": {
+        "value": { "type": "variant", "values": ["full", "half", "empty"] },
+        "disabled": { "type": "boolean", "default": false }
       }
     },
     "Skeleton": {
