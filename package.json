@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/salgadosomoza/monoschemes-ui.git"
   },
-  "homepage": "https://github.com/salgadosomoza/monoschemes-ui#readme",
+  "homepage": "https://monoschemes.salgadosomoza.com/",
   "bugs": {
     "url": "https://github.com/salgadosomoza/monoschemes-ui/issues"
   },
@@ -64,6 +64,7 @@
     "check:design-system": "node scripts/check-design-system.mjs",
     "smoke:pack": "node scripts/smoke-pack.mjs",
     "build:storybook": "storybook build",
+    "postbuild:storybook": "node -e \"require('node:fs').copyFileSync('llms.txt', 'storybook-static/llms.txt')\"",
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
     "test": "vitest",

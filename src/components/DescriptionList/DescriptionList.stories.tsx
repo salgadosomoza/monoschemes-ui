@@ -15,9 +15,9 @@ type Story = StoryObj<typeof meta>;
 const FIGMA = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2652-1126';
 const design = { design: { type: 'figma', url: FIGMA } };
 const items = [
-  { term: 'Client', description: <Link label="Mar Sala Estudio" href="#client" /> },
+  { term: 'Client', description: <Link label="Example Studio" href="#client" /> },
   { term: 'Status', description: <Tag label="Active" type="subtle" size="sm" /> },
-  { term: 'Owner', description: 'Carlos Salgado' },
+  { term: 'Owner', description: 'Demo account' },
   { term: 'Website', description: <Link label="Visit site" href="#website" type="icon" /> },
 ];
 

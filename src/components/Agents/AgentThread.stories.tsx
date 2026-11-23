@@ -40,7 +40,7 @@ function PanelExample() {
   return <div style={{ minHeight: '600px', background: 'var(--color-bg-surface)' }}>
     {open && <div style={{ padding: 'var(--spacing-md)' }}>Product page content remains interactive beside the assistant.</div>}
     <AgentThread layout="panel" open={open} onClose={() => setOpen(false)}>
-      <Message role="user" time="09:15">Write to the owner of the Verdi flat and ask for a visit this week.</Message>
+      <Message role="user" time="09:15">Write to the owner of Listing A and ask for a visit this week.</Message>
       <Message role="agent" time="09:15">Here is the message. I’ll send it as soon as you allow it.</Message>
       <ApprovalRequest title="Send this message to the owner?" description="The agent wants to use Email · Send. Nothing is sent until you allow it." preview={<span>Hi, I’m interested in the flat. Is it still available for a visit this week?</span>} />
       <AgentStatus state="approval" label="Waiting for your approval" />

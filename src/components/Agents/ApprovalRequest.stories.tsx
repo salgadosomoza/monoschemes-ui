@@ -5,7 +5,7 @@ const FIGMA = 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-k
 const meta = {
   title: 'Agents/Approval Request',
   component: ApprovalRequest,
-  args: { title: 'Send this message to the owner?', description: 'The agent wants to use Email · Send. Nothing is sent until you allow it.', preview: <><small>To: owner of Carrer de Verdi, 12</small><span>Hi, I’m interested in the flat. Is it still available for a visit this week?</span></> },
+  args: { title: 'Send this message to the owner?', description: 'The agent wants to use Email · Send. Nothing is sent until you allow it.', preview: <><small>To: owner of Listing A</small><span>Hi, I’m interested in the flat. Is it still available for a visit this week?</span></> },
   parameters: { layout: 'padded', design: { type: 'figma', url: FIGMA } },
   tags: ['autodocs'],
 } satisfies Meta<typeof ApprovalRequest>;

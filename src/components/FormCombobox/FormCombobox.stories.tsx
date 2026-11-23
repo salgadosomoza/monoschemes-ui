@@ -30,7 +30,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const options = [
-  { value: 'mar-sala', label: 'Mar Sala Estudio' },
+  { value: 'example-studio', label: 'Example Studio' },
   { value: 'cafe-norte', label: 'Café Norte' },
   { value: 'design-system', label: 'Design System Team' },
   { value: 'engineering', label: 'Engineering' },

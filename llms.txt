@@ -4,13 +4,14 @@
 
 ## Start building
 
-- [Consumer README](README.md): installation, stylesheet, themes, and fonts.
-- [Agent instructions](docs/agent-package/AGENTS.md): component selection, usage rules, accessibility, themes, and validation.
-- [Application recipes](docs/agent-package/recipes.md): login, settings, filtered dashboard, landing page, detail page (with `DescriptionList`), multi-step form, view states, listing cards, and a photo gallery.
-- [Component-to-Figma map](src/tokens/components.json): component names, Figma node references, props, and agent guidance.
+- [Public Storybook](https://monoschemes.salgadosomoza.com/): interactive component examples and API documentation.
+- [Consumer README](https://github.com/salgadosomoza/monoschemes-ui/blob/main/README.md): installation, stylesheet, themes, and fonts.
+- [Agent instructions](https://github.com/salgadosomoza/monoschemes-ui/blob/main/docs/agent-package/AGENTS.md): component selection, usage rules, accessibility, themes, and validation.
+- [Application recipes](https://github.com/salgadosomoza/monoschemes-ui/blob/main/docs/agent-package/recipes.md): login, settings, filtered dashboard, landing page, detail page (with `DescriptionList`), multi-step form, view states, listing cards, and a photo gallery.
+- [Component-to-Figma map](https://github.com/salgadosomoza/monoschemes-ui/blob/main/src/tokens/components.json): component names, Figma node references, props, and agent guidance.
 - [Figma Community kit](https://www.figma.com/community/file/1706316593970846496/monoschemes-monochrome-ui-kit): the published Figma file with the same components and tokens, plus visual documentation and examples.
-- [TypeScript declarations](dist/index.d.ts): authoritative React API and prop types.
-- [Vite prototype starter](templates/vite-prototype/README.md): ready-to-run React + TypeScript app with fonts, theme switching, an inverse zone, and instructions for agents.
+- [TypeScript declarations](https://cdn.jsdelivr.net/npm/@monoschemes/ui@latest/dist/index.d.ts): authoritative React API and prop types.
+- [Vite prototype starter](https://github.com/salgadosomoza/monoschemes-ui/blob/main/templates/vite-prototype/README.md): ready-to-run React + TypeScript app with fonts, theme switching, an inverse zone, and instructions for agents.
 
 ## Core rules
 
@@ -55,4 +56,4 @@
 
 ## More information
 
-- [Claude Code skill](skills/monoschemes-ui/SKILL.md)
+- [Claude Code skill](https://github.com/salgadosomoza/monoschemes-ui/blob/main/skills/monoschemes-ui/SKILL.md)
