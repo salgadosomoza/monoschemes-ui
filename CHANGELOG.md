@@ -1,10 +1,11 @@
 # Changelog
 
-## Unreleased
+## 0.4.0 — 2026-11-23
 
 - Add agent conversation primitives: AgentMark, AgentStatus, Message, MessageActions, ToolCall, ApprovalRequest, Suggestions, Composer, and AgentThread.
 - Add eight Tabler 3.52 icons for voice, tools, message actions, and stopping generation.
 - Add keyboard, focus, disclosure, approval, and live status behavior with consumer-provided voice callbacks.
+- Add agent conversation recipes and update the agent package guidance.
 
 ## 0.3.0 — 2026-11-23
 

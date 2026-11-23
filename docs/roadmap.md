@@ -74,7 +74,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Gallery y Gallery/Viewer (#29) | Variantes featured/grid/mobile y visor modal con teclado, miniaturas, foco y gestos táctiles integrados en main. |
 | Hecho | Map y MapMarker (#31) | PR #35 integrada: marco independiente del proveedor, lienzo neutro, atribución, proporciones y marcadores seleccionables. |
 | Hecho | Rating y RatingInput (#33) | PR #35 integrada: lectura con media estrella y entrada accesible de 1–5 estrellas. |
-| En curso | Componentes para agentes (#38) | La v1 ya está diseñada en Figma; incluye hilo dedicado/panel, mensajes, Composer, estados, herramientas, permisos y callbacks para voz. |
+| Hecho | Componentes para agentes (#38) | PR #40 integrada: hilo dedicado/panel, mensajes, Composer, estados, herramientas, permisos y callbacks para voz. |
 
 Las páginas de prueba de Figma son referencias de exploración, no entregas independientes. Añadir allí pruebas nuevas cuando aporten un caso concreto.
 
