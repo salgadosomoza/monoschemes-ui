@@ -1,6 +1,6 @@
 # MonoSchemes · roadmap de diseño, UI y agentes
 
-Actualizado: 23 de noviembre de 2026.
+Actualizado: 24 de noviembre de 2026.
 
 ## Cómo usar este roadmap
 
@@ -18,7 +18,7 @@ Este archivo es la fuente única del estado, las prioridades y la siguiente acci
 
 - Los encargos de diseño llegan como issues de `salgadosomoza/monoschemes-ui` etiquetadas `design` y `from:claude`. Al empezar una sesión, Codex revisa las issues abiertas `design`, las enlaza a su rama o PR y las cierra al entregar. Hasta que Claude use GitHub directamente, Carlos seguirá pasando los encargos a mano.
 - Los PR de cambios visuales incluyen `Closes #N`. Si se solicita revisión, Claude deja comentarios con capturas y nodos de Figma; Codex corrige en la misma rama y responde en los hilos.
-- Codex y Claude usan la cuenta GitHub `salgadosomoza`, igual que Carlos. La autoría se distingue en issues y PR: Codex etiqueta con `from:codex` y firma `**Codex · desarrollo**`; Claude etiqueta con `from:claude` y firma `**Claude · diseño**`. Los mensajes sin firma son de Carlos.
+- Codex y Claude usan la cuenta GitHub `salgadosomoza`, igual que Carlos. Claude y Codex no firman issues, PR ni comentarios. La procedencia se indica únicamente con las etiquetas `from:claude` y `from:codex`. Los mensajes sin etiqueta `from:` son de Carlos. (F-23)
 - Claude usa GitHub solo para issues, comentarios de revisión y etiquetas: no hace commits, push, merges ni cambios de configuración del repositorio.
 
 Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx/MonoSchemes-kit?node-id=1237-938), [librería visual de Figma](https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit) y [decisión F-04](https://docs.google.com/spreadsheets/d/1ikcrIwANXxgAbemlEyYaduw7WdIrOqd1jYdNTBLUR5w/edit?gid=3000#gid=3000).
