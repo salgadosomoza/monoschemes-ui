@@ -48,7 +48,7 @@ componente enlaza al nodo exacto de Figma mediante `parameters.design`.
 - Los cambios visuales van en una rama y un PR. Codex los integra tras las comprobaciones; la revisión de Claude es opcional y solo se espera si Carlos la solicita. Los cambios internos o de proceso no necesitan revisión visual previa.
 - Al empezar una sesión, revisa las issues abiertas con `design`. Los encargos de Claude llevan `design` y `from:claude`; enlázalos al PR con `Closes #N` y ciérralos al entregar.
 - Al empezar una sesión, revisa también tus PR abiertos y responde a los comentarios nuevos. Si Carlos pide cambios, corrígelos en la misma rama y responde en el hilo; si no hay revisión solicitada, integra tras verificar.
-- Distingue la autoría solo en issues y PR: usa las etiquetas `from:codex` / `from:claude` y las firmas `**Codex · desarrollo**` / `**Claude · diseño**`. Los commits no llevan trailers `Co-authored-by`.
+- Claude y Codex no firman issues, PR ni comentarios. La procedencia se indica únicamente con las etiquetas `from:claude` y `from:codex`. Los mensajes sin etiqueta `from:` son de Carlos. Los commits no llevan trailers `Co-authored-by`.
 
 ## Comprobaciones
 
