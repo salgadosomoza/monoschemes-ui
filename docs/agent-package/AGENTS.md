@@ -29,7 +29,7 @@ npm run dev
 - Set `data-theme="light"` or `data-theme="dark"` on `<html>`.
 - Use `data-theme="inverse"` on a section that needs the opposite theme from its surrounding page. It adapts when the page theme changes. Inverse zones cannot be nested.
 - Do not use `data-theme="dark"` as a substitute for an inverse zone. A nested dark zone stays dark when the page is light or dark.
-- Use the package's semantic color properties such as `--color-bg-page`, `--color-bg-surface`, `--color-text-primary`, `--color-text-secondary`, `--color-text-strong`, `--color-border-default`, and `--color-border-focused`. Check the installed stylesheet for the full list.
+- Use the package's semantic color properties such as `--color-bg-page`, `--color-bg-surface`, `--color-text-primary`, `--color-text-secondary`, `--color-text-strong`, `--color-border-default`, `--color-border-strong`, and `--color-border-focused`. Use default borders for separators and decorative outlines, strong borders for controls, and focused borders for focus indicators. Check the installed stylesheet for the full list.
 - Do not add component colors as hex, RGB, or copied local token definitions.
 
 ## MonoSchemes geometry and layout

@@ -45,27 +45,27 @@
 
   --font-h1-size: 56px;
   --font-h1-weight: 700;
-  --font-h1-line-height: 1.23;
+  --font-h1-line-height: 64px;
 
   --font-h2-size: 64px;
   --font-h2-weight: 300;
-  --font-h2-line-height: 1.21;
+  --font-h2-line-height: 72px;
 
   --font-h3-size: 48px;
   --font-h3-weight: 500;
-  --font-h3-line-height: 1.21;
+  --font-h3-line-height: 56px;
 
   --font-h4-size: 32px;
   --font-h4-weight: 400;
-  --font-h4-line-height: 1.21;
+  --font-h4-line-height: 40px;
 
   --font-h5-size: 24px;
   --font-h5-weight: 400;
-  --font-h5-line-height: 1.21;
+  --font-h5-line-height: 32px;
 
   --font-h6-size: 20px;
   --font-h6-weight: 500;
-  --font-h6-line-height: 1.21;
+  --font-h6-line-height: 28px;
 
   --font-display-1-size: 160px;
   --font-display-2-size: 112px;
@@ -78,27 +78,27 @@
 
   --font-subtitle1-size: 16px;
   --font-subtitle1-weight: 700;
-  --font-subtitle1-line-height: 1.21;
+  --font-subtitle1-line-height: 24px;
 
   --font-subtitle2-size: 14px;
   --font-subtitle2-weight: 700;
-  --font-subtitle2-line-height: 1.21;
+  --font-subtitle2-line-height: 20px;
 
   --font-body1-size: 16px;
   --font-body1-weight: 400;
-  --font-body1-line-height: 1.21;
+  --font-body1-line-height: 24px;
 
   --font-body2-size: 14px;
   --font-body2-weight: 400;
-  --font-body2-line-height: 1.21;
+  --font-body2-line-height: 20px;
 
   --font-caption-size: 12px;
   --font-caption-weight: 400;
-  --font-caption-line-height: 1.21;
+  --font-caption-line-height: 16px;
 
   --font-overline-size: 10px;
   --font-overline-weight: 400;
-  --font-overline-line-height: 1.21;
+  --font-overline-line-height: 16px;
   --font-overline-letter-spacing: 0.2em;
   --font-overline-text-transform: uppercase;
 
@@ -176,7 +176,7 @@
   --color-text-muted: var(--color-gray-500);
 
   /* Semantic colors — border */
-  --color-border-default: var(--color-gray-700);
+  --color-border-default: var(--color-gray-200);
   --color-border-focused: var(--color-black);
   --color-border-error: var(--color-rust-500);
   --color-border-disabled: var(--color-gray-100);
@@ -213,7 +213,7 @@
   --color-text-strong: var(--color-white);
   --color-text-muted: var(--color-gray-350);
 
-  --color-border-default: var(--color-gray-400);
+  --color-border-default: var(--color-gray-700);
   --color-border-focused: var(--color-white);
   --color-border-error: var(--color-rust-300);
   --color-border-disabled: var(--color-gray-700);

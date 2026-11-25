@@ -37,7 +37,7 @@
 /* ─── Focus ────────────────────────────────────────── */
 
 .form-radio-input:focus-visible ~ .form-radio-icon {
-  outline: 2px solid var(--color-border-default);
+  outline: 2px solid var(--color-border-focused);
   outline-offset: 2px;
   border-radius: var(--radius-full);
 }
