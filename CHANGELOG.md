@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0 — 2026-11-25
+
+- Make Gallery fill its container, with a 376 px side column in Featured and equal-width Grid columns.
+- Add an optional location block to the Detail recipe and expand Map usage guidance.
+- Support native downloads in Link through the `download` attribute.
+- Soften decorative borders in Light, Dark, and inverse zones while retaining strong control borders and visible focus.
+- Align text line heights to a 4 px grid.
+
 ## 0.4.0 — 2026-11-23
 
 - Add agent conversation primitives: AgentMark, AgentStatus, Message, MessageActions, ToolCall, ApprovalRequest, Suggestions, Composer, and AgentThread.
