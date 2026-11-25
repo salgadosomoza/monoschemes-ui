@@ -725,7 +725,8 @@
           ],
           "default": "medium"
         },
-        "icon": { "type": "ReactNode", "default": { "component": "Icon", "props": { "name": "download", "size": 16 } } }
+        "icon": { "type": "ReactNode", "default": { "component": "Icon", "props": { "name": "download", "size": 16 } } },
+        "download": { "type": "boolean | string", "description": "Download a same-origin resource. Use true for the default filename or a string to suggest one." }
       }
     },
     "Logo": {
@@ -746,7 +747,7 @@
     },
     "Map": {
       "figmaNode": "2778:1290",
-      "useFor": "Provide a provider-independent map frame for property, location and place views. Keep the address available as text outside the map.",
+      "useFor": "Show where a place is, its address, neighbourhood or surroundings. Use in the location section of a property, hotel, shop, venue or event page. Supply a map provider and keep the address visible as text outside the map.",
       "props": {
         "children": { "type": "slot", "description": "Map viewport supplied by the chosen provider; an empty slot uses the neutral placeholder." },
         "ratio": { "type": "variant", "values": ["16:9", "4:3", "1:1", "21:9"], "default": "16:9" },
@@ -1453,7 +1454,7 @@
       },
       "Link": {
         "intent": "Navigate to a resource or location.",
-        "whenToUse": "Use for inline or standalone navigation.",
+        "whenToUse": "Use for inline or standalone navigation and native file downloads with href and download.",
         "avoidWhen": "Do not use as a substitute for an action button.",
         "composition": "Place inline links in explanatory text or use them as secondary navigation.",
         "accessibility": "Use a meaningful label and a real href. Keep the built-in focus-visible treatment.",

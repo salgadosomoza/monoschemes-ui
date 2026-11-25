@@ -36,6 +36,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Featured: Story = {};
+
+const fluidStory = (width: number): Story => ({
+  render: (args) => <div style={{ maxWidth: width }}><Gallery {...args} /></div>,
+  parameters: { layout: 'fullscreen' },
+});
+
+export const Fluid1312: Story = { name: 'Fluid at 1312 px', ...fluidStory(1312) };
+export const Fluid900: Story = { name: 'Fluid at 900 px', ...fluidStory(900) };
 export const Grid: Story = { args: { layout: 'grid' } };
 export const Mobile: Story = {
   parameters: { viewport: { defaultViewport: 'mobile1' } },
