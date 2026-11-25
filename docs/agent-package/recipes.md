@@ -71,7 +71,7 @@ Do not hard-code a dark zone for the hero: `data-theme="dark"` does not invert w
 
 ## Detail page
 
-Use the last `Breadcrumb` item as the current page (without an `href`). Put the status `Tag` above the `Text` h3, with actions aligned to the right. Follow with a row of `Stat` values, a `Divider`, and a two-column body. Keep the key/value data semantic with `<dl>`, `<dt>`, and `<dd>`; put recent activity in a 320 px sidebar.
+Use the last `Breadcrumb` item as the current page (without an `href`). Put the status `Tag` above the `Text` h3, with actions aligned to the right. Follow with a row of `Stat` values, a `Divider`, and a two-column body. Keep the key/value data semantic with `<dl>`, `<dt>`, and `<dd>`; put recent activity and, when the record has a physical address, a Location block in a 320 px sidebar. Use a full-width 4:3 `Map` without zoom controls and keep the address visible below it.
 
 ```tsx
 <main>
@@ -106,12 +106,24 @@ Use the last `Breadcrumb` item as the current page (without an `href`). Put the 
     <aside className="detail-body__sidebar" style={{ width: 320 }}>
       <div className="detail-person"><Avatar type="initials" size="sm" initials={owner.initials} /><Text>{owner.name}</Text></div>
       <Text style="caption" color="var(--color-text-muted)">Last activity · {project.lastActivity}</Text>
+      {project.address && (
+        <>
+          <Divider />
+          <section className="detail-location">
+            <Text as="h2" style="overline">Location</Text>
+            <Map label={`Map of ${project.name}`} ratio="4:3" showControls={false} attribution={mapAttribution}>
+              {projectMap}
+            </Map>
+            <Text style="body-2">{project.address}</Text>
+          </section>
+        </>
+      )}
     </aside>
   </div>
 </main>
 ```
 
-Use consumer CSS for the responsive two-column layout; collapse the sidebar below the available content width. Use `DescriptionList` for detail metadata and `Table` when the values need row-to-row comparison.
+Supply the provider view and its attribution through `projectMap` and `mapAttribution`. Use consumer CSS for the responsive two-column layout; collapse the sidebar below the available content width. Use `DescriptionList` for detail metadata and `Table` when the values need row-to-row comparison.
 
 ## Multi-step form
 

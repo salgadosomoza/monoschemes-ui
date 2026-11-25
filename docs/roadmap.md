@@ -1,6 +1,6 @@
 # MonoSchemes · roadmap de diseño, UI y agentes
 
-Actualizado: 24 de noviembre de 2026.
+Actualizado: 25 de noviembre de 2026.
 
 ## Cómo usar este roadmap
 
@@ -37,7 +37,8 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | TagGroup | PR #9 se fusionó tras el visto bueno visual; cierra los issues #2 y #6. | Mantener el componente alineado con futuras mejoras. |
 | Hecho | Clasificación de Storybook | El PR #10 organiza las historias según las ocho categorías de Figma y aplica el orden revisado por Claude. | Mantener la estructura alineada con futuras historias. |
 | Aplazado | Stories de Patterns | Las recetas siguen documentadas en el paquete de agentes; las historias de páginas completas se añadirán cuando haya una revisión visual específica para esa categoría. | Retomar cuando Figma tenga ejemplos listos para validar. |
-| Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList están integrados; la receta de dashboard usa búsqueda, selección y paginación de Table. | Mantener los ejemplos alineados con futuras APIs. |
+| Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList están integrados; la receta de dashboard usa búsqueda, selección y paginación de Table. Detail incluye Map y dirección en el bloque Location (#43). | Mantener los ejemplos alineados con futuras APIs. |
+| Hecho | Descargas con Link (#44) | Link admite `href` y `download` para descargas nativas. | Adoptar el enlace de descarga del CV cuando la web actualice el paquete. |
 | Hecho | Plantilla de arranque Vite | PR #14 integrada; la dependencia y su lockfile apuntan a `@monoschemes/ui` 0.3.0. Usa `DescriptionList`. | Mantener la versión de la plantilla alineada con cada release. |
 | Hecho | Verificación automática de tokens y contrato | `npm run check:design-system` valida referencias a primitivos y tokens CSS, y estructura básica del contrato sin pretender comparar datos con Figma. CI corre lint, tipos, tests, builds, `check:dist`, smoke test y esta validación en PR y push a `main`. | Ampliar solo ante una regla concreta y verificable; Figma y accesibilidad visual siguen requiriendo revisión explícita. |
 | En curso | [Storybook público](https://monoschemes.salgadosomoza.com/) (#45) | Preparada la configuración de Workers Builds para servir `storybook-static` y `/llms.txt`. | Tras fusionar, Carlos conecta el repositorio en Cloudflare y Claude comprueba el sitio público. |
@@ -71,7 +72,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Backlog | Archivo de monoschemes-kit | El sistema queda en Figma + `monoschemes-ui`; dejar el repo Kit en solo lectura cuando se complete el aviso/README de archivo. |
 | Hecho | Issue de TagGroup | El PR #9 cerró los issues #2 y #6 al integrarse en `main`. |
 | Hecho | Descubribilidad, iconos y Card/Image (#27, #28) | Descripciones «Use for», seis iconos nuevos, Card/Image y la receta Listing card integrados en main. |
-| Hecho | Gallery y Gallery/Viewer (#29) | Variantes featured/grid/mobile y visor modal con teclado, miniaturas, foco y gestos táctiles integrados en main. |
+| Hecho | Gallery y Gallery/Viewer (#29) | Variantes featured/grid/mobile y visor modal con teclado, miniaturas, foco y gestos táctiles. Gallery ocupa el ancho disponible en escritorio (#43). |
 | Hecho | Map y MapMarker (#31) | PR #35 integrada: marco independiente del proveedor, lienzo neutro, atribución, proporciones y marcadores seleccionables. |
 | Hecho | Rating y RatingInput (#33) | PR #35 integrada: lectura con media estrella y entrada accesible de 1–5 estrellas. |
 | Hecho | Componentes para agentes (#38) | PR #40 integrada: hilo dedicado/panel, mensajes, Composer, estados, herramientas, permisos y callbacks para voz. |

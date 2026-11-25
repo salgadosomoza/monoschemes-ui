@@ -1,35 +1,31 @@
 .gallery {
   width: 100%;
-  max-width: 1120px;
 }
 
 .gallery__desktop {
   position: relative;
   display: grid;
-  gap: var(--gap-xs);
+  gap: var(--gap-sm);
   width: 100%;
 }
 
-.gallery[data-layout="featured"] .gallery__desktop {
-  grid-template-columns: 736fr 376fr;
+.gallery[data-layout="featured"][data-count="3"] .gallery__desktop {
+  grid-template-columns: minmax(0, 1fr) 376px;
   grid-template-rows: repeat(2, minmax(0, 1fr));
-  aspect-ratio: 1120 / 488;
+  height: 488px;
 }
 
 .gallery[data-layout="featured"][data-count="1"] .gallery__desktop {
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto;
-  aspect-ratio: auto;
 }
 
 .gallery[data-layout="featured"][data-count="2"] .gallery__desktop {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: auto;
-  aspect-ratio: auto;
 }
 
 .gallery[data-layout="grid"] .gallery__desktop {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
 }
 
 .gallery__photo {
@@ -53,23 +49,18 @@
   object-fit: cover;
 }
 
-.gallery[data-layout="featured"] .gallery__photo[data-position="featured"] {
-  grid-row: span 2;
+.gallery[data-layout="featured"][data-count="3"] .gallery__desktop .gallery__photo {
+  min-height: 0;
   aspect-ratio: auto;
 }
 
-.gallery[data-layout="featured"][data-count="1"] .gallery__photo[data-position="featured"],
-.gallery[data-layout="featured"][data-count="2"] .gallery__photo[data-position="featured"] {
-  grid-row: auto;
-  aspect-ratio: 4 / 3;
+.gallery[data-layout="featured"][data-count="3"] .gallery__desktop .gallery__photo[data-position="featured"] {
+  grid-row: span 2;
 }
 
-.gallery[data-layout="featured"] .gallery__photo[data-position="secondary"] {
-  aspect-ratio: 376 / 240;
-}
-
-.gallery[data-layout="featured"][data-count="2"] .gallery__photo[data-position="secondary"] {
-  aspect-ratio: 4 / 3;
+.gallery[data-layout="grid"] .gallery__desktop .gallery__photo {
+  height: 276px;
+  aspect-ratio: auto;
 }
 
 .gallery__photo:focus-visible {

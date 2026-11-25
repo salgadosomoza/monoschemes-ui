@@ -16,6 +16,8 @@ export interface LinkProps {
   label?: string;
   /** URL the link points to. */
   href?: string;
+  /** Download a same-origin resource, optionally with a suggested filename. */
+  download?: boolean | string;
   /** Icon rendered after the label when type="icon". */
   icon?: ReactNode;
   /** Callback fired when the link is clicked. */
@@ -35,6 +37,7 @@ export function Link({
   size = 'medium',
   label = 'Link',
   href,
+  download,
   icon,
   onClick,
   target = '_self',
@@ -45,6 +48,7 @@ export function Link({
       data-type={type}
       data-size={size}
       href={href}
+      download={download}
       onClick={onClick}
       target={target}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
