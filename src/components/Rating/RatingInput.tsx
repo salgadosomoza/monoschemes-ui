@@ -49,7 +49,7 @@ export function RatingInput({
   const controlled = value !== undefined;
   const selected = controlled ? clampValue(value) : internalValue;
   const preview = hoveredValue ?? selected;
-  const activeLabel = preview > 0 ? labels[preview - 1] ?? DEFAULT_LABELS[preview - 1] : '';
+  const optionLabels = DEFAULT_LABELS.map((label, index) => labels[index] ?? label);
 
   const select = (next: number) => {
     if (disabled) return;
@@ -90,7 +90,7 @@ export function RatingInput({
           const score = index + 1;
           const checked = selected === score;
           const active = preview >= score;
-          const optionLabel = labels[index] ?? DEFAULT_LABELS[index];
+          const optionLabel = optionLabels[index];
           return (
             <label
               className="rating-input__option"
@@ -115,7 +115,13 @@ export function RatingInput({
           );
         })}
       </div>
-      {showLabel && activeLabel && <Text className="rating-input__label" style="body-2" color="var(--color-text-secondary)" as="span">{activeLabel}</Text>}
+      {showLabel && (
+        <Text className="rating-input__label" style="body-2" color="var(--color-text-secondary)" as="span">
+          {optionLabels.map((label, index) => (
+            <span key={index} aria-hidden={index + 1 !== preview || undefined}>{label}</span>
+          ))}
+        </Text>
+      )}
     </div>
   );
 }
