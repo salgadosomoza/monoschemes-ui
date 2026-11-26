@@ -31,10 +31,13 @@ if (titleElement) {
   const updateTitle = () => {
     const current = document.title;
     const path = new URLSearchParams(window.location.search).get('path');
-    const story = current.match(/(?:^| - )(.+) ⋅ Storybook$/)?.[1].split(' - ').at(-1);
+    const entry = current.match(/^(.+?) - (.+) ⋅ Storybook$/);
+    const name = path?.startsWith('/docs/')
+      ? entry?.[1].split('/').at(-1)?.trim()
+      : entry?.[2];
     const next = !path || path === '/docs/start-here--start-here'
       ? homeTitle
-      : story ? `${story} · MonoSchemes` : current;
+      : name ? `${name} · MonoSchemes` : current;
     if (next !== current) document.title = next;
   };
 

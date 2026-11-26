@@ -1,5 +1,6 @@
-import { Meta, Canvas, Source } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
 import * as Stories from './InverseZone.stories';
+import { CodeBlock } from '../src/components/CodeBlock';
 import { Link } from '../src/components/Link';
 import { Text } from '../src/components/Text';
 import './storybook-docs.css';
@@ -45,7 +46,7 @@ A region that resolves to the opposite color mode of the page: dark on a Light p
 
 <Canvas of={Stories.DocsExample} sourceState="none" />
 
-<Source language="tsx" code={`<section data-theme="inverse">
+<CodeBlock filename="Example.tsx" language="tsx" code={`<section data-theme="inverse">
   <Text style="h5" as="h2">Ship faster with MonoSchemes</Text>
   <Button variant="primary" label="Get started" />
   <Button variant="secondary" label="Read the docs" />

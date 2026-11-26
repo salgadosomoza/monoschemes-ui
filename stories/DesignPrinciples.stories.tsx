@@ -65,7 +65,7 @@ export const PrimaryAction: Story = {
       {['Do', "Don't"].map((label) => (
         <form key={label} onSubmit={(event) => event.preventDefault()}>
           <Text as="h3" style="subtitle-1">{label}</Text>
-          <FormInput label="Name" name="name" />
+          <FormInput label="Name" name="name" placeholder="Your name" />
           <div style={{ display: 'flex', gap: 'var(--gap-sm)', marginTop: 'var(--spacing-sm)' }}>
             <Button type="submit" label="Save" />
             <Button variant={label === 'Do' ? 'secondary' : 'primary'} label="Cancel" />
