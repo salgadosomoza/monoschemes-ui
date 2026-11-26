@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.1 — 2026-11-26
+
+- Fix the half-star rendering and keep RatingInput stable as its labels change.
+- Add a Start here page, MonoSchemes branding, and sharing metadata to the public Storybook.
+- Add Docs for Principles, Inverse zone, Motion, and Listing card, with improved dark-theme contrast and monochrome related links.
+
 ## 0.5.0 — 2026-11-25
 
 - Make Gallery fill its container, with a 376 px side column in Featured and equal-width Grid columns.
