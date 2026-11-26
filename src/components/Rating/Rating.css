@@ -51,16 +51,12 @@
 
 .rating-star__half {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  overflow: hidden;
+  inset: 0;
+  clip-path: inset(0 50% 0 0);
   color: var(--color-text-strong);
 }
 
 .rating-star[data-disabled="true"] .rating-star__half { color: var(--color-text-disabled); }
-.rating-star__half .icon { max-width: none; }
 
 .rating-input {
   display: inline-flex;
@@ -111,11 +107,14 @@
 .rating-input__option:has(input:disabled) { cursor: not-allowed; }
 
 .rating-input__label {
-  display: inline;
+  display: inline-grid;
   width: auto;
   max-width: none;
   white-space: nowrap;
 }
+
+.rating-input__label > span { grid-area: 1 / 1; }
+.rating-input__label > [aria-hidden="true"] { visibility: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   .rating-star { transition: none; }
