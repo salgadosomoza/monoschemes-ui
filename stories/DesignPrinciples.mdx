@@ -1,0 +1,73 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './DesignPrinciples.stories';
+import { Link } from '../src/components/Link';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Foundations</Text>
+
+# Principles
+
+MonoSchemes keeps the interface quiet so content leads. These principles explain the decisions behind every token and component.
+
+</header>
+
+<section>
+
+## When to use
+
+Read them before designing a new screen or proposing a new component.
+
+</section>
+
+<section>
+
+## Example
+
+Do / Don't side by side: a form with one primary Button vs. the same form with two primary Buttons.
+
+<Canvas of={Stories.PrimaryAction} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+1. **Monochrome first.** Hierarchy comes from tone, weight, size and space. Error is the only semantic color, reserved for errors and destructive actions.
+2. **Straight geometry.** No rounded corners. radius-full is only for Avatar round, Radio and the Slider thumb.
+3. **One primary action per view.** Use one primary Button per view or section; other actions are secondary, tertiary or links.
+4. **Quiet structure.** Separate content with spacing first, then with 1 px border-default dividers. Controls use border-strong.
+5. **Same names everywhere.** Components, props and tokens have the same names in Figma, React and the component contract.
+6. **Accessible by default.** Every control has a visible label or an accessible name, a visible focus state and at least 3:1 contrast against its background.
+
+</section>
+
+<section>
+
+## Accessibility
+
+Contrast and focus rules above apply to every component; check custom content with the a11y panel.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="https://github.com/salgadosomoza/monoschemes-ui/blob/main/src/tokens/tokens.json" target="_blank" rel="noopener">Color</a>
+  <a href="/?path=/docs/foundations-inverse-zone--docs" target="_parent">Inverse zone</a>
+  <a href="/?path=/docs/actions-button--docs" target="_parent">Button</a>
+  <Link label="Open in Figma" href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=130-1054" target="_blank" />
+</div>
+
+</section>
+
+</article>

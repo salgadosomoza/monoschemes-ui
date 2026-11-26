@@ -1,0 +1,83 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './Motion.stories';
+import { Link } from '../src/components/Link';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Foundations</Text>
+
+# Motion
+
+Motion confirms an action or a change of state. It is quick and restrained: no bounce and no scaling.
+
+</header>
+
+<section>
+
+## When to use
+
+<div className="storybook-docs__columns">
+
+<div>
+
+**Use for:** hover and press feedback; opening and closing overlays; expanding an Accordion or moving the Tabs indicator; Toast entry.
+
+</div>
+<div>
+
+**Don't use for:** decorative loops; page transitions; delaying content the user is waiting for.
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+## Example
+
+<Canvas of={Stories.Motion} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+- Use the duration tokens; never hard-code milliseconds.
+- Arrivals use ease-out; exits use ease-in and can be shorter than the entry.
+- Movement distance is distance-sm or distance-md, only for overlays and Toast.
+- Animate color, opacity and position; do not animate size or rounded shapes.
+
+</section>
+
+<section>
+
+## Accessibility
+
+With prefers-reduced-motion, positional travel and the Accordion height animation are removed; color changes stay. Never convey information only through motion.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/layout-accordion--docs" target="_parent">Accordion</a>
+  <a href="/?path=/docs/navigation-tabs--docs" target="_parent">Tabs</a>
+  <a href="/?path=/docs/feedback-toast--docs" target="_parent">Toast</a>
+  <a href="/?path=/docs/feedback-drawer--docs" target="_parent">Drawer</a>
+  <Link label="Open in Figma" href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2456-252" target="_blank" />
+</div>
+
+</section>
+
+</article>

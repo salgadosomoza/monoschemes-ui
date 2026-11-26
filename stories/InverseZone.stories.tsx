@@ -1,3 +1,4 @@
+import { Text } from '../src/components/Text';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../src/components/Button';
 import { Chip } from '../src/components/Chip';
@@ -51,3 +52,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const InverseZone: Story = {};
+
+export const DocsExample: Story = {
+  render: () => (
+    <section data-theme="inverse" style={{ padding: 'var(--spacing-xl)', background: 'var(--color-bg-page)' }}>
+      <Text style="h5" as="h3">Ship faster with MonoSchemes</Text>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--gap-sm)', marginTop: 'var(--spacing-sm)' }}>
+        <Button variant="primary" label="Get started" />
+        <Button variant="secondary" label="Read the docs" />
+      </div>
+    </section>
+  ),
+};

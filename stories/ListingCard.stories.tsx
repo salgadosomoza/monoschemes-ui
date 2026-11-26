@@ -22,7 +22,7 @@ function ListingCardExample() {
   const [saved, setSaved] = useState(false);
 
   return (
-    <div style={{ width: 360 }}>
+    <div style={{ width: '100%', maxWidth: 360 }}>
       <CardImage
         src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=960"
         alt="Modern home surrounded by greenery"
@@ -36,10 +36,11 @@ function ListingCardExample() {
             iconOnly
             iconLeft="heart"
             label={saved ? 'Remove from saved homes' : 'Save home'}
+            aria-pressed={saved}
             onClick={() => setSaved((value) => !value)}
           />
         </div>
-        <Text style="subtitle-1">Casa Olivar</Text>
+        <Text as="h3" style="subtitle-1">Casa Olivar</Text>
         <Text style="body-2" color="var(--color-text-secondary)">Santa Maria del Camí, Mallorca</Text>
         <Text style="h6">1,250,000 €</Text>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, color: 'var(--color-text-secondary)' }}>

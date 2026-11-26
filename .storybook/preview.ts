@@ -66,6 +66,7 @@ const preview: Preview = {
       storySort: {
         method: 'alphabetical',
         order: [
+          'Start here',
           'Foundations', ['Principles', 'Inverse zone', 'Text', 'Grid', 'Icons', 'Motion'],
           'Actions', ['Button', 'Button text', 'Link', 'Chip'],
           'Forms', ['Input', 'Select', 'Search', 'Textarea', 'Date', 'File upload', 'Checkbox', 'Radio', 'Toggle', 'Search trigger', 'Slider', 'Color field', 'Password', 'Number', 'Time', 'Multi-select', 'Date picker', 'Segmented control'],

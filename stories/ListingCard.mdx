@@ -1,0 +1,85 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from './ListingCard.stories';
+import { Link } from '../src/components/Link';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Patterns</Text>
+
+# Listing card
+
+A card for listings and search results that combines an image, status, key facts, price and one action.
+
+</header>
+
+<section>
+
+## When to use
+
+<div className="storybook-docs__columns">
+
+<div>
+
+**Use for:** property, rental, product or venue listings in a grid or a results list.
+
+</div>
+<div>
+
+**Don't use for:** a single featured item (use Card/Feature); dense comparisons between many items (use Table).
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+## Example
+
+Card/Image (4:3) → Tag subtle sm for status + Save button (tertiary, icon-only) → title (h6) → location (body 2, text-secondary) → up to three Stat items → price (subtitle 1) → Button.
+
+<Canvas of={Stories.Default} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+- Keep three key facts at most; move the rest to the detail page.
+- The title is the link to the detail page; do not make the whole card a link if it contains other buttons.
+- Use the same image ratio in a grid so rows align.
+
+</section>
+
+<section>
+
+## Accessibility
+
+The image needs alt text that describes the place. The save button changes its label ("Save home" / "Remove from saved homes") and uses aria-pressed. Use one heading per card.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/layout-card-image--docs" target="_parent">Card/Image</a>
+  <a href="/?path=/docs/data-display-stat--docs" target="_parent">Stat</a>
+  <a href="/?path=/docs/data-display-tag--docs" target="_parent">Tag</a>
+  <a href="/?path=/docs/data-display-gallery--docs" target="_parent">Gallery</a>
+  <a href="https://github.com/salgadosomoza/monoschemes-ui/blob/main/docs/agent-package/recipes.md#detail-page" target="_blank" rel="noopener">Detail recipe</a>
+  <Link label="Open in Figma" href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2773-2663" target="_blank" />
+</div>
+
+</section>
+
+</article>

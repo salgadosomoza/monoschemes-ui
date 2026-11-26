@@ -1,3 +1,7 @@
+import './storybook-docs.css';
+import { FormInput } from '../src/components/FormInput';
+import { Text } from '../src/components/Text';
+import { Button } from '../src/components/Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
 function DesignPrinciplesPage() {
@@ -51,6 +55,23 @@ export const MonoSchemesGeometryDark: Story = {
   render: () => (
     <div style={{ background: 'var(--color-bg-page)' }}>
       <DesignPrinciplesPage />
+    </div>
+  ),
+};
+
+export const PrimaryAction: Story = {
+  render: () => (
+    <div className="storybook-docs__columns">
+      {['Do', "Don't"].map((label) => (
+        <form key={label} onSubmit={(event) => event.preventDefault()}>
+          <Text as="h3" style="subtitle-1">{label}</Text>
+          <FormInput label="Name" name="name" placeholder="Your name" />
+          <div style={{ display: 'flex', gap: 'var(--gap-sm)', marginTop: 'var(--spacing-sm)' }}>
+            <Button type="submit" label="Save" />
+            <Button variant={label === 'Do' ? 'secondary' : 'primary'} label="Cancel" />
+          </div>
+        </form>
+      ))}
     </div>
   ),
 };
