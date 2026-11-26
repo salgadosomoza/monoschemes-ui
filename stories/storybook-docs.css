@@ -51,6 +51,10 @@
   color: var(--color-text-primary);
 }
 
+.sbdocs-content .monoschemes-doc a.link {
+  color: var(--color-text-primary);
+}
+
 .sbdocs-content .monoschemes-doc .storybook-docs__related a:not(.link):any-link {
   color: var(--color-text-primary);
   text-decoration: underline dotted;
