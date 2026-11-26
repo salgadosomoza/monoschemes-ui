@@ -1,0 +1,108 @@
+.sbdocs-wrapper:has(.storybook-home) { padding: 0; }
+.sbdocs-content:has(.storybook-home) { width: 100%; max-width: none; }
+
+.storybook-home {
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+}
+
+.storybook-home__content {
+  box-sizing: border-box;
+  display: grid;
+  gap: 80px;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 80px 100px;
+}
+
+.storybook-home .text { margin: 0; }
+
+.storybook-home__hero,
+.storybook-home__section {
+  display: grid;
+  min-width: 0;
+  gap: var(--spacing-lg);
+}
+
+.storybook-home__mark {
+  display: block;
+  width: 48px;
+  height: 48px;
+  background: var(--color-text-strong);
+  mask: url('/brand-mark.svg') center / contain no-repeat;
+}
+
+.storybook-home__facts,
+.storybook-home__resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+}
+
+.storybook-home__resources { column-gap: 40px; }
+
+.storybook-home__cards,
+.storybook-home__quick-start {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.storybook-home__quick-start {
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(36%, 360px));
+  gap: clamp(var(--spacing-lg), 4vw, 48px);
+  align-items: start;
+}
+
+.storybook-home__quick-start .code-block {
+  box-sizing: border-box;
+  max-width: none;
+}
+
+.storybook-home__quick-start .code-block__pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.storybook-home__card-link {
+  display: flex;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.storybook-home__card-link .feature-card { box-sizing: border-box; }
+.storybook-home__card-link:hover .feature-card { background: var(--color-bg-hover); }
+.storybook-home__card-link:focus-visible { outline: 2px solid var(--color-border-focused); }
+
+.storybook-home__steps {
+  display: grid;
+  gap: var(--spacing-md);
+  margin: 0;
+  padding-inline-start: 1.25em;
+  font: var(--font-subtitle2-weight) var(--font-subtitle2-size)/var(--font-subtitle2-line-height) var(--font-family);
+}
+
+@media (max-width: 767px) {
+  .storybook-home__content {
+    gap: 56px;
+    padding: 40px 16px;
+  }
+
+  .storybook-home__mark { width: 40px; height: 40px; }
+
+  .storybook-home .storybook-home__title {
+    font-size: var(--font-h3-size);
+    font-weight: var(--font-h3-weight);
+    line-height: var(--font-h3-line-height);
+    letter-spacing: normal;
+  }
+
+  .storybook-home__cards,
+  .storybook-home__quick-start {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .storybook-home__resources { flex-direction: column; align-items: flex-start; }
+}

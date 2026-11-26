@@ -1,0 +1,88 @@
+import { Meta, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as Stories from './InverseZone.stories';
+import { Link } from '../src/components/Link';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Foundations</Text>
+
+# Inverse zone
+
+A region that resolves to the opposite color mode of the page: dark on a Light page and light on a Dark page. Every component inside keeps working without extra props.
+
+</header>
+
+<section>
+
+## When to use
+
+<div className="storybook-docs__columns">
+
+<div>
+
+**Use for:** a hero or promotional band that must stand out; a featured section or call to action; a footer or closing section with emphasis.
+
+</div>
+<div>
+
+**Don't use for:** forcing a dark section in every theme (use the page theme instead); nesting one inverse zone inside another; errors or alerts (use Inline notification or Banner).
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+## Example
+
+<Canvas of={Stories.DocsExample} sourceState="none" />
+
+<Source language="tsx" code={`<section data-theme="inverse">
+  <Text style="h5" as="h2">Ship faster with MonoSchemes</Text>
+  <Button variant="primary" label="Get started" />
+  <Button variant="secondary" label="Read the docs" />
+</section>`} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+- Apply it to a full-width section, not to an inline element.
+- Use one level only: do not nest inverse zones.
+- Avoid Button danger inside the zone; error is the only semantic color.
+- Photos and illustrations keep their own colors: check them against bg-inverse.
+
+</section>
+
+<section>
+
+## Accessibility
+
+Semantic tokens keep the same contrast in both modes, so text and controls stay at WCAG AA inside the zone. Focus rings switch to the opposite color automatically. Custom content must be checked against bg-inverse.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/foundations-principles--docs" target="_parent">Principles</a>
+  <a href="https://github.com/salgadosomoza/monoschemes-ui/blob/main/src/tokens/tokens.json" target="_parent">Color</a>
+  <a href="https://github.com/salgadosomoza/monoschemes-ui/blob/main/docs/agent-package/recipes.md#landing-page-with-a-contrasting-hero" target="_parent">Landing recipe</a>
+  <Link label="Open in Figma" href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2450-315" target="_blank" />
+</div>
+
+</section>
+
+</article>

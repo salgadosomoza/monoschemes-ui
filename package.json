@@ -64,7 +64,7 @@
     "check:design-system": "node scripts/check-design-system.mjs",
     "smoke:pack": "node scripts/smoke-pack.mjs",
     "build:storybook": "storybook build",
-    "postbuild:storybook": "node -e \"require('node:fs').copyFileSync('llms.txt', 'storybook-static/llms.txt')\"",
+    "postbuild:storybook": "node scripts/prepare-storybook.mjs",
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
