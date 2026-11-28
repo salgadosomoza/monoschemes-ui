@@ -41,7 +41,7 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList están integrados; la receta de dashboard usa búsqueda, selección y paginación de Table. Detail incluye Map y dirección en el bloque Location (#43). | Mantener los ejemplos alineados con futuras APIs. |
 | Hecho | Foundations T-04 y T-05 (#49) | Separadores con borde suave, bordes y foco de controles con contraste y alturas de línea en múltiplos de 4 px. | Mantener los tokens CSS y JSON alineados con Figma. |
 | Hecho | Descargas con Link (#44) | Link admite `href` y `download` para descargas nativas. | Adoptar el enlace de descarga del CV cuando la web actualice el paquete. |
-| Hecho | Plantilla de arranque Vite | PR #14 integrada; la dependencia y su lockfile apuntan a `@monoschemes/ui` 0.5.0. Usa `DescriptionList`. | Mantener la versión de la plantilla alineada con cada release. |
+| Hecho | Plantilla de arranque Vite | PR #14 integrada; la dependencia y su lockfile apuntan a `@monoschemes/ui` 0.6.0. Usa `DescriptionList` y la escala adaptable de `Text`. | Mantener la versión de la plantilla alineada con cada release. |
 | Hecho | Verificación automática de tokens y contrato | `npm run check:design-system` valida referencias a primitivos y tokens CSS, y estructura básica del contrato sin pretender comparar datos con Figma. CI corre lint, tipos, tests, builds, `check:dist`, smoke test y esta validación en PR y push a `main`. | Ampliar solo ante una regla concreta y verificable; Figma y accesibilidad visual siguen requiriendo revisión explícita. |
 | Hecho | [Storybook público](https://monoschemes.salgadosomoza.com/) (#45) | Workers Builds sirve Storybook y /llms.txt. Start here, metadatos de marca y cuatro Docs incorporados en #54. | Ampliar las Docs con ejemplos y pautas de uso. Agents incorpora los seis marcos de Figma en ocho páginas de Docs (#64). |
 | Backlog | Code Connect | No se ha confirmado el plan de Figma ni el alcance práctico. | Confirmar elegibilidad y componentes prioritarios antes de implementar. |
@@ -96,7 +96,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 - Los cambios visuales —componentes, tokens, estilos y stories— se desarrollan en una rama y PR. Codex los integra tras las comprobaciones; la revisión de Claude es opcional salvo que Carlos la solicite.
 - Los cambios internos o de proceso —CI, scripts, documentación, tests y refactors sin efecto visual— pueden integrarse sin una revisión visual previa.
 - Una publicación requiere que tests, lint, typecheck, build, `check:dist` y el smoke test de instalación del tarball pasen; también requiere versión semver nueva y entrada en `CHANGELOG.md`.
-- Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`. La publicación de 0.6.0 se activa con la etiqueta `v0.6.0`. El workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar, sin token persistente.
+- Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`. La versión 0.6.0 está publicada con provenance a partir de la etiqueta `v0.6.0`. El workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar, sin token persistente.
 - `0.0.0-stage`: comprobado en npm el 23 nov 2026; esa versión no está publicada, así que no hay ninguna versión de prueba que deprecar.
 
 ### Hecho
@@ -116,7 +116,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 |---|---|---|
 | Hecho | Registro de resultados | Las rondas y auditorías están consolidadas en Sheets; este roadmap y `docs/agent-test/results.md` conservan prioridades e interpretación. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList ya están integrados. La receta de dashboard usa las capacidades propias de búsqueda, selección y paginación de Table. | Mantener ejemplos alineados con cambios de API. |
-| Hecho | Plantilla inicial Vite | PR #14 integrada y actualizada para `@monoschemes/ui` 0.5.0. |
+| Hecho | Plantilla inicial Vite | PR #14 integrada y actualizada para `@monoschemes/ui` 0.6.0. |
 | Hecho | Verificación automática de contrato y tokens | Valida referencias locales y forma del JSON; no compara con Figma ni reemplaza la revisión accesible de Storybook. |
 | Después de cambios sustantivos | Nueva prueba comparativa | Repetir las mismas tareas y métricas solo cuando cambien de forma material las instrucciones, recetas o APIs. La muestra seguirá siendo pequeña y debe presentarse como tal. |
 

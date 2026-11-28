@@ -65,10 +65,6 @@ select {
   justify-self: start;
 }
 
-.prototype-hero__title--mobile {
-  display: none;
-}
-
 .prototype-hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -129,14 +125,6 @@ select {
   .prototype-main {
     gap: var(--gap-lg);
     padding-block: var(--spacing-lg);
-  }
-
-  .prototype-hero__title--desktop {
-    display: none;
-  }
-
-  .prototype-hero__title--mobile {
-    display: block;
   }
 
   .prototype-stats {

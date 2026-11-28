@@ -43,16 +43,9 @@ export function App() {
         <section className="prototype-hero" data-theme="inverse" aria-label="Prototype introduction">
           <div className="prototype-hero__copy">
             <Tag label="Prototype starter" type="default" size="sm" />
-            <div className="prototype-hero__title prototype-hero__title--desktop">
-              <Text as="h1" style="display-3" fullWidth>
-                Make the idea tangible.
-              </Text>
-            </div>
-            <div className="prototype-hero__title prototype-hero__title--mobile">
-              <Text as="h1" style="h1" fullWidth>
-                Make the idea tangible.
-              </Text>
-            </div>
+            <Text as="h1" style="display-3" fullWidth>
+              Make the idea tangible.
+            </Text>
             <Text as="p" style="body-1" fullWidth>
               A small, working canvas for your next product concept. Replace this example with the screen your team needs.
             </Text>
