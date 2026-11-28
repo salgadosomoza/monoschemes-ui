@@ -7,7 +7,6 @@ const meta = {
   component: AgentMark,
   args: { state: 'idle', size: 'sm', level: 0.6 },
   parameters: { layout: 'centered', design: { type: 'figma', url: FIGMA }, docs: { description: { component: 'Monochrome agent identity mark. Thinking rotates slowly; listening and speaking bars follow the supplied audio level. Reduced motion disables the rotation.' } } },
-  tags: ['autodocs'],
 } satisfies Meta<typeof AgentMark>;
 
 export default meta;

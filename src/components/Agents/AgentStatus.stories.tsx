@@ -7,7 +7,6 @@ const meta = {
   component: AgentStatus,
   args: { state: 'thinking', onStop: () => undefined },
   parameters: { layout: 'padded', design: { type: 'figma', url: FIGMA } },
-  tags: ['autodocs'],
 } satisfies Meta<typeof AgentStatus>;
 export default meta;
 type Story = StoryObj<typeof meta>;

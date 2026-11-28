@@ -56,7 +56,7 @@ Use `Tag` in a table cell when a value represents a status; cells accept React n
 
 ## Landing page with a contrasting hero
 
-Use an inverse zone for the hero so it contrasts with either page theme. Use `Text` with a display style for one leading headline, `FeatureCard` for the feature grid, `Card` for pricing options, and `Footer variant="minimal"` for the compact legal row.
+Use an inverse zone for the hero so it contrasts with either page theme. Use `Text` with a display style for one leading headline. Below 768 px, `display-1`, `display-2`, and `display-3` automatically scale to 112, 80, and 64 px. Use `FeatureCard` for the feature grid, `Card` for pricing options, and `Footer variant="minimal"` for the compact legal row.
 
 ```tsx
 <section data-theme="inverse" aria-labelledby="hero-title">
@@ -200,7 +200,7 @@ Use `iconTone="error"` only for a whole-view error state; ordinary empty states 
 
 ## Listing card
 
-Use `CardImage` for image-led search results such as homes, products, or places. Combine it with a subtle status `Tag`, a labeled tertiary icon button, `Text` for the name and location, a price, and a compact row of facts. Keep the image ratio configurable and use `Icon` for the 16 px fact symbols.
+Use `CardImage` for image-led search results such as homes, products, or places. Combine it with a subtle status `Tag`, a labeled tertiary icon button, `Text` for the name and location, a price, and a compact row of facts. Use `ratio` on both `CardImage` and standalone `Image` to set the aspect ratio and use `Icon` for the 16 px fact symbols.
 
 ```tsx
 <CardImage src={listing.image} alt={listing.imageAlt} ratio="4:3">

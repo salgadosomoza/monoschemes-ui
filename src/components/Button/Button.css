@@ -33,7 +33,7 @@
 .button__icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 auto; }
 .button[data-size="sm"] .button__icon { width: 16px; height: 16px; }
 .button__icon .icon { display: block; }
-.button__spinner { position: absolute; inset: 0; margin: auto; --spinner-active-color: var(--color-text-strong); }
+.button__spinner { position: absolute; inset: 0; margin: auto; width: 16px; height: 16px; --spinner-active-color: var(--color-text-strong); }
 .button[data-variant="primary"] .button__spinner, .button[data-variant="danger"] .button__spinner { --spinner-active-color: var(--color-text-inverse); }
 
 .button[data-variant="primary"] { background: var(--color-bg-inverse); color: var(--color-text-inverse); }

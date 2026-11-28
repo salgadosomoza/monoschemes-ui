@@ -75,6 +75,13 @@
   letter-spacing: var(--font-display-letter-spacing);
 }
 
+@media (max-width: 767px) {
+  .text[data-style="display-1"],
+  .text[data-style="display"] { font-size: var(--font-display-2-size); }
+  .text[data-style="display-2"] { font-size: var(--font-display-3-size); }
+  .text[data-style="display-3"] { font-size: var(--font-h1-size); }
+}
+
 .text[data-style="h4"] {
   font-size: var(--font-h4-size);
   font-weight: var(--font-h4-weight);

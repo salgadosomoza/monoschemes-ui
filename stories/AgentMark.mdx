@@ -1,0 +1,65 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from '../src/components/Agents/AgentMark.stories';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Agents</Text>
+
+# Agent mark
+
+The agent's identity: a monochrome square whose core changes with what the agent is doing. It replaces an avatar or a logo, so every product can use the same symbol.
+
+</header>
+
+<section>
+
+## When to use
+
+Use the mark wherever a person needs to recognize the agent across surfaces.
+
+</section>
+
+<section>
+
+## Example
+
+<Canvas of={Stories.States} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+idle: solid square, nothing happening. thinking: a diamond that turns slowly in code. listening: three bars that follow the person's voice. speaking: inverted background and bars that follow the agent's voice. Only one state at a time, driven by the same source as Agent/Status.
+
+sm 24 in messages and the status line, md 32 in headers and the side panel, lg 120 in voice and video. Do not scale it to other sizes; use the closest one.
+
+</section>
+
+<section>
+
+## Accessibility
+
+Decorative next to a name (aria-hidden). Add accessible text such as «Agent, listening» alongside a standalone mark. Motion stops with prefers-reduced-motion: thinking and the bars become static and the state is read from text.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/agents-agent-status--docs" target="_parent">Agent status</a>
+  <a href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2933-601" target="_blank" rel="noopener">Open in Figma</a>
+</div>
+
+</section>
+
+</article>

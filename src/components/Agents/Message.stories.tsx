@@ -7,7 +7,6 @@ const meta = {
   component: Message,
   args: { role: 'agent', children: 'I found 12 flats for rent in Gràcia under €1,400. The three cheapest are near Fontana. Do you want me to compare them?', time: '09:15' },
   parameters: { layout: 'padded', design: { type: 'figma', url: FIGMA } },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Message>;
 export default meta;
 type Story = StoryObj<typeof meta>;

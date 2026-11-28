@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.0 — 2026-11-28
+
+- Add `Image.ratio` and the `ImageRatio` type. The deprecated `type` prop still works, and `ratio` takes precedence.
+- Set h1 to 64/72 px and h2 to 56/64 px. Display styles 1–3 scale to 112, 80, and 64 px below 768 px.
+- Center the Button loading spinner across sizes and icon-only variants.
+- Add Storybook documentation for the Agents components.
+
 ## 0.5.1 — 2026-11-26
 
 - Fix the half-star rendering and keep RatingInput stable as its labels change.

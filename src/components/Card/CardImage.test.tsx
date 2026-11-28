@@ -12,6 +12,6 @@ describe('CardImage', () => {
 
     expect(screen.getByRole('img', { name: 'A home with a garden' }).getAttribute('src')).toBe('/home.jpg');
     expect(screen.getByText('Casa Olivar')).toBeTruthy();
-    expect(screen.getByRole('img').parentElement?.getAttribute('data-type')).toBe('4:3');
+    expect(screen.getByRole('img').parentElement?.getAttribute('data-ratio')).toBe('4:3');
   });
 });

@@ -34,6 +34,8 @@
 | `DescriptionList` | Detail data for one record; use Table when the same values should be compared across rows. |
 | `Card` | General content containers and grouped content; use a more specific card pattern when the content has a defined structure. |
 | `Card/Image` | Image-led listings and content cards with a photo, status, title, metadata, key facts, price and action. |
+| `Image` | An image or placeholder with `ratio` (default `16:9`). |
+| `Text` | Heading styles h1/h2 are 64/72 px and 56/64 px (size/line height). Display styles 1–3 scale to 112, 80, and 64 px below 768 px. |
 | `Gallery` | A property or product gallery with featured/grid layouts and a full-screen photo viewer. |
 | `Map` | A provider-independent map frame with semantic labeling, attribution and optional zoom callbacks. |
 | `Rating` | A read-only zero-to-five score with half stars and an optional count; use compact in lists. |

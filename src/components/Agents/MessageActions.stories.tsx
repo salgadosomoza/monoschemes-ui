@@ -7,7 +7,6 @@ const meta = {
   component: MessageActions,
   args: { role: 'agent' },
   parameters: { layout: 'centered', design: { type: 'figma', url: FIGMA } },
-  tags: ['autodocs'],
 } satisfies Meta<typeof MessageActions>;
 export default meta;
 type Story = StoryObj<typeof meta>;

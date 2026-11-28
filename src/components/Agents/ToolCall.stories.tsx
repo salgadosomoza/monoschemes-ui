@@ -7,7 +7,6 @@ const meta = {
   component: ToolCall,
   args: { name: 'Search the web', summary: '“flats for rent Gràcia pets”', state: 'running' },
   parameters: { layout: 'padded', design: { type: 'figma', url: FIGMA } },
-  tags: ['autodocs'],
 } satisfies Meta<typeof ToolCall>;
 export default meta;
 type Story = StoryObj<typeof meta>;

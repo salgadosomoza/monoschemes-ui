@@ -1,0 +1,63 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from '../src/components/Agents/AgentStatus.stories';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Agents</Text>
+
+# Agent status
+
+One line at the end of the thread that says what the agent is doing right now: Agent/Mark sm plus a short text in body 2, text/secondary.
+
+</header>
+
+<section>
+
+## When to use
+
+Show a single status, never one per step; past steps live in Tool call. Remove it when the answer is complete. Keep the text under six words and in present tense.
+
+</section>
+
+<section>
+
+## Example
+
+<Canvas of={Stories.Thinking} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+thinking, tool (names the tool: «Searching the web»), approval (waiting for you), streaming (writing), stopped and error. error is the only state in text/error. Passing `onStop` adds Stop (Button tertiary sm) with Kbd Esc while the agent works.
+
+</section>
+
+<section>
+
+## Accessibility
+
+aria-live="polite": announced when the state changes, never token by token. Wire Escape at thread level to stop the agent from anywhere in the thread. Keep the Stop button’s focus indicator visible.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/agents-tool-call--docs" target="_parent">Tool call</a>
+  <a href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2933-626" target="_blank" rel="noopener">Open in Figma</a>
+</div>
+
+</section>
+
+</article>

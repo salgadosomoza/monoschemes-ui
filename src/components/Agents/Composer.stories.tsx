@@ -9,7 +9,6 @@ const meta = {
   component: Composer,
   args: { showHint: true },
   parameters: { layout: 'padded', design: { type: 'figma', url: FIGMA } },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Composer>;
 export default meta;
 type Story = StoryObj<typeof meta>;
