@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.0 — 2026-11-28
+
+- Add Container, responsive Grid and GridItem. The default grid uses 4, 8, and 12 columns; the old Grid type presets are deprecated.
+- Add a cookie banner and dialog or inline preferences with consumer-owned consent callbacks.
+- Add Prose for semantic HTML and Markdown.
+- Document adaptive contrast and fixed themes, and add the Experience entry recipe for single and grouped roles.
+
 ## 0.6.0 — 2026-11-28
 
 - Add `Image.ratio` and the `ImageRatio` type. The deprecated `type` prop still works, and `ratio` takes precedence.

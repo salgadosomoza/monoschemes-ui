@@ -262,3 +262,50 @@ Use `AgentThread` for a dedicated assistant view or a non-modal side panel. Keep
 ```
 
 `AgentStatus` announces state transitions rather than streaming text. `AgentMark` is decorative. A pending `ApprovalRequest` moves focus to Allow; keep approval content concise and actionable. The panel does not add an overlay or trap focus. Voice controls are callbacks only: the host application requests microphone permission and provides transcription and speech services.
+
+## Featured section
+
+Use a section that flips with the page theme when the requirement is contrast. For a section that stays dark in both page themes, such as a launch video, use a fixed dark theme. Both bands paint their own page surface.
+
+```tsx
+<Container size="full" data-theme="inverse" style={{ background: 'var(--color-bg-page)' }}>
+  <Container><Text as="h2" style="h3">Ship faster with one system</Text></Container>
+</Container>
+<Container size="full" data-theme="dark" style={{ background: 'var(--color-bg-page)' }}>
+  <Container><Text as="h2" style="h3">Watch the launch film</Text></Container>
+</Container>
+```
+
+Compare Light and Dark captures. The contrast band must flip. The fixed dark band must stay dark. Keep themed bands at the same level and avoid danger buttons inside them.
+
+## Responsive card grid
+
+Use `Grid minItemWidth` for a card collection and let it calculate how many cards fit. Use `Grid` with `GridItem span` when the layout needs explicit columns. `Container` provides page margins and caps centered content at 1440 px.
+
+```tsx
+<Container>
+  <Grid minItemWidth="240px">
+    {features.map(feature => <FeatureCard key={feature.id} {...feature.card} />)}
+  </Grid>
+</Container>
+```
+
+The standard grid uses 4 columns below 768 px, 8 from 768 px, and 12 from 1440 px. Use `span={{ base: 4, sm: 4, md: 6 }}` for an item that goes from full width to half width.
+
+## Experience entry
+
+Render roles newest first in an ordered list. A single entry has a role in `Text h5`, company and location in body 2, dates in caption with machine-readable `time` elements, and a body 2 description no wider than 680 px. Place dates at the end of the role heading row from 768 px and under the company on smaller screens. Keep 4 px between the role and company and 8 px between the entry's content blocks. Wrap optional `Tag type="subtle" size="sm"` chips with an 8 px gap and use a small Link for an optional case study.
+
+For several roles at one company, use an h5 company heading, body 2 location and caption tenure. Place an ordered list of roles beside a vertical Divider, with a 16 px gap. Each role has an h6 heading, caption dates and a body 2 description. Use horizontal Dividers with 24 px on each side between entries.
+
+See [Patterns / Experience entry](https://monoschemes.salgadosomoza.com/?path=/story/patterns-experience-entry--experience) for the markup and layout in both themes.
+
+## Article content
+
+Put the page title outside `Prose` in `Text h1`. Render semantic HTML or sanitized Markdown inside `Prose`, preserving the heading levels and captions. Wrap tables that need a keyboard-scrollable horizontal region in `<div className="prose__table" tabIndex={0} role="region" aria-label="…">`. Mark the table headers with `scope`.
+
+## Cookie preferences
+
+Render `CookieBanner` near the start of the page markup while the site lacks a saved choice. Position the bar at the bottom of the page or the card at a bottom corner, and leave room to reach page content and focused elements. Keep Reject all and Accept all at the same visual weight. Customize opens `CookiePreferences` with the site's current selection.
+
+Put a persistent Cookie settings action in the Footer's `meta` slot. Connect it to the same preferences dialog. On the cookie policy page use `layout="inline"`, omit the banner, and include the list of cookies with their names, providers, categories, purposes and durations. Optional categories start off. The site owns consent storage and script activation and passes the active category IDs to `value` when preferences reopen. Apply and persist the result through `onAcceptAll`, `onRejectAll`, and `onSave`. Closing or pressing Escape leaves the choice unchanged.

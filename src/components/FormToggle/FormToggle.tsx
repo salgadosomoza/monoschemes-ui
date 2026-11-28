@@ -15,6 +15,7 @@ export interface FormToggleProps {
   onChange?: (active: boolean) => void;
   /** Renders the toggle in a disabled state. */
   disabled?: boolean;
+  'aria-describedby'?: string;
 }
 
 export function FormToggle({
@@ -23,6 +24,7 @@ export function FormToggle({
   label = 'Label',
   onChange,
   disabled = false,
+  'aria-describedby': describedBy,
 }: FormToggleProps) {
   // No htmlFor on <label> — input is a child so implicit association applies.
   // Using htmlFor + child input causes double-firing in browsers.
@@ -51,6 +53,7 @@ export function FormToggle({
         type="checkbox"
         className="form-toggle-input"
         aria-label={type === 'icon' ? label : undefined}
+        aria-describedby={describedBy}
         checked={isActive}
         disabled={disabled}
         onChange={(e) => handleChange(e.target.checked)}

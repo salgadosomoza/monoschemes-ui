@@ -27,8 +27,9 @@ npm run dev
 ## Theme and color
 
 - Set `data-theme="light"` or `data-theme="dark"` on `<html>`.
+- For a card layout, use `Grid minItemWidth` with a minimum card width. Use `Container` for responsive page margins and `GridItem span` for explicit column spans.
 - Use `data-theme="inverse"` on a section that needs the opposite theme from its surrounding page. It adapts when the page theme changes. Inverse zones cannot be nested.
-- Do not use `data-theme="dark"` as a substitute for an inverse zone. A nested dark zone stays dark when the page is light or dark.
+- Use `data-theme="dark"` for a section that must stay dark in both page themes, or `data-theme="light"` for a section that must stay light. Paint the section with `var(--color-bg-page)` inside its theme. Keep explicit theme zones as siblings and avoid danger actions inside them.
 - Use the package's semantic color properties such as `--color-bg-page`, `--color-bg-surface`, `--color-text-primary`, `--color-text-secondary`, `--color-text-strong`, `--color-border-default`, `--color-border-strong`, and `--color-border-focused`. Use default borders for separators and decorative outlines, strong borders for controls, and focused borders for focus indicators. Check the installed stylesheet for the full list.
 - Do not add component colors as hex, RGB, or copied local token definitions.
 

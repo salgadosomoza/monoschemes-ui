@@ -657,32 +657,39 @@
         }
       }
     },
-    "Grid": {
-      "figmaNode": "106:1130",
+    "Container": {
+      "figmaNode": "2701:3632",
       "props": {
-        "type": {
-          "type": "variant",
-          "values": [
-            "small",
-            "medium",
-            "large",
-            "max",
-            "full"
-          ],
-          "default": "large"
-        },
-        "columns": {
-          "type": "variant",
-          "values": [
-            "1",
-            "2",
-            "4",
-            "8",
-            "16"
-          ],
-          "default": "16"
-        }
+        "size": { "type": "variant", "values": ["default", "full"], "default": "default" }
       }
+    },
+    "Grid": {
+      "figmaNode": "2701:3632",
+      "props": {},
+      "useFor": "Responsive 4/8/12-column layout or auto-fill cards with minItemWidth. GridItem supports responsive spans."
+    },
+    "CookieBanner": {
+      "figmaNode": "2917:864",
+      "props": {
+        "layout": { "type": "variant", "values": ["bar", "card"], "default": "bar" }
+      }
+    },
+    "CookiePreferenceCategory": {
+      "figmaNode": "2917:876",
+      "props": {
+        "required": { "type": "boolean", "default": false }
+      }
+    },
+    "CookiePreferences": {
+      "figmaNode": "2919:892",
+      "props": {
+        "layout": { "type": "variant", "values": ["dialog", "inline"], "default": "dialog" }
+      }
+    },
+    "Prose": {
+      "figmaNode": "2923:1484",
+      "props": {},
+      "useFor": "Render semantic HTML or Markdown in a 680 px reading column."
     },
     "Image": {
       "figmaNode": "86:217",
