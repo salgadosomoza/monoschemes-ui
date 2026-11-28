@@ -1,0 +1,63 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from '../src/components/Agents/ToolCall.stories';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Agents</Text>
+
+# Tool call
+
+A collapsible step that shows what the agent did with a tool. People can trust the answer because they can open each step and see its input and result.
+
+</header>
+
+<section>
+
+## When to use
+
+One Tool call per call, in order, inside the agent message. Collapsed by default once done; open it automatically only on error. Summaries in plain words («Read 3 files»), not function names alone.
+
+</section>
+
+<section>
+
+## Example
+
+<Canvas of={Stories.Done} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+running: Agent/Mark thinking and the tool name. done: a one-line result. error: the message in text/error and, when it helps, a retry action. `defaultExpanded={true}` shows the input in Code block and the full result below.
+
+</section>
+
+<section>
+
+## Accessibility
+
+A disclosure: the header is a button with aria-expanded and aria-controls. Status changes are reported by Agent/Status, not by each Tool call.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/agents-agent-status--docs" target="_parent">Agent status</a>
+  <a href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2933-676" target="_blank" rel="noopener">Open in Figma</a>
+</div>
+
+</section>
+
+</article>

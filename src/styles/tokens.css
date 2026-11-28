@@ -43,13 +43,13 @@
   --font-family: 'Inter', -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --font-h1-size: 56px;
+  --font-h1-size: 64px;
   --font-h1-weight: 700;
-  --font-h1-line-height: 64px;
+  --font-h1-line-height: 72px;
 
-  --font-h2-size: 64px;
+  --font-h2-size: 56px;
   --font-h2-weight: 300;
-  --font-h2-line-height: 72px;
+  --font-h2-line-height: 64px;
 
   --font-h3-size: 48px;
   --font-h3-weight: 500;

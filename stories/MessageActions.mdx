@@ -1,0 +1,63 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from '../src/components/Agents/MessageActions.stories';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Agents</Text>
+
+# Message actions
+
+Actions for copying, retrying, rating or editing a conversation message.
+
+</header>
+
+<section>
+
+## When to use
+
+Use these actions next to the message they operate on.
+
+</section>
+
+<section>
+
+## Example
+
+<Canvas of={Stories.Agent} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+Message/Actions with Button tertiary sm iconOnly. agent: copy, retry, good and bad answer. user: edit and copy. On desktop they appear on hover or focus; on touch they are always visible. Each button has a Tooltip.
+
+</section>
+
+<section>
+
+## Accessibility
+
+Each action has an accessible name and a matching tooltip. Keep actions available when focus moves into the message.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/agents-message--docs" target="_parent">Message</a>
+  <a href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2933-651" target="_blank" rel="noopener">Open in Figma</a>
+</div>
+
+</section>
+
+</article>

@@ -1,6 +1,6 @@
 # MonoSchemes · roadmap de diseño, UI y agentes
 
-Actualizado: 25 de noviembre de 2026.
+Actualizado: 28 de noviembre de 2026.
 
 ## Cómo usar este roadmap
 
@@ -36,13 +36,14 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Rediseño de Table | PR #7 se fusionó tras el visto bueno visual; incluye ordenación, selección, búsqueda, paginación y estados, y cierra los issues #1 y #5. | Mantener stories y contrato alineados con futuras mejoras. |
 | Hecho | TagGroup | PR #9 se fusionó tras el visto bueno visual; cierra los issues #2 y #6. | Mantener el componente alineado con futuras mejoras. |
 | Hecho | Clasificación de Storybook | El PR #10 organiza las historias según las ocho categorías de Figma y aplica el orden revisado por Claude. | Mantener la estructura alineada con futuras historias. |
+| Hecho | Tipografía adaptable, proporción de imagen y carga de Button (#62, #63, #65) | `Text` aplica T-06 y T-07, `Image` acepta `ratio` y `Button` centra su indicador de carga. | Migrar los usos de `Image.type` a `Image.ratio`. |
 | Aplazado | Stories de Patterns | Las recetas siguen documentadas en el paquete de agentes; las historias de páginas completas se añadirán cuando haya una revisión visual específica para esa categoría. | Retomar cuando Figma tenga ejemplos listos para validar. |
 | Hecho | Recetas y DescriptionList | Las siete recetas y DescriptionList están integrados; la receta de dashboard usa búsqueda, selección y paginación de Table. Detail incluye Map y dirección en el bloque Location (#43). | Mantener los ejemplos alineados con futuras APIs. |
 | Hecho | Foundations T-04 y T-05 (#49) | Separadores con borde suave, bordes y foco de controles con contraste y alturas de línea en múltiplos de 4 px. | Mantener los tokens CSS y JSON alineados con Figma. |
 | Hecho | Descargas con Link (#44) | Link admite `href` y `download` para descargas nativas. | Adoptar el enlace de descarga del CV cuando la web actualice el paquete. |
 | Hecho | Plantilla de arranque Vite | PR #14 integrada; la dependencia y su lockfile apuntan a `@monoschemes/ui` 0.5.0. Usa `DescriptionList`. | Mantener la versión de la plantilla alineada con cada release. |
 | Hecho | Verificación automática de tokens y contrato | `npm run check:design-system` valida referencias a primitivos y tokens CSS, y estructura básica del contrato sin pretender comparar datos con Figma. CI corre lint, tipos, tests, builds, `check:dist`, smoke test y esta validación en PR y push a `main`. | Ampliar solo ante una regla concreta y verificable; Figma y accesibilidad visual siguen requiriendo revisión explícita. |
-| Hecho | [Storybook público](https://monoschemes.salgadosomoza.com/) (#45) | Workers Builds sirve Storybook y /llms.txt. Start here, metadatos de marca y cuatro Docs incorporados en #54. | Ampliar las Docs con ejemplos y pautas de uso. |
+| Hecho | [Storybook público](https://monoschemes.salgadosomoza.com/) (#45) | Workers Builds sirve Storybook y /llms.txt. Start here, metadatos de marca y cuatro Docs incorporados en #54. | Ampliar las Docs con ejemplos y pautas de uso. Agents incorpora los seis marcos de Figma en ocho páginas de Docs (#64). |
 | Backlog | Code Connect | No se ha confirmado el plan de Figma ni el alcance práctico. | Confirmar elegibilidad y componentes prioritarios antes de implementar. |
 | Hecho | Backlog de diseño desde las pruebas con agentes (#27) | Las prioridades quedaron ordenadas aquí y divididas en tareas diseñadas independientes. | Activar cada punto solo cuando exista un diseño verificable. |
 
@@ -78,6 +79,14 @@ Referencias: [Roadmap FigJam](https://www.figma.com/board/5e0OseT7Eu8XjlEtpJofVx
 | Hecho | Rating y RatingInput (#33) | PR #35 integrada: lectura con media estrella y entrada accesible de 1–5 estrellas. |
 | Hecho | Componentes para agentes (#38) | PR #40 integrada: hilo dedicado/panel, mensajes, Composer, estados, herramientas, permisos y callbacks para voz. |
 
+| Backlog | Rejilla adaptable (#57) | Inventariar Grid en Figma y React. Comparar columnas por breakpoint, retirada a favor de CSS con tokens y aclaración del uso actual. |
+| Backlog | Descubribilidad de la zona `inverse` (#58) | Revisar búsquedas de «sección oscura» y «hero oscuro» en las guías y Storybook. Probar un ejemplo más fácil de encontrar y validar con una tarea focalizada. |
+| Backlog | Preferencias de cookies (#59) | Diseñar un banner no modal con acciones al mismo nivel, preferencias por categoría y acceso persistente. Revisar foco, Escape, temas y colores forzados. La API se limita a UI y callbacks. |
+| Backlog | Entrada de experiencia (#60) | Diseñar una receta de CV y portfolio en escritorio y móvil con puesto, empresa, fechas, descripción, Tags y enlace opcional. Usar componentes existentes. |
+| Backlog | Prose (#61) | Diseñar un contenedor de lectura para HTML y Markdown renderizado con jerarquía T-05 y T-06, ancho de unos 68 ch y ritmo de 4 px. Incluir listas, citas, código, tablas, imágenes con pie y separadores. |
+
+Los puntos #57–#61 pasan a implementación cuando exista el diseño en Figma y se enlace en la issue correspondiente.
+
 Las páginas de prueba de Figma son referencias de exploración, no entregas independientes. Añadir allí pruebas nuevas cuando aporten un caso concreto.
 
 ## Paquete y pruebas con agentes
@@ -87,7 +96,7 @@ Las páginas de prueba de Figma son referencias de exploración, no entregas ind
 - Los cambios visuales —componentes, tokens, estilos y stories— se desarrollan en una rama y PR. Codex los integra tras las comprobaciones; la revisión de Claude es opcional salvo que Carlos la solicite.
 - Los cambios internos o de proceso —CI, scripts, documentación, tests y refactors sin efecto visual— pueden integrarse sin una revisión visual previa.
 - Una publicación requiere que tests, lint, typecheck, build, `check:dist` y el smoke test de instalación del tarball pasen; también requiere versión semver nueva y entrada en `CHANGELOG.md`.
-- Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`. La versión 0.5.0 está disponible como `latest`; el workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar, sin token persistente. El release incorpora Gallery fluida, ubicación en Detail, descargas nativas con Link y los ajustes de Foundations T-04 y T-05.
+- Publicación: GitHub Actions usa npm Trusted Publishing (OIDC) en `.github/workflows/publish.yml`, restringido a `salgadosomoza/monoschemes-ui`. La publicación de 0.6.0 se activa con la etiqueta `v0.6.0`. El workflow verifica lint, tipos, tests, builds, `check:dist` y el smoke test del tarball antes de publicar, sin token persistente.
 - `0.0.0-stage`: comprobado en npm el 23 nov 2026; esa versión no está publicada, así que no hay ninguna versión de prueba que deprecar.
 
 ### Hecho

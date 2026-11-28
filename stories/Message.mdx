@@ -1,0 +1,65 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from '../src/components/Agents/Message.stories';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Agents</Text>
+
+# Message
+
+One turn of the conversation. The thread reads like a document: every message is left aligned in a 720 px column, without coloured bubbles.
+
+</header>
+
+<section>
+
+## When to use
+
+Use an agent or user message for each turn. Use the system role for short thread events.
+
+</section>
+
+<section>
+
+## Example
+
+<Canvas of={Stories.Conversation} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+agent: Agent/Mark sm, name and time, then the content slot (body 1 text, Code block, Table, Tool call, Approval request…). user: «You» and the content on bg/surface. system: a caption note between lines, for things like «Conversation renamed».
+
+Message/Actions with Button tertiary sm iconOnly. agent: copy, retry, good and bad answer. user: edit and copy. On desktop they appear on hover or focus; on touch they are always visible. Each button has a Tooltip.
+
+</section>
+
+<section>
+
+## Accessibility
+
+The thread is role="log". Agent and user messages are articles with the author in the header. Action buttons have accessible names, not only icons. Long answers keep heading levels for screen reader navigation.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/agents-message-actions--docs" target="_parent">Message actions</a>
+  <a href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2933-651" target="_blank" rel="noopener">Open in Figma</a>
+</div>
+
+</section>
+
+</article>

@@ -73,3 +73,44 @@ export const DisabledVariants: Story = {
   render: () => <div style={{ display: 'grid', gap: 16 }}>{variants.map(variant => <div key={variant} style={{ display: 'flex', gap: 12, alignItems: 'center' }}>{sizes.map(size => <Button key={size} variant={variant} size={size} label={`${variant} ${size}`} disabled />)}</div>)}</div>,
   parameters: figma('2030-482'),
 };
+
+export const LoadingLayout: Story = {
+  parameters: figma('2030-1786'),
+  render: () => (
+    <div style={{ display: 'grid', gap: 16 }}>
+      {(['light', 'dark'] as const).map(theme => (
+        <div key={theme} data-theme={theme} style={{ display: 'grid', gap: 8, padding: 16, background: 'var(--color-bg-page)' }}>
+          {variants.filter(variant => variant !== 'link').map(variant => (
+            <div key={variant} style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {sizes.flatMap(size => [false, true].map(iconOnly => {
+                const props = { variant, size, iconOnly, iconLeft: 'download', label: 'Download the report' } as const;
+                return (
+                  <div key={`${size}-${iconOnly}`} data-loading-sample style={{ display: 'grid', gap: 4, justifyItems: 'start' }}>
+                    <Button {...props} />
+                    <Button {...props} loading />
+                  </div>
+                );
+              }))}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  ),
+  play: ({ canvasElement }) => {
+    const samples = canvasElement.querySelectorAll('[data-loading-sample]');
+    if (samples.length !== 48) throw new Error('Expected 48 button and theme combinations');
+
+    for (const sample of samples) {
+      const [idle, loading] = sample.querySelectorAll('button');
+      const button = loading.getBoundingClientRect();
+      const indicator = loading.querySelector('.button__spinner > *')?.getBoundingClientRect();
+      if (!indicator || indicator.width !== 16 || indicator.height !== 16 ||
+        Math.abs(button.left + button.width / 2 - indicator.left - indicator.width / 2) > 0.5 ||
+        Math.abs(button.top + button.height / 2 - indicator.top - indicator.height / 2) > 0.5 ||
+        Math.abs(button.width - idle.getBoundingClientRect().width) > 0.5) {
+        throw new Error(`Loading layout differs for ${loading.dataset.variant} ${loading.dataset.size}`);
+      }
+    }
+  },
+};

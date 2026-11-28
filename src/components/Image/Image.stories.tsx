@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Image } from './Image';
-import type { ImageType } from './Image';
+import type { ImageRatio } from './Image';
 
-const TYPES: ImageType[] = ['1:1', '16:9', '9:16', '5:4', '4:5', '4:3', '3:4', '3:2', '2:3'];
+const RATIOS: ImageRatio[] = ['1:1', '16:9', '9:16', '5:4', '4:5', '4:3', '3:4', '3:2', '2:3'];
 
-const NODE_ID: Record<ImageType, string> = {
+const NODE_ID: Record<ImageRatio, string> = {
   '1:1':  '86-216',
   '16:9': '86-218',
   '9:16': '86-222',
@@ -24,9 +24,10 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    type: {
+    type: { table: { disable: true } },
+    ratio: {
       control: 'select',
-      options: TYPES,
+      options: RATIOS,
       description: 'Aspect ratio of the image frame.',
     },
     src: {
@@ -59,47 +60,47 @@ const figma = (nodeId: string) => ({
 // ─── Individual ratio stories ───────────────────────
 
 export const Ratio1x1: Story = {
-  args: { type: '1:1', width: '200px' },
+  args: { ratio: '1:1', width: '200px' },
   parameters: figma(NODE_ID['1:1']),
 };
 
 export const Ratio16x9: Story = {
-  args: { type: '16:9', width: '360px' },
+  args: { ratio: '16:9', width: '360px' },
   parameters: figma(NODE_ID['16:9']),
 };
 
 export const Ratio9x16: Story = {
-  args: { type: '9:16', width: '180px' },
+  args: { ratio: '9:16', width: '180px' },
   parameters: figma(NODE_ID['9:16']),
 };
 
 export const Ratio5x4: Story = {
-  args: { type: '5:4', width: '200px' },
+  args: { ratio: '5:4', width: '200px' },
   parameters: figma(NODE_ID['5:4']),
 };
 
 export const Ratio4x5: Story = {
-  args: { type: '4:5', width: '200px' },
+  args: { ratio: '4:5', width: '200px' },
   parameters: figma(NODE_ID['4:5']),
 };
 
 export const Ratio4x3: Story = {
-  args: { type: '4:3', width: '200px' },
+  args: { ratio: '4:3', width: '200px' },
   parameters: figma(NODE_ID['4:3']),
 };
 
 export const Ratio3x4: Story = {
-  args: { type: '3:4', width: '180px' },
+  args: { ratio: '3:4', width: '180px' },
   parameters: figma(NODE_ID['3:4']),
 };
 
 export const Ratio3x2: Story = {
-  args: { type: '3:2', width: '200px' },
+  args: { ratio: '3:2', width: '200px' },
   parameters: figma(NODE_ID['3:2']),
 };
 
 export const Ratio2x3: Story = {
-  args: { type: '2:3', width: '180px' },
+  args: { ratio: '2:3', width: '180px' },
   parameters: figma(NODE_ID['2:3']),
 };
 
@@ -109,11 +110,11 @@ export const AllRatios: Story = {
   parameters: figma('86-217'),
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, maxWidth: 720, alignItems: 'flex-end' }}>
-      {TYPES.map((type) => (
-        <div key={type} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-          <Image type={type} width="100px" />
+      {RATIOS.map((ratio) => (
+        <div key={ratio} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+          <Image ratio={ratio} width="100px" />
           <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: 'var(--color-text-muted)' }}>
-            {type}
+            {ratio}
           </span>
         </div>
       ))}
@@ -127,16 +128,16 @@ export const WithImage: Story = {
   parameters: figma('86-218'),
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-      {(['16:9', '1:1', '4:3'] as ImageType[]).map((type) => (
-        <div key={type} style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      {(['16:9', '1:1', '4:3'] as ImageRatio[]).map((ratio) => (
+        <div key={ratio} style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           <Image
-            type={type}
+            ratio={ratio}
             width="320px"
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=640"
             alt="Mountain landscape"
           />
           <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, color: 'var(--color-text-muted)' }}>
-            {type} · with src
+            {ratio} · with src
           </span>
         </div>
       ))}

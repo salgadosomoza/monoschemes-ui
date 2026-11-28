@@ -15,7 +15,7 @@ const meta = {
   component: Text,
   parameters: {
     layout: 'centered',
-    docs: { description: { component: 'Use one display style per view for a single prominent figure. The legacy "display" style aliases display-1.' } },
+    docs: { description: { component: 'Use one display style per view for a single prominent figure. Below 768 px, display-1, display-2 and display-3 scale down to 112, 80 and 64 px. The legacy "display" style aliases display-1.' } },
   },
   tags: ['autodocs'],
   argTypes: {

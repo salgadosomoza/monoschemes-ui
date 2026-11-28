@@ -7,7 +7,6 @@ const meta = {
   component: Suggestions,
   args: { suggestions: ['Compare the 3 cheapest', 'Show them on a map', 'Write to the owner'], onSelect: () => undefined },
   parameters: { layout: 'padded', design: { type: 'figma', url: FIGMA } },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Suggestions>;
 export default meta;
 type Story = StoryObj<typeof meta>;

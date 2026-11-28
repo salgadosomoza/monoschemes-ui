@@ -1,0 +1,65 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from '../src/components/Agents/Composer.stories';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Agents</Text>
+
+# Composer
+
+Where people write to the agent: a textarea that grows, attachments and a bar with attach, voice and send. Suggestions sits above it after an answer.
+
+</header>
+
+<section>
+
+## When to use
+
+Use the Composer at the end of the thread for the next message.
+
+</section>
+
+<section>
+
+## Example
+
+<Canvas of={Stories.Filled} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+empty (send disabled), focused (2 px border/focused), filled, busy (send becomes Stop with player-stop) and voice. showHint adds a caption line, for example «Enter to send, Shift + Enter for a new line».
+
+The microphone starts voice mode; then people talk without holding anything. Agent/Mark shows listening and speaking, and every word is written into the same thread. End voice (or Esc) goes back to the keyboard.
+
+</section>
+
+<section>
+
+## Accessibility
+
+The textarea has a visible or aria label. Enter sends and Shift + Enter adds a line. Attachments are listed as removable Tags. After sending, focus stays in the Composer.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/agents-suggestions--docs" target="_parent">Suggestions</a>
+  <a href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2933-726" target="_blank" rel="noopener">Open in Figma</a>
+</div>
+
+</section>
+
+</article>

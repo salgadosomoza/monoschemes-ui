@@ -91,12 +91,7 @@
 
   .storybook-home__mark { width: 40px; height: 40px; }
 
-  .storybook-home .storybook-home__title {
-    font-size: var(--font-h3-size);
-    font-weight: var(--font-h3-weight);
-    line-height: var(--font-h3-line-height);
-    letter-spacing: normal;
-  }
+  .storybook-home .storybook-home__title { overflow-wrap: anywhere; }
 
   .storybook-home__cards,
   .storybook-home__quick-start {

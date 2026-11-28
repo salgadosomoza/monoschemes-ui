@@ -363,7 +363,7 @@
       "props": {
         "src": { "type": "string", "required": true },
         "alt": { "type": "string", "required": true },
-        "ratio": { "type": "variant", "values": ["1:1", "16:9", "9:16", "5:4", "4:5", "4:3", "3:4", "3:2", "2:3"], "default": "4:3", "reference": "Image.type" },
+        "ratio": { "type": "variant", "values": ["1:1", "16:9", "9:16", "5:4", "4:5", "4:3", "3:4", "3:2", "2:3"], "default": "4:3", "reference": "Image.ratio" },
         "children": { "type": "slot" }
       }
     },
@@ -687,7 +687,7 @@
     "Image": {
       "figmaNode": "86:217",
       "props": {
-        "type": {
+        "ratio": {
           "type": "variant",
           "values": [
             "1:1",
@@ -1464,7 +1464,7 @@
         "intent": "Apply the system's type scale and semantic text colors.",
         "whenToUse": "Use for headings, body copy, labels, captions, and a single leading display headline.",
         "avoidWhen": "Do not use repeated display styles for ordinary section headings.",
-        "composition": "Choose the smallest style that establishes the needed hierarchy; use display-1, display-2, or display-3 only for a leading figure or headline. The display alias is deprecated.",
+        "composition": "Choose the smallest style that establishes the needed hierarchy; use display-1, display-2, or display-3 only for a leading figure or headline. Below 768 px, display-1, display-2, and display-3 render at 112, 80, and 64 px. The display alias is deprecated.",
         "accessibility": "Use a semantic heading level through the as prop and keep heading order meaningful.",
         "example": "<Text as=\"h1\" style=\"h1\">Campaigns</Text>"
       },

@@ -1,0 +1,63 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from '../src/components/Agents/Suggestions.stories';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Agents</Text>
+
+# Suggestions
+
+Suggested prompts that help people continue a conversation.
+
+</header>
+
+<section>
+
+## When to use
+
+Offer next prompts above the Composer after an answer.
+
+</section>
+
+<section>
+
+## Example
+
+<Canvas of={Stories.Default} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+Three or four next prompts as Button secondary sm in a row that wraps. Selecting one sends it as the user message. They disappear when the person starts typing. Connect `onSelect` to the thread’s send handler.
+
+</section>
+
+<section>
+
+## Accessibility
+
+Suggestions are rendered as named buttons in a group. Use distinct labels that make sense when read out of context.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/agents-composer--docs" target="_parent">Composer</a>
+  <a href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2933-726" target="_blank" rel="noopener">Open in Figma</a>
+</div>
+
+</section>
+
+</article>

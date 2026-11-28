@@ -1,0 +1,63 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as Stories from '../src/components/Agents/ApprovalRequest.stories';
+import { Text } from '../src/components/Text';
+import './storybook-docs.css';
+
+<Meta of={Stories} />
+
+<article className="monoschemes-doc">
+
+<header>
+
+<Text style="overline">Agents</Text>
+
+# Approval request
+
+The agent asks before an action with side effects: sending, buying, deleting or publishing. The person stays in control and can change the action before it runs.
+
+</header>
+
+<section>
+
+## When to use
+
+Ask once per action, with the exact details (recipient, amount, file). Never pre-approve or auto-allow from the UI. While pending, Agent/Status shows approval and the Composer stays usable.
+
+</section>
+
+<section>
+
+## Example
+
+<Canvas of={Stories.Pending} />
+
+</section>
+
+<section>
+
+## Guidelines
+
+pending: alert-triangle, a subtitle 2 title, the tool it will use, a preview on bg/surface and three actions: Allow (primary), Deny (secondary) and Edit first (tertiary). allowed and denied collapse to one line that stays in the thread as a record.
+
+</section>
+
+<section>
+
+## Accessibility
+
+role="group" with the title as its label. Focus moves to Allow when the request appears. Allow and Deny are reachable with the keyboard in that order. Use the decision callbacks to return focus to the Composer.
+
+</section>
+
+<section>
+
+## Related
+
+<div className="storybook-docs__related">
+  <a href="/?path=/docs/agents-composer--docs" target="_parent">Composer</a>
+  <a href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2933-701" target="_blank" rel="noopener">Open in Figma</a>
+</div>
+
+</section>
+
+</article>

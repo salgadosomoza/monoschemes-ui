@@ -54,7 +54,7 @@ npm run dev
 - Use `Footer variant="minimal"` for a compact legal footer.
 - Use `AgentThread`, `Message`, `ToolCall`, `ApprovalRequest`, `AgentStatus`, `Suggestions`, and `Composer` to assemble an agent conversation UI. The consumer app supplies the model, tool execution, and voice provider; the package supplies UI and callbacks.
 - Use `InlineNotification` for an inline message, `Banner` for a status notice, and `AnnouncementBar` for a site-wide announcement.
-- For a display headline, use `Text` styles `display-1`, `display-2`, or `display-3`; `display` is a deprecated alias for `display-1`.
+- For a display headline, use `Text` styles `display-1`, `display-2`, or `display-3`; `display` is a deprecated alias for `display-1`. Below 768 px, the styles scale to 112, 80, and 64 px respectively. The heading styles h1/h2 are 64/72 px and 56/64 px (size/line height).
 
 The machine-readable component map is in `src/tokens/components.json`. Recipes are in `docs/agent-package/recipes.md`.
 
