@@ -49,9 +49,9 @@ Componentes esperados: `AppHeader`, `SideNav`, `Stat`, `FormSearch`, `FormMultiS
 
 > Construye esta pantalla con la librería @monoschemes/ui, que ya está instalada. Usa sus componentes y tokens; no añadas otras librerías de UI ni estilos propios salvo para el layout. Debe funcionar en tema claro y oscuro. Cuando termines, di qué componentes has usado.
 >
-> Pantalla: landing con un hero oscuro con titular grande y llamada a la acción, tres bloques de características, una sección de precios con dos opciones y un pie mínimo.
+> Pantalla: landing con un hero que contraste con la página en ambos temas, con titular grande y llamada a la acción, tres bloques de características, una sección de precios con dos opciones y un pie mínimo.
 
-Componentes esperados: zona `data-theme="inverse"`, `Text` display-2/display-3, `Button`, `Card/Feature`, `Card`, `Footer` minimal.
+Componentes esperados: zona `data-theme="inverse"`, `Text` display-2/display-3, `Button`, `Card/Feature`, `Card`, `Footer` minimal. Comprueba el hero en dos capturas: oscuro en Light y claro en Dark. Si una variante del encargo pide que el hero sea siempre oscuro, la rúbrica acepta `data-theme="dark"` y exige que se mantenga oscuro en ambas capturas.
 
 ## Métricas por intento
 

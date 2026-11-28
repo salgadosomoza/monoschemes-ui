@@ -64,3 +64,33 @@ export const DocsExample: Story = {
     </section>
   ),
 };
+
+function FeaturedBand({ theme, title, message }: { theme?: 'inverse' | 'dark'; title: string; message: string }) {
+  return (
+    <section data-theme={theme} style={{ padding: 'var(--spacing-2xl)', background: 'var(--color-bg-page)' }}>
+      <Text style="h3" as="h2">{title}</Text>
+      <Text as="p" style="body-2" color="var(--color-text-secondary)">{message}</Text>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--gap-md)', marginTop: 'var(--spacing-md)' }}>
+        <Button label={theme === 'dark' ? 'Play video' : 'Get started'} />
+        <Button variant="secondary" label="Learn more" />
+      </div>
+    </section>
+  );
+}
+
+export const FeaturedSections: Story = {
+  parameters: {
+    design: { type: 'figma', url: 'https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2932-2070' },
+  },
+  render: () => (
+    <main style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))', gap: 'var(--gap-lg)' }}>
+      {(['light', 'dark'] as const).map(theme => (
+        <div key={theme} data-theme={theme} aria-label={`${theme} page`}>
+          <FeaturedBand title="Plan your week in minutes" message={`Regular content on the ${theme} page.`} />
+          <FeaturedBand theme="inverse" title="Ship faster with one system" message="Dark on a Light page, light on a Dark page." />
+          <FeaturedBand theme="dark" title="Watch the launch film" message="Stays dark in both page themes." />
+        </div>
+      ))}
+    </main>
+  ),
+};

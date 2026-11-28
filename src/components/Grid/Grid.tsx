@@ -1,42 +1,81 @@
-import type { ReactNode, CSSProperties } from 'react';
+import type { CSSProperties, HTMLAttributes } from 'react';
+import { Container } from '../Container';
 import './Grid.css';
 
 export type GridType = 'small' | 'medium' | 'large' | 'max' | 'full';
+export type GridResponsiveValue = number | { base?: number; sm?: number; md?: number };
 
-const TYPE_COLUMNS: Record<GridType, number> = {
-  small:  4,
-  medium: 8,
-  large:  16,
-  max:    16,
-  full:   16,
-};
-
-export interface GridProps {
-  /** Breakpoint preset controlling column count and padding. */
+export interface GridProps extends HTMLAttributes<HTMLDivElement> {
+  /** @deprecated Use Grid and Container instead of breakpoint presets. */
   type?: GridType;
-  /** Override the column count. */
-  columns?: number;
-  /** Override the column gap. Defaults to var(--gap-sm). */
+  columns?: GridResponsiveValue;
+  minItemWidth?: string;
   gap?: string;
-  /** Grid cells. */
-  children?: ReactNode;
 }
 
+export interface GridItemProps extends HTMLAttributes<HTMLDivElement> {
+  span?: GridResponsiveValue;
+}
+
+function responsiveValue(value: GridResponsiveValue, fallback: number) {
+  const { base = fallback, sm = base, md = sm } = typeof value === 'number' ? { base: value } : value;
+  return { base, sm, md };
+}
+
+// Library builds preserve NODE_ENV for the consuming app's bundler.
+declare const process: { env: { NODE_ENV?: string } } | undefined;
+let warnedAboutType = false;
+
 export function Grid({
-  type = 'large',
-  columns,
+  type,
+  columns = { base: 4, sm: 8, md: 12 },
+  minItemWidth,
   gap,
   children,
+  className,
+  style,
+  ...props
 }: GridProps) {
-  const cols = columns ?? TYPE_COLUMNS[type];
-  const style: CSSProperties = {
-    gridTemplateColumns: `repeat(${cols}, 1fr)`,
-    ...(gap ? { gap } : {}),
-  };
+  if (type && !warnedAboutType && (
+    import.meta.env?.DEV ||
+    (typeof process !== 'undefined' && process.env.NODE_ENV === 'development')
+  )) {
+    warnedAboutType = true;
+    // eslint-disable-next-line no-console
+    console.warn('Grid prop "type" is deprecated. Use Grid columns and Container instead.');
+  }
 
-  return (
-    <div className="grid-layout" data-type={type} style={style}>
+  const { base, sm, md } = responsiveValue(columns, 4);
+  const gridStyle = {
+    ...style,
+    '--grid-columns-base': base,
+    '--grid-columns-sm': sm,
+    '--grid-columns-md': md,
+    gap: gap ?? style?.gap,
+    gridTemplateColumns: minItemWidth
+      ? `repeat(auto-fill, minmax(min(${minItemWidth}, 100%), 1fr))`
+      : style?.gridTemplateColumns,
+  } as CSSProperties;
+  const grid = (
+    <div {...props} className={['grid-layout', className].filter(Boolean).join(' ')} style={gridStyle}>
       {children}
     </div>
+  );
+
+  if (type === 'max' || type === 'full') {
+    return <Container size={type === 'full' ? 'full' : 'default'}>{grid}</Container>;
+  }
+
+  return grid;
+}
+
+export function GridItem({ span = 1, style, className, ...props }: GridItemProps) {
+  const { base, sm, md } = responsiveValue(span, 1);
+  return (
+    <div
+      {...props}
+      className={['grid-layout__item', className].filter(Boolean).join(' ')}
+      style={{ ...style, '--grid-span-base': base, '--grid-span-sm': sm, '--grid-span-md': md } as CSSProperties}
+    />
   );
 }

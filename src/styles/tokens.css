@@ -140,6 +140,9 @@
   --section-2xl: 256px;
 
   /* Container Padding */
+  --grid-gutter-sm: 16px;
+  --grid-gutter-md: 24px;
+  --container-max: var(--breakpoint-md);
   --container-padding-sm: 16px;
   --container-padding-md: 24px;
   --container-padding-lg: 32px;

@@ -1,38 +1,27 @@
-/* Grid — MonoSchemes Design System
- * Figma: XZ8yMM8VJihEwmyFaW6sCB · node 106:1130
- */
-
+/* Figma Foundations / Grid · node 2701:3632 */
 .grid-layout {
   display: grid;
-  gap: var(--gap-sm);
-  width: 100%;
   box-sizing: border-box;
+  width: 100%;
+  gap: var(--grid-gutter-sm);
+  grid-template-columns: repeat(var(--grid-columns-base), minmax(0, 1fr));
 }
 
-/* ─── type=small · 360px · no padding ─────────────── */
-.grid-layout[data-type="small"] {
-  max-width: var(--breakpoint-xs);
+.grid-layout__item {
+  min-width: 0;
+  grid-column: span var(--grid-span-base);
 }
 
-/* ─── type=medium · 768px · padding 0 24px ────────── */
-.grid-layout[data-type="medium"] {
-  max-width: var(--breakpoint-sm);
-  padding-inline: var(--gap-lg);
+@media (min-width: 768px) {
+  .grid-layout {
+    gap: var(--grid-gutter-md);
+    grid-template-columns: repeat(var(--grid-columns-sm), minmax(0, 1fr));
+  }
+
+  .grid-layout__item { grid-column: span var(--grid-span-sm); }
 }
 
-/* ─── type=large · 1440px · padding 0 16px ────────── */
-.grid-layout[data-type="large"] {
-  max-width: var(--breakpoint-md);
-  padding-inline: var(--gap-md);
-}
-
-/* ─── type=max · 1920px · padding 0 168px ─────────── */
-.grid-layout[data-type="max"] {
-  max-width: var(--breakpoint-lg);
-  padding-inline: 168px;
-}
-
-/* ─── type=full · 100% · no max-width ─────────────── */
-.grid-layout[data-type="full"] {
-  max-width: 100%;
+@media (min-width: 1440px) {
+  .grid-layout { grid-template-columns: repeat(var(--grid-columns-md), minmax(0, 1fr)); }
+  .grid-layout__item { grid-column: span var(--grid-span-md); }
 }

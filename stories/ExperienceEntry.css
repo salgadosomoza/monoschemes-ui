@@ -1,0 +1,30 @@
+.experience-recipe {
+  max-width: 800px;
+  padding: var(--spacing-xl);
+  background: var(--color-bg-page);
+}
+.experience-recipe__list,
+.experience-recipe__roles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.experience-recipe__list { margin-block-start: var(--spacing-lg); }
+.experience-recipe__list > li + li { margin-block-start: var(--spacing-lg); }
+.experience-recipe__list .divider { margin-block-end: var(--spacing-lg); }
+.experience-recipe__entry { display: grid; gap: var(--spacing-xs); }
+.experience-recipe__header {
+  display: grid;
+  column-gap: var(--spacing-lg);
+  row-gap: var(--spacing-2xs);
+}
+.experience-recipe__description { max-width: 680px; }
+.experience-recipe__tags { display: flex; gap: var(--gap-sm); flex-wrap: wrap; }
+.experience-recipe__group { display: flex; align-items: stretch; gap: var(--spacing-md); }
+.experience-recipe__group > .divider { margin: 0; height: auto; }
+.experience-recipe__roles { flex: 1; display: grid; gap: var(--spacing-md); }
+
+@media (min-width: 768px) {
+  .experience-recipe__header { grid-template-columns: minmax(0, 1fr) auto; }
+  .experience-recipe__dates { grid-column: 2; grid-row: 1; }
+}

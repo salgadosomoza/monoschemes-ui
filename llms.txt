@@ -20,7 +20,7 @@
 - Use `AgentThread` with `Message`, `AgentStatus`, `ToolCall`, `ApprovalRequest`, `Suggestions`, and `Composer` to build an agent conversation surface. The consumer app provides model, tool and voice services; this package supplies UI only.
 - For searchable single-choice fields use `FormCombobox`; use `FormMultiSelect` when several choices are allowed.
 - Set the page theme on `<html>` with `data-theme="light"` or `data-theme="dark"`.
-- Use `data-theme="inverse"` for a contrasting region that must adapt to either page theme. Do not nest inverse regions.
+- Use `data-theme="inverse"` for a hero that contrasts with both page themes. Use `data-theme="dark"` for an always-dark section, or `data-theme="light"` for an always-light section. Give each zone `var(--color-bg-page)` and keep zones as siblings.
 - Keep component styling in the library. Use consumer CSS for layout and responsive composition.
 - Load Inter and JetBrains Mono in the consuming app; the package does not bundle these fonts.
 - Kbd uses JetBrains Mono at 12/16 or 14/20; CodeBlock uses 14/20. Larger code examples can use the 16/24 mono/body 1 scale.
@@ -34,12 +34,18 @@
 | `DescriptionList` | Detail data for one record; use Table when the same values should be compared across rows. |
 | `Card` | General content containers and grouped content; use a more specific card pattern when the content has a defined structure. |
 | `Card/Image` | Image-led listings and content cards with a photo, status, title, metadata, key facts, price and action. |
+| `Container`, `Grid`, `GridItem` | Centered content, responsive 4/8/12 columns and responsive spans. For cards, use `Grid minItemWidth`. |
+| `CookieBanner`, `CookiePreferences` | Nonmodal banner and dialog or inline preferences with consumer callbacks. |
+| `Prose` | Styles for rendered article HTML in a 680 px reading column. |
 | `Image` | An image or placeholder with `ratio` (default `16:9`). |
 | `Text` | Heading styles h1/h2 are 64/72 px and 56/64 px (size/line height). Display styles 1–3 scale to 112, 80, and 64 px below 768 px. |
 | `Gallery` | A property or product gallery with featured/grid layouts and a full-screen photo viewer. |
 | `Map` | A provider-independent map frame with semantic labeling, attribution and optional zoom callbacks. |
 | `Rating` | A read-only zero-to-five score with half stars and an optional count; use compact in lists. |
 | `Rating/Input` | An accessible one-to-five radio group for submitting a rating. |
+| `Container`, `Grid`, `GridItem` | Centered content, responsive 4/8/12 columns and responsive spans. For cards, use `Grid minItemWidth`. |
+| `CookieBanner`, `CookiePreferences` | Nonmodal banner and dialog or inline preferences with consumer callbacks. |
+| `Prose` | Styles for rendered article HTML in a 680 px reading column. |
 | `Image` | Photos and other image content with a defined aspect ratio or a semantic placeholder. |
 | `Tag` | Short status labels, categories and compact metadata; use TagGroup for a collection of tags with overflow. |
 | `TagGroup` | A collection of related tags that can wrap or collapse into an overflow count. |
@@ -59,3 +65,5 @@
 ## More information
 
 - [Claude Code skill](https://github.com/salgadosomoza/monoschemes-ui/blob/main/skills/monoschemes-ui/SKILL.md)
+
+Use the Experience entry recipe for single and grouped roles in CVs and portfolios. See the Featured section recipe for contrast and always-dark hero examples, and the Cookie preferences recipe for both dialog and policy-page layouts.

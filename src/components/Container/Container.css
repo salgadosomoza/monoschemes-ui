@@ -1,0 +1,20 @@
+.layout-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-sm);
+}
+
+.layout-container[data-size="full"] {
+  max-width: none;
+  padding-inline: 0;
+}
+
+@media (min-width: 768px) {
+  .layout-container[data-size="default"] { padding-inline: var(--container-padding-md); }
+}
+
+@media (min-width: 1440px) {
+  .layout-container[data-size="default"] { padding-inline: var(--container-padding-xl); }
+}

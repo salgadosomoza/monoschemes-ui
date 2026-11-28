@@ -32,7 +32,7 @@ A region that resolves to the opposite color mode of the page: dark on a Light p
 </div>
 <div>
 
-**Don't use for:** forcing a dark section in every theme (use the page theme instead); nesting one inverse zone inside another; errors or alerts (use Inline notification or Banner).
+**Don't use for:** forcing a dark section in every theme (use `data-theme="dark"` on the section); nesting one inverse zone inside another; errors or alerts (use Inline notification or Banner).
 
 </div>
 
@@ -45,6 +45,10 @@ A region that resolves to the opposite color mode of the page: dark on a Light p
 ## Example
 
 <Canvas of={Stories.DocsExample} sourceState="none" />
+
+The same contrast section flips with the page theme. An always-dark band uses `data-theme="dark"` and paints its own `var(--color-bg-page)`.
+
+<Canvas of={Stories.FeaturedSections} sourceState="none" />
 
 <CodeBlock filename="Example.tsx" language="tsx" code={`<section data-theme="inverse">
   <Text style="h5" as="h2">Ship faster with MonoSchemes</Text>
@@ -59,7 +63,7 @@ A region that resolves to the opposite color mode of the page: dark on a Light p
 ## Guidelines
 
 - Apply it to a full-width section, not to an inline element.
-- Use one level only: do not nest inverse zones.
+- Keep contrast and fixed-theme sections as siblings.
 - Avoid Button danger inside the zone; error is the only semantic color.
 - Photos and illustrations keep their own colors: check them against bg-inverse.
 
@@ -81,7 +85,7 @@ Semantic tokens keep the same contrast in both modes, so text and controls stay 
   <a href="/?path=/docs/foundations-principles--docs" target="_parent">Principles</a>
   <a href="https://github.com/salgadosomoza/monoschemes-ui/blob/main/src/tokens/tokens.json" target="_blank" rel="noopener">Color</a>
   <a href="https://github.com/salgadosomoza/monoschemes-ui/blob/main/docs/agent-package/recipes.md#landing-page-with-a-contrasting-hero" target="_blank" rel="noopener">Landing recipe</a>
-  <Link label="Open in Figma" href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2450-315" target="_blank" />
+  <Link label="Open in Figma" href="https://www.figma.com/design/XZ8yMM8VJihEwmyFaW6sCB/MonoSchemes-kit?node-id=2932-2745" target="_blank" />
 </div>
 
 </section>
